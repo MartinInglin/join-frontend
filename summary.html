@@ -14,7 +14,7 @@
     <script src="./js/main.js"></script>
     <title>Summary</title>
   </head>
-  <body onload="includeHTML()">
+  <body onload="includeHTML(); init()">
     <header w3-include-html="./templates/header.html"></header>
     <aside w3-include-html="./templates/menubar.html"></aside>
     <main>
@@ -74,9 +74,7 @@
             </div>
           </div>
         </div>
-        <div>
-          <p class="welcome-text">Good morning,</p>
-          <p class="user-name">Sofia Müller</p>
+        <div id="greetingContainer">
         </div>
       </div>
     </main>
