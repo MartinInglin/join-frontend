@@ -1,0 +1,122 @@
+header {
+  width: 100vw;
+  height: 96px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+aside {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 232px;
+  background-color: #2a3647;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.welcome-text {
+  font-size: 47px;
+  font-weight: 400;
+  line-height: 56.4px;
+  color: #2a3647;
+}
+
+.user-name {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 76.8px;
+  color: #29abe2;
+}
+
+.summary-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 560px;
+}
+
+.summary {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 30px;
+}
+
+.card-top {
+  padding: 38px 58px;
+  gap: 18px;
+}
+
+.card-middle {
+  display: flex;
+  width: 100%;
+  gap: 61px;
+  padding: 28px 48px;
+  margin: 28px 0;
+}
+
+.card-bottom {
+  flex-direction: column;
+  padding: 25px 0;
+  width: 168px;
+}
+
+.card-number {
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 76.8px;
+  text-align: center;
+}
+
+.card-text {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+}
+
+.card-text-urgent {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.2px;
+  text-align: center;
+  color: #2a3647;
+}
+
+.date {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.card-text-date {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 25.2px;
+  color: #2a3647;
+}
+
+.card-text-deadline {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.2px;
+  color: #2a3647;
+}
+
+.urgent-counter {
+    display: flex;
+    gap: 18px;
+}
