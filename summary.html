@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./styles/summary.css" />
     <link rel="stylesheet" href="./styles/fonts.css" />
     <link rel="shortcut icon" href="./img/favicon.svg" type="image/x-icon" />
+    <script src="./js/summary.js"></script>
     <title>Summary</title>
   </head>
   <body>
@@ -22,15 +23,15 @@
       <div class="content">
         <div class="summary-container">
           <div class="summary">
-            <div class="card card-top">
-              <img src="./img/pencil_circle.svg" alt="" />
+            <div class="card card-top" onmouseover="changePencilDark()"; onmouseleave="changePencilFair()">
+              <img id="pencilCircle" src="./img/pencil_circle.svg" alt="" />
               <div>
                 <p class="card-number">1</p>
                 <p class="card-text">To-do</p>
               </div>
             </div>
-            <div class="card card-top">
-              <img src="./img/checked_circle.svg" alt="" />
+            <div class="card card-top" onmouseover="changeCirleDark()"; onmouseleave="changeCirleFair()">
+              <img id="checkedCircle" src="./img/checked_circle.svg" alt="" />
               <div>
                 <div class="card-number">1</div>
                 <div class="card-text">Done</div>
