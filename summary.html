@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="./styles/main.css" />
     <link rel="stylesheet" href="./styles/summary.css" />
     <link rel="stylesheet" href="./styles/fonts.css" />
+    <link rel="stylesheet" href="./styles/header.css">
     <link rel="shortcut icon" href="./img/favicon.svg" type="image/x-icon" />
+    <script src="./js/main.js"></script>
     <title>Summary</title>
   </head>
-  <body>
-    <header>Header</header>
+  <body onload="includeHTML()">
+    <header w3-include-html="./templates/header.html"></header>
     <aside></aside>
     <main>
       <div class="title">

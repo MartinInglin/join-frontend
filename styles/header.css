@@ -1,7 +1,8 @@
-body {
+.header-main-container {
     margin: 0;
-    width: 1052px;
+    width: calc(100vw - padding-left - padding-right);
     height: 56px;
+    background-color: white;
     padding-left: 348px;
     padding-right: 40px;
     padding-top: 20px;
@@ -9,10 +10,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 3px 3px 3px #2A3647;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+
 }
 
-span {
+.header-main-container span {
     font-family: Inter;
     font-size: 20px;
     font-weight: 400;
