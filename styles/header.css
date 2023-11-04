@@ -1,6 +1,6 @@
 .header-main-container {
     margin: 0;
-    width: calc(100vw - padding-left - padding-right);
+    width: calc(100vw - 348px - 40px);
     height: 56px;
     background-color: white;
     padding-left: 348px;
