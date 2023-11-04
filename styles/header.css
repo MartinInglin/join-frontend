@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    width: 1052px;
+    height: 56px;
+    padding-left: 348px;
+    padding-right: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 3px 3px 3px #2A3647;
+}
+
+span {
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.header-menu {
+    width: 104px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+#helpIcon {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+#helpIcon:hover {
+    transform: scale(1.2);
+}
+
+.user-icon {
+    cursor: pointer;
+}
+
+.user-icon rect:hover {
+    fill: #0C2E62;
+    fill-opacity: 0.12;
+}
