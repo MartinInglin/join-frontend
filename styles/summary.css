@@ -40,46 +40,33 @@
   background-color: white;
   border-radius: 30px;
   transition: 125ms ease-in-out;
-  width: 264px;
   height: 168px;
   cursor: pointer;
 }
 
 .card-top {
   gap: 18px;
+  width: 264px;
 }
 
-.card-top:hover {
+.card-top:hover, .card-middle:hover, .card-bottom:hover {
   background-color: #2a3647;
   color: white;
   transition: 125ms ease-in-out;
-  transform: scale(1.095);
+  transform: scale(1.09);
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
 }
 
 .card-middle {
   display: flex;
-  width: 100%;
+  width: 560px;
   gap: 61px;
   margin: 28px 0;
-}
-
-.card-middle:hover {
-  background-color: #2a3647;
-  color: white;
-  transition: 125ms ease-in-out;
-  transform: scale(1.095);
 }
 
 .card-bottom {
   flex-direction: column;
   width: 168px;
-}
-
-.card-bottom:hover {
-  background-color: #2a3647;
-  color: white;
-  transition: 125ms ease-in-out;
-  transform: scale(1.095);
 }
 
 .card-number {
