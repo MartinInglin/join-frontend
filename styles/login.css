@@ -16,6 +16,17 @@ body {
     align-items: center;
 }
 
+.logo {
+    position: absolute;
+    top: 80px;
+    left: 77px;
+}
+
+.logo img {
+    width: 100px;
+    height: 122px;
+}
+
 .sign-up {
     display: flex;
     align-items: center;
@@ -49,7 +60,7 @@ body {
     border-radius: 30px;
     position: absolute;
     top: 265.5px;
-    left: 394px;
+    left: calc(50% - 325px);
 }
 
 .card-body {
@@ -96,12 +107,17 @@ body {
 }
 
 .input-field input {
-    padding-right: 30px;
+    cursor: pointer;
+    padding-right: 45px;
+}
+
+.input-field input::placeholder {
+    opacity: 0.5;
 }
 
 .input-field .icon {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     position: absolute;
     right: 5px;
     top: 50%;
@@ -111,14 +127,17 @@ body {
 }
 
 .email-icon {
-    background-image: url('img/mail.png');
-    margin-right: 8px;
-    margin-top: 5px;
+    background-image: url('/img/email.png');
+    width: 20px;
+    height: 16px !important;
+    margin: 0 5px 0 0;
 }
 
 .keyhole-icon {
-    background-image: url('img/lock.png');
-    margin-right: 5px;
+    background-image: url('/img/keyhole.png');
+    width: 16px;
+    height: 21px !important;
+    margin: 0 2px 0 0;
 }
 
 .remember {
@@ -128,6 +147,7 @@ body {
 
 .remember input {
     margin-right: 10px;
+    cursor: pointer;
 }
 
 .log-in-buttons {
@@ -155,4 +175,26 @@ body {
     font-size: larger;
     border: 1px solid #2A3647;
     border-radius: 8px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 50px;
+    left: calc(50% - 83px);
+}
+
+.footer a {
+    text-decoration: none;
+    font-size: smaller;
+    color: black;
+    opacity: 0.5;
+    margin: 5px;
+    padding: 1.9px;
+}
+
+.footer a:hover {
+    color: #2bbad6;
+    font-weight: 700;
+    opacity: 1;
+    padding: 0;
 }

@@ -18,7 +18,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
 
-    <title>Join</title>
+    <title>Sign up</title>
 
     <link rel="stylesheet" href="./styles/style_reset.css">
     <link rel="stylesheet" href="./styles/main.css">
@@ -26,53 +26,60 @@
     <link rel="shortcut icon" href="./img/favicon.svg" type="image/x-icon">
 
     <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="styles/register.css">
     <script src="js/login.js"></script>
     <script src="js/register.js"></script>
 
 </head>
 
-<body onload="init()">
-    <div id="start-image" class="start-image">
+<body>
+    <div class="logo">
         <img src="img/logo.png">
     </div>
-
-    <div id="sign-up" class="sign-up d-none">
-        <span>Not a Join User?</span>
-        <button onclick="signUp()" class="btn btn-sign-up">Sign up</button>
-    </div>
-
-    <div id="log-in" class="card d-none">
+    <div id="bg-message" class="bg-message d-none"></div>
+    <div id="register" class="card">
         <div class="card-body">
-            <h1 class="card-title">Log in</h1>
-            <form class="log-in">
+            <button onclick="backToLogIn()" class="btn-close" aria-label="Close"></button>
+            <h1 class="card-title">Sign up</h1>
+
+            <form onsubmit="register(); return false;">
                 <div class="input-container">
+                    <div class="input-field">
+                        <input id="name" class="form-control " type="text" placeholder="Name" required>
+                        <span class="icon name-icon"></span>
+                    </div>
                     <div class="input-field">
                         <input id="email" class="form-control email" type="email" placeholder="Email" required>
                         <span class="icon email-icon"></span>
                     </div>
-
                     <div class="input-field">
-                        <input id="password" class="form-control keyhole" type="password" placeholder="Password"
-                            required>
+                        <input id="password" class="form-control " type="password" placeholder="Password" required>
                         <span class="icon keyhole-icon"></span>
                     </div>
+                    <div class="input-field">
+                        <input id="confirm-password" class="form-control " type="password"
+                            placeholder="Confirm Password" required>
+                        <span class="icon keyhole-icon"></span>
+                        <div class="error-message" id="error-message"></div>
+                    </div>
+                    <div class="remember">
+                        <input type="checkbox" required>
+                        <span>I accept the <a href="#">Privacy policy</a></span>
+                    </div>
                 </div>
-                <div class="remember">
-                    <input type="checkbox">
-                    <span>Remember me</span>
+                <div class="sign-up-buttons">
+                    <button class="btn btn-sign-up">Sign up</button>
+                </div>
+                <div id="sign-up-message" class="sign-up-message d-none">
+                    <span>You Signed Up successfully</span>
                 </div>
             </form>
-
-            <div class="log-in-buttons">
-                <button class="btn btn-log-in">Log in</button>
-                <button class="btn btn-guest">Guest Log in</button>
-            </div>
         </div>
     </div>
-
-    <div id="footer" class="footer d-none">
+    <div id="footer" class="footer">
         <a href="#">Privacy Policy</a> <a href="#">Legal notice</a>
     </div>
+
 </body>
 
 </html>

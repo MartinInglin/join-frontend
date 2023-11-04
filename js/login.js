@@ -3,7 +3,6 @@ function init() {
     showLogIn();
 }
 
-
 function startImage() {
     let startImage = document.getElementById("start-image");
 
@@ -16,10 +15,14 @@ function startImage() {
     }, 1000);
 }
 
-
 function showLogIn() {
     setTimeout(() => {
         document.getElementById('sign-up').classList.remove('d-none');
         document.getElementById('log-in').classList.remove('d-none');
+        document.getElementById('footer').classList.remove('d-none');
     }, 1000);
+}
+
+function signUp() {
+    window.location.href = 'register.html';
 }
