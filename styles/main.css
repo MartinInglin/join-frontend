@@ -1,3 +1,29 @@
 body {
     font-family: "inter";
+    background-color: #F6F7F8;
+}
+
+main {
+    margin-left: 232px;
+    padding: 180px 96px
+}
+
+h1 {
+    font-size: 61px;
+    font-weight: 700;
+    line-height: 73.2px;
+}
+
+h2 {
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 32.4px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 625px;
+    margin-bottom: 56px;
 }
