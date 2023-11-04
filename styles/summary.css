@@ -1,7 +1,7 @@
 .content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 96px;
 }
 
 .welcome-text {
@@ -30,6 +30,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  gap: 30px;
 }
 
 .card {
@@ -38,25 +39,47 @@
   justify-content: center;
   background-color: white;
   border-radius: 30px;
+  transition: 125ms ease-in-out;
+  width: 264px;
+  height: 168px;
+  cursor: pointer;
 }
 
 .card-top {
-  padding: 38px 58px;
   gap: 18px;
+}
+
+.card-top:hover {
+  background-color: #2a3647;
+  color: white;
+  transition: 125ms ease-in-out;
+  transform: scale(1.095);
 }
 
 .card-middle {
   display: flex;
   width: 100%;
   gap: 61px;
-  padding: 28px 48px;
   margin: 28px 0;
+}
+
+.card-middle:hover {
+  background-color: #2a3647;
+  color: white;
+  transition: 125ms ease-in-out;
+  transform: scale(1.095);
 }
 
 .card-bottom {
   flex-direction: column;
-  padding: 25px 0;
   width: 168px;
+}
+
+.card-bottom:hover {
+  background-color: #2a3647;
+  color: white;
+  transition: 125ms ease-in-out;
+  transform: scale(1.095);
 }
 
 .card-number {
@@ -78,7 +101,6 @@
   font-weight: 400;
   line-height: 19.2px;
   text-align: center;
-  color: #2a3647;
 }
 
 .date {
@@ -91,14 +113,12 @@
   font-size: 21px;
   font-weight: 700;
   line-height: 25.2px;
-  color: #2a3647;
 }
 
 .card-text-deadline {
   font-size: 16px;
   font-weight: 400;
   line-height: 19.2px;
-  color: #2a3647;
 }
 
 .urgent-counter {
