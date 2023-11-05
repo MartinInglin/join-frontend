@@ -1,0 +1,110 @@
+body {
+    overflow: hidden;
+}
+
+.d-none {
+    display: none;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #a8a8a8 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #a8a8a8;
+    border-radius: 10px;
+    border: 0px solid #ffffff;
+}
+
+.contacts {
+    position: absolute;
+    top: 96px;
+    left: 232px;
+    width: 456px;
+    height: 928px;
+}
+
+.contact-list {
+    width: 400px;
+    height: 1188px;
+    left: 28px;
+    padding: 32px 24px 32px 24px;
+}
+
+.headline {
+    position: relative;
+    top: 206px;
+    left: 743px;
+    width: 569px;
+    height: 73px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.headline h2 {
+    color: black;
+    font-weight: 700;
+    font-size: 61px;
+    padding-right: 28px;
+    border-right: 3px solid #29ABE2;
+    line-height: 59px;
+}
+
+.headline span {
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.show-contact {
+    position: relative;
+    top: 311px;
+    left: 750px;
+    width: 461px;
+    height: 364px;
+    gap: 21px;
+}
+
+.name {
+    width: 452px;
+    height: 120px;
+    gap: 54px;
+}
+
+.contact-info {
+    width: 207px;
+    height: 74px;
+    gap: 59px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info span {
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.info {
+    width: 146px;
+    height: 128px;
+    gap: 22px;
+}
