@@ -1,7 +1,6 @@
 .header-main-container {
-    margin: 0;
+    position: fixed;
     width: calc(100vw - 348px - 40px);
-    height: 56px;
     background-color: white;
     padding-left: 348px;
     padding-right: 40px;
@@ -11,7 +10,6 @@
     justify-content: space-between;
     align-items: center;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
-
 }
 
 .header-main-container span {
@@ -43,6 +41,7 @@
 
 .user-icon {
     cursor: pointer;
+    z-index: 2;
 }
 
 .user-icon rect:hover {
@@ -57,4 +56,7 @@
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
+    top: 100px;
+    background-color: rgba(42, 54, 71, 1);
+    padding: 10px;
 }
