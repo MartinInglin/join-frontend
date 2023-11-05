@@ -49,15 +49,31 @@
   width: 264px;
 }
 
-.card-top:hover, .card-middle:hover, .card-bottom:hover {
+.card-top:hover,
+.card-middle:hover,
+.card-bottom:hover {
   background-color: #2a3647;
   color: white;
   transition: 125ms ease-in-out;
-  transform: scale(1.05);
   box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
 }
 
-.card-top:hover .card-text, .card-middle:hover .card-text-date, .card-middle:hover .card-text-deadline, .card-bottom:hover .card-text {
+.card-top:hover {
+  transform: scale(1.05);
+}
+
+.card-middle:hover {
+  transform: scale(1.03);
+}
+
+.card-bottom:hover {
+  transform: scale(1.09);
+}
+
+.card-top:hover .card-text,
+.card-middle:hover .card-text-date,
+.card-middle:hover .card-text-deadline,
+.card-bottom:hover .card-text {
   color: white;
 }
 
@@ -97,10 +113,10 @@
 }
 
 .date {
-    display: flex;
-    flex-direction: column;
-    gap: 13px;
-    color: #2a3647;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  color: #2a3647;
 }
 
 .card-text-date {
@@ -116,6 +132,6 @@
 }
 
 .urgent-counter {
-    display: flex;
-    gap: 18px;
+  display: flex;
+  gap: 18px;
 }
