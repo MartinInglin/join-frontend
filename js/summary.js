@@ -1,7 +1,13 @@
+/**
+ * This function contains all the functionts that should be called on load of the body.
+ */
 function init() {
   getTimeOfDay();
 }
 
+/**
+ * This function finds out, what daytime it is and returns the corresponding word.
+ */
 function getTimeOfDay() {
   const currentTime = new Date();
   const currentHour = currentTime.getHours();
@@ -17,6 +23,12 @@ function getTimeOfDay() {
   createGreeting(timeOfDay);
 }
 
+/**
+ * 
+ * This function creates the greeting on the right side of the summary page.
+ * 
+ * @param {string} timeOfDay morning, afternoon or evening, depending on the daytime.
+ */
 function createGreeting(timeOfDay) {
   let greetingContainer = document.getElementById("greetingContainer");
   greetingContainer.innerHTML = "";
@@ -27,30 +39,14 @@ function createGreeting(timeOfDay) {
     `;
 }
 
-function changeCirleDark() {
-  const circleImage = document.getElementById("checkedCircle");
-  const newImageSrc = "./img/checked_circle_dark.svg";
-
-  circleImage.src = newImageSrc;
-}
-
-function changeCirleFair() {
-  const circleImage = document.getElementById("checkedCircle");
-  const newImageSrc = "./img/checked_circle.svg";
-
-  circleImage.src = newImageSrc;
-}
-
-function changePencilDark() {
-  const circleImage = document.getElementById("pencilCircle");
-  const newImageSrc = "./img/pencil_circle_dark.svg";
-
-  circleImage.src = newImageSrc;
-}
-
-function changePencilFair() {
-  const circleImage = document.getElementById("pencilCircle");
-  const newImageSrc = "./img/pencil_circle.svg";
-
-  circleImage.src = newImageSrc;
+/**
+ * 
+ * This function changes the icon from dark to light on hover.
+ * 
+ * @param {string} idContainer The ID of the container that should change the image.
+ * @param {string} requiredImage The actual path where the image is stored.
+ */
+function changeIconHover(idContainer, requiredImage) {
+  const circleImage = document.getElementById(idContainer);
+  circleImage.src = requiredImage;
 }
