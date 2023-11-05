@@ -7,11 +7,18 @@
     <link rel="stylesheet" href="./styles/main.css" />
     <link rel="stylesheet" href="./styles/summary.css" />
     <link rel="stylesheet" href="./styles/fonts.css" />
-    <link rel="stylesheet" href="./styles/header.css">
-    <link rel="stylesheet" href="./styles/menubar.css">
+    <link rel="stylesheet" href="./styles/header.css" />
+    <link rel="stylesheet" href="./styles/menubar.css" />
     <link rel="shortcut icon" href="./img/favicon.svg" type="image/x-icon" />
     <script src="./js/summary.js"></script>
     <script src="./js/main.js"></script>
+
+    <!-- Favicon file -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
     <title>Summary</title>
   </head>
   <body onload="includeHTML(); init()">
@@ -26,14 +33,14 @@
       <div class="content">
         <div class="summary-container">
           <div class="summary">
-            <div class="card card-top" onmouseover="changePencilDark()"; onmouseleave="changePencilFair()">
+            <div class="card card-top" onmouseover="changePencilDark()" ; onmouseleave="changePencilFair()">
               <img id="pencilCircle" src="./img/pencil_circle.svg" alt="" />
               <div>
                 <p class="card-number">1</p>
                 <p class="card-text">To-do</p>
               </div>
             </div>
-            <div class="card card-top" onmouseover="changeCirleDark()"; onmouseleave="changeCirleFair()">
+            <div class="card card-top" onmouseover="changeCirleDark()" ; onmouseleave="changeCirleFair()">
               <img id="checkedCircle" src="./img/checked_circle.svg" alt="" />
               <div>
                 <div class="card-number">1</div>
@@ -74,8 +81,7 @@
             </div>
           </div>
         </div>
-        <div id="greetingContainer">
-        </div>
+        <div id="greetingContainer"></div>
       </div>
     </main>
   </body>

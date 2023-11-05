@@ -53,8 +53,12 @@
   background-color: #2a3647;
   color: white;
   transition: 125ms ease-in-out;
-  transform: scale(1.09);
+  transform: scale(1.05);
   box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-top:hover .card-text, .card-middle:hover .card-text-date, .card-middle:hover .card-text-deadline, .card-bottom:hover .card-text {
+  color: white;
 }
 
 .card-middle {
@@ -81,6 +85,7 @@
   font-weight: 400;
   line-height: 24px;
   text-align: center;
+  color: #2a3647;
 }
 
 .card-text-urgent {
@@ -88,12 +93,14 @@
   font-weight: 400;
   line-height: 19.2px;
   text-align: center;
+  color: #2a3647;
 }
 
 .date {
     display: flex;
     flex-direction: column;
     gap: 13px;
+    color: #2a3647;
 }
 
 .card-text-date {
