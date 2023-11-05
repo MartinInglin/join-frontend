@@ -3,15 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Contacts</title>
+
     <link rel="stylesheet" href="./styles/fonts.css">
     <link rel="stylesheet" href="./styles/header.css">
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/menubar.css">
+    <link rel="stylesheet" href="./styles/login.css">
+    <link rel="stylesheet" href="./styles/contacts.css">
+
     <script src="./js/main.js"></script>
+    <script src="./js/arraycontacts.js"></script>
+    <script src="./js/contacts.js"></script>
+
 </head>
 <body onload="includeHTML()">
     <header w3-include-html="./templates/header.html"></header>
     <aside w3-include-html="./templates/menubar.html"></aside>
+
+    <div id="contacts" class="contacts">
+        <div class="add-new-contact">
+            <button class="btn btn-add-new-cont">Add new contact <img src="./img/contact/person_add.png"></button>
+        </div>
+        <div id="contact-list" class="contact-list">
+
+        </div>
+    </div>
+    <div class="headline">
+        <h2>Contacts</h2>
+        <span>Better with a team</span>
+    </div>
+    <div id="show-contact" class="show-contact">
+        <div id="name" class="name">
+
+        </div>
+        <div class="contact-info">
+            <span>Contact Information</span>
+        </div>
+        <div id="info" class="info">
+
+        </div>
+    </div>
 </body>
 </html>
