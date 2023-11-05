@@ -13,7 +13,7 @@ body {
 }
 
 .btn-close {
-    background-image: url('/img/back-btn.png');
+    background-image: url('/img/login-register/back-btn.png');
     position: absolute;
     left: 60px;
     opacity: 1;
@@ -38,7 +38,7 @@ body {
 }
 
 .name-icon {
-    background-image: url('/img/person.png');
+    background-image: url('/img/login-register/person.png');
     width: 16px;
     height: 16px;
     margin: -5px 8px 0 0;

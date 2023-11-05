@@ -127,14 +127,14 @@ body {
 }
 
 .email-icon {
-    background-image: url('/img/email.png');
+    background-image: url('/img/login-register/email.png');
     width: 20px;
     height: 16px !important;
     margin: 0 5px 0 0;
 }
 
 .keyhole-icon {
-    background-image: url('/img/keyhole.png');
+    background-image: url('/img/login-register/keyhole.png');
     width: 16px;
     height: 21px !important;
     margin: 0 2px 0 0;
