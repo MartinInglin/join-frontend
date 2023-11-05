@@ -29,3 +29,13 @@ h2 {
     width: 625px;
     margin-bottom: 56px;
 }
+
+aside {
+    position: fixed;
+    z-index: 2;
+}
+
+header {
+    position: fixed;
+    z-index: 1;
+}

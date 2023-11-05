@@ -1,4 +1,5 @@
 .header-main-container {
+    z-index: 1;
     position: fixed;
     width: calc(100vw - 348px - 40px);
     background-color: white;
@@ -22,7 +23,6 @@
 }
 
 .header-menu {
-    width: 104px;
     height: 56px;
     display: flex;
     align-items: center;
@@ -39,17 +39,59 @@
     transform: scale(1.2);
 }
 
-.user-icon {
+.user-icon-outer {
     cursor: pointer;
-    z-index: 2;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 3px solid rgba(42, 54, 71, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(240, 240, 240, 1);
 }
 
-.user-icon rect:hover {
-    fill: #0C2E62;
-    fill-opacity: 0.12;
+.user-icon-outer:hover {
+    background-color: rgba(255, 255, 255, 1);
 }
 
-#subMenu {
+.user-icon-inner:hover {
+    background-color: rgba(12, 46, 98, 0.12);
+}
+
+.user-icon-outer div {
+    color: rgba(41, 171, 226, 1);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.user-icon-inner {
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.sub-menu-main-container {
+    width: 100vw;
+    height: 100vh;
+    z-index: 98;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: red;
+}
+
+.sub-menu-sub-container {
+    z-index: 99;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -63,7 +105,7 @@
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
 }
 
-#subMenu a {
+.sub-menu-sub-container a {
     width: 130px;
     height: 46px;
     padding: 8px 16px 8px 16px;
@@ -71,6 +113,6 @@
     align-items: center;
 }
 
-#subMenu a:hover {
+.sub-menu-sub-container a:hover {
     background-color: rgba(42, 61, 89, 1);
 }
