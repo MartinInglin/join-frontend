@@ -1,17 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Board</title>
-    <link rel="stylesheet" href="./styles/fonts.css">
-    <link rel="stylesheet" href="./styles/header.css">
-    <link rel="stylesheet" href="./styles/main.css">
-    <link rel="stylesheet" href="./styles/menubar.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/style_reset.css" />
+    <link rel="stylesheet" href="./styles/fonts.css" />
+    <link rel="stylesheet" href="./styles/header.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/menubar.css" />
+    <link rel="stylesheet" href="./styles/board.css" />
+    <link rel="stylesheet" href="./styles/colors_members.css">
+    <link rel="shortcut icon" href="./img/favicon.svg" type="image/x-icon" />
     <script src="./js/main.js"></script>
-</head>
-<body onload="includeHTML()">
+    <title>Board</title>
+
+    <!-- Favicon file -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  </head>
+  <body onload="includeHTML()">
     <header w3-include-html="./templates/header.html"></header>
     <aside w3-include-html="./templates/menubar.html"></aside>
-</body>
+
+    <main>
+      <div class="title">
+        <h1>Board</h1>
+        <div class="title-right">
+          <form class="search" onsubmit="">
+            <input type="text" placeholder="Find task" />
+            <div class="align-center gap-16px">
+              <img src="./img/board/separator_find_task.svg" alt="" />
+              <button class="align-center"><img src="./img/board/search.svg" alt="" /></button>
+            </div>
+          </form>
+
+          <button class="add-task align-center">Add Task <img src="./img/board/add_task.svg" alt="" /></button>
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="title-column">
+          <span>To do</span>
+          <button><img src="./img/board/plus button.svg" alt="" /></button>
+        </div>
+        <div class="title-column">
+          <span>In progress</span>
+          <button><img src="./img/board/plus button.svg" alt="" /></button>
+        </div>
+        <div class="title-column">
+          <span>Await feeback</span>
+          <button><img src="./img/board/plus button.svg" alt="" /></button>
+        </div>
+        <div class="title-column">
+          <span>Done</span>
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="empty-column">
+          <span>No Tasks To do</span>
+        </div>
+
+        <div class="card">
+          <span class="category">User Story</span>
+          <h3>Kochwelt Page & Recipe Recommender</h3>
+          <p>Build start page with recipe recommendation...</p>
+          <div class="subtasks">
+            <div class="progress-bar-container">
+              <div class="progress-bar-background"></div>
+              <div class="progress-bar"></div>
+            </div>
+            <div class="subtasks-text">1/2 Subtasks</div>
+          </div>
+          <div class="space-between align-center">
+            <div class="row">
+                <div class="member-button align-center justify-center orange">AM</div>
+                <div class="member-button align-center justify-center green negative-margin">EM</div>
+                <div class="member-button align-center justify-center purple negative-margin">MB</div>
+            </div>
+            <div><img src="./img/board/priority_low.svg" alt=""></div>
+          </div>
+        </div>
+
+        <div class="card">
+            <span class="category">User Story</span>
+            <h3>Kochwelt Page & Recipe Recommender</h3>
+            <p>Build start page with recipe recommendation...</p>
+            <div class="subtasks">
+              <div class="progress-bar-container">
+                <div class="progress-bar-background"></div>
+                <div class="progress-bar"></div>
+              </div>
+              <div class="subtasks-text">1/2 Subtasks</div>
+            </div>
+            <div class="space-between align-center">
+              <div class="row">
+                  <div class="member-button align-center justify-center orange">AM</div>
+                  <div class="member-button align-center justify-center green negative-margin">EM</div>
+                  <div class="member-button align-center justify-center purple negative-margin">MB</div>
+              </div>
+              <div><img src="./img/board/priority_low.svg" alt=""></div>
+            </div>
+          </div>
+          
+          <div class="card">
+            <span class="category">User Story</span>
+            <h3>Kochwelt Page & Recipe Recommender</h3>
+            <p>Build start page with recipe recommendation...</p>
+            <div class="subtasks">
+              <div class="progress-bar-container">
+                <div class="progress-bar-background"></div>
+                <div class="progress-bar"></div>
+              </div>
+              <div class="subtasks-text">1/2 Subtasks</div>
+            </div>
+            <div class="space-between align-center">
+              <div class="row">
+                  <div class="member-button align-center justify-center orange">AM</div>
+                  <div class="member-button align-center justify-center green negative-margin">EM</div>
+                  <div class="member-button align-center justify-center purple negative-margin">MB</div>
+              </div>
+              <div><img src="./img/board/priority_low.svg" alt=""></div>
+            </div>
+          </div>
+      </div>
+    </main>
+  </body>
 </html>
