@@ -18,7 +18,7 @@
     <script src="./js/contacts.js"></script>
 
 </head>
-<body onload="includeHTML()">
+<body onload="includeHTML(); loadContactList()">
     <header w3-include-html="./templates/header.html"></header>
     <aside w3-include-html="./templates/menubar.html"></aside>
 
@@ -34,15 +34,13 @@
         <h2>Contacts</h2>
         <span>Better with a team</span>
     </div>
-    <div id="show-contact" class="show-contact">
+    <div id="show-contact" class="show-contact d-none">
         <div id="name" class="name">
-
         </div>
         <div class="contact-info">
             <span>Contact Information</span>
         </div>
         <div id="info" class="info">
-
         </div>
     </div>
 </body>
