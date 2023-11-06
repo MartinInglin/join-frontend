@@ -1,56 +1,61 @@
 <div>
     <h1>Add Task</h1>
-    <div>
-        <div>
-            <div>
-                <div>Titel<span>*</span></div>
-                <input type="text" required placeholder="Enter a title">
-            </div>
-            <div>
-                <div>Description</div>
-                <textarea name id cols="30" rows="10"
-                    placeholder="Enter a Description"></textarea>
-            </div>
-            <div>
-                <div>Assigned to</div>
-                <div>
-                    <select>
-                        <option selected>Select contacts to assign</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+    <div class="main-container">
+        <div class="sub-container">
+            <div class="left-container">
+                <div class="titel">
+                    <div>Titel<span>*</span></div>
+                    <input type="text" required placeholder="Enter a title">
+                </div>
+                <div class="description">
+                    <div>Description</div>
+                    <textarea class="description-input" name id cols="53"
+                        rows="9"
+                        placeholder="Enter a Description"></textarea>
+                </div>
+                <div class="assigned-to">
+                    <div>Assigned to</div>
+                    <div>
+                        <select>
+                            <option selected>Select contacts to assign</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div></div>
-        <div>
-            <div>
-                <div>Due date<span>*</span></div>
-                <input type="date" required placeholder="dd/mm/yyyy">
-            </div>
-            <div>
-                <div>Prio</div>
-                <button>Urgent</button>
-                <button>Medium</button>
-                <button>Low</button>
-            </div>
-            <div>
-                <div>Category<span>*</span></div>
-                <div>
-                    <select>
-                        <option selected>Select task category</option>
-                        <option value="1">Technical Task</option>
-                        <option value="2">User Story</option>
-                    </select>
+            <div></div>
+            <div class="right-container">
+                <div class="due-date">
+                    <div>Due date<span>*</span></div>
+                    <input type="date" required placeholder="dd/mm/yyyy">
                 </div>
-            </div>
-            <div>
-                <div>Subtasks</div>
-                <div class="input-group">
-                    <input type="text" placeholder="Recipient's username">
-                    <button>Button</button>
-                    <button>Button</button>
+                <div class="prio">
+                    <div>Prio</div>
+                    <div class="prio-button-container">
+                        <button>Urgent<img src="../img/add task/urgent.png"></button>
+                        <button>Medium<img src="../img/add task/medium.png"></button>
+                        <button>Low<img src="../img/add task/low.png"></button>
+                    </div>
+                </div>
+                <div class="category">
+                    <div>Category<span>*</span></div>
+                    <div>
+                        <select>
+                            <option selected>Select task category</option>
+                            <option value="1">Technical Task</option>
+                            <option value="2">User Story</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="subtasks">
+                    <div>Subtasks</div>
+                    <div class="input-group">
+                        <input type="text" placeholder="Add new subtask">
+                        <button id="deleteButton" class=""><img src="../img/add task/close.png" alt=""></button>
+                        <button id="addButton"><img src="../img/add task/add.png" alt=""></button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,0 +1,107 @@
+.main-container {
+    font-size: 20px;
+    color: rgba(42, 54, 71, 1);
+}
+
+.main-container span {
+    color: rgba(255, 129, 144, 1);
+}
+
+.sub-container {
+    display: flex;
+}
+
+.left-container {
+    width: 440px;
+    padding: 20px;
+}
+
+.titel {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.titel input {
+    padding: 12px 21px 12px 21px;
+    border-radius: 10px;
+    border: 1px solid rgba(209, 209, 209, 1);
+}
+
+.titel input::placeholder {
+    color: rgba(209, 209, 209, 1);
+    font-size: 20px;
+    font-family: Inter;
+}
+
+.description-input {
+    height: 120px;
+    padding: 18px 16px 18px 16px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    border-radius: 10px;
+}
+
+.description-input::placeholder {
+    color: rgba(209, 209, 209, 1);
+    font-size: 20px;
+    font-family: Inter;
+}
+
+.assigned-to select {
+    width: 100%;
+    padding: 12px 16px 12px 16px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    border-radius: 10px;
+}
+
+.right-container {
+    width: 440px;
+    padding: 20px;
+}
+
+.due-date input {
+    width: 406px;
+    padding: 12px 16px 12px 16px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    border-radius: 10px;
+}
+
+.prio {
+    display: flex;
+    flex-direction: column;
+}
+
+.prio-button-container {
+    display: flex;
+    gap: 16px;
+}
+
+.prio-button-container button {
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 16px 10px 16px 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: white;
+    border: none;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.category select {
+    width: 440px;
+    border-radius: 10px;
+    padding: 12px 16px 12px 16px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    font-size: 20px;
+}
+
+.input-group {
+    position: relative;
+}
+
+.subtasks input {
+    border-radius: 10px;
+    padding: 12px 16px 12px 16px;
+    border: 1px solid rgba(209, 209, 209, 1);
+}
