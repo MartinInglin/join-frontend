@@ -25,11 +25,12 @@
                     </div>
                 </div>
             </div>
-            <div></div>
+            <div class="parting-line"></div>
             <div class="right-container">
                 <div class="due-date">
                     <div>Due date<span>*</span></div>
-                    <input type="date" required placeholder="dd/mm/yyyy">
+                    <input type="date" required data-date
+                        data-date-format="DD/MM/YYYY">
                 </div>
                 <div class="prio">
                     <div>Prio</div>
@@ -53,17 +54,31 @@
                     <div>Subtasks</div>
                     <div class="input-group">
                         <input type="text" placeholder="Add new subtask">
-                        <button id="deleteButton" class=""><img src="../img/add task/close.png" alt=""></button>
-                        <button id="addButton"><img src="../img/add task/add.png" alt=""></button>
+                        <div class="input-group-buttons">
+                            <button id="deleteButton" class="d-none"><img
+                                    src="../img/add task/close.png" alt></button>
+                            <div class="parting-line-buttons d-none"></div>
+                            <button id="addButton"><img
+                                    src="../img/add task/add.png" alt></button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div>
+        <div class="main-buttons">
             <div><span>*</span>This Field is required</div>
-            <div>
-                <button>Cancel</button>
-                <button>Create Task</button>
+            <div class="main-buttons-sub">
+                <button id="cancelCreateTask">Clear
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12.0692 12.0001L17.3122 17.2431M6.82617 17.2431L12.0692 12.0001L6.82617 17.2431ZM17.3122 6.75708L12.0682 12.0001L17.3122 6.75708ZM12.0682 12.0001L6.82617 6.75708L12.0682 12.0001Z"
+                            stroke="#2A3647" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <button id="createTask">Create Task <img
+                        src="../img/add task/check2.png" alt></button>
             </div>
         </div>
     </div>
