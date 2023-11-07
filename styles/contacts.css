@@ -139,9 +139,22 @@ select {
     align-items: center;
 }
 
+.cont a {
+    color: #007CEE;
+}
+
 .cont:hover {
     background-color: #f6f7f8;
     cursor: pointer;
+}
+
+.cont-clickt {
+    background-color: #2A3647;
+    color: white;
+}
+
+.cont-clickt:hover {
+    background-color: #2A3647;
 }
 
 .cont-icon {
@@ -189,22 +202,102 @@ select {
 
 .show-contact {
     position: relative;
-    top: 311px;
+    top: 240px;
     left: 750px;
     width: 461px;
     height: 364px;
     gap: 21px;
 }
 
-.name {
+.show-cont-name {
+    display: flex;
+    align-items: center;
     width: 452px;
     height: 120px;
     gap: 54px;
+}
+
+.cont-icon-big {
     display: flex;
 }
 
-.show-cont-name {
+.cont-big-name {
     display: flex;
+    flex-direction: column;
+    width: 278px;
+    height: 88px;
+    gap: 8px;
+}
+
+.cont-big-name span {
+    width: 278px;
+    height: 56px;
+    gap: 5px;
+    font-size: 33px;
+    font-weight: 500;
+}
+
+.cont-function {
+    display: flex;
+    align-items: center;
+    width: 159px;
+    height: 24px;
+}
+
+.cont-function-edit {
+    display: flex;
+    align-items: center;
+    width: 62px;
+    height: 24px;
+    gap: 13px;
+}
+
+.cont-function-edit-img {
+    display: flex;
+    width: 24px;
+    height: 24px;
+}
+
+.cont-function-edit-img img {
+    width: 18.28px;
+    height: 18.25px;
+    margin-top: 2.75px;
+    margin-left: 3px;
+}
+.cont-function-edit p {
+    width: 30px;
+    height: 19px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.cont-function-delete {
+    display: flex;
+    align-items: center;
+    width: 81px;
+    height: 24px;
+    gap: 8px;
+    margin-left: 10px;
+}
+
+.cont-function-delete-img {
+    display: flex;
+    width: 24px;
+    height: 24px;
+}
+
+.cont-function-delete-img img {
+    width: 16px;
+    height: 18px;
+    margin-top: 3px;
+    margin-left: 4px;
+}
+
+.cont-function-delete p {
+    width: 49px;
+    height: 19px;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .contact-info {
@@ -225,7 +318,58 @@ select {
 }
 
 .info {
+    display: flex;
+    flex-direction: column;
     width: 146px;
     height: 128px;
     gap: 22px;
+}
+
+.email {
+    display: flex;
+    flex-direction: column;
+    width: 124px;
+    height: 53px;
+    gap: 15px;
+}
+
+.email p {
+    width: 43px;
+    height: 19px;
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0;
+}
+
+.email a {
+    width: 124px;
+    height: 19px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #007CEE;
+}
+
+.phone {
+    display: flex;
+    flex-direction: column;
+    width: 146px;
+    height: 53px;
+    gap: 15px;
+}
+
+.phone p {
+    width: 50px;
+    height: 19px;
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0;
+}
+
+.phone a {
+    width: 146px;
+    height: 19px;
+    font-weight: 400;
+    font-size: 15px;
+    color: #000000;
+    text-decoration: none;
 }
