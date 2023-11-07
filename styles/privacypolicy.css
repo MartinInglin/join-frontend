@@ -1,15 +1,10 @@
 main {
     padding: 206px 96px 0 96px !important;
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%;
-
-}
-
-span {
-    color: #29ABE2;
+    font-family: Inter !important;
+    font-size: 16px !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    line-height: 120% !important;
 }
 
 h1 {
@@ -18,51 +13,37 @@ h1 {
 }
 
 h2 {
+    margin: 0 !important;
+    font-family: Inter !important;
+    font-size: 27px !important;
+    font-style: normal !important;
     font-weight: 700 !important;
+    line-height: 120% !important;
     color: black !important;
 }
 
-ol {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    align-self: stretch;
+span {
+    color: #29ABE2;
 }
 
-ol li {
-    display: flex;
-    align-items: flex-start;
-    gap: 35px;
-    align-self: stretch;
-}
-
-ol h2 {
-    margin: 0;
-}
-
-.stretch {
-    display: flow;
-    align-self: stretch;
-}
-
-.main-container {
+.sub-container {
+    margin-top: 32px;
     display: flex;
     width: 1014px;
     flex-direction: column;
     align-items: flex-start;
+    align-self: stretch;
     gap: 24px;
 }
 
-.how-to-container {
+.imprint {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
     align-self: stretch;
 }
 
-#helpUpperArrowBack {
+#privacyPolicyUpperArrowBack {
     width: 32px;
     height: 32px;
     flex-shrink: 0;
@@ -72,6 +53,6 @@ ol h2 {
     cursor: pointer;
 }
 
-#helpUpperArrowBack rect:hover {
+#privacyPolicyUpperArrowBack rect:hover {
     fill: #EEEEEE;
 }
