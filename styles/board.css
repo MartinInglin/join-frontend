@@ -86,6 +86,7 @@
   width: 100%;
   gap: 26px;
   margin-bottom: 24px;
+  max-width: 1016px;
 }
 
 .title-column {
