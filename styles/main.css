@@ -29,6 +29,15 @@ h3 {
     color: #2A3647;
 }
 
+h4 {
+    margin: 0;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+}
+
 .title {
     display: flex;
     align-items: center;
