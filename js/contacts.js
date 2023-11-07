@@ -1,6 +1,7 @@
 function loadContactList() {
     let contactList = document.getElementById('contact-list');
-
+    contactList.innerHTML = '';
+    
     for (let i = 0; i < contacts.length; i++) {
         const contact = contacts[i];
 
