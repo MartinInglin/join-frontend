@@ -1,0 +1,46 @@
+main {
+    padding: 206px 96px 0 96px !important;
+    font-family: Inter !important;
+    font-size: 16px !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    line-height: 120% !important;
+}
+
+h1 {
+    margin: 0 !important;
+    line-height: 120% !important;
+    margin-block-end: 32px !important;
+}
+
+h2 {
+    margin: 0 !important;
+    font-family: Inter !important;
+    font-size: 27px !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    line-height: 120% !important;
+    color: black !important;
+}
+
+.main-container {
+    display: flex;
+    width: 1014px;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+#legalNoticeUpperArrowBack {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    position: fixed;
+    top: 228px;
+    left: 1309.5px;
+    cursor: pointer;
+}
+
+#legalNoticeUpperArrowBack rect:hover {
+    fill: #EEEEEE;
+}
