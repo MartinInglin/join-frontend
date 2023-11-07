@@ -100,12 +100,17 @@
   font-size: 20px;
   line-height: 24px;
   color: #2a3647;
+  padding-left: 8px;
 }
 
 .title-column button {
   border: none;
   background-color: #f6f7f8;
   padding: 0;
+}
+
+.title-column img {
+  cursor: pointer;
 }
 
 .empty-column {
@@ -130,7 +135,7 @@
 }
 
 .card {
-  width: 244px;
+  width: 212px;
   padding: 16px;
   border-radius: 24px;
   gap: 10px;
