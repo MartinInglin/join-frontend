@@ -1,5 +1,6 @@
 let sideMenuLinks = ['summary', 'addTask', 'board', 'contacts']
 let idOfCurrentPage = 4;
+let templatesLoaded = false;
 
 /**
  * This function is used to including template HTML to other Pages.
@@ -18,6 +19,7 @@ async function includeHTML() {
         }
     }
     highlightCurrentPageLink();
+    templatesLoaded = true;
 }
 
 /**

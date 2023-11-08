@@ -81,8 +81,10 @@
 
 .description-input {
     width: 408px;
-    height: 120px;
-    padding: 18px 16px 18px 16px;
+    height: 82px;
+    padding: 18px 16px;
+    display: flex;
+    align-items: flex-start;
     border: 1px solid rgba(209, 209, 209, 1);
     border-radius: 10px;
     font-size: 20px;
@@ -141,6 +143,12 @@
     font-size: 20px;
     font-weight: 400;
     font-family: Inter;
+}
+
+.due-date input::-webkit-calendar-picker-indicator {
+    background: url(../img/add_task/date_picker.png) no-repeat;
+    width: 24px;
+    height: 24px;
 }
 
 .prio {
