@@ -2,6 +2,7 @@ const columnsText = ["To do", "In progress", "Await feedback", "Done"];
 
 function initBoard() {
   createTasks();
+  setIdOfCurrentPage(2);
 }
 
 function createTasks() {

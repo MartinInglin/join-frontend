@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/menubar.css">
     <link rel="stylesheet" href="./styles/addtask.css">
+    <script src="./js/addtask.js"></script>
     <script src="./js/main.js"></script>
 </head>
-<body onload="includeHTML()">
+<body onload="includeHTML(); init()">
     <header w3-include-html="./templates/header.html"></header>
     <aside w3-include-html="./templates/menubar.html"></aside>
     <main w3-include-html="./templates/addtask.html"></main>

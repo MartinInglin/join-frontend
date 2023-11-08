@@ -1,3 +1,7 @@
+function init() {
+    setIdOfCurrentPage(3);
+}
+
 function loadContactList() {
     let contactList = document.getElementById('contact-list');
     contactList.innerHTML = '';
