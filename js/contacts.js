@@ -23,4 +23,9 @@ function showContact(i) {
     showcontact.classList.remove('d-none');
     name.innerHTML = generatShowContactNameHTML(contact);   
     info.innerHTML = generatInfoHTML(contact);
+
+    setTimeout(() => {
+        showcontact.style.transition = "transform 1000ms ease, top 1000ms ease";
+        showcontact.style.transform = "translate(0%, 0%)";
+    }, 1000);
 }
