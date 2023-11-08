@@ -1,5 +1,4 @@
 const columns = ["Todo", "InProgress", "AwaitFeedback", "Done"];
-
 let dataTasks = [
   {
     id: 0,
