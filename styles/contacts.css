@@ -207,6 +207,7 @@ select {
     width: 461px;
     height: 364px;
     gap: 21px;
+    transform: translate(150%, 0%);
 }
 
 .show-cont-name {
@@ -250,6 +251,15 @@ select {
     width: 62px;
     height: 24px;
     gap: 13px;
+    cursor: pointer;
+}
+
+.cont-function-edit:hover {
+    color: #29ABE2;
+}
+
+.cont-function-edit img:hover {
+    color: #29ABE2;
 }
 
 .cont-function-edit-img {
@@ -278,6 +288,15 @@ select {
     height: 24px;
     gap: 8px;
     margin-left: 10px;
+    cursor: pointer;
+}
+
+.cont-function-delete:hover {
+    color: #29ABE2;
+}
+
+.cont-function-delete img:hover {
+    color: #29ABE2;
 }
 
 .cont-function-delete-img {
