@@ -258,10 +258,6 @@ select {
     color: #29ABE2;
 }
 
-.cont-function-edit img:hover {
-    color: #29ABE2;
-}
-
 .cont-function-edit-img {
     display: flex;
     width: 24px;
@@ -292,10 +288,6 @@ select {
 }
 
 .cont-function-delete:hover {
-    color: #29ABE2;
-}
-
-.cont-function-delete img:hover {
     color: #29ABE2;
 }
 
