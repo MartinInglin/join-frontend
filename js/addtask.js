@@ -1,6 +1,6 @@
 let priorityOfTask;
 
-function init() {
+function initAddTask() {
     setIdOfCurrentPage(1);
     loadContactsSelection();
 }

@@ -10,10 +10,12 @@
     <link rel="stylesheet" href="./styles/menubar.css" />
     <link rel="stylesheet" href="./styles/board.css" />
     <link rel="stylesheet" href="./styles/colors_members.css" />
-    <link rel="shortcut icon" href="./img/favicon.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="./styles/addtask.css" />
     <script src="./js/main.js"></script>
     <script src="./js/board.js"></script>
     <script src="./js/data_tasks.js"></script>
+    <script src="./js/addtask.js"></script>
+    <script src="./js/arraycontacts.js"></script>
     <title>Board</title>
 
     <!-- Favicon file -->
@@ -22,13 +24,13 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
   </head>
-  <body onload="includeHTML(); initBoard()">
+  <body onload="includeHTML(); initBoard(); initAddTask()">
     <header w3-include-html="./templates/header.html"></header>
     <aside w3-include-html="./templates/menubar.html"></aside>
 
     <main>
-      <div class="dialog d-none">
-        <div></div>
+      <div class="dialog">
+        <div class="dialog-content" w3-include-html="./templates/addtask.html"></div>
       </div>
       <div class="title">
         <h1>Board</h1>
