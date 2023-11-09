@@ -42,5 +42,5 @@ function hideContact() {
     let showcontact = document.getElementById('show-contact');
 
     showcontact.classList.add('d-none');
-    showcontact.style.transform = "translate(150%, 0%)";
+    showcontact.style.transform = "translate(500%, 0%)";
 }

@@ -123,7 +123,6 @@ select {
 
 .contact-list {
     width: 400px;
-    height: 1188px;
     left: 28px;
     padding: 32px 24px 32px 24px;
     margin-top: 101px;
@@ -207,7 +206,7 @@ select {
     width: 461px;
     height: 364px;
     gap: 21px;
-    transform: translate(150%, 0%);
+    transform: translate(500%, 0%);
 }
 
 .show-cont-name {
@@ -254,8 +253,9 @@ select {
     cursor: pointer;
 }
 
-.cont-function-edit:hover {
+.cont-function-edit p:hover {
     color: #29ABE2;
+    font-weight: 700;
 }
 
 .cont-function-edit-img {
@@ -270,6 +270,7 @@ select {
     margin-top: 2.75px;
     margin-left: 3px;
 }
+
 .cont-function-edit p {
     width: 30px;
     height: 19px;
@@ -287,8 +288,10 @@ select {
     cursor: pointer;
 }
 
-.cont-function-delete:hover {
+.cont-function-delete p:hover {
     color: #29ABE2;
+    font-weight: 700;
+
 }
 
 .cont-function-delete-img {

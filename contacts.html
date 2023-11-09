@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,23 +13,32 @@
     <link rel="stylesheet" href="./styles/menubar.css">
     <link rel="stylesheet" href="./styles/login.css">
     <link rel="stylesheet" href="./styles/contacts.css">
+    <link rel="stylesheet" href="./styles/register.css">
+    <link rel="stylesheet" href="./styles/addcontact.css">
 
     <script src="./js/main.js"></script>
     <script src="./js/templates/contacts-templates.js"></script>
     <script src="./js/arraycontacts.js"></script>
     <script src="./js/contacts.js"></script>
+    <script src="./js/addcontact.js"></script>
 
 </head>
-<body onload="includeHTML(); loadContactList()">
+
+<body onload="includeHTML(); loadContactList(); addNewContact()">
     <header w3-include-html="./templates/header.html"></header>
     <aside w3-include-html="./templates/menubar.html"></aside>
 
     <div id="contacts" class="contacts">
         <div class="add-new-contact">
-            <button class="btn btn-add-new-cont">Add new contact <img src="./img/contact/person_add.png"></button>
+            <button onclick="addNewContact()" class="btn btn-add-new-cont">Add new contact <img
+                    src="./img/contact/person_add.png"></button>
         </div>
         <div id="contact-list" class="contact-list">
 
+        </div>
+    </div>
+    <div class="bg-message ">
+        <div id="add-new-contact" class="show-add-new-contact ">
         </div>
     </div>
     <div class="headline">
@@ -45,4 +55,5 @@
         </div>
     </div>
 </body>
+
 </html>
