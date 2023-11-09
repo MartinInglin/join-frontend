@@ -3,6 +3,7 @@
  */
 function init() {
   getTimeOfDay();
+  setIdOfCurrentPage(0);
 }
 
 /**

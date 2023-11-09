@@ -1,4 +1,7 @@
 <div>
+    <div class="close-dialog">
+        <img src="./img/add_task/close.png">
+    </div>
     <h1>Add Task</h1>
     <div class="main-container">
         <div class="sub-container">
@@ -16,11 +19,8 @@
                 <div class="assigned-to">
                     <div>Assigned to</div>
                     <div>
-                        <select>
+                        <select id="selectContactforTask">
                             <option selected>Select contacts to assign</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
                         </select>
                     </div>
                 </div>
@@ -35,12 +35,15 @@
                 <div class="prio">
                     <div>Prio</div>
                     <div class="prio-button-container">
-                        <button>Urgent<img src="../img/add task/urgent.png"></button>
-                        <button>Medium<img src="../img/add task/medium.png"></button>
-                        <button>Low<img src="../img/add task/low.png"></button>
+                        <button id="urgent" onclick="activePrioButton('urgent')">Urgent<img
+                                src="../img/add_task/urgent.png"></button>
+                        <button id="medium" onclick="activePrioButton('medium')">Medium<img
+                                src="../img/add_task/medium.png"></button>
+                        <button id="low" onclick="activePrioButton('low')">Low<img
+                                src="../img/add_task/low.png"></button>
                     </div>
                 </div>
-                <div class="category">
+                <div class="choose-category">
                     <div>Category<span>*</span></div>
                     <div>
                         <select>
@@ -53,13 +56,16 @@
                 <div class="subtasks">
                     <div>Subtasks</div>
                     <div class="input-group">
-                        <input type="text" placeholder="Add new subtask">
+                        <input type="text" placeholder="Add new subtask"
+                            id="inputSubTask">
                         <div class="input-group-buttons">
-                            <button id="deleteButton" class="d-none"><img
-                                    src="../img/add task/close.png" alt></button>
-                            <div class="parting-line-buttons d-none"></div>
-                            <button id="addButton"><img
-                                    src="../img/add task/add.png" alt></button>
+                            <button id="deleteButton" class="d-none"
+                                id="inputSubTaskIcon1"><img
+                                    src="../img/add_task/close.png"></button>
+                            <div class="parting-line-buttons d-none"
+                                id="partingLineButtons"></div>
+                            <button id="addButton" id="inputSubTaskIcon2"><img
+                                    src="../img/add_task/add.png"></button>
                         </div>
                     </div>
                 </div>
@@ -78,7 +84,7 @@
                     </svg>
                 </button>
                 <button id="createTask">Create Task <img
-                        src="../img/add task/check2.png" alt></button>
+                        src="../img/add_task/check2.png" alt></button>
             </div>
         </div>
     </div>

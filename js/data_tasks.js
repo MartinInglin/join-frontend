@@ -1,13 +1,36 @@
 const columns = ["Todo", "InProgress", "AwaitFeedback", "Done"];
 let dataTasks = [
   {
-    id: 0,
+    id: "timestamp",
+    position: "Todo",
+    category: "User Story",
+    title: "Hier ist eine User Story",
+    task: "Baue eine neue schöne Kochweltseite",
+    subtasks: [],
+    assignedTo: [],
+    urgency: "urgent",
+    date: "mm.dd.yyyy",
+  },
+  {
+    id: "timestamp",
     position: "InProgress",
+    category: "Technical Task",
+    title: "Hier ist ein technischer Task",
+    task: "Baue eine neue schöne Kochweltseite",
+    subtasks: [],
+    assignedTo: [],
+    urgency: "urgent",
+    date: "mm.dd.yyyy",
+  },
+  {
+    id: "timestamp",
+    position: "AwaitFeedback",
     category: "User Story",
     title: "Kochwelt Rezepte",
     task: "Baue eine neue schöne Kochweltseite",
     subtasks: [],
-    members: [],
+    assignedTo: [],
     urgency: "urgent",
+    date: "mm.dd.yyyy",
   },
 ];

@@ -1,0 +1,13 @@
+.fade-from-right {
+    animation: fadein 0.2s;
+}
+
+@keyframes fadein {
+    from {
+        left: 101vw;
+    }
+
+    to {
+        left: 0;
+    }
+}

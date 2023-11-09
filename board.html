@@ -10,49 +10,63 @@
     <link rel="stylesheet" href="./styles/menubar.css" />
     <link rel="stylesheet" href="./styles/board.css" />
     <link rel="stylesheet" href="./styles/colors_members.css" />
+<<<<<<< HEAD
+=======
+    <link rel="stylesheet" href="./styles/addtask.css" />
+    <link rel="stylesheet" href="./styles/dialoganimation.css" />
+>>>>>>> 0c9c434ecccafd8dfbbf420533cb3e511b6c089b
     <script src="./js/main.js"></script>
     <script src="./js/board.js"></script>
     <script src="./js/data_tasks.js"></script>
+    <script src="./js/addtask.js"></script>
+    <script src="./js/arraycontacts.js"></script>
     <title>Board</title>
 
     <!-- Favicon file -->
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180"
+      href="favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32"
+      href="favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16"
+      href="favicon/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
   </head>
-  <body onload="includeHTML(); initBoard()">
+  <body onload="includeHTML(); initBoard(); initAddTask()">
     <header w3-include-html="./templates/header.html"></header>
     <aside w3-include-html="./templates/menubar.html"></aside>
 
     <main>
+      <div class="dialog d-none" id="dialog">
+        <div class="dialog-content" w3-include-html="./templates/addtask.html"></div>
+      </div>
       <div class="title">
         <h1>Board</h1>
         <div class="title-right">
-          <form class="search" onsubmit="">
+          <form class="search" onsubmit>
             <input type="text" placeholder="Find task" />
             <div class="align-center gap-16px">
-              <img src="./img/board/separator_find_task.svg" alt="" />
-              <button class="align-center"><img src="./img/board/search.svg" alt="" /></button>
+              <img src="./img/board/separator_find_task.svg" alt />
+              <button class="align-center"><img src="./img/board/search.svg" alt /></button>
             </div>
           </form>
 
-          <button class="add-task align-center">Add Task <img src="./img/board/add_task.svg" alt="" /></button>
+          <button class="add-task align-center" onclick="openDialog()">Add Task
+            <img src="./img/board/add_task.svg" alt /></button>
         </div>
       </div>
 
       <div class="columns">
         <div class="title-column">
           <span>To do</span>
-          <button><img src="./img/board/plus button.svg" alt="" /></button>
+          <button><img src="./img/board/plus button.svg" alt /></button>
         </div>
         <div class="title-column">
           <span>In progress</span>
-          <button><img src="./img/board/plus button.svg" alt="" /></button>
+          <button><img src="./img/board/plus button.svg" alt /></button>
         </div>
         <div class="title-column">
           <span>Await feeback</span>
-          <button><img src="./img/board/plus button.svg" alt="" /></button>
+          <button><img src="./img/board/plus button.svg" alt /></button>
         </div>
         <div class="title-column">
           <span>Done</span>
@@ -60,80 +74,10 @@
       </div>
 
       <div class="columns height-100">
-        <div class="task-column" id="tasksTodo">
-          <div class="empty-column">
-            <span>No Tasks To do</span>
-          </div>
-        </div>
-
-        <div class="task-column" id="tasksInProgress">
-          <div class="card">
-            <span class="category">User Story</span>
-            <h3>Kochwelt Page & Recipe Recommender</h3>
-            <p>Build start page with recipe recommendation...</p>
-            <div class="subtasks">
-              <div class="progress-bar-container">
-                <div class="progress-bar-background"></div>
-                <div class="progress-bar"></div>
-              </div>
-              <div class="subtasks-text">1/2 Subtasks</div>
-            </div>
-            <div class="space-between align-center">
-              <div class="row">
-                <div class="member-button align-center justify-center orange">AM</div>
-                <div class="member-button align-center justify-center green negative-margin">EM</div>
-                <div class="member-button align-center justify-center purple negative-margin">MB</div>
-              </div>
-              <div><img src="./img/board/priority_low.svg" alt="" /></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="task-column" id="tasksAwaitFeedback">
-          <div class="card">
-            <span class="category">User Story</span>
-            <h3>Kochwelt Page & Recipe Recommender</h3>
-            <p>Build start page with recipe recommendation...</p>
-            <div class="subtasks">
-              <div class="progress-bar-container">
-                <div class="progress-bar-background"></div>
-                <div class="progress-bar"></div>
-              </div>
-              <div class="subtasks-text">1/2 Subtasks</div>
-            </div>
-            <div class="space-between align-center">
-              <div class="row">
-                <div class="member-button align-center justify-center orange">AM</div>
-                <div class="member-button align-center justify-center green negative-margin">EM</div>
-                <div class="member-button align-center justify-center purple negative-margin">MB</div>
-              </div>
-              <div><img src="./img/board/priority_low.svg" alt="" /></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="task-column" id="tasksDone">
-          <div class="card">
-            <span class="category">User Story</span>
-            <h3>Kochwelt Page & Recipe Recommender</h3>
-            <p>Build start page with recipe recommendation...</p>
-            <div class="subtasks">
-              <div class="progress-bar-container">
-                <div class="progress-bar-background"></div>
-                <div class="progress-bar"></div>
-              </div>
-              <div class="subtasks-text">1/2 Subtasks</div>
-            </div>
-            <div class="space-between align-center">
-              <div class="row">
-                <div class="member-button align-center justify-center orange">AM</div>
-                <div class="member-button align-center justify-center green negative-margin">EM</div>
-                <div class="member-button align-center justify-center purple negative-margin">MB</div>
-              </div>
-              <div><img src="./img/board/priority_low.svg" alt="" /></div>
-            </div>
-          </div>
-        </div>
+        <div class="task-column" id="tasksTodo"></div>
+        <div class="task-column" id="tasksInProgress"></div>
+        <div class="task-column" id="tasksAwaitFeedback"></div>
+        <div class="task-column" id="tasksDone"></div>
       </div>
     </main>
   </body>

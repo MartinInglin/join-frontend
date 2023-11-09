@@ -138,6 +138,8 @@ main {
   display: flex;
   justify-content: space-between;
   width: 252px;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .empty-task {
@@ -162,7 +164,6 @@ main {
 }
 
 .card {
-  width: 100%;
   padding: 16px;
   border-radius: 24px;
   gap: 10px;
@@ -237,4 +238,43 @@ main {
   width: 32px;
   height: 32px;
   border: white solid 1px;
+}
+
+.dialog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog-content {
+  position: relative;
+  background-color: white;
+  width: 1116px;
+  height: 870px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+  display: flex;
+  justify-content: center;
+}
+
+.close-dialog {
+  position: absolute;
+  top: 64px;
+  right: 40px;
+  border-radius: 50%;
+  background-color: #0038ff;
+  display: flex !important;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
 }

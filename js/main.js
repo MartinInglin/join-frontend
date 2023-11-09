@@ -1,4 +1,6 @@
 let sideMenuLinks = ['summary', 'addTask', 'board', 'contacts']
+let idOfCurrentPage = 4;
+let templatesLoaded = false;
 
 /**
  * This function is used to including template HTML to other Pages.
@@ -16,6 +18,8 @@ async function includeHTML() {
             element.innerHTML = 'Page not found';
         }
     }
+    highlightCurrentPageLink();
+    templatesLoaded = true;
 }
 
 /**
@@ -34,14 +38,20 @@ function closeSubMenu() {
     document.getElementById('subMenu').classList.add('d-none');
 }
 
+function setIdOfCurrentPage(id) {
+    idOfCurrentPage = id;
+  }
+
 /**
  * This function Highlighted the current Page on Menu
  * 
  * @param {String} id - This parameter is passed when calling the function
  */
-function highlightCurrentPageLink(id) {
+function highlightCurrentPageLink() {
     resetHighlight();
-    document.getElementById(id).classList.add('current');
+    if (idOfCurrentPage < sideMenuLinks.length) {
+    document.getElementById(sideMenuLinks[idOfCurrentPage]).classList.add('current');
+    };
 }
 
  /**

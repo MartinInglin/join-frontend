@@ -1,7 +1,8 @@
-const columnsText = ['To do', 'In progress', 'Await feedback', 'Done']
+const columnsText = ["To do", "In progress", "Await feedback", "Done"];
 
 function initBoard() {
   createTasks();
+  setIdOfCurrentPage(2);
 }
 
 function createTasks() {
@@ -13,14 +14,14 @@ function createTasks() {
 
     if (actualTasks.length > 0) {
       for (let j = 0; j < actualTasks.length; j++) {
-        let tasks = dataTasks[j];
-        tasksContainer.innerHTML +=
+        let tasks = actualTasks[j];
+        const categoryClass = setColorCategory(tasks["category"]);
           /*html*/
           tasksContainer.innerHTML += `
               <div class="card">
-              <span class="category">${tasks['category']}</span>
-              <h3>${tasks['title']}</h3>
-              <p>${tasks['task']}</p>
+              <span class="category ${categoryClass}">${tasks["category"]}</span>
+              <h3>${tasks["title"]}</h3>
+              <p>${tasks["task"]}</p>
               <div class="subtasks">
                 <div class="progress-bar-container">
                   <div class="progress-bar-background"></div>
@@ -48,4 +49,19 @@ function createTasks() {
         `;
     }
   }
+}
+
+function setColorCategory(category) {
+  if (category === "User Story") {
+    return "blue";
+  } else if (category === "Technical Task") {
+    return "green";
+  }
+  return ""; // Default or no class if none of the conditions match
+}
+
+function openDialog() {
+  let dialog = document.getElementById('dialog')
+  dialog.classList.remove('d-none');
+  dialog.classList.add('fade-from-right');
 }
