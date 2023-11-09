@@ -62,6 +62,22 @@ function setColorCategory(category) {
 
 function openDialog() {
   let dialog = document.getElementById('dialog')
+  let closeDialog = document.getElementById('closeDialog');
+  closeDialog.classList.remove('d-none');
   dialog.classList.remove('d-none');
+  dialog.classList.remove('fade-out-right');
   dialog.classList.add('fade-from-right');
+}
+
+function closeDialog() {
+  let dialog = document.getElementById('dialog')
+  let closeDialog = document.getElementById('closeDialog');
+  dialog.classList.remove('fade-from-right');
+  dialog.classList.add('fade-out-right');
+  closeDialog.classList.add('d-none');
+  dialog.classList.add('d-none'); 
+}
+
+function doNotClose(event) {
+  event.stopPropagation();
 }

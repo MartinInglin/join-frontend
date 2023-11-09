@@ -1,5 +1,5 @@
 <div>
-    <div class="close-dialog">
+    <div class="close-dialog d-none" id="closeDialog" onclick="closeDialog()">
         <img src="./img/add_task/close.png">
     </div>
     <h1>Add Task</h1>
@@ -8,11 +8,11 @@
             <div class="left-container">
                 <div class="titel">
                     <div>Titel<span>*</span></div>
-                    <input type="text" required placeholder="Enter a title">
+                    <input type="text" required placeholder="Enter a title" id="inputTitel">
                 </div>
                 <div class="description">
                     <div>Description</div>
-                    <textarea class="description-input" name id cols="53"
+                    <textarea class="description-input" name id="inputDescription" cols="53"
                         rows="9"
                         placeholder="Enter a Description"></textarea>
                 </div>
@@ -30,7 +30,7 @@
                 <div class="due-date">
                     <div>Due date<span>*</span></div>
                     <input type="date" required data-date
-                        data-date-format="DD/MM/YYYY">
+                        data-date-format="DD/MM/YYYY" id="inputDate">
                 </div>
                 <div class="prio">
                     <div>Prio</div>
@@ -57,7 +57,7 @@
                     <div>Subtasks</div>
                     <div class="input-group">
                         <input type="text" placeholder="Add new subtask"
-                            id="inputSubTask">
+                            id="inputSubTask" id="inputSubtask">
                         <div class="input-group-buttons">
                             <button id="deleteButton" class="d-none"
                                 id="inputSubTaskIcon1"><img
@@ -74,7 +74,7 @@
         <div class="main-buttons">
             <div><span>*</span>This Field is required</div>
             <div class="main-buttons-sub">
-                <button id="cancelCreateTask">Clear
+                <button id="cancelCreateTask" onclick="clearAll()">Clear
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path

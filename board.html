@@ -28,13 +28,13 @@
       href="favicon/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
   </head>
-  <body onload="includeHTML(); initBoard(); initAddTask()">
+  <body onload="includeHTML(); initAddTask(); initBoard()">
     <header w3-include-html="./templates/header.html"></header>
     <aside w3-include-html="./templates/menubar.html"></aside>
 
     <main>
-      <div class="dialog d-none" id="dialog">
-        <div class="dialog-content" w3-include-html="./templates/addtask.html"></div>
+      <div class="dialog d-none" id="dialog" onclick="closeDialog()">
+        <div class="dialog-content" w3-include-html="./templates/addtask.html" onclick="doNotClose(event)"></div>
       </div>
       <div class="title">
         <h1>Board</h1>

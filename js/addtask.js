@@ -83,3 +83,10 @@ function activateSubtask() {
     let icon2 = document.getElementById('inputSubTaskIcon2');
     icon1.classList.remove('d-none');
 }
+
+function clearAll() {
+    document.getElementById('inputTitel').value = '';
+    document.getElementById('inputDescription').value = '';
+    document.getElementById('inputDate').value = '';
+    document.getElementById('inputSubTask').value = '';
+}

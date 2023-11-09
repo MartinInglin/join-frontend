@@ -5,6 +5,8 @@
 
 .main-container input, .main-container textarea, .main-container select, .main-container button {
     cursor: pointer;
+    font-size: 20px;
+    font-family: Inter;
 }
 
 .main-container input[type=text]:focus {
@@ -248,7 +250,7 @@
 
 .main-buttons {
     position: absolute;
-    top: 890px;
+    top: 889px;
     display: flex;
     width: 960px;
     justify-content: space-between;
