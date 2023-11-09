@@ -30,26 +30,40 @@ function activePrioButton(id) {
     let button2 = document.getElementById('medium');
     let button3 = document.getElementById('low');
     if (priorityOfTask == id) {
-        resetButton(button1, 'urgent')
-        resetButton(button2, 'medium')
-        resetButton(button3, 'low')
-        priorityOfTask = false;
+        resetAll(button1, button2, button3);
     } else if (id == 'low') {
-        activateButton(button3, 'low');
-        button3.style.backgroundColor = '#7AE229';
-        resetButton(button1, 'urgent');
-        resetButton(button2, 'medium');
+        highlightButton3(button1, button2, button3);
     } else if (id == 'medium') {
-        activateButton(button2, id);
-        button2.style.backgroundColor = '#FFA800';
-        resetButton(button1, 'urgent');
-        resetButton(button3, 'low');
+        highlightButton2(button1, button2, button3);
     } else if (id == 'urgent') {
-        activateButton(button1, 'urgent')
-        button1.style.backgroundColor = '#FF3D00';
-        resetButton(button2, 'medium');
-        resetButton(button3, 'low');
+        highlightButton1(button1, button2, button3);
     };
+}
+
+function resetAll(button1, button2, button3) {
+    resetButton(button1, 'urgent')
+    resetButton(button2, 'medium')
+    resetButton(button3, 'low')
+    priorityOfTask = false;
+}
+
+function highlightButton1(button1, button2, button3) {
+    activateButton(button1, 'urgent')
+    button1.style.backgroundColor = '#FF3D00';
+    resetButton(button2, 'medium');
+    resetButton(button3, 'low');
+}
+function highlightButton2(button1, button2, button3,) {
+    activateButton(button2, 'medium');
+    button2.style.backgroundColor = '#FFA800';
+    resetButton(button1, 'urgent');
+    resetButton(button3, 'low');
+}
+function highlightButton3(button1, button2, button3) {
+    activateButton(button3, 'low');
+    button3.style.backgroundColor = '#7AE229';
+    resetButton(button1, 'urgent');
+    resetButton(button2, 'medium');
 }
 
 function activateButton(button, id) {
@@ -62,4 +76,10 @@ function resetButton(button, id) {
     button.style.backgroundColor = 'white';
     button.style.color = '#000000';
     button.childNodes[1].src = `../img/add_task/${id}.png`;
+}
+
+function activateSubtask() {
+    let icon1 = document.getElementById('inputSubTaskIcon1');
+    let icon2 = document.getElementById('inputSubTaskIcon2');
+    icon1.classList.remove('d-none');
 }

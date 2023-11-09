@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./styles/board.css" />
     <link rel="stylesheet" href="./styles/colors_members.css" />
     <link rel="stylesheet" href="./styles/addtask.css" />
+    <link rel="stylesheet" href="./styles/dialoganimation.css" />
     <script src="./js/main.js"></script>
     <script src="./js/board.js"></script>
     <script src="./js/data_tasks.js"></script>
@@ -19,9 +20,12 @@
     <title>Board</title>
 
     <!-- Favicon file -->
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180"
+      href="favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32"
+      href="favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16"
+      href="favicon/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body onload="includeHTML(); initBoard(); initAddTask()">
@@ -29,36 +33,37 @@
     <aside w3-include-html="./templates/menubar.html"></aside>
 
     <main>
-      <div class="dialog">
+      <div class="dialog d-none" id="dialog">
         <div class="dialog-content" w3-include-html="./templates/addtask.html"></div>
       </div>
       <div class="title">
         <h1>Board</h1>
         <div class="title-right">
-          <form class="search" onsubmit="">
+          <form class="search" onsubmit>
             <input type="text" placeholder="Find task" />
             <div class="align-center gap-16px">
-              <img src="./img/board/separator_find_task.svg" alt="" />
-              <button class="align-center"><img src="./img/board/search.svg" alt="" /></button>
+              <img src="./img/board/separator_find_task.svg" alt />
+              <button class="align-center"><img src="./img/board/search.svg" alt /></button>
             </div>
           </form>
 
-          <button class="add-task align-center">Add Task <img src="./img/board/add_task.svg" alt="" /></button>
+          <button class="add-task align-center" onclick="openDialog()">Add Task
+            <img src="./img/board/add_task.svg" alt /></button>
         </div>
       </div>
 
       <div class="columns">
         <div class="title-column">
           <span>To do</span>
-          <button><img src="./img/board/plus button.svg" alt="" /></button>
+          <button><img src="./img/board/plus button.svg" alt /></button>
         </div>
         <div class="title-column">
           <span>In progress</span>
-          <button><img src="./img/board/plus button.svg" alt="" /></button>
+          <button><img src="./img/board/plus button.svg" alt /></button>
         </div>
         <div class="title-column">
           <span>Await feeback</span>
-          <button><img src="./img/board/plus button.svg" alt="" /></button>
+          <button><img src="./img/board/plus button.svg" alt /></button>
         </div>
         <div class="title-column">
           <span>Done</span>

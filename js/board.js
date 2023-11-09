@@ -59,3 +59,9 @@ function setColorCategory(category) {
   }
   return ""; // Default or no class if none of the conditions match
 }
+
+function openDialog() {
+  let dialog = document.getElementById('dialog')
+  dialog.classList.remove('d-none');
+  dialog.classList.add('fade-from-right');
+}

@@ -1,4 +1,7 @@
 <div>
+    <div class="close-dialog">
+        <img src="./img/add_task/close.png">
+    </div>
     <h1>Add Task</h1>
     <div class="main-container">
         <div class="sub-container">
@@ -32,9 +35,12 @@
                 <div class="prio">
                     <div>Prio</div>
                     <div class="prio-button-container">
-                        <button id="urgent" onclick="activePrioButton('urgent')">Urgent<img src="../img/add_task/urgent.png"></button>
-                        <button id="medium" onclick="activePrioButton('medium')">Medium<img src="../img/add_task/medium.png"></button>
-                        <button id="low" onclick="activePrioButton('low')">Low<img src="../img/add_task/low.png"></button>
+                        <button id="urgent" onclick="activePrioButton('urgent')">Urgent<img
+                                src="../img/add_task/urgent.png"></button>
+                        <button id="medium" onclick="activePrioButton('medium')">Medium<img
+                                src="../img/add_task/medium.png"></button>
+                        <button id="low" onclick="activePrioButton('low')">Low<img
+                                src="../img/add_task/low.png"></button>
                     </div>
                 </div>
                 <div class="choose-category">
@@ -50,13 +56,16 @@
                 <div class="subtasks">
                     <div>Subtasks</div>
                     <div class="input-group">
-                        <input type="text" placeholder="Add new subtask">
+                        <input type="text" placeholder="Add new subtask"
+                            id="inputSubTask">
                         <div class="input-group-buttons">
-                            <button id="deleteButton" class="d-none"><img
-                                    src="../img/add_task/close.png" alt></button>
-                            <div class="parting-line-buttons d-none"></div>
-                            <button id="addButton"><img
-                                    src="../img/add_task/add.png" alt></button>
+                            <button id="deleteButton" class="d-none"
+                                id="inputSubTaskIcon1"><img
+                                    src="../img/add_task/close.png"></button>
+                            <div class="parting-line-buttons d-none"
+                                id="partingLineButtons"></div>
+                            <button id="addButton" id="inputSubTaskIcon2"><img
+                                    src="../img/add_task/add.png"></button>
                         </div>
                     </div>
                 </div>

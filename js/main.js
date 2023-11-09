@@ -19,9 +19,7 @@ async function includeHTML() {
         }
     }
     highlightCurrentPageLink();
-    console.log(templatesLoaded);
     templatesLoaded = true;
-    console.log(templatesLoaded);
 }
 
 /**
