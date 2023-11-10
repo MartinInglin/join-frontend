@@ -1,4 +1,11 @@
 const columnsText = ["To do", "In progress", "Await feedback", "Done"];
+const urgenciesImg = [
+  {
+    low: "img/board/priority_low.svg",
+    medium: "img/board/priority_medium.svg",
+    urgent: "img/board/priority_urgent.svg",
+  },
+];
 
 function initBoard() {
   createTasks();
@@ -16,29 +23,25 @@ function createTasks() {
       for (let j = 0; j < actualTasks.length; j++) {
         let tasks = actualTasks[j];
         const categoryClass = setColorCategory(tasks["category"]);
-          /*html*/
-          tasksContainer.innerHTML += `
+        /*html*/
+        tasksContainer.innerHTML += `
               <div class="card">
               <span class="category ${categoryClass}">${tasks["category"]}</span>
               <h3>${tasks["title"]}</h3>
               <p>${tasks["task"]}</p>
-              <div class="subtasks">
-                <div class="progress-bar-container">
-                  <div class="progress-bar-background"></div>
-                  <div class="progress-bar"></div>
-                </div>
-                <div class="subtasks-text">1/2 Subtasks</div>
-              </div>
+              <div class="subtasks" id="subtasks${i}${j}"></div>
               <div class="space-between align-center">
                 <div class="row">
                   <div class="member-button align-center justify-center orange">AM</div>
                   <div class="member-button align-center justify-center green negative-margin">EM</div>
                   <div class="member-button align-center justify-center purple negative-margin">MB</div>
                 </div>
-                <div><img src="./img/board/priority_low.svg" alt="" /></div>
+                <div class="urgency" id="urgency${i}${j}"><img src="./img/board/priority_low.svg" alt="" /></div>
               </div>
             </div>
               `;
+        createSubtasks(i, j);
+        createUrgency(i, j);
       }
     } else {
       /*html*/
@@ -57,25 +60,70 @@ function setColorCategory(category) {
   } else if (category === "Technical Task") {
     return "green";
   }
-  return ""; // Default or no class if none of the conditions match
+  return "";
+}
+
+function createSubtasks(i, j) {
+  let subtasksContainer = document.getElementById(`subtasks${i}${j}`);
+  let actualTasks = dataTasks.filter((task) => task.position === columns[i]);
+  let task = actualTasks[j];
+  let checkedSubtasksCount = countCheckedSubtasks(task);
+  let widthProgressBar = getWidthProgressBar(task, checkedSubtasksCount);
+  subtasksContainer.innerHTML = "";
+
+  if (task.subtasks.length > 0) {
+    /*html*/
+    subtasksContainer.innerHTML += `
+      <div class="progress-bar-container">
+        <div class="progress-bar-background"></div>
+        <div class="progress-bar" style="width: ${widthProgressBar};"></div>
+      </div>
+      <div class="subtasks-text">${checkedSubtasksCount}/${task.subtasks.length} Subtasks</div>
+    `;
+  }
+}
+
+function countCheckedSubtasks(task) {
+  return task.subtasks.reduce((count, subtask) => count + (subtask.checked ? 1 : 0), 0);
+}
+
+function getWidthProgressBar(task, checkedSubtasksCount) {
+  return (128 / task.subtasks.length) * checkedSubtasksCount + "px";
+}
+
+function createUrgency(i, j) {
+  let urgencyContainer = document.getElementById(`urgency${i}${j}`);
+  let actualTasks = dataTasks.filter((task) => task.position === columns[i]);
+  let task = actualTasks[j];
+  const urgency = getTaskUrgency(task);
+  const urgencyImageSrc = urgenciesImg[0][urgency];
+
+  /*html*/
+  urgencyContainer.innerHTML = `
+    <img src="${urgencyImageSrc}" alt="" />
+  `;
+}
+
+function getTaskUrgency(task) {
+  return task.urgency;
 }
 
 function openDialog() {
-  let dialog = document.getElementById('dialog')
-  let closeDialog = document.getElementById('closeDialog');
-  closeDialog.classList.remove('d-none');
-  dialog.classList.remove('d-none');
-  dialog.classList.remove('fade-out-right');
-  dialog.classList.add('fade-from-right');
+  let dialog = document.getElementById("dialog");
+  let closeDialog = document.getElementById("closeDialog");
+  closeDialog.classList.remove("d-none");
+  dialog.classList.remove("d-none");
+  dialog.classList.remove("fade-out-right");
+  dialog.classList.add("fade-from-right");
 }
 
 function closeDialog() {
-  let dialog = document.getElementById('dialog')
-  let closeDialog = document.getElementById('closeDialog');
-  dialog.classList.remove('fade-from-right');
-  dialog.classList.add('fade-out-right');
-  closeDialog.classList.add('d-none');
-  dialog.classList.add('d-none'); 
+  let dialog = document.getElementById("dialog");
+  let closeDialog = document.getElementById("closeDialog");
+  dialog.classList.remove("fade-from-right");
+  dialog.classList.add("fade-out-right");
+  closeDialog.classList.add("d-none");
+  dialog.classList.add("d-none");
 }
 
 function doNotClose(event) {

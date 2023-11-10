@@ -136,7 +136,6 @@ main {
 
 .task-column {
   display: flex;
-  justify-content: space-between;
   width: 252px;
   flex-direction: column;
   gap: 24px;
