@@ -100,7 +100,7 @@ function clearSubTaskInput() {
 
     icon1.classList.add('d-none');
     partingLine.classList.add('d-none');
-    icon2.innerHTML = '<img src="../img/add_task/add.png">';
+    icon2.innerHTML = '<img src="../img/add_task/done.png">';
     icon2.setAttribute('onClick', 'activateSubtask()');
     input.value = '';
 }
@@ -129,9 +129,11 @@ function addSubtask() {
 
 function renderSubtasks() {
     let showSubtasks = document.getElementById('showSubtasks');
+    let i = 0;
     showSubtasks.innerHTML = '';
     subtasks.forEach((subtask) => {
-        showSubtasks.innerHTML += `<li>${subtask}</li>`;
+        showSubtasks.innerHTML += `<li class="list-element" id="subtask${i}" onclick="editSubtask('subtask${i}', 'editSubtaskIcon1${i}', 'editSubtaskIcon2${i}', '${i}')"><div class="list-text">${subtask}<div class="subtask-button-container"><img src="../img/add_task/edit.png" id="editSubtaskIcon1${i}" onclick="editSubtask('subtask${i}', 'editSubtaskIcon1${i}', 'editSubtaskIcon2${i}', '${i}')"><div class="parting-line-buttons"></div><img src="img/add_task/delete.png" id="editSubtaskIcon2${i}" onclick="deleteSubtask('${i}')"></div></div></li>`;
+        i++;
     })
 }
 
@@ -141,5 +143,23 @@ function clearAll() {
     document.getElementById('inputDate').value = '';
     document.getElementById('inputSubTask').value = '';
     subtasks.splice(0, subtasks.length);
+    renderSubtasks();
+}
+
+function editSubtask(id, btn1, btn2, i) {
+    let subtask = document.getElementById(id);
+    let button1 = document.getElementById(btn1);
+    let button2 = document.getElementById(btn2);
+    try {
+    subtask.setAttribute('contentEditable', 'true');
+    subtask.focus();
+    button1.setAttribute('src', 'img/add_task/delete.png');
+    button1.setAttribute('onclick', `deleteSubtask('${i}')`);
+    button2.setAttribute('src', 'img/add_task/done.png');
+    } catch (e) {};
+}
+
+function deleteSubtask(i) {
+    subtasks.splice(i, 1);
     renderSubtasks();
 }

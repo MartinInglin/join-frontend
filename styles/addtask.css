@@ -221,7 +221,7 @@
 .input-group-buttons {
     position: absolute;
     top: 13px;
-    right: 8px;
+    right: 16px;
     display: flex;
     gap: 4px;
 
@@ -321,8 +321,32 @@
     max-height: 108px;
     overflow-y: auto;
     overflow-x: hidden;
+    list-style-type: disc;
 }
 
 #showSubtasks::-webkit-scrollbar {
     display: none;
+}
+
+.subtask-button-container {
+    display: flex;
+    gap: 4px;
+}
+
+.subtask-button-container img {
+    width: 24px;
+    height: 24px;
+}
+
+.list-text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 16px; 
+}
+
+.list-element[contenteditable="true"] {
+    background-color: white;
+    border-bottom: 1px solid #005DFF;
+    outline: none;
 }
