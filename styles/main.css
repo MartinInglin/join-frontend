@@ -12,6 +12,7 @@ main {
     margin-left: 232px;
     padding: 180px 96px 0 96px;
     flex-grow: 1;
+    overflow-y: scroll;
 }
 
 h1 {

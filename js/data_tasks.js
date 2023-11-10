@@ -3,7 +3,7 @@ const urgencies = ['low', 'medium', 'urgent']
 
 let dataTasks = [
   {
-    id: "timestamp",
+    id: 0,
     position: "Todo",
     category: "User Story",
     title: "Hier ist eine User Story",
@@ -19,7 +19,7 @@ let dataTasks = [
     date: "mm.dd.yyyy",
   },
   {
-    id: "timestamp",
+    id: 1,
     position: "InProgress",
     category: "Technical Task",
     title: "Hier ist ein technischer Task",
@@ -30,7 +30,7 @@ let dataTasks = [
     date: "mm.dd.yyyy",
   },
   {
-    id: "timestamp",
+    id: 2,
     position: "AwaitFeedback",
     category: "User Story",
     title: "Kochwelt Rezepte",
@@ -54,7 +54,7 @@ let dataTasks = [
     date: "mm.dd.yyyy",
   },
   {
-    id: "timestamp",
+    id: 3,
     position: "Todo",
     category: "User Story",
     title: "Kochwelt Rezepte",

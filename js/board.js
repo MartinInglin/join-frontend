@@ -35,7 +35,7 @@ function createTasks(filterString) {
         const categoryClass = setColorCategory(tasks["category"]);
         /*html*/
         tasksContainer.innerHTML += `
-              <div class="card">
+              <div class="card" draggable="true" ondragstart="startDragging(${tasks['id']})">
               <span class="category color-${categoryClass}">${tasks["category"]}</span>
               <h3>${tasks["title"]}</h3>
               <p>${tasks["task"]}</p>

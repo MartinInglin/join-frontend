@@ -16,6 +16,7 @@
     <script src="./js/board.js"></script>
     <script src="./js/data_tasks.js"></script>
     <script src="./js/filter.js"></script>
+    <script src="./js/dragndrop.js"></script>
     <script src="./js/addtask.js"></script>
     <script src="./js/arraycontacts.js"></script>
     <title>Board</title>
@@ -72,10 +73,10 @@
       </div>
 
       <div class="columns height-100">
-        <div class="task-column" id="tasksTodo"></div>
-        <div class="task-column" id="tasksInProgress"></div>
-        <div class="task-column" id="tasksAwaitFeedback"></div>
-        <div class="task-column" id="tasksDone"></div>
+        <div class="task-column" id="tasksTodo" ondrop="changePosition('Todo')" ondragover="allowDrop(event); highlight('tasksTodo')" ondragleave="removeHighlight('tasksTodo')"></div>
+        <div class="task-column" id="tasksInProgress" ondrop="changePosition('InProgress')" ondragover="allowDrop(event); highlight('tasksInProgress')" ondragleave="removeHighlight('tasksInProgress')"></div>
+        <div class="task-column" id="tasksAwaitFeedback" ondrop="changePosition('AwaitFeedback')" ondragover="allowDrop(event); highlight('tasksAwaitFeedback')" ondragleave="removeHighlight('tasksAwaitFeedback')"></div>
+        <div class="task-column" id="tasksDone" ondrop="changePosition('Done')" ondragover="allowDrop(event); highlight('tasksDone')" ondragleave="removeHighlight('tasksDone')"></div>
       </div>
     </main>
   </body>
