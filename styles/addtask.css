@@ -318,6 +318,11 @@
     margin: 0;
     font-size: 16px;
     line-height: 120%;
-    max-height: 98px;
-    overflow-y: scroll;
+    max-height: 108px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#showSubtasks::-webkit-scrollbar {
+    display: none;
 }
