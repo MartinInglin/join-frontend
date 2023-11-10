@@ -5,8 +5,13 @@ let dataTasks = [
     position: "Todo",
     category: "User Story",
     title: "Hier ist eine User Story",
-    task: "Baue eine neue schöne Kochweltseite",
-    subtasks: [],
+    task: "Das ist der erste Task",
+    subtasks: [
+      {
+        content: "Ein Subtask ensteht hier",
+        checked: false,
+      },
+    ],
     assignedTo: [],
     urgency: "urgent",
     date: "mm.dd.yyyy",
@@ -28,7 +33,36 @@ let dataTasks = [
     category: "User Story",
     title: "Kochwelt Rezepte",
     task: "Baue eine neue schöne Kochweltseite",
-    subtasks: [],
+    subtasks: [
+      {
+        content: "Ein Subtask ensteht hier",
+        checked: true,
+      },
+      {
+        content: "Ein Subtask ensteht hier",
+        checked: true,
+      },
+      {
+        content: "Ein Subtask ensteht hier",
+        checked: false,
+      },
+    ],
+    assignedTo: [],
+    urgency: "urgent",
+    date: "mm.dd.yyyy",
+  },
+  {
+    id: "timestamp",
+    position: "Todo",
+    category: "User Story",
+    title: "Kochwelt Rezepte",
+    task: "Baue eine neue schöne Kochweltseite",
+    subtasks: [
+      {
+        content: "Ein Subtask ensteht hier",
+        checked: false,
+      },
+    ],
     assignedTo: [],
     urgency: "urgent",
     date: "mm.dd.yyyy",
