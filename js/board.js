@@ -12,16 +12,26 @@ function initBoard() {
   setIdOfCurrentPage(2);
 }
 
-function createTasks() {
+function createTasks(filterString) {
   for (let i = 0; i < columns.length; i++) {
-    let actualTasks = dataTasks.filter((task) => task.position === columns[i]);
-    let tasksContainer = document.getElementById(`tasks${columns[i]}`);
+    let filteredTasks;
+    if (filterString) {
+      filteredTasks = dataTasks.filter(
+        (task) =>
+          task.position === columns[i] &&
+          (task.title.toLowerCase().includes(filterString) ||
+            task.task.toLowerCase().includes(filterString))
+      );
+    } else {
+      filteredTasks = dataTasks.filter((task) => task.position === columns[i]);
+    }
 
+    let tasksContainer = document.getElementById(`tasks${columns[i]}`);
     tasksContainer.innerHTML = "";
 
-    if (actualTasks.length > 0) {
-      for (let j = 0; j < actualTasks.length; j++) {
-        let tasks = actualTasks[j];
+    if (filteredTasks.length > 0) {
+      for (let j = 0; j < filteredTasks.length; j++) {
+        let tasks = filteredTasks[j];
         const categoryClass = setColorCategory(tasks["category"]);
         /*html*/
         tasksContainer.innerHTML += `
@@ -29,7 +39,7 @@ function createTasks() {
               <span class="category color-${categoryClass}">${tasks["category"]}</span>
               <h3>${tasks["title"]}</h3>
               <p>${tasks["task"]}</p>
-              <div class="subtasks" id="subtasks${i}${j}"></div>
+              <div class="subtasks-board" id="subtasks${i}${j}"></div>
               <div class="space-between align-center">
                 <div class="row" id="assignments${i}${j}">
                 </div>
@@ -51,6 +61,8 @@ function createTasks() {
     }
   }
 }
+
+
 
 function setColorCategory(category) {
   if (category === "User Story") {
@@ -78,6 +90,8 @@ function createSubtasks(i, j) {
       </div>
       <div class="subtasks-text">${checkedSubtasksCount}/${task.subtasks.length} Subtasks</div>
     `;
+  } else {
+    subtasksContainer.classList.add("margin-0");
   }
 }
 

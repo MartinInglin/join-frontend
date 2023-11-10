@@ -69,6 +69,14 @@ body {
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
+  color: black;
+}
+
+.search input:focus {
+  outline: none;
+}
+
+.search input::placeholder {
   color: #d1d1d1;
 }
 
@@ -194,11 +202,15 @@ main {
   color: #a8a8a8;
 }
 
-.subtasks {
+.subtasks-board {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 12px 0;
+}
+
+.margin-0 {
+  margin: 0;
 }
 
 .progress-bar-container {
@@ -258,7 +270,7 @@ main {
   width: 1116px;
   height: 806px;
   border-radius: 30px;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: center;
   padding-top: 64px;
@@ -285,7 +297,7 @@ main {
 }
 
 .close-dialog:hover {
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
 }
 
 .main-buttons {
