@@ -1,16 +1,40 @@
 /* Colors Members */
-.orange {
+.color-orange {
     background-color: #FF7A00;
 }
 
-.green {
+.color-purple {
+    background-color: #9327FF;
+}
+
+.color-green {
     background-color: #1FD7C1;
 }
 
-.purple {
+.color-red {
+    background-color: #FF4646;
+}
+
+.color-blue {
+    background-color: #0038FF;
+}
+
+.color-pink {
+    background-color: #FC71FF;
+}
+
+.color-yellow {
+    background-color: #FFBB2B ;
+}
+
+.color-light-blue {
+    background-color: #00BEE8;
+}
+
+.color-dark-blue {
     background-color: #462F8A;
 }
 
-.blue {
-    background-color: #0038FF;
+.color-violet {
+    background-color: #6E52FF;
 }

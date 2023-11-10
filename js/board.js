@@ -26,15 +26,12 @@ function createTasks() {
         /*html*/
         tasksContainer.innerHTML += `
               <div class="card">
-              <span class="category ${categoryClass}">${tasks["category"]}</span>
+              <span class="category color-${categoryClass}">${tasks["category"]}</span>
               <h3>${tasks["title"]}</h3>
               <p>${tasks["task"]}</p>
               <div class="subtasks" id="subtasks${i}${j}"></div>
               <div class="space-between align-center">
-                <div class="row">
-                  <div class="member-button align-center justify-center orange">AM</div>
-                  <div class="member-button align-center justify-center green negative-margin">EM</div>
-                  <div class="member-button align-center justify-center purple negative-margin">MB</div>
+                <div class="row" id="assignments${i}${j}">
                 </div>
                 <div class="urgency" id="urgency${i}${j}"><img src="./img/board/priority_low.svg" alt="" /></div>
               </div>
@@ -42,6 +39,7 @@ function createTasks() {
               `;
         createSubtasks(i, j);
         createUrgency(i, j);
+        createAssignments(i, j);
       }
     } else {
       /*html*/
@@ -107,6 +105,35 @@ function createUrgency(i, j) {
 function getTaskUrgency(task) {
   return task.urgency;
 }
+
+function createAssignments(i, j) {
+  let assignmentsContainer = document.getElementById(`assignments${i}${j}`);
+  let actualTasks = dataTasks.filter((task) => task.position === columns[i]);
+  let task = actualTasks[j];
+
+  assignmentsContainer.innerHTML = "";
+
+  if (task.assignedTo.length > 0) {
+    task.assignedTo.forEach((userId, index) => {
+      // Find the user based on the userId
+      const user = contacts.find((contact) => contact.id === userId);
+
+      if (user) {
+        const userInitials = getUserInitials(user);
+        const userColorClass = `color-${user.icon}`;
+        const marginClass = index > 0 ? 'negative-margin' : '';
+
+        /*html*/
+        assignmentsContainer.innerHTML += `
+          <div class="member-button align-center justify-center ${userColorClass} ${marginClass}">
+            <span>${userInitials}</span>
+          </div>
+        `;
+      }
+    });
+  }
+}
+
 
 function openDialog() {
   let dialog = document.getElementById("dialog");

@@ -63,3 +63,14 @@ function resetHighlight() {
         document.getElementById(link).classList.remove('current');
     })
 }
+
+/**
+ * This function returns the initials of the user.
+ * @param {string} user - This parameter refers to the array contacts in arraycontacts.js and should look like this: contacts[0]
+ * @returns 
+ */
+function getUserInitials(user) {
+    const firstnameInitial = user.firstname.charAt(0).toUpperCase();
+    const lastnameInitial = user.lastname.charAt(0).toUpperCase();
+    return firstnameInitial + lastnameInitial;
+}
