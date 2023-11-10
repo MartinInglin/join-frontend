@@ -57,17 +57,18 @@
                     <div>Subtasks</div>
                     <div class="input-group">
                         <input type="text" placeholder="Add new subtask"
-                            id="inputSubTask" id="inputSubtask">
+                            id="inputSubTask" onfocus="activateSubtask()" onfocusout="leaveSubTaskInput()">
                         <div class="input-group-buttons">
-                            <button id="deleteButton" class="d-none"
-                                id="inputSubTaskIcon1"><img
+                            <button class="d-none"
+                                id="inputSubTaskIcon1" onclick="clearSubTaskInput()"><img
                                     src="../img/add_task/close.png"></button>
                             <div class="parting-line-buttons d-none"
                                 id="partingLineButtons"></div>
-                            <button id="addButton" id="inputSubTaskIcon2"><img
+                            <button id="inputSubTaskIcon2" onclick="activateSubtask()"><img
                                     src="../img/add_task/add.png"></button>
                         </div>
                     </div>
+                    <ul id="showSubtasks"></ul>
                 </div>
             </div>
         </div>

@@ -227,7 +227,7 @@
 
 }
 
-#deleteButton, #addButton {
+#inputSubTaskIcon1, #inputSubTaskIcon2 {
     width: 24px;
     height: 24px;
     border: none;
@@ -312,4 +312,12 @@
 #createTask:hover {
     box-shadow: 0px 4px 4px 0px #00000040;
     background-color: #29ABE2;
+}
+
+#showSubtasks {
+    margin: 0;
+    font-size: 16px;
+    line-height: 120%;
+    max-height: 98px;
+    overflow-y: scroll;
 }
