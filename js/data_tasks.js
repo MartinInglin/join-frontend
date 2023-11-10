@@ -1,4 +1,6 @@
 const columns = ["Todo", "InProgress", "AwaitFeedback", "Done"];
+const urgencies = ['low', 'medium', 'urgent']
+
 let dataTasks = [
   {
     id: "timestamp",
@@ -24,7 +26,7 @@ let dataTasks = [
     task: "Baue eine neue schöne Kochweltseite",
     subtasks: [],
     assignedTo: [],
-    urgency: "urgent",
+    urgency: "medium",
     date: "mm.dd.yyyy",
   },
   {
@@ -48,7 +50,7 @@ let dataTasks = [
       },
     ],
     assignedTo: [],
-    urgency: "urgent",
+    urgency: "low",
     date: "mm.dd.yyyy",
   },
   {

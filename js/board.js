@@ -1,4 +1,11 @@
 const columnsText = ["To do", "In progress", "Await feedback", "Done"];
+const urgenciesImg = [
+  {
+    low: "img/board/priority_low.svg",
+    medium: "img/board/priority_medium.svg",
+    urgent: "img/board/priority_urgent.svg",
+  },
+];
 
 function initBoard() {
   createTasks();
@@ -29,11 +36,12 @@ function createTasks() {
                   <div class="member-button align-center justify-center green negative-margin">EM</div>
                   <div class="member-button align-center justify-center purple negative-margin">MB</div>
                 </div>
-                <div><img src="./img/board/priority_low.svg" alt="" /></div>
+                <div class="urgency" id="urgency${i}${j}"><img src="./img/board/priority_low.svg" alt="" /></div>
               </div>
             </div>
               `;
         createSubtasks(i, j);
+        createUrgency(i, j);
       }
     } else {
       /*html*/
@@ -52,7 +60,7 @@ function setColorCategory(category) {
   } else if (category === "Technical Task") {
     return "green";
   }
-  return ""; // Default or no class if none of the conditions match
+  return "";
 }
 
 function createSubtasks(i, j) {
@@ -80,7 +88,24 @@ function countCheckedSubtasks(task) {
 }
 
 function getWidthProgressBar(task, checkedSubtasksCount) {
-  return 128 / task.subtasks.length * checkedSubtasksCount + "px";
+  return (128 / task.subtasks.length) * checkedSubtasksCount + "px";
+}
+
+function createUrgency(i, j) {
+  let urgencyContainer = document.getElementById(`urgency${i}${j}`);
+  let actualTasks = dataTasks.filter((task) => task.position === columns[i]);
+  let task = actualTasks[j];
+  const urgency = getTaskUrgency(task);
+  const urgencyImageSrc = urgenciesImg[0][urgency];
+
+  /*html*/
+  urgencyContainer.innerHTML = `
+    <img src="${urgencyImageSrc}" alt="" />
+  `;
+}
+
+function getTaskUrgency(task) {
+  return task.urgency;
 }
 
 function openDialog() {
