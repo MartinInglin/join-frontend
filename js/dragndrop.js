@@ -4,8 +4,10 @@ function allowDrop(ev) {
   ev.preventDefault();
 }
 
-function startDragging(id) {
+function startDragging(id, i, j) {
   currentDraggedElement = id;
+  highlight();
+  rotateCard(i, j);
 }
 
 function changePosition(newPosition) {
@@ -26,6 +28,10 @@ function highlight() {
   }
 }
 
-function removeHighlight(id) {
-  document.getElementById(`dropDiv${id}`).classList.add("d-none");
+function rotateCard(i, j) {
+  document.getElementById(`card${i}${j}`).style.transform = "rotate(5deg)";
+}
+
+function stopRotate(i, j) {
+    document.getElementById(`card${i}${j}`).style.transform = "rotate(0deg)";
 }
