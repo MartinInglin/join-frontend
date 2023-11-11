@@ -72,11 +72,11 @@
         </div>
       </div>
 
-      <div class="columns height-100">
-        <div class="task-column" id="tasksTodo" ondrop="changePosition('Todo')" ondragover="allowDrop(event); highlight('tasksTodo')" ondragleave="removeHighlight('tasksTodo')"></div>
-        <div class="task-column" id="tasksInProgress" ondrop="changePosition('InProgress')" ondragover="allowDrop(event); highlight('tasksInProgress')" ondragleave="removeHighlight('tasksInProgress')"></div>
-        <div class="task-column" id="tasksAwaitFeedback" ondrop="changePosition('AwaitFeedback')" ondragover="allowDrop(event); highlight('tasksAwaitFeedback')" ondragleave="removeHighlight('tasksAwaitFeedback')"></div>
-        <div class="task-column" id="tasksDone" ondrop="changePosition('Done')" ondragover="allowDrop(event); highlight('tasksDone')" ondragleave="removeHighlight('tasksDone')"></div>
+      <div class="columns">
+        <div class="task-column" id="tasksTodo" ondrop="changePosition('Todo')" ondragover="allowDrop(event)"></div>
+        <div class="task-column" id="tasksInProgress" ondrop="changePosition('InProgress')" ondragover="allowDrop(event)"></div>
+        <div class="task-column" id="tasksAwaitFeedback" ondrop="changePosition('AwaitFeedback')" ondragover="allowDrop(event)"></div>
+        <div class="task-column" id="tasksDone" ondrop="changePosition('Done')" ondragover="allowDrop(event)"></div>
       </div>
     </main>
   </body>

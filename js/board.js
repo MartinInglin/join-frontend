@@ -35,7 +35,7 @@ function createTasks(filterString) {
         const categoryClass = setColorCategory(tasks["category"]);
         /*html*/
         tasksContainer.innerHTML += `
-              <div class="card" draggable="true" ondragstart="startDragging(${tasks['id']})">
+              <div class="card" draggable="true" ondragstart="startDragging(${tasks['id']}); highlight()">
               <span class="category color-${categoryClass}">${tasks["category"]}</span>
               <h3>${tasks["title"]}</h3>
               <p>${tasks["task"]}</p>
@@ -59,10 +59,9 @@ function createTasks(filterString) {
           </div>
         `;
     }
+    createDropDiv(i);
   }
 }
-
-
 
 function setColorCategory(category) {
   if (category === "User Story") {
@@ -148,6 +147,15 @@ function createAssignments(i, j) {
   }
 }
 
+function createDropDiv(i) {
+  let tasksContainer = document.getElementById(`tasks${columns[i]}`);
+  /*html*/
+  tasksContainer.innerHTML += `
+    <div class="empty-task d-none" id="dropDiv${i}">
+      <span>Drop Task here</span>
+    </div>
+  `;
+}
 
 function openDialog() {
   let dialog = document.getElementById("dialog");

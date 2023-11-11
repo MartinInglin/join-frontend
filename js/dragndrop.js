@@ -5,30 +5,27 @@ function allowDrop(ev) {
 }
 
 function startDragging(id) {
-    currentDraggedElement = id;
+  currentDraggedElement = id;
 }
 
 function changePosition(newPosition) {
-    let id = currentDraggedElement;
-    const taskIndex = dataTasks.findIndex(task => task.id === id);
+  let id = currentDraggedElement;
+  const taskIndex = dataTasks.findIndex((task) => task.id === id);
 
-    if (taskIndex !== -1) {
-        dataTasks[taskIndex].position = newPosition;
-    } else {
-        console.error("Task not found with ID:", id);
-    }
-    createTasks();
-    removeHighlightPrevious(newPosition);
+  if (taskIndex !== -1) {
+    dataTasks[taskIndex].position = newPosition;
+  } else {
+    console.error("Task not found with ID:", id);
+  }
+  createTasks();
 }
 
-function highlight(position) {
-    document.getElementById(position).classList.add('gray');
+function highlight() {
+  for (let i = 0; i < 4; i++) {
+    document.getElementById(`dropDiv${i}`).classList.remove("d-none");
+  }
 }
 
-function removeHighlight(position) {
-    document.getElementById(position).classList.remove('gray');
-}
-
-function removeHighlightPrevious(position) {
-    document.getElementById(`tasks${position}`).classList.remove('gray');
+function removeHighlight(id) {
+  document.getElementById(`dropDiv${id}`).classList.add("d-none");
 }
