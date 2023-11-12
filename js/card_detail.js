@@ -53,26 +53,16 @@ function renderCardDetail(i, j) {
         <div class="card-detail-assigned" id="cardDetailAssigned"></div>
 
         <div class="text-color-dark-blue font-20px-400 margin-bottom-8">Subtasks</div>
-        <div class="card-detail-subtasks" id="cardDetailSubtasks">
-
-          <div class="card-detail-subtask pointer">
-            <img src="./img/board_card_detail/Check_button_checked.svg" alt="">
-            <div class="font-16px-400">This is a great subtask.</div>
-          </div>
-          <div class="card-detail-subtask pointer">
-            <img src="./img/board_card_detail/Check_button_unchecked.svg" alt="">
-            <div class="font-16px-400">This is a not so great subtask.</div>
-          </div>
-        </div>
+        <div class="card-detail-subtasks" id="cardDetailSubtasks"></div>
         <div class="justify-end">
           <div class="delete-edit">
-            <div class="delete">
-              <img src="./img/board_card_detail/delete.svg" alt="">
+            <div class="delete" onmouseover="SVGOnHover('deleteImg', 'delete')" onmouseout="SVGMouseOut('deleteImg', 'delete')">
+              <img src="./img/board_card_detail/delete.svg" alt="" id="deleteImg">
               <div>Delete</div>
             </div>
             <img src="./img/board_card_detail/separator_card_detail_bottom.svg" alt="">
-            <div class="edit">
-              <img src="./img/board_card_detail/edit.svg" alt="">
+            <div class="edit" onmouseover="SVGOnHover('editImg', 'edit')" onmouseout="SVGMouseOut('editImg', 'edit')">
+              <img src="./img/board_card_detail/edit.svg" alt="" id="editImg">
               <div>Edit</div>
             </div>
           </div>      
@@ -123,8 +113,8 @@ function createSubtasksCardDetail() {
 
       /*html*/
       subtasksContainer.innerHTML += `
-          <div class="card-detail-subtask pointer" onclick="toggleSubtasks()">
-            <img src="./img/board_card_detail/${subtaskStatusClass}.svg" alt="">
+          <div class="card-detail-subtask pointer" onclick="toggleSubtasks()" onmouseover="SVGOnHover('checkbox${index}', '${subtaskStatusClass}')" onmouseout="SVGMouseOut('checkbox${index}', '${subtaskStatusClass}')">
+            <img src="./img/board_card_detail/${subtaskStatusClass}.svg" alt="" id="checkbox${index}">
             <div class="font-16px-400">${subtask.content}</div>
           </div>
         `;
@@ -132,6 +122,19 @@ function createSubtasksCardDetail() {
   }
 }
 
-function toggleSubtasks() {
+function toggleSubtasks() {}
 
+function SVGOnHover(elementId, iconName) {
+  const svgElement = document.getElementById(elementId);
+  const hoverSVG = `./img/board_card_detail/${iconName}_hover.svg`;
+
+  svgElement.src = hoverSVG;
 }
+
+function SVGMouseOut(elementId, iconName) {
+  const svgElement = document.getElementById(elementId);
+  const normalSVG = `./img/board_card_detail/${iconName}.svg`;
+
+  svgElement.src = normalSVG;
+}
+
