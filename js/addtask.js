@@ -8,7 +8,7 @@ function initAddTask() {
 
 function loadContactsSelection() {
     if (templatesLoaded) {
-        let content = document.getElementById('selectContactforTask');
+        let content = document.getElementById('contactsDropDown');
         renderContacts(content);
     } else {
         setTimeout(() => {
@@ -18,10 +18,22 @@ function loadContactsSelection() {
 }
 
 function renderContacts(content) {
+    content.innerHTML = '';
     for (let i = 0; i < contacts.length; i++) {
         const contact = contacts[i];
         content.innerHTML += `
-        <option value="${i + 1}">${contact.firstname} ${contact.lastname}</option>
+        <div id="contact${i}" class="contact">
+            <div class="allign-center">
+                <div class="pos-rel">
+                    <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle id="Ellipse 5" cx="21" cy="21" r="20" fill="${contact.icon}" stroke="white" stroke-width="2"/>
+                    </svg>
+                    <p class="initialTag">SM</p>
+                </div>
+                ${contact.firstname} ${contact.lastname}
+            </div>
+            <img src="../img/add_task/Check button.png">
+        </div>
     `;
     };
 }
@@ -125,6 +137,7 @@ function addSubtask() {
     let input = document.getElementById('inputSubTask');
     subtasks.push(input.value);
     renderSubtasks();
+    input.value = '';
 }
 
 function renderSubtasks() {
@@ -133,7 +146,7 @@ function renderSubtasks() {
     showSubtasks.innerHTML = '';
     subtasks.forEach((subtask) => {
         showSubtasks.innerHTML += `
-            <li class="list-element" id="subtask${i}">
+            <li class="list-element" id="subtask${i}" ondblclick="editSubtask('subtask${i}', 'editSubtaskIcon1${i}', 'editSubtaskIcon2${i}', '${i}')">
                 <div class="list-text pointer">
                     <div id="subtaskContent${i}">
                         ${subtask}
@@ -162,9 +175,10 @@ function editSubtask(id, btn1, btn2, i) {
     let subtask = document.getElementById(id);
     let button1 = document.getElementById(btn1);
     let button2 = document.getElementById(btn2);
+    let content = document.getElementById(`subtaskContent${i}`);
     try {
     subtask.setAttribute('contentEditable', 'true');
-    subtask.focus();
+    content.focus();
     subtask.removeAttribute('onclick');
     button1.setAttribute('src', 'img/add_task/delete.png');
     button1.setAttribute('onclick', `deleteSubtask('${i}'); 'doNotTriggerEvent(event)'`);
@@ -194,4 +208,24 @@ function saveEditSubtask(id, btn1, btn2, i) {
 
 function doNotTriggerEvent(event) {
     event.stopPropagation();
+}
+
+function openContactList() {
+    let contactList = document.getElementById('contactList');
+    let openContactsDropDown = document.getElementById('openContactsDropDown');
+    contactList.style.height = '352px';
+    openContactsDropDown.style.transform = 'rotate(180deg)';
+    setTimeout(() => {
+        contactList.setAttribute('onclick', 'closeContactList()');
+    }, 100);
+}
+
+function closeContactList() {
+    let contactList = document.getElementById('contactList');
+    let openContactsDropDown = document.getElementById('openContactsDropDown');
+    contactList.style.height = '50px';
+    openContactsDropDown.style.transform = 'rotate(0deg)';
+    setTimeout(() => {
+        contactList.setAttribute('onclick', 'openContactList()');
+    }, 100);
 }
