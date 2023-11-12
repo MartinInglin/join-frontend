@@ -161,7 +161,7 @@
 }
 
 .card-detail-subtask:hover {
-    background-color: #d1d1d1;
+    background-color: #F0F0F0;
 }
 
 .delete-edit {
@@ -188,10 +188,6 @@
   line-height: 120%;
 }
 
-.delete:hover img {
-  fill: #29abe2;
-}
-
 .edit {
   display: flex;
   justify-content: center;
@@ -207,8 +203,4 @@
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
-}
-
-.edit:hover img {
-  fill: #29abe2;
 }
