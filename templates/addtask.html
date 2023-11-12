@@ -18,11 +18,17 @@
                 </div>
                 <div class="assigned-to">
                     <div>Assigned to</div>
-                    <div>
+                    <div id="contactList">
+                        <img src="../img/add_task/arrow_drop_down.png" id="openContactsDropDown" onclick="openContactList()">
+                        <input type="text" id="contactInput" placeholder="Select contacts to assign">
+                        <div id="contactsDropDown"></div>
+                        <button id="addContact">Add new contact<img src="../img/add_task/person_add.png"></button>
+                    </div>
+                    <!-- <div>
                         <select id="selectContactforTask">
                             <option selected>Select contacts to assign</option>
                         </select>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="parting-line"></div>
