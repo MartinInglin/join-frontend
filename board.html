@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./styles/colors_members.css" />
     <link rel="stylesheet" href="./styles/addtask.css" />
     <link rel="stylesheet" href="./styles/dialoganimation.css" />
+    <link rel="stylesheet" href="./styles/board_card_detail.css" />
     <script src="./js/main.js"></script>
     <script src="./js/board.js"></script>
     <script src="./js/data_tasks.js"></script>
@@ -19,15 +20,13 @@
     <script src="./js/dragndrop.js"></script>
     <script src="./js/addtask.js"></script>
     <script src="./js/arraycontacts.js"></script>
+    <script src="./js/card_detail.js"></script>
     <title>Board</title>
 
     <!-- Favicon file -->
-    <link rel="apple-touch-icon" sizes="180x180"
-      href="favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32"
-      href="favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16"
-      href="favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body onload="includeHTML(); initAddTask(); initBoard()">
@@ -42,15 +41,14 @@
         <h1>Board</h1>
         <div class="title-right">
           <form class="search" onsubmit="filterTasks(); return false">
-            <input type="text" id="searchInput"  placeholder="Find task" onkeyup="filterTasks()"/>
+            <input type="text" id="searchInput" placeholder="Find task" onkeyup="filterTasks()" />
             <div class="align-center gap-16px">
               <img src="./img/board/separator_find_task.svg" alt />
               <button class="align-center"><img src="./img/board/search.svg" alt /></button>
             </div>
           </form>
 
-          <button class="add-task align-center" onclick="openDialog()">Add Task
-            <img src="./img/board/add_task.svg" alt /></button>
+          <button class="add-task align-center" onclick="openDialog()">Add Task <img src="./img/board/add_task.svg" alt /></button>
         </div>
       </div>
 
@@ -79,5 +77,6 @@
         <div class="task-column" id="tasksDone" ondrop="changePosition('Done')" ondragover="allowDrop(event)"></div>
       </div>
     </main>
+    <div class="card-detail-container d-none" id="cardDetailContainer" onclick="closeCardDetail(event)"></div>
   </body>
 </html>

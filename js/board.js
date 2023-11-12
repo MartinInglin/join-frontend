@@ -35,7 +35,7 @@ function createTasks(filterString) {
         const categoryClass = setColorCategory(tasks["category"]);
         /*html*/
         tasksContainer.innerHTML += `
-              <div class="card" id="card${i}${j}" draggable="true" ondragstart="startDragging(${tasks['id']}, ${i}, ${j})" ondragend="stopRotate(${i}, ${j})">
+              <div class="card" id="card${i}${j}" draggable="true" ondragstart="startDragging(${tasks['id']}, ${i}, ${j})" ondragend="stopRotate(${i}, ${j})" onclick="showCardDetail(${i}, ${j})">
               <span class="category color-${categoryClass}">${tasks["category"]}</span>
               <h3>${tasks["title"]}</h3>
               <p>${tasks["task"]}</p>
@@ -128,7 +128,6 @@ function createAssignments(i, j) {
 
   if (task.assignedTo.length > 0) {
     task.assignedTo.forEach((userId, index) => {
-      // Find the user based on the userId
       const user = contacts.find((contact) => contact.id === userId);
 
       if (user) {

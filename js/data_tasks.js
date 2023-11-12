@@ -41,11 +41,11 @@ let dataTasks = [
         checked: true,
       },
       {
-        content: "Ein Subtask ensteht hier",
+        content: "Ein Subtask zwei ensteht hier",
         checked: true,
       },
       {
-        content: "Ein Subtask ensteht hier",
+        content: "Ein Subtask drei ensteht hier",
         checked: false,
       },
     ],
