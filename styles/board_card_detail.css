@@ -48,7 +48,7 @@
 .card-detail {
   position: fixed;
   top: 50%;
-  left: 50%;
+  left: 150%;
   transform: translate(-50%, -50%);
   display: flex;
   width: 445px;
@@ -58,6 +58,15 @@
   border-radius: 30px;
   background: #fff;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+}
+
+.move-in-right {
+  animation: myfirst 125ms forwards;
+  animation-direction: initial;
+}
+
+@keyframes myfirst {
+  100% {left: 50%;}
 }
 
 .card-detail-header {
