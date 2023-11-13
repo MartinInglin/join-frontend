@@ -33,5 +33,8 @@ function rotateCard(i, j) {
 }
 
 function stopRotate(i, j) {
-    document.getElementById(`card${i}${j}`).style.transform = "rotate(0deg)";
+  const element = document.getElementById(`card${i}${j}`);
+  if (element) {
+    element.style.transform = "rotate(0deg)";
+  }
 }

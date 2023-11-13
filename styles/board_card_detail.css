@@ -61,13 +61,29 @@
 }
 
 .move-in-right {
-  animation: myfirst 125ms forwards;
+  animation: myfirst 250ms forwards;
   animation-direction: initial;
 }
 
 @keyframes myfirst {
-  100% {left: 50%;}
+  100% {
+    left: 50%;
+  }
 }
+
+.reverse-animation {
+  animation: myfirst-reverse 250ms backwards;
+}
+
+@keyframes myfirst-reverse {
+  0% {
+    left: 50%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
 
 .card-detail-header {
   display: flex;
