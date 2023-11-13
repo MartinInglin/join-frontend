@@ -23,9 +23,18 @@ function addNewContact() {
         </div>
     </div>
     <div class="info-new-cont">
-        <div><input type="text"></div>
-        <div><input type="email"></div>
-        <div><input type="number"></div>
+        <div class="input-field">
+            <input type="text" placeholder="Name" class="form-control" required>
+            <span class="info-icon icon-name"></span>            
+        </div>
+        <div class="input-field">
+            <input type="email" placeholder="Email" class="form-control" required>
+            <span class="info-icon icon-email"></span>
+        </div>
+        <div class="input-field">
+            <input type="number" placeholder="Phone" class="form-control" required>
+            <span class="info-icon icon-phone"></span>
+        </div>
     </div>
     <div>
 
