@@ -324,6 +324,7 @@ function createTask() {
     nextFreeId++;
     dataTasks.push(newTask);
     console.log(dataTasks);
+    createTasks();
 }
 
 function addNewContact() {
