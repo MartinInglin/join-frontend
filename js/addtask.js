@@ -1,22 +1,7 @@
 let priorityOfTask;
 let subtasks = [];
 let selectedContacts = [];
-newTask = {
-    id: 0,
-    position: "Todo",
-    category: "",
-    title: "",
-    task: "",
-    subtasks: [
-        {
-            content: "",
-            checked: false,
-        },
-    ],
-    assignedTo: [],
-    urgency: "",
-    date: "",
-};
+let nextFreeId = 4;
 
 function initAddTask() {
     setIdOfCurrentPage(1);
@@ -319,13 +304,26 @@ function createTask() {
     let inputDescription = document.getElementById('inputDescription').value;
     let inputDate = document.getElementById('inputDate').value;
     let selectCategory = document.getElementById('selectCategory').value;
-    newTask.title.push(inputTitel);
-    newTask.category = selectCategory;
-    newTask.task = inputDescription;
-    newTask.date = inputDate;
-    newTask.subtask = subtasks;
-    newTask.urgency = priorityOfTask;
-    newTask.assignedTo = selectedContacts;
+
+    let newTask = {
+        id: nextFreeId,
+        position: "Todo",
+        category: selectCategory,
+        title: inputTitel,
+        task: inputDescription,
+        subtasks: [
+            {
+                content: subtasks,
+                checked: false,
+            },
+        ],
+        assignedTo: selectedContacts,
+        urgency: priorityOfTask,
+        date: inputDate,
+    };
+    nextFreeId++;
+    dataTasks.push(newTask);
+    console.log(dataTasks);
 }
 
 function addNewContact() {
