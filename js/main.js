@@ -74,3 +74,7 @@ function getUserInitials(user) {
     const lastnameInitial = user.lastname.charAt(0).toUpperCase();
     return firstnameInitial + lastnameInitial;
 }
+
+function goBackToLastPage() {
+    window.open(`./${sideMenuLinks[idOfCurrentPage]}.html`);
+}
