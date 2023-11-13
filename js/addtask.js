@@ -1,6 +1,22 @@
 let priorityOfTask;
 let subtasks = [];
 let selectedContacts = [];
+newTask = {
+    id: 0,
+    position: "Todo",
+    category: "",
+    title: "",
+    task: "",
+    subtasks: [
+        {
+            content: "",
+            checked: false,
+        },
+    ],
+    assignedTo: [],
+    urgency: "",
+    date: "",
+};
 
 function initAddTask() {
     setIdOfCurrentPage(1);
@@ -179,14 +195,14 @@ function editSubtask(id, btn1, btn2, i) {
     let button2 = document.getElementById(btn2);
     let content = document.getElementById(`subtaskContent${i}`);
     try {
-    subtask.setAttribute('contentEditable', 'true');
-    content.focus();
-    subtask.removeAttribute('onclick');
-    button1.setAttribute('src', 'img/add_task/delete.png');
-    button1.setAttribute('onclick', `deleteSubtask('${i}'); 'doNotTriggerEvent(event)'`);
-    button2.setAttribute('src', 'img/add_task/done.png');
-    button2.setAttribute('onclick', `saveEditSubtask('${id}', '${btn1}', '${btn2}', '${i}'); 'doNotTriggerEvent(event)'`);
-    } catch (e) {};
+        subtask.setAttribute('contentEditable', 'true');
+        content.focus();
+        subtask.removeAttribute('onclick');
+        button1.setAttribute('src', 'img/add_task/delete.png');
+        button1.setAttribute('onclick', `deleteSubtask('${i}'); 'doNotTriggerEvent(event)'`);
+        button2.setAttribute('src', 'img/add_task/done.png');
+        button2.setAttribute('onclick', `saveEditSubtask('${id}', '${btn1}', '${btn2}', '${i}'); 'doNotTriggerEvent(event)'`);
+    } catch (e) { };
 }
 
 function deleteSubtask(i) {
@@ -238,7 +254,7 @@ function searchContactToAssign() {
     let contactsDropDown = document.getElementById('contactsDropDown');
     let input = document.getElementById('contactInput').value.toLowerCase();
     contactsDropDown.innerHTML = '';
-    let matchingContacts = contacts.filter(contact => 
+    let matchingContacts = contacts.filter(contact =>
         contact.firstname.toLowerCase().includes(input) || contact.lastname.toLowerCase().includes(input)
     );
     matchingContacts.forEach((contact) => {
@@ -294,4 +310,25 @@ function renderContactInitialIcons() {
             </div>
         `;
     })
+}
+
+function createTask() {
+    let createTask = document.getElementById('createTask');
+    createTask.style.backgroundColor = '#091931';
+    let inputTitel = document.getElementById('inputTitel').value;
+    let inputDescription = document.getElementById('inputDescription').value;
+    let inputDate = document.getElementById('inputDate').value;
+    let selectCategory = document.getElementById('selectCategory').value;
+    newTask.title.push(inputTitel);
+    newTask.category = selectCategory;
+    newTask.task = inputDescription;
+    newTask.date = inputDate;
+    newTask.subtask = subtasks;
+    newTask.urgency = priorityOfTask;
+    newTask.assignedTo = selectedContacts;
+}
+
+function addNewContact() {
+    let addContact = document.getElementById('addContact');
+    addContact.style.backgroundColor = '#091931';
 }

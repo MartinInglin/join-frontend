@@ -159,6 +159,12 @@
     position: absolute;
     top: 286px;
     left: 16px;
+    color: white;
+}
+
+#addContact:hover {
+    background-color: #29ABE2;
+    border: 1px solid #29ABE2;
 }
 
 #contactsDropDown {
@@ -462,4 +468,9 @@
     top: 2px;
     left: 11px;
     font-size: 12px;
+}
+
+#contactInput:focus {
+    outline: none;
+    border: 1px solid rgba(41, 171, 226, 1);
 }
