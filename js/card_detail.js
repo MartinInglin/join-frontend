@@ -14,6 +14,7 @@ function findTask(i, j) {
 
 function closeCardDetail(event) {
   document.getElementById("cardDetailContainer").classList.add("d-none");
+  createTasks();
 }
 
 function stopPropagation(event) {
@@ -22,6 +23,7 @@ function stopPropagation(event) {
 
 function closeCardDetailButton() {
   document.getElementById("cardDetailContainer").classList.add("d-none");
+  createTasks();
 }
 
 function renderCardDetail(i, j) {
@@ -31,7 +33,7 @@ function renderCardDetail(i, j) {
   cardDetailContainer.innerHTML = "";
   /*html*/
   cardDetailContainer.innerHTML = `
-    <div class="card-detail" onclick="stopPropagation(event)">
+    <div class="card-detail move-in-right" id="cardDetail" onclick="stopPropagation(event)">
         <div class="card-detail-header">
           <div class="card-detail-category color-${categoryClass}">${selectedTask["category"]}</div>
           <div class="close-btn pointer"><img src="./img/board_card_detail/close.svg" alt="" onclick="closeCardDetailButton()"></div>
@@ -71,6 +73,7 @@ function renderCardDetail(i, j) {
     `;
   createAssignmentsCardDetail();
   createSubtasksCardDetail();
+  animationMoveIn();
 }
 
 function createImgUrgency(urgency) {
@@ -113,7 +116,7 @@ function createSubtasksCardDetail() {
 
       /*html*/
       subtasksContainer.innerHTML += `
-          <div class="card-detail-subtask pointer" onclick="toggleSubtasks()" onmouseover="SVGOnHover('checkbox${index}', '${subtaskStatusClass}')" onmouseout="SVGMouseOut('checkbox${index}', '${subtaskStatusClass}')">
+          <div class="card-detail-subtask pointer" onclick="toggleSubtasks(${index})" onmouseover="SVGOnHover('checkbox${index}', '${subtaskStatusClass}')" onmouseout="SVGMouseOut('checkbox${index}', '${subtaskStatusClass}')">
             <img src="./img/board_card_detail/${subtaskStatusClass}.svg" alt="" id="checkbox${index}">
             <div class="font-16px-400">${subtask.content}</div>
           </div>
@@ -122,7 +125,16 @@ function createSubtasksCardDetail() {
   }
 }
 
-function toggleSubtasks() {}
+function animationMoveIn() {
+    document.getElementById('cardDetail').classList.add('move-in-right')
+}
+
+function toggleSubtasks(index) {
+  if (selectedTask.subtasks && selectedTask.subtasks[index]) {
+    selectedTask.subtasks[index].checked = !selectedTask.subtasks[index].checked;
+    createSubtasksCardDetail();
+  }
+}
 
 function SVGOnHover(elementId, iconName) {
   const svgElement = document.getElementById(elementId);
@@ -137,4 +149,3 @@ function SVGMouseOut(elementId, iconName) {
 
   svgElement.src = normalSVG;
 }
-
