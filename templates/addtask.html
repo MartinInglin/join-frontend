@@ -1,4 +1,4 @@
-<div>
+<div onclick="closeContactList()">
     <div class="close-dialog d-none" id="closeDialog" onclick="closeDialog()">
         <img src="./img/add_task/close.png">
     </div>
@@ -19,16 +19,12 @@
                 <div class="assigned-to">
                     <div>Assigned to</div>
                     <div id="contactList">
-                        <img src="../img/add_task/arrow_drop_down.png" id="openContactsDropDown" onclick="openContactList()">
-                        <input type="text" id="contactInput" placeholder="Select contacts to assign">
+                        <img src="../img/add_task/arrow_drop_down.png" id="openContactsDropDown" onclick="openContactList(); doNotTriggerEvent(event)">
+                        <input type="text" id="contactInput" placeholder="Select contacts to assign" onclick="openContactList(); doNotTriggerEvent(event)" oninput="searchContactToAssign()">
                         <div id="contactsDropDown"></div>
                         <button id="addContact">Add new contact<img src="../img/add_task/person_add.png"></button>
                     </div>
-                    <!-- <div>
-                        <select id="selectContactforTask">
-                            <option selected>Select contacts to assign</option>
-                        </select>
-                    </div> -->
+                    <div id="contactInitialIcons"></div>
                 </div>
             </div>
             <div class="parting-line"></div>
@@ -52,7 +48,7 @@
                 <div class="choose-category">
                     <div>Category<span>*</span></div>
                     <div>
-                        <select>
+                        <select id="selectCategory">
                             <option selected>Select task category</option>
                             <option value="1">Technical Task</option>
                             <option value="2">User Story</option>
