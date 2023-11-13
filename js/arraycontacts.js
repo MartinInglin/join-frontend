@@ -1,10 +1,10 @@
 let contacts = [{
     id: 0,
-    'icon': 'red',
-    'firstname': 'Anton',
-    'lastname': 'Mayer',
-    'email': 'antonm@gmail.com',
-    'phone-number': '+49 1111 111 11 1'
+    'icon': 'blue',
+    'firstname': 'Guest',
+    'lastname': '',
+    'email': '',
+    'phone-number': ''
 },{
     id: 1,
     'icon': 'green',
@@ -54,4 +54,12 @@ let contacts = [{
     'lastname': 'Wolf',
     'email': 'wolf@gmail.com',
     'phone-number': '+49 8888 888 88 8'
-},]
+},{
+    id: 8,
+    'icon': 'red',
+    'firstname': 'Anton',
+    'lastname': 'Mayer',
+    'email': 'antonm@gmail.com',
+    'phone-number': '+49 1111 111 11 1'
+}
+]
