@@ -5,13 +5,31 @@ function init() {
 function loadContactList() {
     let contactList = document.getElementById('contact-list');
     contactList.innerHTML = '';
-    
+    contacts.sort((a, b) => a.firstname.localeCompare(b.firstname));
+    let currentLetter = '';
+
     for (let i = 0; i < contacts.length; i++) {
         const contact = contacts[i];
+        const firstLetter = contact.firstname.charAt(0).toUpperCase();
+
+        if (firstLetter !== currentLetter) {
+            currentLetter = firstLetter;
+            contactList.innerHTML += 
+            /*html*/ `
+            <div class="letter">
+                <span>${currentLetter}</span>
+            </div>
+            <div class="letter-underline">
+                <svg xmlns="http://www.w3.org/2000/svg" width="354" height="2" viewBox="0 0 354 2" fill="none">
+                    <path d="M1 1H353" stroke="#D1D1D1" stroke-linecap="round"/>
+                </svg>
+            </div>
+            `;
+        }
 
         contactList.innerHTML += generatContactListHTML(i, contact);
         let highlight = document.getElementById(`cont${i}`);
-        highlight.classList.remove('cont-clickt');    
+        highlight.classList.remove('cont-clickt');
     }
     hideContact();
 }
