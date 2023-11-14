@@ -1,3 +1,8 @@
+h1 {
+    margin-top: 40.87px;
+    margin-bottom: 40.87px;
+}
+
 .main-container {
     font-size: 20px;
     color: rgba(42, 54, 71, 1);
@@ -63,6 +68,7 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+    position: relative;
 }
 
 .titel {
@@ -79,6 +85,7 @@
 }
 
 .description {
+    height: 152px;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -182,16 +189,7 @@
     border-radius: 10px; 
 }
 
-.initialTag {
-    font-size: 12px !important;
-    font-family: Inter;
-    color: white !important;
-    position: absolute !important;
-    top: 2px !important;
-    left: 11px !important;
-}
-
-.allign-center {
+.contact-frame {
     display: flex;
     align-items: center;
     gap: 16px;
@@ -420,10 +418,6 @@
     list-style-type: disc;
 }
 
-#showSubtasks::-webkit-scrollbar {
-    display: none;
-}
-
 .subtask-button-container {
     display: flex;
     gap: 4px;
@@ -451,11 +445,44 @@
     cursor: pointer;
 }
 
+.contact-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; 
+}
+
+.outer-line {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner-line {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.initialTag {
+    font-size: 12px;
+    color: white;
+}
+
 #contactInitialIcons {
+    max-height: 120px;
     display: flex;
     gap: 8px;
     position: absolute;
-    top: 726px;
+    top: 388px;
+    overflow-y: auto;
 }
 
 .selected-initial-contact {

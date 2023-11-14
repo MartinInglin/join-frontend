@@ -11,7 +11,7 @@ main {
     margin-left: 232px;
     padding: 180px 96px 0 96px;
     flex-grow: 1;
-    overflow-y: scroll;
+    overflow: hidden;
 }
 
 h1 {
@@ -71,6 +71,7 @@ header {
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
     width: 8px;
+    height: 4px;
 }
 
 *::-webkit-scrollbar-track {

@@ -10,8 +10,7 @@ function initAddTask() {
 
 function loadContactsSelection() {
     if (templatesLoaded) {
-        let content = document.getElementById('contactsDropDown');
-        renderContacts(content);
+        renderContacts();
     } else {
         setTimeout(() => {
             loadContactsSelection();
@@ -19,18 +18,20 @@ function loadContactsSelection() {
     }
 }
 
-function renderContacts(content) {
+function renderContacts() {
+    let content = document.getElementById('contactsDropDown');
     content.innerHTML = '';
     for (let i = 0; i < contacts.length; i++) {
         const contact = contacts[i];
         content.innerHTML += `
         <div id="contact${contact.id}" class="contact"onclick="chooseContactToAssign(${contact.id}); doNotTriggerEvent(event)">
-            <div class="allign-center">
-                <div class="pos-rel">
-                    <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle id="Ellipse 5" cx="21" cy="21" r="20" fill="${contact.icon}" stroke="white" stroke-width="2"/>
-                    </svg>
-                    <p class="initialTag">${contact.firstname.charAt(0)}${contact.lastname.charAt(0)}</p>
+            <div class="contact-icon">
+                <div class="contact-icon">
+                    <div class="outer-line">
+                        <div class="inner-line" style="background-color:${contact.icon}">
+                            <p class="initialTag">${contact.firstname.charAt(0)}${contact.lastname.charAt(0)}</p>
+                        </div>
+                    </div>
                 </div>
                 ${contact.firstname} ${contact.lastname}
             </div>
@@ -168,16 +169,17 @@ function renderSubtasks() {
 }
 
 function clearAll() {
-    selectedContacts.forEach((id) => {
-        unchooseContact(id);
-    })
-    document.getElementById('inputTitel').value = '';
-    document.getElementById('inputDescription').value = '';
-    document.getElementById('inputDate').value = '';
-    document.getElementById('inputSubTask').value = '';
-    subtasks.splice(0, subtasks.length);
-    resetAll();
-    renderSubtasks();
+        document.getElementById('inputTitel').value = '';
+        document.getElementById('inputDescription').value = '';
+        document.getElementById('inputDate').value = '';
+        document.getElementById('inputSubTask').value = '';
+        document.getElementById('selectCategory').selectedIndex = 0;
+        subtasks.splice(0, subtasks.length);
+        selectedContacts.splice(0, selectedContacts.length);
+        resetAll();
+        renderSubtasks();
+        renderContacts();
+        renderContactInitialIcons();
 }
 
 function editSubtask(id, btn1, btn2, i) {
@@ -251,12 +253,13 @@ function searchContactToAssign() {
     matchingContacts.forEach((contact) => {
         contactsDropDown.innerHTML += `
         <div id="contact${contact.id}" class="contact" onclick="chooseContactToAssign(${contact.id}); doNotTriggerEvent(event)">
-            <div class="allign-center">
-                <div class="pos-rel">
-                    <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle id="Ellipse 5" cx="21" cy="21" r="20" fill="${contact.icon}" stroke="white" stroke-width="2"/>
-                    </svg>
-                    <p class="initialTag">${contact.firstname.charAt(0)}${contact.lastname.charAt(0)}</p>
+            <div class="contact-icon">
+                <div class="contact-icon">
+                    <div class="outer-line">
+                        <div class="inner-line" style="background-color:${contact.icon}">
+                            <p class="initialTag">${contact.firstname.charAt(0)}${contact.lastname.charAt(0)}</p>
+                        </div>
+                    </div>
                 </div>
                 ${contact.firstname} ${contact.lastname}
             </div>
@@ -293,11 +296,14 @@ function renderContactInitialIcons() {
     selectedContacts.forEach((id) => {
         let contact = contacts[id]
         contactInitialIcons.innerHTML += `
-            <div class="selected-initial-contact">
-                <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle id="Ellipse 5" cx="21" cy="21" r="20" fill="${contact.icon}" stroke="white" stroke-width="2"/>
-                </svg>
-                <p class="selected-initial-tag">${contact.firstname.charAt(0)}${contact.lastname.charAt(0)}</p>
+            <div class="contact-frame">
+                <div class="contact-icon">
+                    <div class="outer-line">
+                        <div class="inner-line" style="background-color:${contact.icon}">
+                            <p class="initialTag">${contact.firstname.charAt(0)}${contact.lastname.charAt(0)}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         `;
     })
