@@ -1,5 +1,5 @@
-let sideMenuLinks = ['summary', 'addTask', 'board', 'contacts']
-let idOfCurrentPage = 4;
+let sideMenuLinks = ['summary', 'addTask', 'board', 'contacts', 'privacypolicy', 'legalnotice']
+let idOfCurrentPage = 6;
 let templatesLoaded = false;
 
 /**
@@ -76,5 +76,5 @@ function getUserInitials(user) {
 }
 
 function goBackToLastPage() {
-    window.open(`./${sideMenuLinks[idOfCurrentPage]}.html`);
+    window.history.back();
 }

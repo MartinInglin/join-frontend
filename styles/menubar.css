@@ -22,7 +22,7 @@
     line-height: 19.2px;
 }
 
-.menu-bar-main-container a:hover {
+.menu-hover:hover {
     background-color: rgba(42, 61, 89, 1);
 }
 
@@ -59,19 +59,22 @@
 }
 
 .policy-container {
-    width: calc(232px - 52px);
+    width: 232px;
     display: flex;
     flex-direction: column;
     gap: 4px;
-    padding-top: 243px; 
-    padding-left: 52px;
+    padding-top: 100%;
 }
 
 .policy-container a {
     color: rgba(168, 168, 168, 1);
     display: flex;
-    padding: 8px;
+    padding: 8px 60px;
     gap: 8px;
+}
+
+.policy-container a:hover {
+    color: #29ABE2;
 }
 
 .d-none {

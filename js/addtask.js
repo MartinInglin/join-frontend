@@ -45,7 +45,7 @@ function activePrioButton(id) {
     let button2 = document.getElementById('medium');
     let button3 = document.getElementById('low');
     if (priorityOfTask == id) {
-        resetAll(button1, button2, button3);
+        resetAll();
     } else if (id == 'low') {
         highlightButton3(button1, button2, button3);
     } else if (id == 'medium') {
@@ -55,7 +55,10 @@ function activePrioButton(id) {
     };
 }
 
-function resetAll(button1, button2, button3) {
+function resetAll() {
+    let button1 = document.getElementById('urgent');
+    let button2 = document.getElementById('medium');
+    let button3 = document.getElementById('low');
     resetButton(button1, 'urgent')
     resetButton(button2, 'medium')
     resetButton(button3, 'low')
@@ -165,13 +168,16 @@ function renderSubtasks() {
 }
 
 function clearAll() {
+    selectedContacts.forEach((id) => {
+        unchooseContact(id);
+    })
     document.getElementById('inputTitel').value = '';
     document.getElementById('inputDescription').value = '';
     document.getElementById('inputDate').value = '';
     document.getElementById('inputSubTask').value = '';
     subtasks.splice(0, subtasks.length);
+    resetAll();
     renderSubtasks();
-    renderContactInitialIcons();
 }
 
 function editSubtask(id, btn1, btn2, i) {
