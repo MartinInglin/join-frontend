@@ -316,6 +316,7 @@ function createTask() {
     let inputDescription = document.getElementById('inputDescription').value;
     let inputDate = document.getElementById('inputDate').value;
     let selectCategory = document.getElementById('selectCategory').value;
+    let dialogSucces = document.getElementById('dialogSucces');
 
     let newTask = {
         id: nextFreeId,
@@ -337,6 +338,12 @@ function createTask() {
     dataTasks.push(newTask);
     console.log(dataTasks);
     createTasks();
+    clearAll();
+    dialogSucces.classList.remove('d-none');
+    setTimeout(() => {
+        dialogSucces.classList.add('d-none');
+        window.open('./board.html', '_self')
+    }, 1000);
 }
 
 function addNewContact() {

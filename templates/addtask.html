@@ -4,25 +4,39 @@
     </div>
     <h1>Add Task</h1>
     <div class="main-container">
+        <div class="dialog-succes-background d-none" id="dialogSucces">
+            <div class="dialog-succes">
+                <div class="dialog-succes-text">Task added to board</div>
+                <img src="../img/add_task/Vector.png">
+            </div>
+        </div>
         <div class="sub-container">
             <div class="left-container">
                 <div class="titel">
                     <div>Titel<span>*</span></div>
-                    <input type="text" required placeholder="Enter a title" id="inputTitel">
+                    <input type="text" required placeholder="Enter a title"
+                        id="inputTitel">
                 </div>
                 <div class="description">
                     <div>Description</div>
-                    <textarea class="description-input" name id="inputDescription" cols="53"
+                    <textarea class="description-input" name
+                        id="inputDescription" cols="53"
                         rows="9"
                         placeholder="Enter a Description"></textarea>
                 </div>
                 <div class="assigned-to">
                     <div>Assigned to</div>
                     <div id="contactList">
-                        <img src="../img/add_task/arrow_drop_down.png" id="openContactsDropDown" onclick="openContactList(); doNotTriggerEvent(event)">
-                        <input type="text" id="contactInput" placeholder="Select contacts to assign" onclick="openContactList(); doNotTriggerEvent(event)" oninput="searchContactToAssign()">
+                        <img src="../img/add_task/arrow_drop_down.png"
+                            id="openContactsDropDown"
+                            onclick="openContactList(); doNotTriggerEvent(event)">
+                        <input type="text" id="contactInput"
+                            placeholder="Select contacts to assign"
+                            onclick="openContactList(); doNotTriggerEvent(event)"
+                            oninput="searchContactToAssign()">
                         <div id="contactsDropDown"></div>
-                        <button id="addContact">Add new contact<img src="../img/add_task/person_add.png"></button>
+                        <button id="addContact">Add new contact<img
+                                src="../img/add_task/person_add.png"></button>
                     </div>
                     <div id="contactInitialIcons"></div>
                 </div>
@@ -59,14 +73,17 @@
                     <div>Subtasks</div>
                     <div class="input-group">
                         <input type="text" placeholder="Add new subtask"
-                            id="inputSubTask" onfocus="activateSubtask()" onfocusout="leaveSubTaskInput()">
+                            id="inputSubTask" onfocus="activateSubtask()"
+                            onfocusout="leaveSubTaskInput()">
                         <div class="input-group-buttons">
                             <button class="d-none"
-                                id="inputSubTaskIcon1" onclick="clearSubTaskInput()"><img
+                                id="inputSubTaskIcon1"
+                                onclick="clearSubTaskInput()"><img
                                     src="../img/add_task/close.png"></button>
                             <div class="parting-line-buttons d-none"
                                 id="partingLineButtons"></div>
-                            <button id="inputSubTaskIcon2" onclick="activateSubtask()"><img
+                            <button id="inputSubTaskIcon2"
+                                onclick="activateSubtask()"><img
                                     src="../img/add_task/add.png"></button>
                         </div>
                     </div>
