@@ -183,3 +183,59 @@
 .icon-phone {
     background-image: url('/img/addnewcontact/phone.svg');
 }
+
+.btn-cancel-create {
+    position: absolute;
+    top: 400px;
+    right: 106px;
+    width: 364px;
+    height: 57px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.btn-cancel {
+    cursor: pointer;
+    width: 126px;
+    height: calc(56px - 32px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    gap: 4px;
+    border-radius: 10px;
+    border: 1px solid #2A3647;
+}
+
+.btn-cancel span {
+    color: #2A3647;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.btn-create {
+    cursor: pointer;
+    width: 214px;
+    height: calc(57px - 32px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    gap: 4px;
+    border-radius: 10px;
+    background: #2A3647;
+}
+
+.btn-create span {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+}
