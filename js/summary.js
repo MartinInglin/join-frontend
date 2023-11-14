@@ -1,4 +1,4 @@
-let idOfUser = 2;
+let idOfUser = 1;
 
 /**
  * This function contains all the functionts that should be called on load of the body.

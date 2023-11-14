@@ -34,52 +34,68 @@
       <div class="content">
         <div class="summary-container">
           <div class="summary">
-            <div class="card card-top"  onmouseover="changeIconHover('pencilCircle', './img/summary/pencil_circle_dark.svg')" ; onmouseleave="changeIconHover('pencilCircle', './img/summary/pencil_circle.svg')">
-              <img id="pencilCircle" src="./img/summary/pencil_circle.svg" alt="" />
-              <div>
-                <p class="card-number" id="amountTasksTodo">1</p>
-                <p class="card-text">To-do</p>
-              </div>
-            </div>
-            <div class="card card-top" onmouseover="changeIconHover('checkedCircle', './img/summary/checked_circle_dark.svg')" ; onmouseleave="changeIconHover('checkedCircle', './img/summary/checked_circle.svg')">
-              <img id="checkedCircle" src="./img/summary/checked_circle.svg" alt="" />
-              <div>
-                <div class="card-number" id="amountTasksDone">1</div>
-                <div class="card-text">Done</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="summary">
-            <div class="card card-middle">
-              <div class="urgent-counter">
-                <img src="./img/summary/urgent.svg" alt="" />
+            <a href="board.html">
+              <div class="card card-top"  onmouseover="changeIconHover('pencilCircle', './img/summary/pencil_circle_dark.svg')" ; onmouseleave="changeIconHover('pencilCircle', './img/summary/pencil_circle.svg')">
+                <img id="pencilCircle" src="./img/summary/pencil_circle.svg" alt="" />
                 <div>
-                  <div class="card-number" id="amountUrgent">1</div>
-                  <div class="card-text-urgent">Urgent</div>
+                  <p class="card-number" id="amountTasksTodo"></p>
+                  <p class="card-text">To-do</p>
                 </div>
               </div>
-              <img src="./img/summary/separator_urgent.svg" alt="" />
-              <div class="date">
-                <div class="card-text-date" id="nextDate">October 16, 2023</div>
-                <div class="card-text-deadline">Upcoming Deadline</div>
+            </a>
+            <a href="board.html">
+              <div class="card card-top" onmouseover="changeIconHover('checkedCircle', './img/summary/checked_circle_dark.svg')" ; onmouseleave="changeIconHover('checkedCircle', './img/summary/checked_circle.svg')">
+                <img id="checkedCircle" src="./img/summary/checked_circle.svg" alt="" />
+                <div>
+                  <div class="card-number" id="amountTasksDone"></div>
+                  <div class="card-text">Done</div>
+                </div>
               </div>
-            </div>
+            </a>
           </div>
 
           <div class="summary">
-            <div class="card card-bottom">
-              <p class="card-number" id="totalTasks">5</p>
-              <p class="card-text">Tasks in<br />Board</p>
+            <a href="board.html">
+              <div class="card card-middle" onclick="redirectToBoard()">
+                <div class="urgent-counter">
+                  <img src="./img/summary/urgent.svg" alt="" />
+                  <div>
+                    <div class="card-number" id="amountUrgent"></div>
+                    <div class="card-text-urgent">Urgent</div>
+                  </div>
+                </div>
+                <img src="./img/summary/separator_urgent.svg" alt="" />
+                <div class="date">
+                  <div class="card-text-date" id="nextDate"></div>
+                  <div class="card-text-deadline">Upcoming Deadline</div>
+                </div>
+              </div>
             </div>
-            <div class="card card-bottom">
-              <p class="card-number" id="amountTasksInProgress">2</p>
-              <p class="card-text">Tasks in<br />Progress</p>
-            </div>
-            <div class="card card-bottom">
-              <p class="card-number" id="amountTasksAwaitFeedback">2</p>
-              <p class="card-text">Awaiting<br />Feedback</p>
-            </div>
+            </a>
+
+
+          <div class="summary">
+            <a href="board.html">
+              <div class="card card-bottom">
+                <p class="card-number" id="totalTasks"></p>
+                <p class="card-text">Tasks in<br />Board</p>
+              </div>
+            </a>
+
+            <a href="board.html">
+              <div class="card card-bottom">
+                <p class="card-number" id="amountTasksInProgress"></p>
+                <p class="card-text">Tasks in<br />Progress</p>
+              </div>
+            </a>
+
+            <a href="board.html">
+              <div class="card card-bottom">
+                <p class="card-number" id="amountTasksAwaitFeedback"></p>
+                <p class="card-text">Awaiting<br />Feedback</p>
+              </div>
+            </a>
+
           </div>
         </div>
         <div id="greetingContainer"></div>
