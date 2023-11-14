@@ -16,18 +16,18 @@ let dataTasks = [
     ],
     assignedTo: [1, 2, 5],
     urgency: "urgent",
-    date: "mm.dd.yyyy",
+    date: "03.02.2023",
   },
   {
     id: 1,
-    position: "InProgress",
+    position: "AwaitFeedback",
     category: "Technical Task",
     title: "Hier ist ein technischer Task",
     task: "Baue eine neue schöne Kochweltseite",
     subtasks: [],
     assignedTo: [5],
     urgency: "medium",
-    date: "mm.dd.yyyy",
+    date: "09.11.2023",
   },
   {
     id: 2,
@@ -51,7 +51,7 @@ let dataTasks = [
     ],
     assignedTo: [],
     urgency: "low",
-    date: "mm.dd.yyyy",
+    date: "14.11.2023",
   },
   {
     id: 3,
@@ -67,6 +67,6 @@ let dataTasks = [
     ],
     assignedTo: [6],
     urgency: "urgent",
-    date: "mm.dd.yyyy",
+    date: "01.12.2024",
   },
 ];

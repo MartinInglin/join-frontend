@@ -73,6 +73,7 @@
 .card-top:hover .card-text,
 .card-middle:hover .card-text-date,
 .card-middle:hover .card-text-deadline,
+.card-middle:hover .card-text-urgent,
 .card-bottom:hover .card-text {
   color: white;
 }
