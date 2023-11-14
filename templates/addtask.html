@@ -33,7 +33,7 @@
                         <input type="text" id="contactInput"
                             placeholder="Select contacts to assign"
                             onclick="openContactList(); doNotTriggerEvent(event)"
-                            oninput="searchContactToAssign()">
+                            oninput="searchContactToAssign()" onfocus="openContactList()">
                         <div id="contactsDropDown"></div>
                         <button id="addContact">Add new contact<img
                                 src="../img/add_task/person_add.png"></button>
@@ -74,7 +74,7 @@
                     <div class="input-group">
                         <input type="text" placeholder="Add new subtask"
                             id="inputSubTask" onfocus="activateSubtask()"
-                            onfocusout="leaveSubTaskInput()">
+                            onfocusout="leaveSubTaskInput()" onkeydown="handleEnter(event)">
                         <div class="input-group-buttons">
                             <button class="d-none"
                                 id="inputSubTaskIcon1"

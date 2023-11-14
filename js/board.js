@@ -7,9 +7,16 @@ const urgenciesImg = [
   },
 ];
 
-function initBoard() {
+async function initBoard() {
+  await getTasks();
   createTasks();
   setIdOfCurrentPage(2);
+}
+
+async function getTasks() {
+  let data = await getItem('tasks');
+  let tasksAsString = data.data.value;
+  dataTasks = JSON.parse(tasksAsString);
 }
 
 function createTasks(filterString) {

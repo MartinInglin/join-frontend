@@ -1,7 +1,13 @@
 let priorityOfTask;
-let subtasks = [];
+let newSubtasks = [];
 let selectedContacts = [];
-let nextFreeId = 4;
+let nextFreeId = findFreeId(dataTasks);
+
+function handleEnter(event) {
+    if (event.key === "Enter") {
+        addSubtask();
+    }
+}
 
 function initAddTask() {
     setIdOfCurrentPage(1);
@@ -141,7 +147,12 @@ function leaveSubTaskInput() {
 
 function addSubtask() {
     let input = document.getElementById('inputSubTask');
-    subtasks.push(input.value);
+    let newSubtask = {
+        content: input.value,
+        checked: false,
+    };
+
+    newSubtasks.push(newSubtask);
     renderSubtasks();
     input.value = '';
 }
@@ -150,12 +161,12 @@ function renderSubtasks() {
     let showSubtasks = document.getElementById('showSubtasks');
     let i = 0;
     showSubtasks.innerHTML = '';
-    subtasks.forEach((subtask) => {
+    newSubtasks.forEach((subtask) => {
         showSubtasks.innerHTML += `
             <li class="list-element" id="subtask${i}" ondblclick="editSubtask('subtask${i}', 'editSubtaskIcon1${i}', 'editSubtaskIcon2${i}', '${i}')">
                 <div class="list-text pointer">
                     <div id="subtaskContent${i}">
-                        ${subtask}
+                        ${subtask.content}
                     </div>
                     <div class="subtask-button-container">
                         <img src="../img/add_task/edit.png" class="pointer" id="editSubtaskIcon1${i}" onclick="editSubtask('subtask${i}', 'editSubtaskIcon1${i}', 'editSubtaskIcon2${i}', '${i}')">
@@ -169,17 +180,17 @@ function renderSubtasks() {
 }
 
 function clearAll() {
-        document.getElementById('inputTitel').value = '';
-        document.getElementById('inputDescription').value = '';
-        document.getElementById('inputDate').value = '';
-        document.getElementById('inputSubTask').value = '';
-        document.getElementById('selectCategory').selectedIndex = 0;
-        subtasks.splice(0, subtasks.length);
-        selectedContacts.splice(0, selectedContacts.length);
-        resetAll();
-        renderSubtasks();
-        renderContacts();
-        renderContactInitialIcons();
+    document.getElementById('inputTitel').value = '';
+    document.getElementById('inputDescription').value = '';
+    document.getElementById('inputDate').value = '';
+    document.getElementById('inputSubTask').value = '';
+    document.getElementById('selectCategory').selectedIndex = 0;
+    newSubtasks.splice(0, newSubtasks.length);
+    selectedContacts.splice(0, selectedContacts.length);
+    resetAll();
+    renderSubtasks();
+    renderContacts();
+    renderContactInitialIcons();
 }
 
 function editSubtask(id, btn1, btn2, i) {
@@ -199,7 +210,7 @@ function editSubtask(id, btn1, btn2, i) {
 }
 
 function deleteSubtask(i) {
-    subtasks.splice(i, 1);
+    newSubtasks.splice(i, 1);
     renderSubtasks();
 }
 
@@ -208,7 +219,7 @@ function saveEditSubtask(id, btn1, btn2, i) {
     let content = document.getElementById(`subtaskContent${i}`);
     let button1 = document.getElementById(btn1);
     let button2 = document.getElementById(btn2);
-    subtasks.splice(i, 1, content.innerText);
+    newSubtasks.splice(i, 1, content.innerText);
     subtask.removeAttribute('contentEditable');
     button1.setAttribute('src', 'img/add_task/edit.png');
     button1.setAttribute('onclick', `editSubtask('subtask${i}', 'editSubtaskIcon1${i}', 'editSubtaskIcon2${i}', '${i}')`);
@@ -324,29 +335,52 @@ function createTask() {
         category: selectCategory,
         title: inputTitel,
         task: inputDescription,
-        subtasks: [
-            {
-                content: subtasks,
-                checked: false,
-            },
-        ],
+        subtasks: [],
         assignedTo: selectedContacts,
         urgency: priorityOfTask,
         date: inputDate,
     };
-    nextFreeId++;
+    newSubtasks.forEach((task) => {
+        newTask.subtasks.push(task);
+    });
     dataTasks.push(newTask);
-    console.log(dataTasks);
-    createTasks();
-    clearAll();
+    setTasks();
+    if (idOfCurrentPage == 2) {
+        createTasks();
+        setTimeout(() => {
+            closeDialog();
+        }, 1000);
+    } else {
+        setTimeout(() => {
+            window.open('./board.html', '_self');
+        }, 1000);
+    }
     dialogSucces.classList.remove('d-none');
     setTimeout(() => {
+        clearAll();
         dialogSucces.classList.add('d-none');
-        window.open('./board.html', '_self')
     }, 1000);
 }
 
 function addNewContact() {
     let addContact = document.getElementById('addContact');
     addContact.style.backgroundColor = '#091931';
+}
+
+function setTasks() {
+    setItem('tasks', dataTasks);
+}
+
+function findFreeId(array) {
+    const sortedArray = array
+        .slice()
+        .sort(function (a, b) { return a.id - b.id });
+    let previousId = 0;
+    for (let element of sortedArray) {
+        if (element.id != (previousId + 1)) {
+            return previousId + 1;
+        }
+        previousId = element.id;
+    }
+    return previousId + 1;
 }
