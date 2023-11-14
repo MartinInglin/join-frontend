@@ -10,8 +10,10 @@ body {
 main {
     margin-left: 232px;
     padding: 180px 96px 0 96px;
+    height: 100vh;
     flex-grow: 1;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 h1 {
@@ -67,17 +69,14 @@ header {
     scrollbar-width: auto;
     scrollbar-color: #a8a8a8 #ffffff;
 }
-
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
     width: 8px;
     height: 4px;
 }
-
 *::-webkit-scrollbar-track {
     background: #ffffff;
 }
-
 *::-webkit-scrollbar-thumb {
     background-color: #a8a8a8;
     border-radius: 10px;
