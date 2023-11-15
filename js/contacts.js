@@ -27,7 +27,7 @@ function loadContactList() {
             `;
         }
 
-        contactList.innerHTML += generatContactListHTML(contact);
+        contactList.innerHTML += generatContactListHTML(i, contact);
         let highlight = document.getElementById(`cont${contact.id}`);
         highlight.classList.remove('cont-clickt');
     }
