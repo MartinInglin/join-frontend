@@ -99,8 +99,7 @@ function createNewContact() {
     contacts.push(newContact);
 
     closeAddNewContact();
-    showContact(newContact);
-    loadContactList();
+    showContact(contacts.length -1, newContact.id);
 }
 
 function getRandomColor() {
