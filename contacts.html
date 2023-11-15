@@ -28,34 +28,36 @@
     <header w3-include-html="./templates/header.html"></header>
     <aside w3-include-html="./templates/menubar.html"></aside>
 
-    <div id="contacts" class="contacts">
-        <div class="add-new-contact">
-            <button onclick="addNewContact()" class="btn btn-add-new-cont">Add new contact <img
-                    src="./img/contact/person_add.png"></button>
+    <main>
+        <div id="contacts" class="contacts">
+            <div class="add-new-contact">
+                <button onclick="addNewContact()" class="btn btn-add-new-cont">Add new contact <img
+                        src="./img/contact/person_add.png"></button>
+            </div>
+            <div id="contact-list" class="contact-list">
+            </div>
         </div>
-        <div id="contact-list" class="contact-list">
+        <div id="bg-message" class="bg-message d-none">
+            <div id="add-new-contact" class="show-add-new-contact">
+            </div>
         </div>
-    </div>
-    <div id="bg-message" class="bg-message d-none">
-        <div id="add-new-contact" class="show-add-new-contact">
+        <div class="headline">
+            <h2>Contacts</h2>
+            <span>Better with a team</span>
         </div>
-    </div>
-    <div class="headline">
-        <h2>Contacts</h2>
-        <span>Better with a team</span>
-    </div>
-    <div id="show-contact" class="show-contact d-none">
-        <div id="name" class="show-cont-name">
+        <div id="show-contact" class="show-contact d-none">
+            <div id="name" class="show-cont-name">
+            </div>
+            <div class="contact-info">
+                <span>Contact Information</span>
+            </div>
+            <div id="info" class="info">
+            </div>
+            <div id="create-new-contact" class="create-new-contact d-none">
+                <span>Contact succesfully created</span>
+            </div>
         </div>
-        <div class="contact-info">
-            <span>Contact Information</span>
-        </div>
-        <div id="info" class="info">
-        </div>
-        <div id="create-new-contact" class="create-new-contact d-none">
-            <span>Contact succesfully created</span>
-        </div>
-    </div>
+    </main>
 </body>
 
 </html>
