@@ -59,6 +59,7 @@
 }
 
 .close-btn {
+    cursor: pointer;
     position: absolute;
     top: 48px;
     right: 48px;
@@ -191,51 +192,76 @@
     width: 364px;
     height: 57px;
     display: inline-flex;
-    justify-content: center;
     align-items: center;
     gap: 24px;
 }
 
-.btn-cancel {
-    cursor: pointer;
+#btn-cancel {
     width: 126px;
-    height: calc(56px - 32px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 16px;
-    gap: 4px;
+    height: 56px;
+    font-size: 20px;
+    border: 1px solid rgba(42, 54, 71, 1);
+    background-color: rgba(246, 247, 248, 1);
     border-radius: 10px;
-    border: 1px solid #2A3647;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
-.btn-cancel span {
-    color: #2A3647;
+#btn-create {
+    width: 183px;
+    height: 56px;
+    font-size: 17px;
+    color: white;
+    font-weight: 700;
+    border: none;
+    background-color: rgba(42, 54, 71, 1);
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+#btn-create img {
+    width: 24px;
+    height: 24px;
+}
+
+#btn-cancel:hover {
+    border: 2px solid #29ABE2;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    color: #29ABE2;
+}
+
+#btn-cancel:hover path {
+    stroke: #29ABE2;
+}
+
+#btn-create:hover {
+    box-shadow: 0px 4px 4px 0px #00000040;
+    background-color: #29ABE2;
+}
+
+.create-new-contact {
+    position: absolute;
+    top: 480px;
+    display: flex;
+    width: 326px;
+    height: 74px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background: #2A3647;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+.create-new-contact span {
+    color: #FFF;
     font-family: Inter;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: 120%;
-}
-
-.btn-create {
-    cursor: pointer;
-    width: 214px;
-    height: calc(57px - 32px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 16px;
-    gap: 4px;
-    border-radius: 10px;
-    background: #2A3647;
-}
-
-.btn-create span {
-    color: #FFF;
-    font-family: Inter;
-    font-size: 19px;
-    font-style: normal;
-    font-weight: 700;
     line-height: 120%;
 }
