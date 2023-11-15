@@ -1,7 +1,7 @@
 let priorityOfTask;
 let newSubtasks = [];
 let selectedContacts = [];
-let nextFreeId = findFreeId(dataTasks);
+let nextFreeId;
 
 function handleEnter(event) {
     if (event.key === "Enter") {
@@ -9,8 +9,8 @@ function handleEnter(event) {
     }
 }
 
-function initAddTask() {
-    setIdOfCurrentPage(1);
+async function initAddTask() {
+    await getTasks();
     loadContactsSelection();
 }
 
@@ -328,6 +328,7 @@ function createTask() {
     let inputDate = document.getElementById('inputDate').value;
     let selectCategory = document.getElementById('selectCategory').value;
     let dialogSucces = document.getElementById('dialogSucces');
+    nextFreeId = findFreeId(dataTasks);
 
     let newTask = {
         id: nextFreeId,
@@ -372,9 +373,10 @@ function setTasks() {
 }
 
 function findFreeId(array) {
-    const sortedArray = array
-        .slice()
-        .sort(function (a, b) { return a.id - b.id });
+    // const sortedArray = array
+        // .slice()
+        // .sort(function (a, b) { return a.id - b.id });
+        const sortedArray = array.slice().sort((a, b) => a.id - b.id);
     let previousId = 0;
     for (let element of sortedArray) {
         if (element.id != (previousId + 1)) {

@@ -20,6 +20,7 @@ function changePosition(newPosition) {
     console.error("Task not found with ID:", id);
   }
   createTasks();
+  setTasks();
 }
 
 function highlight() {
