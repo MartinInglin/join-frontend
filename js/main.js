@@ -15,6 +15,16 @@ async function getItem(key) {
     const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
     return fetch(url).then(res => res.json());
 }
+
+function setTasks() {
+    setItem('tasks', dataTasks);
+}
+
+async function getTasks() {
+    let data = await getItem('tasks');
+    let tasksAsString = data.data.value;
+    dataTasks = JSON.parse(tasksAsString);
+  }
 /**
  * This function is used to including template HTML to other Pages.
  * 

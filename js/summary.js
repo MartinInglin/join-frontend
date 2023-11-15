@@ -3,9 +3,9 @@ let idOfUser = 1;
 /**
  * This function contains all the functionts that should be called on load of the body.
  */
-function init() {
+async function init() {
+  await getTasks();
   getTimeOfDay();
-  setIdOfCurrentPage(0);
   setAmountTasksPosition();
   setTotalTasks();
   setAmountUrgent();

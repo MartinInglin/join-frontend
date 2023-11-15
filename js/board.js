@@ -12,12 +12,6 @@ async function initBoard() {
   createTasks();
 }
 
-async function getTasks() {
-  let data = await getItem('tasks');
-  let tasksAsString = data.data.value;
-  dataTasks = JSON.parse(tasksAsString);
-}
-
 function createTasks(filterString) {
   for (let i = 0; i < columns.length; i++) {
     let filteredTasks;

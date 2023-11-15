@@ -368,10 +368,6 @@ function addNewContact() {
     addContact.style.backgroundColor = '#091931';
 }
 
-function setTasks() {
-    setItem('tasks', dataTasks);
-}
-
 function findFreeId(array) {
     // const sortedArray = array
         // .slice()
