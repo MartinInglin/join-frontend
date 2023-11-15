@@ -88,7 +88,7 @@ function createNewContact() {
     let lastname = nameParts.slice(1).join(' ') || '';
 
     let newContact = {
-        id: contacts.length, 
+        id: findFreeId(contacts), 
         icon: getRandomColor(),
         firstname: firstname,
         lastname: lastname,
