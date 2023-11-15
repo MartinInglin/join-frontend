@@ -63,7 +63,7 @@ function renderCardDetail(i, j) {
               <div>Delete</div>
             </div>
             <img src="./img/board_card_detail/separator_card_detail_bottom.svg" alt="">
-            <div class="edit" onmouseover="SVGOnHover('editImg', 'edit')" onmouseout="SVGMouseOut('editImg', 'edit')">
+            <div class="edit" onmouseover="SVGOnHover('editImg', 'edit')" onmouseout="SVGMouseOut('editImg', 'edit')" onclick="showCardEdit()">
               <img src="./img/board_card_detail/edit.svg" alt="" id="editImg">
               <div>Edit</div>
             </div>

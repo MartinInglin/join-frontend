@@ -1,0 +1,128 @@
+.left-50-percent {
+    left: 50%;
+}
+
+.card-edit-scroll {
+  height: 697px;
+  overflow-y: auto;
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-edit-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+  padding-right: 8px;
+}
+
+.subtitle {
+  color: #2a3647;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 24px */
+}
+
+.card-edit-section-input {
+  display: flex;
+  padding: 12px 21px;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 10px;
+  border: 1px solid #d1d1d1;
+  background: #fff;
+  margin-bottom: 12px;
+  justify-content: space-between;
+}
+
+.card-edit-section input:focus {
+  outline: none;
+}
+
+.font-size-19 {
+  color: black;
+  font-family: Open Sans;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.font-size-20 {
+  color: black;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.card-edit-priority {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+  margin-bottom: 12px;
+}
+
+.card-edit-priority-btn {
+  display: flex;
+  padding: 16px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex: 1 0 0;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.add-subtask {
+  border: none;
+}
+
+.add-subtask::placeholder {
+  color: #d1d1d1;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.card-edit-members {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.subtasks-list {
+    width: 100%;
+}
+
+.subtask-item {
+  list-style-type: disc;
+  display: flex;
+  height: 32px;
+  padding: 6px 16px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  color: #000;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.subtask-item:hover {
+  background-color: #d1d1d1;
+}
