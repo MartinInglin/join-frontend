@@ -367,18 +367,3 @@ function addNewContact() {
     let addContact = document.getElementById('addContact');
     addContact.style.backgroundColor = '#091931';
 }
-
-function findFreeId(array) {
-    // const sortedArray = array
-        // .slice()
-        // .sort(function (a, b) { return a.id - b.id });
-        const sortedArray = array.slice().sort((a, b) => a.id - b.id);
-    let previousId = 0;
-    for (let element of sortedArray) {
-        if (element.id != (previousId + 1)) {
-            return previousId + 1;
-        }
-        previousId = element.id;
-    }
-    return previousId + 1;
-}

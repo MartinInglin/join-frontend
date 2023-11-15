@@ -1,11 +1,4 @@
 let contacts = [{
-    id: 0,
-    'icon': 'blue',
-    'firstname': 'Guest',
-    'lastname': '',
-    'email': '',
-    'phone-number': ''
-},{
     id: 1,
     'icon': 'green',
     'firstname': 'Anja',
