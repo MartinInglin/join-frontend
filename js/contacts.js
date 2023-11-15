@@ -27,20 +27,20 @@ function loadContactList() {
             `;
         }
 
-        contactList.innerHTML += generatContactListHTML(i, contact);
+        contactList.innerHTML += generatContactListHTML(i);
         let highlight = document.getElementById(`cont${contact.id}`);
         highlight.classList.remove('cont-clickt');
     }
     hideContact();
 }
 
-function showContact(i, id) {
+function showContact(i) {
     loadContactList();
     const contact = contacts[i];
     let showcontact = document.getElementById('show-contact');
     let info = document.getElementById('info');
     let name = document.getElementById('name');
-    let highlight = document.getElementById(`cont${id}`);
+    let highlight = document.getElementById(`cont${contact.id}`);
 
     hideContact(i);
     highlight.classList.add('cont-clickt');
