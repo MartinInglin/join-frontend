@@ -10,7 +10,6 @@ const urgenciesImg = [
 async function initBoard() {
   await getTasks();
   createTasks();
-  setIdOfCurrentPage(2);
 }
 
 async function getTasks() {
