@@ -24,7 +24,7 @@
 
 </head>
 
-<body onload="includeHTML(); loadContactList(); addNewContact(); init()">
+<body onload="includeHTML(); loadContactList(); init()">
     <header w3-include-html="./templates/header.html"></header>
     <aside w3-include-html="./templates/menubar.html"></aside>
 
@@ -34,10 +34,9 @@
                     src="./img/contact/person_add.png"></button>
         </div>
         <div id="contact-list" class="contact-list">
-
         </div>
     </div>
-    <div class="bg-message ">
+    <div id="bg-message" class="bg-message d-none">
         <div id="add-new-contact" class="show-add-new-contact">
         </div>
     </div>
@@ -52,6 +51,9 @@
             <span>Contact Information</span>
         </div>
         <div id="info" class="info">
+        </div>
+        <div id="create-new-contact" class="create-new-contact d-none">
+            <span>Contact succesfully created</span>
         </div>
     </div>
 </body>
