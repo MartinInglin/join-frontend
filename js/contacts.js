@@ -44,7 +44,6 @@ function getIndexById(contactId) {
 
 function showContact(id) {
     loadContactList();
-    debugger
     let i = getIndexById(id);
 
     const contact = contacts[i];
