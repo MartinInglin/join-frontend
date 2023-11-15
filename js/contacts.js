@@ -14,7 +14,7 @@ function loadContactList() {
 
         if (firstLetter !== currentLetter) {
             currentLetter = firstLetter;
-            contactList.innerHTML += 
+            contactList.innerHTML +=
             /*html*/ `
             <div class="letter">
                 <span>${currentLetter}</span>
@@ -34,8 +34,19 @@ function loadContactList() {
     hideContact();
 }
 
-function showContact(i) {
+function getIndexById(contactId) {
+    for (let i = 0; i < contacts.length; i++) {
+        if (contacts[i].id === contactId) {
+            return i;
+        }
+    }
+}
+
+function showContact(id) {
     loadContactList();
+    debugger
+    let i = getIndexById(id);
+
     const contact = contacts[i];
     let showcontact = document.getElementById('show-contact');
     let info = document.getElementById('info');
@@ -45,7 +56,7 @@ function showContact(i) {
     hideContact(i);
     highlight.classList.add('cont-clickt');
     showcontact.classList.remove('d-none');
-    name.innerHTML = generatShowContactNameHTML(contact);   
+    name.innerHTML = generatShowContactNameHTML(contact);
     info.innerHTML = generatInfoHTML(contact);
 
     animationShowContact();

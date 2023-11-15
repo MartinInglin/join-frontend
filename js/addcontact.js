@@ -28,7 +28,7 @@ function addNewContact() {
     </div>
     <div class="info-new-cont">
         <div class="input-field">
-            <input id="name" type="text" placeholder="Name" class="form-control" required>
+            <input id="nameInput" type="text" placeholder="Name" class="form-control" required>
             <span class="info-icon icon-name"></span>            
         </div>
         <div class="input-field">
@@ -80,7 +80,7 @@ function hidenAddNewContact() {
 }
 
 function createNewContact() {
-    let nameInput = document.getElementById('name');
+    let nameInput = document.getElementById('nameInput');
     let emailInput = document.getElementById('email');
     let phoneInput = document.getElementById('phone');
     let nameParts = nameInput.value.split(' ');
@@ -99,7 +99,7 @@ function createNewContact() {
     contacts.push(newContact);
 
     closeAddNewContact();
-    showContact(contacts.length -1, newContact.id);
+    showContact(newContact.id);
 }
 
 function getRandomColor() {

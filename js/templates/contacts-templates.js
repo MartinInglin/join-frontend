@@ -1,6 +1,6 @@
 function generatContactListHTML(i) {
     return  /*html*/`
-    <div id="cont${contacts[i].id}" onclick="showContact(${i})" class="cont">
+    <div id="cont${contacts[i].id}" onclick="showContact(${contacts[i].id})" class="cont">
         <div class="cont-icon">
             <div>
                 <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
