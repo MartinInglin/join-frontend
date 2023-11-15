@@ -101,3 +101,15 @@ function getUserInitials(user) {
 function goBackToLastPage() {
     window.history.back();
 }
+
+function findFreeId(array) {
+    const sortedArray = array.slice().sort((a, b) => a.id - b.id);
+let previousId = 0;
+for (let element of sortedArray) {
+    if (element.id != (previousId + 1)) {
+        return previousId + 1;
+    }
+    previousId = element.id;
+}
+return previousId + 1;
+}
