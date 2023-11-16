@@ -15,6 +15,7 @@ async function initAddTask() {
     await getCurrentUser();
     loadContactsSelection();
     createHeaderInitials();
+    checkRequiredInput();
 }
 
 function loadContactsSelection() {
@@ -325,7 +326,6 @@ function renderContactInitialIcons() {
 
 function createTask() {
     let createTask = document.getElementById('createTask');
-    createTask.style.backgroundColor = '#091931';
     let inputTitel = document.getElementById('inputTitel').value;
     let inputDescription = document.getElementById('inputDescription').value;
     let inputDate = document.getElementById('inputDate').value;
@@ -333,6 +333,7 @@ function createTask() {
     let dialogSucces = document.getElementById('dialogSucces');
     nextFreeId = findFreeId(dataTasks);
 
+    createTask.style.backgroundColor = '#091931';
     let newTask = {
         id: nextFreeId,
         position: "Todo",
@@ -369,4 +370,17 @@ function createTask() {
 function addNewContact() {
     let addContact = document.getElementById('addContact');
     addContact.style.backgroundColor = '#091931';
+}
+
+function checkRequiredInput() {
+    let inputTitel = document.getElementById('inputTitel').value;
+    let inputDate = document.getElementById('inputDate').value;
+    let selectCategory = document.getElementById('selectCategory').value;
+    let createTask = document.getElementById('createTask');
+
+        if (inputTitel.length > 0 && inputDate.length > 0 && selectCategory !== 'Select task category') {
+            createTask.disabled = false;
+        } else {
+            createTask.disabled = true;
+        }
 }
