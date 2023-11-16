@@ -9,7 +9,10 @@ const urgenciesImg = [
 
 async function initBoard() {
   await getTasks();
+  await getUsers();
+  await getCurrentUser();
   createTasks();
+  createHeaderInitials();
 }
 
 function createTasks(filterString) {

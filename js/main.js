@@ -5,6 +5,11 @@ const STORAGE_TOKEN = 'RPU0FT0UVM1WMXF2YVD579M9QJN3HJWKW84Z2NEB';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 let currentUser;
 
+async function initOthers() {
+    await getUsers();
+    await getCurrentUser();
+    createHeaderInitials();
+}
 
 async function setItem(key, value) {
     const payload = { key, value, token: STORAGE_TOKEN };

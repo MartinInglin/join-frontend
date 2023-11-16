@@ -11,7 +11,10 @@ function handleEnter(event) {
 
 async function initAddTask() {
     await getTasks();
+    await getUsers();
+    await getCurrentUser();
     loadContactsSelection();
+    createHeaderInitials();
 }
 
 function loadContactsSelection() {

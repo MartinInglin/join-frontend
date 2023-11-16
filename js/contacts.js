@@ -1,5 +1,7 @@
-function init() {
-    setIdOfCurrentPage(3);
+async function init() {
+    await getUsers();
+    await getCurrentUser();
+    createHeaderInitials();
 }
 
 function loadContactList() {
