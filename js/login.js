@@ -45,7 +45,7 @@ async function logIn() {
             if (checkUser(i, email)) {
                 if (checkPasswort(i, password)) {
                     await setCurrentUser(users[i].id);
-                    window.location.href = 'summary.html'
+                    window.location.href = 'summary.html';
                 } else {
                     alert('Passwort falsch');
                 }
@@ -54,6 +54,11 @@ async function logIn() {
             }
         }
     }
+}
+
+function guestLogIn() {
+    setCurrentUser(1);
+    window.location.href = 'summary.html';
 }
 
 function checkUser(i, email) {

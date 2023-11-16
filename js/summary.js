@@ -46,8 +46,8 @@ function createGreeting(timeOfDay) {
   let welcomeText = "";
   let userNameText = "";
 
-  if (currentUser === 0) {
-    welcomeText = `Good ${timeOfDay},`;
+  if (currentUser === 1) {
+    welcomeText = `Good ${timeOfDay}`;
   } else {
     const user = users.find((user) => user.id === currentUser);
 
