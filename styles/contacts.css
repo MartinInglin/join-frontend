@@ -137,13 +137,13 @@ select {
 }
 
 .cont {
-    width: 352px;
-    height: 78px;
-    padding: 15px 24px 15px 24px;
-    border-radius: 10px;
-    gap: 35px;
     display: flex;
-    align-items: center;
+    width: 352px;
+    padding: 15px 24px;
+    align-items: flex-start;
+    gap: 35px;
+    border-radius: 10px;
+    background: #FFF;
 }
 
 .cont a {
@@ -211,6 +211,9 @@ select {
     position: absolute;
     top: 311px;
     left: 750px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
     width: 461px;
     height: 364px;
     gap: 21px;
