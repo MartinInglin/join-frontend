@@ -186,9 +186,6 @@
 }
 
 .btn-cancel-create {
-    position: absolute;
-    top: 400px;
-    right: 106px;
     width: 364px;
     height: 57px;
     display: inline-flex;
