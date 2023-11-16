@@ -146,10 +146,12 @@ function formatNextDate() {
 function getNextDate() {
   const currentDate = new Date();
   currentDate.setHours(0, 0, 0, 0);
+  console.log("Current Date " + currentDate);
   let nextDate = null;
 
   for (const task of dataTasks) {
     const taskDate = parseDate(task.date);
+    console.log("Task Date " + taskDate)
 
     if (taskDate && taskDate >= currentDate && (!nextDate || taskDate < nextDate)) {
       nextDate = taskDate;

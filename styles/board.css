@@ -35,6 +35,10 @@
   flex: 1;
 }
 
+.height-1 {
+  height: 1px;
+}
+
 .title {
   width: 100%;
 }
@@ -49,7 +53,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 312px;
   height: 48px;
   gap: 10px;
   padding: 8px 16px;
@@ -98,11 +101,10 @@
 
 .columns {
   display: flex;
-  justify-content: space-between;
   width: 100%;
   gap: 26px;
   margin-bottom: 24px;
-  max-width: 1080px;
+  max-width: 1700px;
 }
 
 .title-column {
@@ -132,10 +134,8 @@
 
 .task-column {
   display: flex;
-  width: 252px;
   flex-direction: column;
   gap: 24px;
-  max-height: 50vh;
   overflow-y: auto;
 
 }
@@ -170,7 +170,7 @@
   flex-direction: column;
   cursor: pointer;
   height: fit-content;
-  margin: 12px;
+  margin: 8px 16px;
 }
 
 .category {

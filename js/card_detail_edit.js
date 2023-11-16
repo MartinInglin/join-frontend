@@ -59,7 +59,9 @@ function showCardEdit() {
               <img src="./img/board_card_detail/add_subtask.svg" alt="">
             </div>
             <ul class="subtasks-list">
-              <li class="subtask-item">Coffee</li>
+              <li class="subtask-item">
+                <div>Text</div>
+              </li>
               <li class="subtask-item">Tea</li>
               <li class="subtask-item">Milk</li>
             </ul> 
