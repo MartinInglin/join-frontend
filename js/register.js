@@ -1,5 +1,3 @@
-let user = [];
-
 function backToLogIn() {
     window.location.href = 'login.html';
 }
@@ -25,9 +23,15 @@ function register() {
             signUpMessage.style.top = "40%";
             signUpMessage.style.zIndex = "5";
         }, 500);
-            user.push({ name: name.value, email: email.value, password: password.value, confirm_password: confirm_password.value });
+        users.push({
+            id: findFreeId(users),
+            'name': name.value,
+            'email': email.value,
+            'password': password.value
+        });
+        setUsers();
         setTimeout(function () {
             window.location.href = 'login.html';
         }, 2000);
-        }
+    }
 }

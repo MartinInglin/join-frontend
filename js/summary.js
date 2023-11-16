@@ -5,11 +5,14 @@ let idOfUser = 1;
  */
 async function init() {
   await getTasks();
+  await getUsers();
+  await getCurrentUser();
   getTimeOfDay();
   setAmountTasksPosition();
   setTotalTasks();
   setAmountUrgent();
   setDeadline();
+  createHeaderInitials();
 }
 
 /**
@@ -43,14 +46,14 @@ function createGreeting(timeOfDay) {
   let welcomeText = "";
   let userNameText = "";
 
-  if (idOfUser === 0) {
+  if (currentUser === 0) {
     welcomeText = `Good ${timeOfDay},`;
   } else {
-    const user = contacts.find((contact) => contact.id === idOfUser);
+    const user = users.find((user) => user.id === currentUser);
 
     if (user) {
       welcomeText = `Good ${timeOfDay},`;
-      userNameText = `${user.firstname} ${user.lastname}`;
+      userNameText = `${user.name}`;
     }
   }
 

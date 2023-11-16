@@ -1,13 +1,11 @@
-let user = [{
-    id: 0,
-    'name' : 'Guest',
-    'icon': 'blue',
-    'email': '',
-    'password': ''
-},{
+let users = [{
     id: 1,
+    'name' : 'Guest',
+    'email': 'guest@mail.guest',
+    'password': 'guest'
+},{
+    id: 2,
     'name' : 'Sofia Müller',
-    'icon': 'Ligth blue',
     'email': 'sofiam@gmail.com',
     'password': 'mypassword123'
 }]

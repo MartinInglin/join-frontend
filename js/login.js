@@ -1,6 +1,11 @@
-function init() {
+async function init() {
+    await getUsers();
     startImage();
     showLogIn();
+}
+
+async function initLogin() {
+    await getUsers();
 }
 
 function startImage() {
@@ -27,6 +32,43 @@ function signUp() {
     window.location.href = 'register.html';
 }
 
-function logIn() {
-    window.location.href = 'summary.html'
+async function logIn() {
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
+    let i = getIndexOfUser(email);
+    if (email.length <= 3) {
+        alert('Bitte Email eingeben');
+    } else {
+        if (password.length <= 3) {
+            alert('Bitte Passwort eingeben');
+        } else {
+            if (checkUser(i, email)) {
+                if (checkPasswort(i, password)) {
+                    await setCurrentUser(users[i].id);
+                    window.location.href = 'summary.html'
+                } else {
+                    alert('Passwort falsch');
+                }
+            } else {
+                alert('Email falsch');
+            }
+        }
+    }
+}
+
+function checkUser(i, email) {
+    return users[i].email == email;
+}
+
+function getIndexOfUser(email) {
+    for (let i = 0; i < users.length; i++) {
+        const user = users[i];
+        if (email == user.email) {
+            return i;
+        }
+    }
+}
+
+function checkPasswort(i, password) {
+    return users[i].password == password;
 }
