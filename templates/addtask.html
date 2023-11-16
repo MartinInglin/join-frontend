@@ -1,4 +1,4 @@
-<div onclick="closeContactList()">
+<div class="size100" onclick="closeContactList()">
     <div class="close-dialog d-none" id="closeDialog" onclick="closeDialog()">
         <img src="./img/add_task/close.png">
     </div>
@@ -15,7 +15,7 @@
                 <div class="titel">
                     <div>Titel<span>*</span></div>
                     <input type="text" required placeholder="Enter a title"
-                        id="inputTitel">
+                        id="inputTitel" oninput="checkRequiredInput()">
                 </div>
                 <div class="description">
                     <div>Description</div>
@@ -46,7 +46,7 @@
                 <div class="due-date">
                     <div>Due date<span>*</span></div>
                     <input type="date" required data-date
-                        data-date-format="DD/MM/YYYY" id="inputDate">
+                        data-date-format="DD/MM/YYYY" id="inputDate" oninput="checkRequiredInput()">
                 </div>
                 <div class="prio">
                     <div>Prio</div>
@@ -62,7 +62,7 @@
                 <div class="choose-category">
                     <div>Category<span>*</span></div>
                     <div>
-                        <select id="selectCategory">
+                        <select id="selectCategory" onchange="checkRequiredInput()">
                             <option selected>Select task category</option>
                             <option value="Technical Task">Technical Task</option>
                             <option value="User Story">User Story</option>
