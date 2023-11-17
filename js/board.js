@@ -38,12 +38,12 @@ function createTasks(filterString) {
         const categoryClass = setColorCategory(tasks["category"]);
         /*html*/
         tasksContainer.innerHTML += `
-              <div class="card" id="card${i}${j}" draggable="true" ondragstart="startDragging(${tasks['id']}, ${i}, ${j})" ondragend="stopRotate(${i}, ${j})" onclick="showCardDetail(${i}, ${j})"> 
+            <div class="card" id="card${i}${j}" draggable="true" ondragstart="startDragging(${tasks['id']}, ${i}, ${j})" ondragend="stopRotate(${i}, ${j})" onclick="showCardDetail(${i}, ${j})"> 
               <span class="category color-${categoryClass}">${tasks["category"]}</span>
               <h3>${tasks["title"]}</h3>
               <p>${tasks["task"]}</p>
               <div class="subtasks-board" id="subtasks${i}${j}"></div>
-              <div class="space-between align-center">
+              <div class="space-between align-center align-stretch min-height-32">
                 <div class="row" id="assignments${i}${j}">
                 </div>
                 <div class="urgency" id="urgency${i}${j}"><img src="./img/board/priority_low.svg" alt="" /></div>

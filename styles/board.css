@@ -39,6 +39,14 @@
   height: 1px;
 }
 
+.align-stretch {
+  align-self: stretch;
+}
+
+.min-height-32 {
+  min-height: 32px;
+}
+
 .title {
   width: 100%;
 }
@@ -99,12 +107,13 @@
   border: #2a3647 1px solid;
 }
 
-.columns {
+.columns-titles {
   display: flex;
-  width: 100%;
   gap: 26px;
   margin-bottom: 24px;
-  max-width: 1700px;
+  max-width: 1208px;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .title-column {
@@ -132,12 +141,24 @@
   cursor: pointer;
 }
 
+.columns-tasks {
+  display: flex;
+  width: 100%;
+  gap: 26px;
+  margin-bottom: 24px;
+  max-width: 1208px;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
 .task-column {
   display: flex;
   flex-direction: column;
   gap: 24px;
   overflow-y: auto;
-
+  align-items: flex-start;
+  flex: 1 0 0;
+  align-self: stretch;
 }
 
 .empty-task {
@@ -151,13 +172,17 @@
   align-items: center;
   justify-content: center;
   margin: 0 12px;
+  flex-direction: column;
+  align-self: stretch;
 }
 
 .empty-task span {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 19px;
   color: #a8a8a8;
+  font-family: Open Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
 }
 
 .card {
@@ -165,39 +190,46 @@
   border-radius: 24px;
   gap: 10px;
   background-color: white;
-  box-shadow: 0px 0px 10px 3px #00000014;
   display: flex;
-  flex-direction: column;
   cursor: pointer;
-  height: fit-content;
   margin: 8px 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
+  width: 218px;
 }
 
 .category {
-  padding: 4px 16px 4px 16px;
-  border-radius: 8px;
+  display: flex;
+  padding: 4px 16px;
+  align-items: flex-start;
   gap: 10px;
-  background-color: #0038ff;
+  border-radius: 8px;
+}
+
+.card span {
+  color: #fff;
+  font-family: Inter;
   font-size: 16px;
+  font-style: normal;
   font-weight: 400;
-  line-height: 19.2px;
-  color: white;
-  width: fit-content;
-  margin-bottom: 12px;
+  line-height: 120%;
 }
 
 .card p {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 19.2px;
   color: #a8a8a8;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
 }
 
 .subtasks-board {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin: 12px 0;
+  gap: 11px;
 }
 
 .margin-0 {
@@ -226,20 +258,29 @@
 }
 
 .subtasks-text {
+  color: #000;
+  font-family: Inter;
   font-size: 12px;
+  font-style: normal;
   font-weight: 400;
-  line-height: 14.4px;
+  line-height: 120%;
 }
 
 .member-button {
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14.4px;
-  color: #ffffff;
   border-radius: 50%;
   width: 32px;
   height: 32px;
   border: white solid 2px;
+}
+
+.member-button span {
+  color: #fff;
+  text-align: center;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
 }
 
 .dialog {

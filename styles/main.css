@@ -31,10 +31,12 @@ h2 {
 }
 
 h3 {
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 19.2px;
     color: #2A3647;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
 }
 
 h4 {

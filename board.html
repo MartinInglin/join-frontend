@@ -55,7 +55,7 @@
         </div>
       </div>
 
-      <div class="columns">
+      <div class="columns-titles">
         <div class="title-column">
           <span>To do</span>
           <button onclick="openDialog()"><img src="./img/board/plus button.svg" alt /></button>
@@ -73,8 +73,8 @@
         </div>
       </div>
 
-      <div class="columns flex-1 height-1">
-        <div class="task-column" id="tasksTodo" ondrop="changePosition('Todo')" ondragover="allowDrop(event)"></div>
+      <div class="columns-tasks flex-1 height-1">
+          <div class="task-column" id="tasksTodo" ondrop="changePosition('Todo')" ondragover="allowDrop(event)"></div>
         <div class="task-column" id="tasksInProgress" ondrop="changePosition('InProgress')" ondragover="allowDrop(event)"></div>
         <div class="task-column" id="tasksAwaitFeedback" ondrop="changePosition('AwaitFeedback')" ondragover="allowDrop(event)"></div>
         <div class="task-column" id="tasksDone" ondrop="changePosition('Done')" ondragover="allowDrop(event)"></div>
