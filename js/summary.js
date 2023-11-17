@@ -146,28 +146,15 @@ function formatNextDate() {
 function getNextDate() {
   const currentDate = new Date();
   currentDate.setHours(0, 0, 0, 0);
-  console.log("Current Date " + currentDate);
+  const isoDate = currentDate.toISOString();
   let nextDate = null;
 
   for (const task of dataTasks) {
-    const taskDate = parseDate(task.date);
-    console.log("Task Date " + taskDate)
+    const taskDate = new Date(task.date);
 
-    if (taskDate && taskDate >= currentDate && (!nextDate || taskDate < nextDate)) {
+    if (taskDate >= currentDate && (!nextDate || taskDate < nextDate)) {
       nextDate = taskDate;
     }
   }
   return nextDate;
-}
-
-/**
- * This function subtracts -1 from the month because January is indexed as 0 in javascript.
- * 
- * @param {string} dateString - The date from the task is passed. 
- * @returns{Date} - date in a format that javascript can handle it.
- */
-function parseDate(dateString) {
-  const [day, month, year] = dateString.split(".");
-  // Month is 0-indexed in JavaScript Date, so subtract 1 from the parsed month
-  return new Date(year, month - 1, day);
 }
