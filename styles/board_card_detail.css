@@ -60,6 +60,10 @@
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
 }
 
+.no-gap-div {
+  margin-bottom: -16px;
+}
+
 .move-in-right {
   animation: myfirst 125ms forwards;
   animation-direction: initial;
