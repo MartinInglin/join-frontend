@@ -33,7 +33,7 @@ function addNewContact() {
         </div>
         <!-- Warum klappt das mit dem plattern nicht bei der Email -->
         <div class="input-field"> 
-            <input id="email" type="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}" title="e.g. maxmustermann@hotmail.de" placeholder="Email" class="form-control" required>
+            <input id="email" type="email" pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$" title="e.g. maxmustermann@hotmail.de" placeholder="Email" class="form-control" required>
             <span class="info-icon icon-email"></span>
         </div>
         <div class="input-field">
@@ -53,6 +53,8 @@ function addNewContact() {
     </form>
     `;
 }
+
+// [a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}" title="e.g. maxmustermann@hotmail.de
 
 function showAddNewContact() {
     let addNewContact = document.getElementById('add-new-contact');
@@ -98,6 +100,7 @@ function createNewContact() {
     };
 
     contacts.push(newContact);
+    setContacts();
 
     closeAddNewContact();
     showContact(newContact.id);

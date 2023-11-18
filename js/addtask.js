@@ -250,7 +250,11 @@ function openContactList() {
 function closeContactList() {
     let contactList = document.getElementById('contactList');
     let openContactsDropDown = document.getElementById('openContactsDropDown');
-    contactList.style.height = '50px';
+    if (window.innerWidth > 1200) {
+        contactList.style.height = '50px';
+    } else {
+        contactList.style.height = '46px';
+    }
     openContactsDropDown.style.transform = 'rotate(0deg)';
     setTimeout(() => {
         contactList.setAttribute('onclick', 'openContactList(); doNotTriggerEvent(event)');
@@ -378,9 +382,9 @@ function checkRequiredInput() {
     let selectCategory = document.getElementById('selectCategory').value;
     let createTask = document.getElementById('createTask');
 
-        if (inputTitel.length > 0 && inputDate.length > 0 && selectCategory !== 'Select task category') {
-            createTask.disabled = false;
-        } else {
-            createTask.disabled = true;
-        }
+    if (inputTitel.length > 0 && inputDate.length > 0 && selectCategory !== 'Select task category') {
+        createTask.disabled = false;
+    } else {
+        createTask.disabled = true;
+    }
 }
