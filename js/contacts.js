@@ -80,7 +80,6 @@ function hideContact() {
 }
 
 function editContact(id) {
-
 }
 
 function deleteContact(id) {

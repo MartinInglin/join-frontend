@@ -31,7 +31,6 @@ function addNewContact() {
             <input id="nameInput" type="text" pattern="[A-Z]{1}[a-z]{2,} [A-Z]{1}[a-z]{2,}" title="Capitalise the first letter e.g. Max Musterman" placeholder="Name" class="form-control" required>
             <span class="info-icon icon-name"></span>
         </div>
-        <!-- Warum klappt das mit dem plattern nicht bei der Email -->
         <div class="input-field"> 
             <input id="email" type="email" pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$" title="e.g. maxmustermann@hotmail.de" placeholder="Email" class="form-control" required>
             <span class="info-icon icon-email"></span>
