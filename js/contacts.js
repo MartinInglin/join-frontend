@@ -5,8 +5,7 @@ async function init() {
     createHeaderInitials();
 }
 
-async function loadContactList() {
-    await getContacts();
+function loadContactList() {
     let contactList = document.getElementById('contact-list');
     contactList.innerHTML = '';
     contacts.sort((a, b) => a.firstname.localeCompare(b.firstname));
