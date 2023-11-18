@@ -264,29 +264,15 @@ select {
     cursor: pointer;
 }
 
-.cont-function-edit p:hover {
+.cont-function-edit:hover {
     color: #29ABE2;
     font-weight: 700;
 }
 
-.cont-function-edit-img {
+.edit {
     display: flex;
-    width: 24px;
-    height: 24px;
-}
-
-.cont-function-edit-img img {
-    width: 18.28px;
-    height: 18.25px;
-    margin-top: 2.75px;
-    margin-left: 3px;
-}
-
-.cont-function-edit p {
-    width: 30px;
-    height: 19px;
-    font-size: 16px;
-    font-weight: 400;
+    align-items: center;
+    gap: 10px;
 }
 
 .cont-function-delete {
@@ -299,30 +285,15 @@ select {
     cursor: pointer;
 }
 
-.cont-function-delete p:hover {
+.cont-function-delete:hover {
     color: #29ABE2;
     font-weight: 700;
-
 }
 
-.cont-function-delete-img {
+.delete {
     display: flex;
-    width: 24px;
-    height: 24px;
-}
-
-.cont-function-delete-img img {
-    width: 16px;
-    height: 18px;
-    margin-top: 3px;
-    margin-left: 4px;
-}
-
-.cont-function-delete p {
-    width: 49px;
-    height: 19px;
-    font-size: 16px;
-    font-weight: 400;
+    align-items: center;
+    gap: 10px;
 }
 
 .contact-info {

@@ -57,7 +57,7 @@ function showContact(id) {
     hideContact(i);
     highlight.classList.add('cont-clickt');
     showcontact.classList.remove('d-none');
-    name.innerHTML = generatShowContactNameHTML(contact);
+    name.innerHTML = generatShowContactNameHTML(i, contact);
     info.innerHTML = generatInfoHTML(contact);
 
     animationShowContact();
@@ -78,3 +78,29 @@ function hideContact() {
     showcontact.classList.add('d-none');
     showcontact.style.transform = "translate(500%, 0%)";
 }
+
+function editContact(id) {
+
+}
+
+function deleteContact(id) {
+    if (id >= 0 && id < contacts.length) {
+        contacts.splice(id, 1);
+    } else {
+        console.error("Invalid contact ID");
+    }
+}
+
+function SVGOnHover(elementId, iconName) {
+    const svgElement = document.getElementById(elementId);
+    const hoverSVG = `./img/contact/${iconName}.svg`;
+  
+    svgElement.src = hoverSVG;
+  }
+  
+  function SVGMouseOut(elementId, iconName) {
+    const svgElement = document.getElementById(elementId);
+    const normalSVG = `./img/contact/${iconName}.png`;
+  
+    svgElement.src = normalSVG;
+  }
