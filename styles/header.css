@@ -76,7 +76,7 @@
     align-items: center;
 }
 
-.menu-bar-logo {
+.header-logo {
     display: none;
 }
 
@@ -118,5 +118,9 @@
     .user-icon-inner {
         width: 32px;
         height: 32px;
+    }
+
+    .header-logo {
+        display: block;
     }
 }
