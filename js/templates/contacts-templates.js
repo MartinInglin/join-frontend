@@ -20,7 +20,6 @@ function generatContactListHTML(i) {
 }
 
 function generatShowContactNameHTML(i, contact) {
-    
     return /*html*/`
     <div class="cont-icon-big">
         <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
@@ -34,12 +33,12 @@ function generatShowContactNameHTML(i, contact) {
         <span>${contact['firstname']} ${contact['lastname']}</span>
         <div class="cont-function">
             <div class="cont-function-edit">
-                <div onclick="editContact(i)" class="edit" onmouseover="SVGOnHover('editImg', 'edit')" onmouseout="SVGMouseOut('editImg', 'edit')" onclick="showCardEdit()">
+                <div onclick="editContact(${i})" class="edit" onmouseover="SVGOnHover('editImg', 'edit')" onmouseout="SVGMouseOut('editImg', 'edit')" onclick="showCardEdit()">
                   <img src="./img/board_card_detail/edit.svg" alt="" id="editImg">
                   <div>Edit</div>
                 </div>
             </div>
-            <div onclick="deleteContact(i)" class="cont-function-delete">
+            <div onclick="deleteContact(${i})" class="cont-function-delete">
                 <div class="delete" onmouseover="SVGOnHover('deleteImg', 'delete')" onmouseout="SVGMouseOut('deleteImg', 'delete')">
                   <img src="./img/contact/delete.png" alt="" id="deleteImg">
                   <div>Delete</div>
