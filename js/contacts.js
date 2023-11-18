@@ -3,6 +3,7 @@ async function init() {
     await getCurrentUser();
     await getContacts();
     createHeaderInitials();
+    loadContactList();
 }
 
 function loadContactList() {
@@ -84,7 +85,7 @@ function editContact(id) {
 }
 
 async function deleteContact(id) {
-    if (id >= 0 && id < contacts.length) {
+    if (id >= 0 && id <= contacts.length) {
         contacts.splice(id, 1);
         setContacts();
     } else {

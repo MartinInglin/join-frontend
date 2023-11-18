@@ -1,5 +1,9 @@
 .left-50-percent {
-    left: 50%;
+  left: 50%;
+}
+
+.min-height-120 {
+  min-height: 120px;
 }
 
 .card-edit-scroll {
@@ -41,7 +45,22 @@
   justify-content: space-between;
 }
 
+.card-edit-section-input:focus {
+  border-color: #29abe2;
+}
+
 .card-edit-section input:focus {
+  outline: none;
+}
+
+.card-edit-task {
+  min-height: 120px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.card-edit-task:focus {
+  border-color: #29abe2;
   outline: none;
 }
 
@@ -82,6 +101,21 @@
   border-radius: 10px;
   background: white;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+}
+
+.card-edit-priority-btn:hover {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.card-edit-priority-color-white {
+  color: #fff;
+  font-family: Inter;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
 }
 
 .add-subtask {
@@ -104,12 +138,12 @@
 }
 
 .subtasks-list {
-    width: 100%;
+  width: 100%;
 }
 
 .subtask-item {
   list-style-type: disc;
-  display: flex;
+  display: list-item;
   height: 32px;
   padding: 6px 16px;
   justify-content: space-between;
