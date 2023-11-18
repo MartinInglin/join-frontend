@@ -552,6 +552,21 @@
         height: 100%;
     }
 
+    .bg-background {
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.2);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 999;
+    }
+
+    .create-new-contact {
+        top: 42% !important;
+        left: 50% !important;
+    }
+
     @media(max-width: 1330px) {
         main {
             padding: 144px 64px 0 64px;
@@ -581,6 +596,10 @@
             width: 366px;
         }
 
+        #contactInitialIcons {
+            top: 370px;
+        }
+
         .due-date input {
             width: 366px;
         }
@@ -603,6 +622,10 @@
 
         #addContact {
             width: 368px;
+        }
+
+        .parting-line {
+            height: 390px;
         }
     }
 
@@ -689,6 +712,10 @@
             width: 266px;
         }
 
+        #contactInitialIcons {
+            top: 332px;
+        }
+
         .contact {
             width: 260px;
         }
@@ -696,6 +723,10 @@
         #addContact {
             width: 268px;
             top: 222px;
+        }
+
+        .parting-line {
+            height: 340px;
         }
 
         .right-container {

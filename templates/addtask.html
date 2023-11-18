@@ -2,6 +2,15 @@
     <div class="close-dialog d-none" id="closeDialog" onclick="closeDialog()">
         <img src="./img/add_task/close.png">
     </div>
+    <div id="bg-message" class="bg-message d-none">
+        <div class="bg-background">
+            <div id="add-new-contact" class="show-add-new-contact">
+            </div>
+            <div id="create-new-contact" class="create-new-contact d-none">
+                <span>Contact succesfully created</span>
+            </div>
+        </div>
+    </div>
     <h1>Add Task</h1>
     <div class="main-container">
         <div class="dialog-succes-background d-none" id="dialogSucces">
@@ -20,7 +29,7 @@
                 <div class="description">
                     <div>Description</div>
                     <textarea class="description-input" name
-                        id="inputDescription" 
+                        id="inputDescription"
                         placeholder="Enter a Description"></textarea>
                 </div>
                 <div class="assigned-to">
@@ -32,9 +41,11 @@
                         <input type="text" id="contactInput"
                             placeholder="Select contacts to assign"
                             onclick="openContactList(); doNotTriggerEvent(event)"
-                            oninput="searchContactToAssign()" onfocus="openContactList()">
+                            oninput="searchContactToAssign()"
+                            onfocus="openContactList()">
                         <div id="contactsDropDown"></div>
-                        <button id="addContact">Add new contact<img
+                        <button id="addContact" onclick="addNewContact()">Add
+                            new contact<img
                                 src="../img/add_task/person_add.png"></button>
                     </div>
                     <div id="contactInitialIcons"></div>
@@ -45,7 +56,8 @@
                 <div class="due-date">
                     <div>Due date<span>*</span></div>
                     <input type="date" required data-date
-                        data-date-format="DD/MM/YYYY" id="inputDate" oninput="checkRequiredInput()">
+                        data-date-format="DD/MM/YYYY" id="inputDate"
+                        oninput="checkRequiredInput()">
                 </div>
                 <div class="prio">
                     <div>Prio</div>
@@ -61,7 +73,8 @@
                 <div class="choose-category">
                     <div>Category<span>*</span></div>
                     <div>
-                        <select id="selectCategory" onchange="checkRequiredInput()">
+                        <select id="selectCategory"
+                            onchange="checkRequiredInput()">
                             <option selected>Select task category</option>
                             <option value="Technical Task">Technical Task</option>
                             <option value="User Story">User Story</option>
@@ -73,7 +86,8 @@
                     <div class="input-group">
                         <input type="text" placeholder="Add new subtask"
                             id="inputSubTask" onfocus="activateSubtask()"
-                            onfocusout="leaveSubTaskInput()" onkeydown="handleEnter(event)">
+                            onfocusout="leaveSubTaskInput()"
+                            onkeydown="handleEnter(event)">
                         <div class="input-group-buttons">
                             <button class="d-none"
                                 id="inputSubTaskIcon1"
