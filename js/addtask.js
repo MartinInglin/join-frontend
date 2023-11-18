@@ -32,6 +32,7 @@ function loadContactsSelection() {
 function renderContacts() {
     let content = document.getElementById('contactsDropDown');
     content.innerHTML = '';
+    contacts.sort((a, b) => a.firstname.localeCompare(b.firstname));
     for (let i = 0; i < contacts.length; i++) {
         const contact = contacts[i];
         content.innerHTML += `
