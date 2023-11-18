@@ -3,10 +3,10 @@ async function init() {
     await getCurrentUser();
     await getContacts();
     createHeaderInitials();
+    loadContactList();
 }
 
-async function loadContactList() {
-    await getContacts();
+function loadContactList() {
     let contactList = document.getElementById('contact-list');
     contactList.innerHTML = '';
     contacts.sort((a, b) => a.firstname.localeCompare(b.firstname));
@@ -86,7 +86,7 @@ function editContact(id) {
 }
 
 async function deleteContact(id) {
-    if (id >= 0 && id < contacts.length) {
+    if (id >= 0 && id <= contacts.length) {
         contacts.splice(id, 1);
         setContacts();
     } else {
