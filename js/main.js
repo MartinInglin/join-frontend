@@ -55,7 +55,7 @@ async function getCurrentUser() {
     currentUser = data.data.value;
 }
 
-async function getUsers() {
+async function getContacts() {
     let data = await getItem('contacts');
     let asJson = data.data.value;
     contacts = JSON.parse(asJson);

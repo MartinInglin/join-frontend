@@ -100,6 +100,7 @@ function createNewContact() {
     };
 
     contacts.push(newContact);
+    setContacts();
 
     closeAddNewContact();
     showContact(newContact.id);
