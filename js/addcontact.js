@@ -53,6 +53,8 @@ function addNewContact() {
     `;
 }
 
+// [a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}" title="e.g. maxmustermann@hotmail.de
+
 function showAddNewContact() {
     let addNewContact = document.getElementById('add-new-contact');
     addNewContact.style.transform = "translate(500%, 0%)";
@@ -97,6 +99,7 @@ function createNewContact() {
     };
 
     contacts.push(newContact);
+    setContacts();
 
     closeAddNewContact();
     showContact(newContact.id);

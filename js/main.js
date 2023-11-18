@@ -30,25 +30,35 @@ function setUsers() {
     setItem('users', users);
 }
 
+function setContacts() {
+    setItem('contacts', contacts);
+}
+
 async function setCurrentUser(id) {
     return setItem('currentUser', id);
 }
 
 async function getTasks() {
     let data = await getItem('tasks');
-    let asString = data.data.value;
-    dataTasks = JSON.parse(asString);
+    let asJson = data.data.value;
+    dataTasks = JSON.parse(asJson);
 }
 
 async function getUsers() {
     let data = await getItem('users');
-    let asString = data.data.value;
-    users = JSON.parse(asString);
+    let asJson = data.data.value;
+    users = JSON.parse(asJson);
 }
 
 async function getCurrentUser() {
     let data = await getItem('currentUser');
     currentUser = data.data.value;
+}
+
+async function getContacts() {
+    let data = await getItem('contacts');
+    let asJson = data.data.value;
+    contacts = JSON.parse(asJson);
 }
 
 /**

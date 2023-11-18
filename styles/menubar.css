@@ -122,7 +122,7 @@
 @media(max-width: 970px) {
 
     .menu-bar-main-container {
-        top: calc(100vh - 91px);
+        top: calc(100vh - 80px);
         height: 80px;
         width: 100vw;
         padding-top: 0;

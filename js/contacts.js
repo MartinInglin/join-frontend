@@ -1,6 +1,7 @@
 async function init() {
     await getUsers();
     await getCurrentUser();
+    await getContacts();
     createHeaderInitials();
 }
 
@@ -82,12 +83,14 @@ function hideContact() {
 function editContact(id) {
 }
 
-function deleteContact(id) {
+async function deleteContact(id) {
     if (id >= 0 && id < contacts.length) {
         contacts.splice(id, 1);
+        setContacts();
     } else {
         console.error("Invalid contact ID");
     }
+    await getContacts();
     loadContactList();
 }
 

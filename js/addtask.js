@@ -250,10 +250,10 @@ function openContactList() {
 function closeContactList() {
     let contactList = document.getElementById('contactList');
     let openContactsDropDown = document.getElementById('openContactsDropDown');
-    if (window.screen.width > 1200) {
+    if (window.innerWidth > 1200) {
         contactList.style.height = '50px';
     } else {
-        contactList.style.height = '48px';
+        contactList.style.height = '46px';
     }
     openContactsDropDown.style.transform = 'rotate(0deg)';
     setTimeout(() => {
