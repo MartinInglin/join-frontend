@@ -13,6 +13,7 @@ async function initAddTask() {
     await getTasks();
     await getUsers();
     await getCurrentUser();
+    await getContacts();
     loadContactsSelection();
     createHeaderInitials();
     checkRequiredInput();
