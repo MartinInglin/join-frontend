@@ -51,7 +51,7 @@ function renderCardDetail(i, j) {
             <img src="${imgUrgency}" alt="">
           </div>
         </div>
-        <div class="text-color-dark-blue font-20px-400 margin-bottom-8">Assigned To:</div>
+        <div class="text-color-dark-blue font-20px-400 margin-bottom-8 no-gap-div">Assigned To:</div>
         <div class="card-detail-assigned" id="cardDetailAssigned"></div>
 
         <div class="text-color-dark-blue font-20px-400 margin-bottom-8">Subtasks</div>
@@ -97,8 +97,10 @@ function createAssignmentsCardDetail() {
         /*html*/
         assignmentsContainer.innerHTML += `
             <div class="card-detail-members">
-              <div class="member-button align-center justify-center ${userColorClass}">${userInitials}</div>
-              <div class="open-sans-19">${user["firstname"]} ${user["lastname"]}</div>
+              <div class="member-button align-center justify-center ${userColorClass}">
+                <span>${userInitials}</span>
+              </div>
+              <span class="open-sans-19">${user["firstname"]} ${user["lastname"]}</span>
             </div>
           `;
       }
