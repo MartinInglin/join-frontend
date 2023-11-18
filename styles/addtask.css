@@ -695,6 +695,7 @@
 
         #addContact {
             width: 268px;
+            top: 222px;
         }
 
         .right-container {
@@ -734,6 +735,10 @@
         #createTask {
             width: 184px;
             height: 40px;
+        }
+
+        #contactsDropDown {
+            height: 164px;
         }
     }
 

@@ -240,7 +240,11 @@ function doNotTriggerEvent(event) {
 function openContactList() {
     let contactList = document.getElementById('contactList');
     let openContactsDropDown = document.getElementById('openContactsDropDown');
-    contactList.style.height = '352px';
+    if (window.innerWidth <= 1200) {
+        contactList.style.height = '288px';
+    } else {
+        contactList.style.height = '352px';
+    }
     openContactsDropDown.style.transform = 'rotate(180deg)';
     setTimeout(() => {
         contactList.setAttribute('onclick', 'closeContactList()');
