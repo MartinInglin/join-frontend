@@ -1,9 +1,21 @@
+.d-flex {
+  display: flex;
+}
+
 .left-50-percent {
   left: 50%;
 }
 
 .min-height-120 {
   min-height: 120px;
+}
+
+.align-stretch {
+  align-self: stretch;
+}
+
+.width-100 {
+  width: 100%;
 }
 
 .card-edit-scroll {
@@ -55,6 +67,15 @@
 
 .card-edit-section-input:focus {
   border-color: #29abe2;
+}
+
+.card-edit-section-input::placeholder {
+  color: black;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
 }
 
 .card-edit-section input:focus {
@@ -139,10 +160,6 @@
   cursor: pointer;
 }
 
-.add-subtask {
-  border: none;
-}
-
 .add-subtask::placeholder {
   color: #d1d1d1;
   font-family: Inter;
@@ -157,30 +174,6 @@
   flex-direction: row;
   gap: 8px;
   flex-wrap: wrap;
-}
-
-.subtasks-list {
-  width: 100%;
-}
-
-.subtask-item {
-  list-style-type: disc;
-  display: list-item;
-  height: 32px;
-  padding: 6px 16px;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 10px;
-  color: #000;
-  font-family: Inter;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-}
-
-.subtask-item:hover {
-  background-color: #d1d1d1;
 }
 
 .drop-down-assigned-to {
@@ -199,7 +192,7 @@
 }
 
 .contact:hover {
-  background-color: #EEE;
+  background-color: #eee;
   cursor: pointer;
 }
 
@@ -212,5 +205,58 @@
 }
 
 .background-color-dark:hover {
-  background-color: #2A3647;
+  background-color: #2a3647;
+}
+
+.addDeleteSubtask {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  position: absolute;
+  top: 14px;
+  right: 12px;
+}
+
+.hover-gray-circle:hover {
+  cursor: pointer;
+  background-color: #d1d1d1;
+  border-radius: 50%;
+}
+
+.subtasks-list {
+  display: list-item;
+  align-self: stretch;
+}
+
+.subtask-item {
+  display: flex;
+  height: 32px;
+  padding: 6px 16px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  color: #000;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  cursor: pointer;
+}
+
+.subtask-item:hover {
+  background-color: #d1d1d1;
+}
+
+.subtask-item:hover .edit-delete-subtasks {
+  display: block;
+}
+
+.edit-delete-subtasks {
+  display: none; /* Hide the images by default */
+}
+
+ul {
+  margin: 0;
 }

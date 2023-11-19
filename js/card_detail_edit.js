@@ -30,7 +30,7 @@ function showCardEdit() {
   /*html*/
   cardDetailContainer.innerHTML = `
 
-    <div class="card-detail left-50-percent" onclick="closeDropDownAssignedTo(); stopPropagation(event)">
+    <div class="card-detail left-50-percent" onclick="closeDropDownAssignedTo(); deleteInputAssignedTo(); stopPropagation(event)">
         <div class="card-detail-header justify-right">
           <div class="close-btn pointer"><img src="./img/board_card_detail/close.svg" alt="" onclick="closeCardDetailButton()" /></div>
         </div>
@@ -61,7 +61,7 @@ function showCardEdit() {
 
           <div class="card-edit-section position-relative">
             <div class="subtitle">Assigned to</div>
-            <input type="text" name="" id="searchUser" class="font-size-20 card-edit-section-input" onclick="showDropDownAssignedTo(); stopPropagation(event)" onkeyup="createDropDownAssignedTo()" onfocusout="deleteInputAssignedTo()" placeholder="Select contacts to assign"/>
+            <input type="text" name="" id="searchUser" class="font-size-20 card-edit-section-input" onclick="showDropDownAssignedTo(); stopPropagation(event)" onkeyup="createDropDownAssignedTo()" placeholder="Select contacts to assign"/>
             <img src="./img/board_card_detail/arrow_drop_down.svg" alt="" class="open-dropdown-assign" id="openDropDownAssign" onclick="toggleDropDownAssignedTo(); stopPropagation(event)">
 
             <div class="card-edit-members" id="cardEditMembers"></div>
@@ -71,16 +71,46 @@ function showCardEdit() {
 
           <div class="card-edit-section">
             <div class="subtitle">Subtasks</div>
-            <div class="card-edit-section-input">
-              <input type="text" name="" id="" class="font-size-20 add-subtask" placeholder="Add new subtask"/>
-              <img src="./img/board_card_detail/add_subtask.svg" alt="">
+            <div class="d-flex position-relative align-stretch">
+              <input type="text" name="" id="" class="font-size-20 add-subtask card-edit-section-input width-100" placeholder="Add new subtask"/>
+              <div class="addDeleteSubtask">
+              <img class="hover-gray-circle" src="img/board_card_detail/subtask_cancel.svg" alt="">
+              <img src="img/board_card_detail/subtasks_separator.svg" alt="">
+              <img class="hover-gray-circle" src="./img/board_card_detail/add_subtask.svg" alt="">
+              </div>
+
             </div>
             <ul class="subtasks-list">
-              <li class="subtask-item">
-                <div>Text</div>
+              <li class="subtasks-hover">
+                <div class="subtask-item">
+                  <div>Text</div>
+                  <div class="edit-delete-subtasks">
+                    <img src="img/board_card_detail/Subtasks_edit.svg" alt="">
+                    <img src="img/board_card_detail/subtasks_edit_separator.svg" alt="">
+                    <img src="img/board_card_detail/subtask_delete.svg" alt="">
+                  </div>
+                </div>
               </li>
-              <li class="subtask-item">Tea</li>
-              <li class="subtask-item">Milk</li>
+              <li>
+              <div class="subtask-item">
+                <div>Text</div>
+                  <div class="edit-delete-subtasks">
+                    <img src="img/board_card_detail/Subtasks_edit.svg" alt="">
+                    <img src="img/board_card_detail/subtasks_edit_separator.svg" alt="">
+                    <img src="img/board_card_detail/subtask_delete.svg" alt="">
+                  </div>
+                </div>
+              </li>
+              <li>
+              <div class="subtask-item">
+                <div>Text</div>
+                  <div class="edit-delete-subtasks">
+                    <img src="img/board_card_detail/Subtasks_edit.svg" alt="">
+                    <img src="img/board_card_detail/subtasks_edit_separator.svg" alt="">
+                    <img src="img/board_card_detail/subtask_delete.svg" alt="">
+                  </div>
+                </div>
+              </li>
             </ul> 
           </div>
           </div>
@@ -301,6 +331,7 @@ function deleteInputAssignedTo() {
   if (inputField) {
     inputField.value = "";
   }
+  createDropDownAssignedTo();
 }
 
 
