@@ -186,3 +186,19 @@
         border-radius: 8px;
     }
 }
+
+@media(max-width: 380px) {
+    .menu-container {
+        padding: 0;
+        gap: 0;
+    }
+
+    .menu-container a {
+        font-size: 14px;
+    }
+
+    .menu-container a img {
+        width: 24px;
+        height: 24px;
+    }
+}

@@ -169,3 +169,8 @@ function createHeaderInitials() {
     // let firstLetter = firstname.charAt[0]
     userInitials.innerText = `${firstname.charAt(0)}${lastname.charAt(0)}`;
 }
+
+function logOut() {
+    currentUser = 1;
+    setCurrentUser(1);
+}

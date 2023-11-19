@@ -1,11 +1,13 @@
 async function init() {
     await getUsers();
+    await getCurrentUser();
     startImage();
     showLogIn();
 }
 
 async function initLogin() {
     await getUsers();
+    await getCurrentUser();
 }
 
 function startImage() {
