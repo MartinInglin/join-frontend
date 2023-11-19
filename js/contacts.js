@@ -113,11 +113,12 @@ function editContact(id) {
     </div>
     <form class="info-new-cont" onsubmit="editOldContact(id); return false;">
         <div class="input-field">
-            <input id="edit-name" type="text" value="${contact['firstname']} ${contact['lastname']}" pattern="[A-Z]{1}[a-z]{2,} [A-Z]{1}[a-z]{2,}" title="Capitalise the first letter e.g. Max Musterman" placeholder="Name" class="form-control" required>
+            <input id="edit-name" type="text" value="${contact['firstname']} ${contact['lastname']}" pattern="[A-Z]{1,}[a-z]{2,} [A-Z]{1,}[a-z]{2,}" title="Capitalise the first letter e.g. Max Musterman" placeholder="Name" class="form-control" required>
             <span class="info-icon icon-name"></span>
         </div>
         <div class="input-field"> 
-            <input id="edit-email" type="email" value="${contact['email']}" pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$" title="e.g. maxmustermann@hotmail.de" placeholder="Email" class="form-control" required>
+        <!-- pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$" -->
+            <input id="edit-email" type="email" value="${contact['email']}" title="e.g. maxmustermann@hotmail.de" placeholder="Email" class="form-control" required>
             <span class="info-icon icon-email"></span>
         </div>
         <div class="input-field">
@@ -146,6 +147,11 @@ function editOldContact(id) {
     let firstname = nameParts[0] || '';
     let lastname = nameParts.slice(1).join(' ') || '';
 
+    if (!isValidEmail(emailInput.value)) {
+        alert('Invalid email format. Please use e.g. maxmustermann@hotmail.de');
+        return;
+    }
+
     contact.icon = contact.icon;
     contact.firstname = firstname;
     contact.lastname = lastname;
@@ -155,6 +161,11 @@ function editOldContact(id) {
     setContacts();
     closeAddNewContact();
     showContact(contact.id);
+}
+
+function isValidEmail(email) {
+    const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return emailRegex.test(email);
 }
 
 async function deleteContact(id) {
