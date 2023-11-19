@@ -418,8 +418,25 @@
   }
 
   #greetingContainer {
-    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #F6F7F8;
+    animation: revealAnimation ease-in 400ms forwards;
+    animation-delay: 1200ms;
   }
+
+  @keyframes revealAnimation {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(-100%, -100%);
+        display: none;
+    }
+}
 
   .title {
     padding-right: 176px;
