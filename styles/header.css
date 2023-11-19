@@ -80,6 +80,10 @@
     display: none;
 }
 
+span {
+    color: #2A3647 !important;
+}
+
 @media(max-width: 970px) {
     .header-main-container {
         display: flex;
