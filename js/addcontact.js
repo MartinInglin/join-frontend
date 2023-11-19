@@ -1,11 +1,11 @@
 function addNewContact() {
     showAddNewContact();
-    let bgMessage = document.getElementById('bg-message');        
+    let bgMessage = document.getElementById('bg-message');
     bgMessage.classList.remove('d-none');
 
     let addNewContact = document.getElementById('add-new-contact');
 
-    addNewContact.innerHTML = 
+    addNewContact.innerHTML =
     /*html*/`
     <div class="add-new-cont-left">
         <div class="icon"> 
@@ -31,7 +31,6 @@ function addNewContact() {
             <input id="nameInput" type="text" pattern="[A-Z]{1}[a-z]{2,} [A-Z]{1}[a-z]{2,}" title="Capitalise the first letter e.g. Max Musterman" placeholder="Name" class="form-control" required>
             <span class="info-icon icon-name"></span>
         </div>
-        <!-- Warum klappt das mit dem plattern nicht bei der Email -->
         <div class="input-field"> 
             <input id="email" type="email" pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$" title="e.g. maxmustermann@hotmail.de" placeholder="Email" class="form-control" required>
             <span class="info-icon icon-email"></span>
@@ -54,8 +53,6 @@ function addNewContact() {
     `;
 }
 
-// [a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}" title="e.g. maxmustermann@hotmail.de
-
 function showAddNewContact() {
     let addNewContact = document.getElementById('add-new-contact');
     addNewContact.style.transform = "translate(500%, 0%)";
@@ -68,7 +65,7 @@ function showAddNewContact() {
 function closeAddNewContact() {
     hidenAddNewContact();
     setTimeout(() => {
-        let bgMessage = document.getElementById('bg-message');        
+        let bgMessage = document.getElementById('bg-message');
         bgMessage.classList.add('d-none');
     }, 500);
 }
@@ -91,7 +88,7 @@ function createNewContact() {
     let lastname = nameParts.slice(1).join(' ') || '';
 
     let newContact = {
-        id: findFreeId(contacts), 
+        id: findFreeId(contacts),
         icon: getRandomColor(),
         firstname: firstname,
         lastname: lastname,
@@ -101,10 +98,20 @@ function createNewContact() {
 
     contacts.push(newContact);
     setContacts();
-
-    closeAddNewContact();
-    showContact(newContact.id);
     createNewContactMessage();
+    setTimeout(() => {
+        if (idOfCurrentPage == 1) {
+            getContacts();
+            setTimeout(() => {
+                renderContacts();
+            }, 150);
+        } else {
+            showContact(newContact.id);
+        }
+        closeAddNewContact();
+    }, 100);
+    
+
 }
 
 function getRandomColor() {
@@ -125,5 +132,5 @@ function createNewContactMessage() {
     setTimeout(() => {
         createNewContact.style.transition = "transform 800ms ease, top 800ms ease";
         createNewContact.style.transform = "translate(500%, 0%)";
-    }, 2500);    
+    }, 2500);
 }
