@@ -19,12 +19,7 @@ function createTasks(filterString) {
   for (let i = 0; i < columns.length; i++) {
     let filteredTasks;
     if (filterString) {
-      filteredTasks = dataTasks.filter(
-        (task) =>
-          task.position === columns[i] &&
-          (task.title.toLowerCase().includes(filterString) ||
-            task.task.toLowerCase().includes(filterString))
-      );
+      filteredTasks = dataTasks.filter((task) => task.position === columns[i] && (task.title.toLowerCase().includes(filterString) || task.task.toLowerCase().includes(filterString)));
     } else {
       filteredTasks = dataTasks.filter((task) => task.position === columns[i]);
     }
@@ -38,7 +33,7 @@ function createTasks(filterString) {
         const categoryClass = setColorCategory(tasks["category"]);
         /*html*/
         tasksContainer.innerHTML += `
-            <div class="card" id="card${i}${j}" draggable="true" ondragstart="startDragging(${tasks['id']}, ${i}, ${j})" ondragend="stopRotate(${i}, ${j})" onclick="showCardDetail(${i}, ${j})"> 
+            <div class="card" id="card${i}${j}" draggable="true" ondragstart="startDragging(${tasks["id"]}, ${i}, ${j})" ondragend="stopRotate(${i}, ${j})" onclick="showCardDetail(${i}, ${j})"> 
               <span class="category color-${categoryClass}">${tasks["category"]}</span>
               <h3>${tasks["title"]}</h3>
               <p>${tasks["task"]}</p>
@@ -130,13 +125,15 @@ function createAssignments(i, j) {
   assignmentsContainer.innerHTML = "";
 
   if (task.assignedTo.length > 0) {
-    task.assignedTo.forEach((userId, index) => {
+    for (let index = 0; index < task.assignedTo.length; index++) {
+      const userId = task.assignedTo[index];
       const user = contacts.find((contact) => contact.id === userId);
 
       if (user) {
         const userInitials = getUserInitials(user);
         const userColorClass = `color-${user.icon}`;
-        const marginClass = index > 0 ? 'negative-margin' : '';
+        const marginClass = index > 0 ? "negative-margin" : "";
+        const nonDisplayedUsers = task.assignedTo.length - 4;
 
         /*html*/
         assignmentsContainer.innerHTML += `
@@ -144,10 +141,20 @@ function createAssignments(i, j) {
             <span>${userInitials}</span>
           </div>
         `;
+        if (index > 2) {
+          /*html*/
+          assignmentsContainer.innerHTML += `
+            <div class="member-button align-center justify-center color-standard-blue ${marginClass}">
+              <span>+ ${nonDisplayedUsers}</span>
+            </div>
+          `;
+          break; // Exit the loop when the condition is met
+        }
       }
-    });
+    }
   }
 }
+
 
 function createDropDiv(i) {
   let tasksContainer = document.getElementById(`tasks${columns[i]}`);

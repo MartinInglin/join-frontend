@@ -14,6 +14,10 @@
   flex-direction: column;
 }
 
+.position-relative {
+  position: relative;
+}
+
 .card-edit-section {
   display: flex;
   flex-direction: column;
@@ -30,6 +34,10 @@
   font-style: normal;
   font-weight: 400;
   line-height: 120%; /* 24px */
+}
+
+.subtitle textarea {
+  resize: vertical;
 }
 
 .card-edit-section-input {
@@ -103,6 +111,12 @@
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
   border: none;
   cursor: pointer;
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
 }
 
 .card-edit-priority-btn:hover {
@@ -116,6 +130,13 @@
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
+}
+
+.open-dropdown-assign {
+  position: absolute;
+  top: 46px;
+  right: 28px;
+  cursor: pointer;
 }
 
 .add-subtask {
@@ -135,6 +156,7 @@
   display: flex;
   flex-direction: row;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .subtasks-list {
@@ -159,4 +181,36 @@
 
 .subtask-item:hover {
   background-color: #d1d1d1;
+}
+
+.drop-down-assigned-to {
+  position: absolute;
+  top: 83px;
+  left: 0;
+  width: 429px;
+  max-height: 336px;
+  background: white;
+  box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+  overflow-y: scroll;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+.contact:hover {
+  background-color: #EEE;
+  cursor: pointer;
+}
+
+.background-color-dark {
+  background-color: #091931;
+}
+
+.font-color-white {
+  color: white;
+}
+
+.background-color-dark:hover {
+  background-color: #2A3647;
 }

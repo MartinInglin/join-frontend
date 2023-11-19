@@ -118,7 +118,7 @@ function createSubtasksCardDetail() {
 
       /*html*/
       subtasksContainer.innerHTML += `
-          <div class="card-detail-subtask pointer" onclick="toggleSubtasks(${index})" onmouseover="SVGOnHover('checkbox${index}', '${subtaskStatusClass}')" onmouseout="SVGMouseOut('checkbox${index}', '${subtaskStatusClass}')">
+          <div class="card-detail-subtask pointer" onclick="toggleSubtasks(${index}); doNotTriggerEvent(event)" onmouseover="SVGOnHover('checkbox${index}', '${subtaskStatusClass}')" onmouseout="SVGMouseOut('checkbox${index}', '${subtaskStatusClass}')">
             <img src="./img/board_card_detail/${subtaskStatusClass}.svg" alt="" id="checkbox${index}">
             <div class="font-16px-400">${subtask.content}</div>
           </div>

@@ -30,7 +30,7 @@ function showCardEdit() {
   /*html*/
   cardDetailContainer.innerHTML = `
 
-    <div class="card-detail left-50-percent" onclick="stopPropagation(event)">
+    <div class="card-detail left-50-percent" onclick="closeDropDownAssignedTo(); stopPropagation(event)">
         <div class="card-detail-header justify-right">
           <div class="close-btn pointer"><img src="./img/board_card_detail/close.svg" alt="" onclick="closeCardDetailButton()" /></div>
         </div>
@@ -59,21 +59,16 @@ function showCardEdit() {
             </div>
           </div>
 
-          <div class="card-edit-section">
+          <div class="card-edit-section position-relative">
             <div class="subtitle">Assigned to</div>
-            <div class="font-size-20 card-edit-section-input">
-              <div>Select contacts to assign</div>
-              <img src="./img/board_card_detail/arrow_drop_down.svg" alt="">
-            </div>
-            <div class="card-edit-members">
-              <div class="member-button align-center justify-center color-blue">
-                <span>EM</span>
-              </div>
-              <div class="member-button align-center justify-center color-green">
-                <span>AU</span>
-              </div>
-            </div>
+            <input type="text" name="" id="searchUser" class="font-size-20 card-edit-section-input" onclick="showDropDownAssignedTo(); stopPropagation(event)" onkeyup="createDropDownAssignedTo()" onfocusout="deleteInputAssignedTo()" placeholder="Select contacts to assign"/>
+            <img src="./img/board_card_detail/arrow_drop_down.svg" alt="" class="open-dropdown-assign" id="openDropDownAssign" onclick="toggleDropDownAssignedTo(); stopPropagation(event)">
+
+            <div class="card-edit-members" id="cardEditMembers"></div>
+            
+            <div class="drop-down-assigned-to d-none" id="dropDownAssignedToContainer"></div>
           </div>
+
           <div class="card-edit-section">
             <div class="subtitle">Subtasks</div>
             <div class="card-edit-section-input">
@@ -96,22 +91,24 @@ function showCardEdit() {
   setDescription();
   setDate();
   findIdPriorityContainer();
+  createDropDownAssignedTo();
+  createCardEditMembers();
 }
 
 function setTitle() {
-  const titleInput = document.getElementById('cardEditTitle');
-  titleInput.value = selectedTask['title'];
+  const titleInput = document.getElementById("cardEditTitle");
+  titleInput.value = selectedTask["title"];
 }
 
 function setDescription() {
-  const titleInput = document.getElementById('cardEditDescription');
-  titleInput.value = selectedTask['task'];
+  const titleInput = document.getElementById("cardEditDescription");
+  titleInput.value = selectedTask["task"];
 }
 
 function setDate() {
-  const titleInput = document.getElementById('cardEditDate');
-  titleInput.value = selectedTask['date'];
-};
+  const titleInput = document.getElementById("cardEditDate");
+  titleInput.value = selectedTask["date"];
+}
 
 function findIdPriorityContainer() {
   const priorities = ["urgent", "medium", "low"];
@@ -186,3 +183,124 @@ function setImageColor(idOfContainer) {
     imgElement.src = `../img/add_task/${priority}.png`;
   }
 }
+
+function createDropDownAssignedTo() {
+  let dropDownContainer = document.getElementById("dropDownAssignedToContainer");
+  dropDownContainer.innerHTML = "";
+
+  const filteredUsers = filterUsers();
+
+  for (let i = 0; i < filteredUsers.length; i++) {
+    const contact = filteredUsers[i];
+    /*html*/
+    dropDownContainer.innerHTML += `
+    <div id="dropDownContact${i}" class="contact" onclick="addContactToAssign(${contact.id}); doNotTriggerEvent(event)">
+        <div class="contact-icon">
+            <div class="contact-icon">
+                <div class="outer-line">
+                    <div class="inner-line" style="background-color:${contact.icon}">
+                        <p class="initialTag">${contact.firstname.charAt(0)}${contact.lastname.charAt(0)}</p>
+                    </div>
+                </div>
+            </div>
+            ${contact.firstname} ${contact.lastname}
+        </div>
+        <img src="./img/board_card_detail/Check_button_unchecked.svg" alt="" id="assignedUserCheckbox${i}">
+    </div>
+    `;
+
+    if (selectedTask["assignedTo"].includes(contact.id)) {
+      styleUserSelected(i);
+    }
+  }
+}
+
+
+function toggleDropDownAssignedTo() {
+  document.getElementById("dropDownAssignedToContainer").classList.toggle("d-none");
+  const dropDownArrow = document.getElementById("openDropDownAssign");
+  dropDownArrow.classList.toggle("rotate-180");
+}
+
+function showDropDownAssignedTo() {
+  document.getElementById("dropDownAssignedToContainer").classList.remove("d-none");
+  const dropDownArrow = document.getElementById("openDropDownAssign");
+  dropDownArrow.classList.add("rotate-180");
+}
+
+function closeDropDownAssignedTo(event) {
+  const dropDownContainer = document.getElementById("dropDownAssignedToContainer");
+  if (!dropDownContainer.classList.contains("d-none")) {
+    dropDownContainer.classList.add("d-none");
+    const dropDownArrow = document.getElementById("openDropDownAssign");
+    dropDownArrow.classList.remove("rotate-180");
+  }
+}
+
+function stopPropagation(event) {
+  const dropDownContainer = document.getElementById("dropDownAssignedToContainer");
+  if (!dropDownContainer.contains(event.target)) {
+    event.stopPropagation();
+  }
+}
+
+function addContactToAssign(contactID) {
+  const assignedToIndex = selectedTask["assignedTo"].indexOf(contactID);
+
+  if (assignedToIndex !== -1) {
+    selectedTask["assignedTo"].splice(assignedToIndex, 1);
+  } else {
+    selectedTask["assignedTo"].push(contactID);
+  }
+
+  createDropDownAssignedTo();
+  createCardEditMembers();
+}
+
+function styleUserSelected(i) {
+  setBackgroundColorUser(i);
+  setColorUser(i);
+  setImageChecked(i);
+}
+
+function setBackgroundColorUser(i) {
+  document.getElementById(`dropDownContact${i}`).classList.add("background-color-dark");
+}
+
+function setColorUser(i) {
+  document.getElementById(`dropDownContact${i}`).classList.add("font-color-white");
+}
+
+function setImageChecked(i) {
+  const checkboxImage = document.getElementById(`assignedUserCheckbox${i}`);
+  if (checkboxImage) {
+    checkboxImage.src = "./img/board_card_detail/Check_button_checked_white.svg";
+  }
+}
+
+function createCardEditMembers() {
+  let cardEditMembersContainer = document.getElementById("cardEditMembers");
+  cardEditMembersContainer.innerHTML = "";
+
+  for (let i = 0; i < selectedTask["assignedTo"].length; i++) {
+    const userId = selectedTask["assignedTo"][i];
+    const user = contacts.find((contact) => contact.id === userId);
+    const userInitials = getUserInitials(user);
+    const userColorClass = `color-${user.icon}`;
+    /*html*/
+    cardEditMembersContainer.innerHTML += `
+      <div class="member-button align-center justify-center ${userColorClass}">
+        <span>${userInitials}</span>
+      </div>
+      `;
+  }
+}
+
+function deleteInputAssignedTo() {
+  const inputField = document.getElementById("searchUser");
+  if (inputField) {
+    inputField.value = "";
+  }
+}
+
+
