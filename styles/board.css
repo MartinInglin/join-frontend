@@ -337,3 +337,68 @@
 .main-buttons {
   top: 750px !important;
 }
+
+.size100 {
+  padding: 0 61px !important;
+  position: relative;
+}
+
+@media(max-width: 970px) {
+  .dialog-content {
+    overflow: scroll;
+    scrollbar-width: none;
+  }
+
+  .dialog-content::-webkit-scrollbar {
+    display: none;
+  }
+
+  .size100 {
+    width: 100% !important;
+    height: 88% !important;
+    padding: 0 61px !important;
+  }
+
+  .headline {
+    margin: 0 !important;
+    padding: 0 0 0 16px !important;
+  }
+
+  .dialog-content {
+    position: relative !important;
+  }
+
+  .main-container {
+    height: auto !important;
+  }
+
+  .main-buttons {
+    top: calc(100vh - 209px) !important;
+    width: calc(100vw - 160px) !important;
+    background-color: white !important;
+  }
+
+  .close-dialog {
+    top: 16px;
+    right: 72px;
+  }
+
+  #showSubtasks {
+    overflow: visible !important;
+    max-height: none !important;
+  }
+
+  .sub-container {
+    padding: 32px 16px 80px 16px !important;
+  }
+}
+
+@media(max-width: 570px) {
+  .size100 {
+    padding: 0 16px !important;
+  }
+
+  .main-buttons {
+    width: calc(100vw - 70px) !important;
+  }
+}

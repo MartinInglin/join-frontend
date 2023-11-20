@@ -346,7 +346,7 @@ h1 {
 
 .main-buttons {
     position: absolute;
-    top: 558px !important;
+    top: 558px;
     display: flex;
     width: 960px;
     justify-content: space-between;
@@ -552,6 +552,10 @@ h1 {
     height: 100%;
 }
 
+.headline {
+    padding-left: 16px;
+}
+
 .bg-background {
     width: 100vw;
     height: 100vh;
@@ -571,6 +575,10 @@ h1 {
 @media(max-width: 1330px) {
     main {
         padding: 144px 64px 0 64px;
+    }
+
+    .dialog-content {
+        width: 994px;
     }
 
     .left-container {
@@ -637,6 +645,10 @@ h1 {
 @media(max-width: 1200px) {
     .main-container {
         font-size: 16px;
+    }
+
+    .dialog-content {
+        width: 750px;
     }
 
     .main-container input,
@@ -762,7 +774,7 @@ h1 {
 
     .main-buttons {
         width: 646px;
-        top: 472px !important;
+        top: 472px;
     }
 
     #cancelCreateTask {
@@ -783,6 +795,11 @@ h1 {
 @media(max-width: 970px) {
     body {
         overflow: hidden;
+    }
+
+    .dialog-content {
+        width: 99%;
+        height: 80%;
     }
 
     .sub-container {
@@ -818,10 +835,6 @@ h1 {
         display: none;
     }
 
-    .close-dialog {
-        position: relative;
-    }
-
     .main-container {
         height: calc(100vh - 201px);
         position: relative;
@@ -834,7 +847,7 @@ h1 {
     .main-buttons {
         background-color: #F6F7F8;
         position: fixed;
-        top: calc(100vh - 167px) !important;
+        top: calc(100vh - 167px);
         width: calc(100vw - 32px);
         justify-content: space-between;
         align-items: center;
