@@ -437,7 +437,7 @@ h1 {
     padding: 6px 16px;
 }
 
-.list-element[contenteditable="true"] {
+.editable-content {
     background-color: white;
     border-bottom: 1px solid #005DFF;
     outline: none;

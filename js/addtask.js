@@ -205,7 +205,8 @@ function editSubtask(id, btn1, btn2, i) {
     let button2 = document.getElementById(btn2);
     let content = document.getElementById(`subtaskContent${i}`);
     try {
-        subtask.setAttribute('contentEditable', 'true');
+        content.setAttribute('contentEditable', 'true');
+        subtask.classList.add('editable-content')
         content.focus();
         subtask.removeAttribute('onclick');
         button1.setAttribute('src', 'img/add_task/delete.png');
@@ -225,7 +226,12 @@ function saveEditSubtask(id, btn1, btn2, i) {
     let content = document.getElementById(`subtaskContent${i}`);
     let button1 = document.getElementById(btn1);
     let button2 = document.getElementById(btn2);
-    newSubtasks.splice(i, 1, content.innerText);
+    newSubtasks.splice(i, 1,
+        {
+            content: content.innerText,
+            checked: false,
+        }
+    );
     subtask.removeAttribute('contentEditable');
     button1.setAttribute('src', 'img/add_task/edit.png');
     button1.setAttribute('onclick', `editSubtask('subtask${i}', 'editSubtaskIcon1${i}', 'editSubtaskIcon2${i}', '${i}')`);

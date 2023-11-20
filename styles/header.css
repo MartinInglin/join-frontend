@@ -20,6 +20,7 @@
     line-height: 24px;
     letter-spacing: 0em;
     text-align: left;
+    color: #2A3647 !important;
 }
 
 .header-menu {
@@ -78,10 +79,6 @@
 
 .header-logo {
     display: none;
-}
-
-span {
-    color: #2A3647 !important;
 }
 
 @media(max-width: 970px) {
