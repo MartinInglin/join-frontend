@@ -104,6 +104,7 @@ select {
     left: 28px;
     padding: 32px 24px 32px 24px;
     margin-top: 101px;
+    margin-bottom: 50px;
 }
 
 .letter {
@@ -156,12 +157,11 @@ select {
 }
 
 .cont-clickt {
-    background-color: #2A3647;
-    color: white;
+    background-color: #2A3647 !important;
 }
 
-.cont-clickt:hover {
-    background-color: #2A3647;
+.cont-clickt span {
+    color: white !important;
 }
 
 .cont-icon {
@@ -197,6 +197,7 @@ select {
     padding-right: 28px;
     border-right: 3px solid #29ABE2;
     line-height: 59px;
+    margin-block: 20px;
 }
 
 .headline span {
@@ -416,4 +417,81 @@ select {
 #btn-save:hover {
     box-shadow: 0px 4px 4px 0px #00000040;
     background-color: #29ABE2;
+}
+
+@media (max-width: 1330px) {
+    .contacts {
+        width: 420px;
+    }
+
+    .add-new-contact {
+        width: 410px;
+    }
+
+    .btn-add-new-cont {
+        left: 24px;
+    }
+
+    .contact-list {
+        padding-top: 0;
+        width: 364px;
+    }
+
+    .cont {
+        width: 315px;
+        gap: 10px;
+    }
+
+    .headline {
+        top: 140px;
+        left: 650px;
+        flex-direction: column;
+    }
+}
+
+@media(max-width: 1200px) {
+    .contacts {
+        width: 328px;
+    }
+
+    .add-new-contact {
+        width: 320px;
+    }
+
+    .btn-add-new-cont {
+        width: 315px;
+        left: 5px;
+    }
+
+    .contact-list {
+        width: 310px;
+        padding: 0 5px;
+    }
+
+    .cont {
+        width: 262px;
+    }
+
+    .headline {
+        left: 610px;
+        width: 300px;
+    }
+
+    .show-contact {
+        left: 610px;
+        width: 300px;
+        height: 382px;
+    }
+
+    .show-cont-name {
+        width: 325px;
+        height: 300px;
+        gap: 0;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media(max-width: 970px) {
+
 }

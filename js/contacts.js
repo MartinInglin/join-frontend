@@ -8,6 +8,7 @@ async function init() {
 
 function loadContactList() {
     let contactList = document.getElementById('contact-list');
+    let letterUnderline = document.getElementById('letter-underline');
     contactList.innerHTML = '';
     contacts.sort((a, b) => a.firstname.localeCompare(b.firstname));
     let currentLetter = '';
@@ -24,12 +25,18 @@ function loadContactList() {
                 <span>${currentLetter}</span>
             </div>
             <div class="letter-underline">
-                <svg xmlns="http://www.w3.org/2000/svg" width="354" height="2" viewBox="0 0 354 2" fill="none">
+                <svg id="letter-underline" xmlns="http://www.w3.org/2000/svg" width="354" height="2" viewBox="0 0 354 2" fill="none">
                     <path d="M1 1H353" stroke="#D1D1D1" stroke-linecap="round"/>
                 </svg>
             </div>
             `;
+        // if (window.innerWidth > 1330) {
+        //     letterUnderline.style.width = '318px';
+        // } if (window.innerWidth > 1200) {
+        //     letterUnderline.style.width = '256px';
+        // }
         }
+
 
         contactList.innerHTML += generatContactListHTML(i);
         let highlight = document.getElementById(`cont${contact.id}`);
