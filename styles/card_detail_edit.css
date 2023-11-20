@@ -217,6 +217,7 @@
   position: absolute;
   top: 14px;
   right: 12px;
+  background-color: white;
 }
 
 .hover-gray-circle:hover {
@@ -255,14 +256,14 @@
 }
 
 .edit-delete-subtasks {
-  display: none; /* Hide the images by default */
+  display: none;
 }
 
 ul {
   margin: 0;
 }
 
-.sutask-text {
+.subtask-text {
   font-family: Inter;
   font-size: 16px;
   font-weight: 400;
@@ -295,4 +296,45 @@ ul {
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
+  width: 100%;
+}
+
+.confirm-button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.confirm-button {
+  display: flex;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 10px;
+  background: #2a3647;
+  cursor: pointer;
+}
+
+.confirm-button:hover {
+  border-radius: 8px;
+  background: #29abe2;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.confirm-button p {
+  color: #fff;
+  font-family: Inter;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  margin: 0;
+}
+
+.confirm-button img {
+  width: 24px;
+  height: 24px;
 }

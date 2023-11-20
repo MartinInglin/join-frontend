@@ -72,9 +72,9 @@ function showCardEdit() {
           <div class="card-edit-section">
             <div class="subtitle">Subtasks</div>
             <div class="d-flex position-relative align-stretch">
-              <input type="text" name="" id="" class="font-size-20 add-subtask card-edit-section-input width-100" placeholder="Add new subtask" onfocus="changeIconConfirm()" onfocusout="changIconPlus()"/>
+              <input type="text" name="" id="addNewSubtask" class="font-size-20 add-subtask card-edit-section-input width-100" placeholder="Add new subtask" onfocus="changeIconConfirm()" onfocusout="changIconPlus()"/>
               <div class="addDeleteSubtask">
-              <img class="hover-gray-circle" src="img/board_card_detail/subtask_cancel.svg" alt="">
+              <img class="hover-gray-circle" src="img/board_card_detail/subtask_cancel.svg" alt="" onclick="emptyInputAddSubtask()">
               <img src="img/board_card_detail/subtasks_separator.svg" alt="">
               <img class="hover-gray-circle" src="./img/board_card_detail/add_subtask.svg" alt="" id="addOrConfirm" onclick="addSubtaskCardEdit()">
               </div>
@@ -84,7 +84,14 @@ function showCardEdit() {
 
           </div>
           </div>
+          <div class="confirm-button-container">
+            <div class="confirm-button" onclick="saveChangesCardEdit()">
+              <p>OK</p>
+              <img src="./img/board_card_detail/confirm_white.svg" alt="">
+            </div>
+          </div>
         </div>
+
       </div>
     `;
   setTitle();
@@ -320,11 +327,10 @@ function createSubtasksCardEdit() {
 
   for (let i = 0; i < selectedTask["subtasks"].length; i++) {
     const subtaskText = selectedTask["subtasks"][i]["content"];
-    console.log(subtaskText);
 
     /*html*/
     subtasksContainer.innerHTML += `
-      <li class="subtasks-hover" id="subtaskListItem${i}">
+      <li class="subtasks-hover" id="subtaskListItem${i}" ondblclick="editSubtaskCardEdit(${i}, '${subtaskText}')">
         <div class="subtask-item">
           <div class="subtask-text">${subtaskText}</div>
           <div class="edit-delete-subtasks">
@@ -364,6 +370,33 @@ function deleteSubtaskCardEdit(i) {
 
 function saveSubtaskCardEdit(i) {
   const subtaskNewValue = document.getElementById(`subtaskValue${i}`).value;
-  selectedTask['subtasks'][i]['content'] = subtaskNewValue;
+  selectedTask["subtasks"][i]["content"] = subtaskNewValue;
   createSubtasksCardEdit();
+}
+
+function addSubtaskCardEdit() {
+  const subtaskValue = document.getElementById("addNewSubtask").value;
+
+  const newSubtask = {
+    content: subtaskValue,
+    checked: false,
+  };
+  selectedTask.subtasks.unshift(newSubtask);
+  createSubtasksCardEdit();
+  emptyInputAddSubtask();
+}
+
+function emptyInputAddSubtask() {
+  document.getElementById("addNewSubtask").value = "";
+}
+
+function saveChangesCardEdit() {
+  let IdOfTask = selectedTask["id"];
+  const taskIndex = dataTasks.findIndex((task) => task.id === IdOfTask);
+  selectedTask['title'] = document.getElementById('cardEditTitle').value;
+  selectedTask['task'] = document.getElementById('cardEditDescription').value;
+  selectedTask['date'] = document.getElementById('cardEditDate').value;
+  dataTasks[taskIndex] = selectedTask;
+  setTasks();
+  closeCardDetailButton();
 }

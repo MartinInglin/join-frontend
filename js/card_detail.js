@@ -30,6 +30,7 @@ function renderCardDetail(i, j) {
   let cardDetailContainer = document.getElementById("cardDetailContainer");
   const categoryClass = setColorCategory(selectedTask["category"]);
   const imgUrgency = createImgUrgency(selectedTask["urgency"]);
+  const IdOfTask = selectedTask["id"];
   cardDetailContainer.innerHTML = "";
   /*html*/
   cardDetailContainer.innerHTML = `
@@ -58,7 +59,7 @@ function renderCardDetail(i, j) {
         <div class="card-detail-subtasks" id="cardDetailSubtasks"></div>
         <div class="justify-end">
           <div class="delete-edit">
-            <div class="delete" onmouseover="SVGOnHover('deleteImg', 'delete')" onmouseout="SVGMouseOut('deleteImg', 'delete')">
+            <div class="delete" onmouseover="SVGOnHover('deleteImg', 'delete')" onmouseout="SVGMouseOut('deleteImg', 'delete')" onclick="deleteTask(${IdOfTask})">
               <img src="./img/board_card_detail/delete.svg" alt="" id="deleteImg">
               <div>Delete</div>
             </div>
@@ -128,7 +129,7 @@ function createSubtasksCardDetail() {
 }
 
 function animationMoveIn() {
-    document.getElementById('cardDetail').classList.add('move-in-right')
+  document.getElementById("cardDetail").classList.add("move-in-right");
 }
 
 function toggleSubtasks(index) {
@@ -150,4 +151,10 @@ function SVGMouseOut(elementId, iconName) {
   const normalSVG = `./img/board_card_detail/${iconName}.svg`;
 
   svgElement.src = normalSVG;
+}
+
+function deleteTask(IdOfTask) {
+  const taskIndex = dataTasks.findIndex((task) => task.id === IdOfTask);
+  dataTasks.splice(taskIndex, 1);
+  setTasks();
 }
