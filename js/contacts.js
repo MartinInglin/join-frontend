@@ -30,11 +30,11 @@ function loadContactList() {
                 </svg>
             </div>
             `;
-        if (window.innerWidth > 1330) {
-            letterUnderline.style.width = '318px';
-        } if (window.innerWidth > 1200) {
-            letterUnderline.style.width = '256px';
-        }
+        // if (window.innerWidth > 1330) {
+        //     letterUnderline.style.width = '318px';
+        // } if (window.innerWidth > 1200) {
+        //     letterUnderline.style.width = '256px';
+        // }
         }
 
 
