@@ -161,13 +161,14 @@ function getIndexOf(array, key, x) {
 }
 
 function createHeaderInitials() {
-    let userInitials = document.getElementById('userInitials');
-    let i = getIndexOf(users, 'id', currentUser);
-    let nameParts = users[i].name.split(' ');
-    let lastname = nameParts.pop() || '';
-    let firstname = nameParts.join(' ') || '';
-    // let firstLetter = firstname.charAt[0]
-    userInitials.innerText = `${firstname.charAt(0)}${lastname.charAt(0)}`;
+    try {
+        let userInitials = document.getElementById('userInitials');
+        let i = getIndexOf(users, 'id', currentUser);
+        let nameParts = users[i].name.split(' ');
+        let lastname = nameParts.pop() || '';
+        let firstname = nameParts.join(' ') || '';
+        userInitials.innerText = `${firstname.charAt(0)}${lastname.charAt(0)}`;
+    } catch (e) { }
 }
 
 function logOut() {

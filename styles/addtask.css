@@ -803,7 +803,13 @@ h1 {
     }
 
     .size100 {
-        overflow: hidden;
+        height: calc(100% - 167px);
+        overflow: auto;
+        scrollbar-width: none;
+    }
+
+    .size100::-webkit-scrollbar {
+        display: none;
     }
 
     .close-dialog {
@@ -845,8 +851,6 @@ h1 {
     }
 
     .sub-container {
-        height: calc(71% + 11px);
-        overflow-y: auto;
         flex-direction: column;
         padding: 32px 16px 0 16px;
     }
