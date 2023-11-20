@@ -72,46 +72,16 @@ function showCardEdit() {
           <div class="card-edit-section">
             <div class="subtitle">Subtasks</div>
             <div class="d-flex position-relative align-stretch">
-              <input type="text" name="" id="" class="font-size-20 add-subtask card-edit-section-input width-100" placeholder="Add new subtask"/>
+              <input type="text" name="" id="" class="font-size-20 add-subtask card-edit-section-input width-100" placeholder="Add new subtask" onfocus="changeIconConfirm()" onfocusout="changIconPlus()"/>
               <div class="addDeleteSubtask">
               <img class="hover-gray-circle" src="img/board_card_detail/subtask_cancel.svg" alt="">
               <img src="img/board_card_detail/subtasks_separator.svg" alt="">
-              <img class="hover-gray-circle" src="./img/board_card_detail/add_subtask.svg" alt="">
+              <img class="hover-gray-circle" src="./img/board_card_detail/add_subtask.svg" alt="" id="addOrConfirm" onclick="addSubtaskCardEdit()">
               </div>
-
             </div>
-            <ul class="subtasks-list">
-              <li class="subtasks-hover">
-                <div class="subtask-item">
-                  <div>Text</div>
-                  <div class="edit-delete-subtasks">
-                    <img src="img/board_card_detail/Subtasks_edit.svg" alt="">
-                    <img src="img/board_card_detail/subtasks_edit_separator.svg" alt="">
-                    <img src="img/board_card_detail/subtask_delete.svg" alt="">
-                  </div>
-                </div>
-              </li>
-              <li>
-              <div class="subtask-item">
-                <div>Text</div>
-                  <div class="edit-delete-subtasks">
-                    <img src="img/board_card_detail/Subtasks_edit.svg" alt="">
-                    <img src="img/board_card_detail/subtasks_edit_separator.svg" alt="">
-                    <img src="img/board_card_detail/subtask_delete.svg" alt="">
-                  </div>
-                </div>
-              </li>
-              <li>
-              <div class="subtask-item">
-                <div>Text</div>
-                  <div class="edit-delete-subtasks">
-                    <img src="img/board_card_detail/Subtasks_edit.svg" alt="">
-                    <img src="img/board_card_detail/subtasks_edit_separator.svg" alt="">
-                    <img src="img/board_card_detail/subtask_delete.svg" alt="">
-                  </div>
-                </div>
-              </li>
-            </ul> 
+
+            <ul class="subtasks-list" id="subtasksList"></ul> 
+
           </div>
           </div>
         </div>
@@ -123,6 +93,7 @@ function showCardEdit() {
   findIdPriorityContainer();
   createDropDownAssignedTo();
   createCardEditMembers();
+  createSubtasksCardEdit();
 }
 
 function setTitle() {
@@ -245,7 +216,6 @@ function createDropDownAssignedTo() {
   }
 }
 
-
 function toggleDropDownAssignedTo() {
   document.getElementById("dropDownAssignedToContainer").classList.toggle("d-none");
   const dropDownArrow = document.getElementById("openDropDownAssign");
@@ -334,4 +304,66 @@ function deleteInputAssignedTo() {
   createDropDownAssignedTo();
 }
 
+function changeIconConfirm() {
+  const confirmImage = document.getElementById("addOrConfirm");
+  confirmImage.src = "img/board_card_detail/subtasks_confirm.svg";
+}
 
+function changIconPlus() {
+  const confirmImage = document.getElementById("addOrConfirm");
+  confirmImage.src = "./img/board_card_detail/add_subtask.svg";
+}
+
+function createSubtasksCardEdit() {
+  let subtasksContainer = document.getElementById("subtasksList");
+  subtasksContainer.innerHTML = "";
+
+  for (let i = 0; i < selectedTask["subtasks"].length; i++) {
+    const subtaskText = selectedTask["subtasks"][i]["content"];
+    console.log(subtaskText);
+
+    /*html*/
+    subtasksContainer.innerHTML += `
+      <li class="subtasks-hover" id="subtaskListItem${i}">
+        <div class="subtask-item">
+          <div class="subtask-text">${subtaskText}</div>
+          <div class="edit-delete-subtasks">
+            <img src="img/board_card_detail/Subtasks_edit.svg" alt="" onclick="editSubtaskCardEdit(${i}, '${subtaskText}')">
+            <img src="img/board_card_detail/subtasks_edit_separator.svg" alt="">
+            <img src="img/board_card_detail/subtask_delete.svg" alt="" onclick="deleteSubtaskCardEdit(${i})">
+          </div>
+        </div>
+      </li>
+    `;
+  }
+}
+
+function editSubtaskCardEdit(i, subtaskText) {
+  let subtaskItemContainer = document.getElementById(`subtaskListItem${i}`);
+  subtaskItemContainer.innerHTML = "";
+  /*html*/
+  subtaskItemContainer.innerHTML = `
+  <li class="" id="">
+    <div class="subtask-item-focused">
+      <input type="text" name="" id="subtaskValue${i}" class="" value="${subtaskText}">
+      <div class="edit-delete-subtask">
+        <img src="img/board_card_detail/subtask_delete.svg" alt="" class="hover-gray-circle" onclick="deleteSubtaskCardEdit(${i})">
+        <img src="img/board_card_detail/subtasks_edit_separator.svg" alt="">
+        <img src="img/board_card_detail/subtasks_confirm.svg" alt="" class="hover-gray-circle" onclick="saveSubtaskCardEdit(${i}, '${subtaskText}')">
+      </div>
+    </div>
+  </li>
+  `;
+}
+
+function deleteSubtaskCardEdit(i) {
+  const subtasks = selectedTask["subtasks"];
+  subtasks.splice(i, 1);
+  createSubtasksCardEdit();
+}
+
+function saveSubtaskCardEdit(i) {
+  const subtaskNewValue = document.getElementById(`subtaskValue${i}`).value;
+  selectedTask['subtasks'][i]['content'] = subtaskNewValue;
+  createSubtasksCardEdit();
+}

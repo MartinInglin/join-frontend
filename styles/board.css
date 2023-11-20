@@ -188,7 +188,7 @@
 .card {
   padding: 16px;
   border-radius: 24px;
-  gap: 10px;
+  gap: 24px;
   background-color: white;
   display: flex;
   cursor: pointer;
@@ -224,6 +224,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
+  margin: 0;
 }
 
 .subtasks-board {
@@ -232,8 +233,9 @@
   gap: 11px;
 }
 
-.margin-0 {
-  margin: 0;
+.margin-12 {
+  height: 1px;
+  margin: -12px;
 }
 
 .progress-bar-container {

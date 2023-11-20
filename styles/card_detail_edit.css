@@ -185,6 +185,7 @@
   background: white;
   box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
   overflow-y: scroll;
+  z-index: 999;
 }
 
 .rotate-180 {
@@ -259,4 +260,39 @@
 
 ul {
   margin: 0;
+}
+
+.sutask-text {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+  max-width: 280px;
+}
+
+.subtask-item-focused {
+  display: flex;
+  padding: 4px 16px;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #29abe2;
+  background: white;
+}
+
+.edit-delete-subtask {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.subtask-item-focused input {
+  border: none;
+  color: #000;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
 }

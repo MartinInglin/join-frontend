@@ -88,7 +88,7 @@ function createSubtasks(i, j) {
       <div class="subtasks-text">${checkedSubtasksCount}/${task.subtasks.length} Subtasks</div>
     `;
   } else {
-    subtasksContainer.classList.add("margin-0");
+    subtasksContainer.classList.add("margin-12");
   }
 }
 
