@@ -11,6 +11,7 @@ async function initBoard() {
   await getTasks();
   await getUsers();
   await getCurrentUser();
+  await getContacts();
   createTasks();
   createHeaderInitials();
 }
