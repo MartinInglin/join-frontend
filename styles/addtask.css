@@ -589,6 +589,10 @@ h1 {
         width: 366px;
     }
 
+    .main-container textarea:focus {
+        width: 366px;
+    }
+
     #contactList {
         width: 400px;
     }
@@ -657,6 +661,8 @@ h1 {
 
     .main-container textarea:focus {
         font-size: 16px;
+        width: 266px;
+
     }
 
     .main-container select:focus {

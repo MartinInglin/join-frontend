@@ -2,6 +2,7 @@ let priorityOfTask;
 let newSubtasks = [];
 let selectedContacts = [];
 let nextFreeId;
+let contactListOpen = false;
 
 function handleEnter(event) {
     if (event.key === "Enter") {
@@ -21,7 +22,7 @@ async function initAddTask() {
 
 function loadContactsSelection() {
     if (templatesLoaded) {
-        renderContacts();
+        loadContacts();
     } else {
         setTimeout(() => {
             loadContactsSelection();
@@ -29,27 +30,13 @@ function loadContactsSelection() {
     }
 }
 
-function renderContacts() {
+function loadContacts() {
     let content = document.getElementById('contactsDropDown');
     content.innerHTML = '';
     contacts.sort((a, b) => a.firstname.localeCompare(b.firstname));
     for (let i = 0; i < contacts.length; i++) {
         const contact = contacts[i];
-        content.innerHTML += `
-        <div id="contact${contact.id}" class="contact"onclick="chooseContactToAssign(${contact.id}); doNotTriggerEvent(event)">
-            <div class="contact-icon">
-                <div class="contact-icon">
-                    <div class="outer-line">
-                        <div class="inner-line" style="background-color:${contact.icon}">
-                            <p class="initialTag">${contact.firstname.charAt(0)}${contact.lastname.charAt(0)}</p>
-                        </div>
-                    </div>
-                </div>
-                ${contact.firstname} ${contact.lastname}
-            </div>
-            <img src="../img/add_task/Check button.png" id="checkContact${contact.id}">
-        </div>
-    `;
+        content.innerHTML += renderContacts(contact);
     };
 }
 
@@ -57,6 +44,10 @@ function activePrioButton(id) {
     let button1 = document.getElementById('urgent');
     let button2 = document.getElementById('medium');
     let button3 = document.getElementById('low');
+    checkPrioButton(id, button1, button2, button3);
+}
+
+function checkPrioButton(id, button1, button2, button3) {
     if (priorityOfTask == id) {
         resetAll();
     } else if (id == 'low') {
@@ -157,30 +148,17 @@ function addSubtask() {
         content: input.value,
         checked: false,
     };
-
     newSubtasks.push(newSubtask);
-    renderSubtasks();
+    loadSubtasks();
     input.value = '';
 }
 
-function renderSubtasks() {
+function loadSubtasks() {
     let showSubtasks = document.getElementById('showSubtasks');
     let i = 0;
     showSubtasks.innerHTML = '';
     newSubtasks.forEach((subtask) => {
-        showSubtasks.innerHTML += `
-            <li class="list-element" id="subtask${i}" ondblclick="editSubtask('subtask${i}', 'editSubtaskIcon1${i}', 'editSubtaskIcon2${i}', '${i}')">
-                <div class="list-text pointer">
-                    <div id="subtaskContent${i}">
-                        ${subtask.content}
-                    </div>
-                    <div class="subtask-button-container">
-                        <img src="../img/add_task/edit.png" class="pointer" id="editSubtaskIcon1${i}" onclick="editSubtask('subtask${i}', 'editSubtaskIcon1${i}', 'editSubtaskIcon2${i}', '${i}')">
-                        <div class="parting-line-buttons"></div>
-                        <img src="img/add_task/delete.png" class="pointer" id="editSubtaskIcon2${i}" onclick="deleteSubtask('${i}')">
-                    </div>
-                </div>
-            </li>`;
+        showSubtasks.innerHTML += renderSubtasks(subtask, i);
         i++;
     })
 }
@@ -194,8 +172,8 @@ function clearAll() {
     newSubtasks.splice(0, newSubtasks.length);
     selectedContacts.splice(0, selectedContacts.length);
     resetAll();
-    renderSubtasks();
-    renderContacts();
+    loadSubtasks();
+    loadContacts();
     renderContactInitialIcons();
 }
 
@@ -205,20 +183,24 @@ function editSubtask(id, btn1, btn2, i) {
     let button2 = document.getElementById(btn2);
     let content = document.getElementById(`subtaskContent${i}`);
     try {
-        content.setAttribute('contentEditable', 'true');
-        subtask.classList.add('editable-content')
-        content.focus();
-        subtask.removeAttribute('onclick');
-        button1.setAttribute('src', 'img/add_task/delete.png');
-        button1.setAttribute('onclick', `deleteSubtask('${i}'); 'doNotTriggerEvent(event)'`);
-        button2.setAttribute('src', 'img/add_task/done.png');
-        button2.setAttribute('onclick', `saveEditSubtask('${id}', '${btn1}', '${btn2}', '${i}'); 'doNotTriggerEvent(event)'`);
+        makeEditable(subtask, button1, button2, content, id, i, btn1, btn2);
     } catch (e) { };
+}
+
+function makeEditable(subtask, button1, button2, content, id, i, btn1, btn2) {
+    content.setAttribute('contentEditable', 'true');
+    subtask.classList.add('editable-content')
+    content.focus();
+    subtask.removeAttribute('onclick');
+    button1.setAttribute('src', 'img/add_task/delete.png');
+    button1.setAttribute('onclick', `deleteSubtask('${i}'); 'doNotTriggerEvent(event)'`);
+    button2.setAttribute('src', 'img/add_task/done.png');
+    button2.setAttribute('onclick', `saveEditSubtask('${id}', '${btn1}', '${btn2}', '${i}'); 'doNotTriggerEvent(event)'`);
 }
 
 function deleteSubtask(i) {
     newSubtasks.splice(i, 1);
-    renderSubtasks();
+    loadSubtasks();
 }
 
 function saveEditSubtask(id, btn1, btn2, i) {
@@ -226,6 +208,11 @@ function saveEditSubtask(id, btn1, btn2, i) {
     let content = document.getElementById(`subtaskContent${i}`);
     let button1 = document.getElementById(btn1);
     let button2 = document.getElementById(btn2);
+    pushEditSubtask(id, i, subtask, content, button1, button2);
+    loadSubtasks();
+}
+
+function pushEditSubtask(id, i, subtask, content, button1, button2) {
     newSubtasks.splice(i, 1,
         {
             content: content.innerText,
@@ -237,7 +224,6 @@ function saveEditSubtask(id, btn1, btn2, i) {
     button1.setAttribute('onclick', `editSubtask('subtask${i}', 'editSubtaskIcon1${i}', 'editSubtaskIcon2${i}', '${i}')`);
     button2.setAttribute('src', 'img/add_task/delete.png');
     button2.setAttribute('onclick', `deleteSubtask('${i}')`);
-    renderSubtasks();
 }
 
 function doNotTriggerEvent(event) {
@@ -247,11 +233,8 @@ function doNotTriggerEvent(event) {
 function openContactList() {
     let contactList = document.getElementById('contactList');
     let openContactsDropDown = document.getElementById('openContactsDropDown');
-    if (window.innerWidth <= 1200) {
-        contactList.style.height = '288px';
-    } else {
-        contactList.style.height = '352px';
-    }
+    contactListOpen = true;
+    checkScreenWidth(contactList);
     openContactsDropDown.style.transform = 'rotate(180deg)';
     setTimeout(() => {
         contactList.setAttribute('onclick', 'closeContactList()');
@@ -259,14 +242,27 @@ function openContactList() {
     }, 100);
 }
 
+function checkScreenWidth(contactList) {
+    if (window.innerWidth <= 1200) {
+        if (contactListOpen) {
+            contactList.style.height = '288px';
+        } else {
+            contactList.style.height = '46px';
+        }
+    } else {
+        if (contactListOpen) {
+            contactList.style.height = '352px';
+        } else {
+            contactList.style.height = '50px';
+        }
+    }
+}
+
 function closeContactList() {
     let contactList = document.getElementById('contactList');
     let openContactsDropDown = document.getElementById('openContactsDropDown');
-    if (window.innerWidth > 1200) {
-        contactList.style.height = '50px';
-    } else {
-        contactList.style.height = '46px';
-    }
+    contactListOpen = false;
+    checkScreenWidth(contactList);
     openContactsDropDown.style.transform = 'rotate(0deg)';
     setTimeout(() => {
         contactList.setAttribute('onclick', 'openContactList(); doNotTriggerEvent(event)');
@@ -282,21 +278,7 @@ function searchContactToAssign() {
         contact.firstname.toLowerCase().includes(input) || contact.lastname.toLowerCase().includes(input)
     );
     matchingContacts.forEach((contact) => {
-        contactsDropDown.innerHTML += `
-        <div id="contact${contact.id}" class="contact" onclick="chooseContactToAssign(${contact.id}); doNotTriggerEvent(event)">
-            <div class="contact-icon">
-                <div class="contact-icon">
-                    <div class="outer-line">
-                        <div class="inner-line" style="background-color:${contact.icon}">
-                            <p class="initialTag">${contact.firstname.charAt(0)}${contact.lastname.charAt(0)}</p>
-                        </div>
-                    </div>
-                </div>
-                ${contact.firstname} ${contact.lastname}
-            </div>
-            <img src="../img/add_task/Check button.png" id="checkContact${contact.id}">
-        </div>
-        `;
+        contactsDropDown.innerHTML += renderContacts(contact);
     })
 }
 
@@ -325,18 +307,9 @@ function renderContactInitialIcons() {
     let contactInitialIcons = document.getElementById('contactInitialIcons');
     contactInitialIcons.innerHTML = '';
     selectedContacts.forEach((id) => {
-        let contact = contacts[id]
-        contactInitialIcons.innerHTML += `
-            <div class="contact-frame">
-                <div class="contact-icon">
-                    <div class="outer-line">
-                        <div class="inner-line" style="background-color:${contact.icon}">
-                            <p class="initialTag">${contact.firstname.charAt(0)}${contact.lastname.charAt(0)}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
+        let i = getIndexOf(contacts, 'id', id)
+        let contact = contacts[i]
+        contactInitialIcons.innerHTML += showInitialIcon(contact);
     })
 }
 
@@ -347,9 +320,40 @@ function createTask() {
     let inputDate = document.getElementById('inputDate').value;
     let selectCategory = document.getElementById('selectCategory').value;
     let dialogSucces = document.getElementById('dialogSucces');
-    nextFreeId = findFreeId(dataTasks);
+    CreateTaskRoutine(createTask, inputTitel, inputDescription, inputDate, selectCategory, dialogSucces);
+}
 
+function CreateTaskRoutine(createTask, inputTitel, inputDescription, inputDate, selectCategory, dialogSucces) {
+    nextFreeId = findFreeId(dataTasks);
     createTask.style.backgroundColor = '#091931';
+    createJson(nextFreeId, inputTitel, inputDescription, inputDate, selectCategory);
+    setTasks();
+    checkOpenBoard();
+    showSuccessDialog(dialogSucces);
+}
+
+function showSuccessDialog(dialogSucces) {
+    dialogSucces.classList.remove('d-none');
+    setTimeout(() => {
+        clearAll();
+        dialogSucces.classList.add('d-none');
+    }, 1000);
+}
+
+function checkOpenBoard() {
+    if (idOfCurrentPage == 2) {
+        createTasks();
+        setTimeout(() => {
+            closeDialog();
+        }, 1000);
+    } else {
+        setTimeout(() => {
+            window.open('./board.html', '_self');
+        }, 1000);
+    }
+}
+
+function createJson(nextFreeId, inputTitel, inputDescription, inputDate, selectCategory) {
     let newTask = {
         id: nextFreeId,
         position: "Todo",
@@ -361,26 +365,14 @@ function createTask() {
         urgency: priorityOfTask,
         date: inputDate,
     };
+    pushSubtasks(newTask);
+    dataTasks.push(newTask);
+}
+
+function pushSubtasks(newTask) {
     newSubtasks.forEach((task) => {
         newTask.subtasks.push(task);
     });
-    dataTasks.push(newTask);
-    setTasks();
-    if (idOfCurrentPage == 2) {
-        createTasks();
-        setTimeout(() => {
-            closeDialog();
-        }, 1000);
-    } else {
-        setTimeout(() => {
-            window.open('./board.html', '_self');
-        }, 1000);
-    }
-    dialogSucces.classList.remove('d-none');
-    setTimeout(() => {
-        clearAll();
-        dialogSucces.classList.add('d-none');
-    }, 1000);
 }
 
 function addNewContact() {
@@ -393,7 +385,6 @@ function checkRequiredInput() {
     let inputDate = document.getElementById('inputDate').value;
     let selectCategory = document.getElementById('selectCategory').value;
     let createTask = document.getElementById('createTask');
-
     if (inputTitel.length > 0 && inputDate.length > 0 && selectCategory !== 'Select task category') {
         createTask.disabled = false;
     } else {
