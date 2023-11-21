@@ -17,7 +17,7 @@ function closeCardDetail(event) {
   createTasks();
 }
 
-function stopPropagation(event) {
+function stopPropagationCardDetail(event) {
   event.stopPropagation();
 }
 
@@ -34,7 +34,7 @@ function renderCardDetail(i, j) {
   cardDetailContainer.innerHTML = "";
   /*html*/
   cardDetailContainer.innerHTML = `
-    <div class="card-detail move-in-right" id="cardDetail" onclick="stopPropagation(event)">
+    <div class="card-detail move-in-right" id="cardDetail" onclick="stopPropagationCardDetail(event)">
         <div class="card-detail-header">
           <div class="card-detail-category color-${categoryClass}">${selectedTask["category"]}</div>
           <div class="close-btn pointer"><img src="./img/board_card_detail/close.svg" alt="" onclick="closeCardDetailButton()"></div>

@@ -106,13 +106,18 @@ function createUrgency(i, j) {
   let actualTasks = dataTasks.filter((task) => task.position === columns[i]);
   let task = actualTasks[j];
   const urgency = getTaskUrgency(task);
-  const urgencyImageSrc = urgenciesImg[0][urgency];
 
-  /*html*/
-  urgencyContainer.innerHTML = `
-    <img src="${urgencyImageSrc}" alt="" />
-  `;
+  // Check if urgency is not null
+  if (urgency !== null) {
+    const urgencyImageSrc = urgenciesImg[0][urgency];
+
+    /*html*/
+    urgencyContainer.innerHTML = `
+      <img src="${urgencyImageSrc}" alt="" />
+    `;
+  }
 }
+
 
 function getTaskUrgency(task) {
   return task.urgency;
@@ -129,7 +134,6 @@ function createAssignments(i, j) {
     for (let index = 0; index < task.assignedTo.length; index++) {
       const userId = task.assignedTo[index];
       const user = contacts.find((contact) => contact.id === userId);
-
       if (user) {
         const userInitials = getUserInitials(user);
         const userColorClass = `color-${user.icon}`;
@@ -142,7 +146,7 @@ function createAssignments(i, j) {
             <span>${userInitials}</span>
           </div>
         `;
-        if (index > 2) {
+        if (index > 2 && nonDisplayedUsers > 0) {
           /*html*/
           assignmentsContainer.innerHTML += `
             <div class="member-button align-center justify-center color-standard-blue ${marginClass}">

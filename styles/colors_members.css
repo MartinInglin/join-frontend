@@ -1,42 +1,82 @@
 /* Colors Members */
-.color-orange {
-    background-color: #FF7A00;
-}
-
-.color-purple {
-    background-color: #9327FF;
-}
-
-.color-green {
-    background-color: #1FD7C1;
-}
-
 .color-red {
-    background-color: #FF4646;
+    background-color: red;
 }
 
 .color-blue {
-    background-color: #0038FF;
+    background-color: blue;
 }
 
-.color-pink {
-    background-color: #FC71FF;
+.color-green {
+    background-color: green;
+}
+
+.color-purple {
+    background-color: purple;
+}
+
+.color-purple {
+    background-color: purple;
+}
+
+.color-orange {
+    background-color: orange;
 }
 
 .color-yellow {
-    background-color: #FFBB2B ;
+    background-color: yellow;
 }
 
-.color-light-blue {
-    background-color: #00BEE8;
+.color-aqua {
+    background-color: aqua;
 }
 
-.color-dark-blue {
-    background-color: #462F8A;
+.color-beige {
+    background-color: beige;
+}
+
+.color-aquamarine {
+    background-color: aquamarine;
 }
 
 .color-violet {
-    background-color: #6E52FF;
+    background-color: violet;
+}
+
+.color-darkgoldenrod {
+    background-color: darkgoldenrod;
+}
+
+.color-firebrick {
+    background-color: firebrick;
+}
+
+.color-olive {
+    background-color: olive;
+}
+
+.color-salmon {
+    background-color: salmon;
+}
+
+.color-sienna {
+    background-color: sienna;
+}
+
+.color-cyan {
+    background-color: cyan;
+}
+
+.color-dimgray {
+    background-color: dimgray;
+}
+
+.color-darkred {
+    background-color: darkred;
+}
+
+.color-navy {
+    background-color: navy;
 }
 
 .color-standard-blue {
