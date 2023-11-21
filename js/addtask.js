@@ -3,6 +3,11 @@ let newSubtasks = [];
 let selectedContacts = [];
 let nextFreeId;
 let contactListOpen = false;
+let actualPosition = "Todo"
+
+function setPositionTask(positionOfTask) {
+    actualPosition = positionOfTask;
+}
 
 function handleEnter(event) {
     if (event.key === "Enter") {
@@ -356,7 +361,7 @@ function checkOpenBoard() {
 function createJson(nextFreeId, inputTitel, inputDescription, inputDate, selectCategory) {
     let newTask = {
         id: nextFreeId,
-        position: "Todo",
+        position: actualPosition,
         category: selectCategory,
         title: inputTitel,
         task: inputDescription,

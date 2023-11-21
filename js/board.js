@@ -66,7 +66,7 @@ function setColorCategory(category) {
   if (category === "User Story") {
     return "blue";
   } else if (category === "Technical Task") {
-    return "green";
+    return "tech-task-green";
   }
   return "";
 }

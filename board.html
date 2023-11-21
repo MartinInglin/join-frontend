@@ -53,15 +53,15 @@
       <div class="columns-titles">
         <div class="title-column">
           <span>To do</span>
-          <button onclick="openDialog()"><img src="./img/board/plus button.svg" alt /></button>
+          <button onclick="openDialog(); setPositionTask('Todo')"><img src="./img/board/plus button.svg" alt /></button>
         </div>
         <div class="title-column">
           <span>In progress</span>
-          <button onclick="openDialog()"><img src="./img/board/plus button.svg" alt /></button>
+          <button onclick="openDialog(); setPositionTask('InProgress')"><img src="./img/board/plus button.svg" alt /></button>
         </div>
         <div class="title-column">
           <span>Await feeback</span>
-          <button onclick="openDialog()"><img src="./img/board/plus button.svg" alt /></button>
+          <button onclick="openDialog(); setPositionTask('AwaitFeedback')"><img src="./img/board/plus button.svg" alt /></button>
         </div>
         <div class="title-column">
           <span>Done</span>

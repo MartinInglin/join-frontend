@@ -48,7 +48,7 @@ function renderCardDetail(i, j) {
         <div class="card-detail-priority font-20px-400">
           <div class="text-color-dark-blue">Priority:</div>
           <div class="card-detail-priority-right">
-            <div>${selectedTask["urgency"]}</div>
+            <div id="taskUrgency"></div>
             <img src="${imgUrgency}" alt="">
           </div>
         </div>
@@ -72,13 +72,29 @@ function renderCardDetail(i, j) {
         </div>
     </div>
     `;
+  createUrgencyCardDetail()
   createAssignmentsCardDetail();
   createSubtasksCardDetail();
   animationMoveIn();
 }
 
+function createUrgencyCardDetail() {
+  const taskUrgencyContainer = document.getElementById('taskUrgency');
+  if (selectedTask["urgency"]) {
+    taskUrgencyContainer.innerHTML = `${selectedTask["urgency"]}`;
+  } else {
+    taskUrgencyContainer.innerHTML = "";
+  }
+}
+
 function createImgUrgency(urgency) {
-  const urgencyImageSrc = urgenciesImg[0][urgency];
+  urgencyImageSrc = urgenciesImg[0][urgency];
+
+  if (selectedTask["urgency"]) {
+    urgencyImageSrc = urgenciesImg[0][urgency];
+  } else {
+    urgencyImageSrc = "";
+  }
   return urgencyImageSrc;
 }
 

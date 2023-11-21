@@ -54,7 +54,7 @@ function showCardEdit() {
             <div class="subtitle">Priority</div>
             <div class="card-edit-priority" id="cardEditPriorities">
               <button class="card-edit-priority-btn" id="buttonUrgent" onclick="changePriority('urgent', 'buttonUrgent')">Urgent<img src="../img/add_task/urgent.png"></button>
-              <button class="card-edit-priority-btn" id="buttonMedium" onclick="changePriority('medium', 'buttonMedium')">Medium<img src="../img/add_task/medium_white.png"></button>
+              <button class="card-edit-priority-btn" id="buttonMedium" onclick="changePriority('medium', 'buttonMedium')">Medium<img src="../img/add_task/medium.png"></button>
               <button class="card-edit-priority-btn" id="buttonLow" onclick="changePriority('low', 'buttonLow')">Low<img src="../img/add_task/low.png"></button>
             </div>
           </div>
@@ -153,11 +153,14 @@ function setPriorityStyle(idOfContainer) {
   }
 
   const container = document.getElementById(idOfContainer);
-  const priorityColor = colorsPriority.find((item) => item.priority === selectedTask["urgency"]);
+  const priorityColor = selectedTask["urgency"] ? colorsPriority.find((item) => item.priority === selectedTask["urgency"]) : null;
 
-  setBackgroundcolorPriority(container, priorityColor);
-  setColorWhite(idOfContainer);
-  setImageWhite(idOfContainer);
+  if (selectedTask['urgency']) {
+    setBackgroundcolorPriority(container, priorityColor);
+    setColorWhite(idOfContainer);
+    setImageWhite(idOfContainer);
+  }
+
 }
 
 function setBackgroundcolorWhite(container) {
@@ -306,7 +309,6 @@ function createCardEditMembers() {
   }
 }
 
-
 function deleteInputAssignedTo() {
   const inputField = document.getElementById("searchUser");
   if (inputField) {
@@ -397,9 +399,9 @@ function emptyInputAddSubtask() {
 function saveChangesCardEdit() {
   let IdOfTask = selectedTask["id"];
   const taskIndex = dataTasks.findIndex((task) => task.id === IdOfTask);
-  selectedTask['title'] = document.getElementById('cardEditTitle').value;
-  selectedTask['task'] = document.getElementById('cardEditDescription').value;
-  selectedTask['date'] = document.getElementById('cardEditDate').value;
+  selectedTask["title"] = document.getElementById("cardEditTitle").value;
+  selectedTask["task"] = document.getElementById("cardEditDescription").value;
+  selectedTask["date"] = document.getElementById("cardEditDate").value;
   dataTasks[taskIndex] = selectedTask;
   setTasks();
   closeCardDetailButton();
