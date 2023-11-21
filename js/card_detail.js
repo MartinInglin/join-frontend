@@ -157,4 +157,6 @@ function deleteTask(IdOfTask) {
   const taskIndex = dataTasks.findIndex((task) => task.id === IdOfTask);
   dataTasks.splice(taskIndex, 1);
   setTasks();
+  closeCardDetailButton();
+  createTasks();  
 }

@@ -292,16 +292,20 @@ function createCardEditMembers() {
   for (let i = 0; i < selectedTask["assignedTo"].length; i++) {
     const userId = selectedTask["assignedTo"][i];
     const user = contacts.find((contact) => contact.id === userId);
-    const userInitials = getUserInitials(user);
-    const userColorClass = `color-${user.icon}`;
-    /*html*/
-    cardEditMembersContainer.innerHTML += `
-      <div class="member-button align-center justify-center ${userColorClass}">
-        <span>${userInitials}</span>
-      </div>
+
+    if (user) {
+      const userInitials = getUserInitials(user);
+      const userColorClass = `color-${user.icon}`;
+      /*html*/
+      cardEditMembersContainer.innerHTML += `
+        <div class="member-button align-center justify-center ${userColorClass}">
+          <span>${userInitials}</span>
+        </div>
       `;
+    }
   }
 }
+
 
 function deleteInputAssignedTo() {
   const inputField = document.getElementById("searchUser");
