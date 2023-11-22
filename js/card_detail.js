@@ -13,6 +13,7 @@ function findTask(i, j) {
 }
 
 function closeCardDetail(event) {
+  saveSubtasks();
   document.getElementById("cardDetailContainer").classList.add("d-none");
   createTasks();
 }
@@ -22,8 +23,16 @@ function stopPropagationCardDetail(event) {
 }
 
 function closeCardDetailButton() {
+  saveSubtasks();
   document.getElementById("cardDetailContainer").classList.add("d-none");
   createTasks();
+}
+
+function saveSubtasks() {
+  let IdOfTask = selectedTask["id"];
+  const taskIndex = dataTasks.findIndex((task) => task.id === IdOfTask);
+  dataTasks[taskIndex] = selectedTask;
+  setTasks();
 }
 
 function renderCardDetail(i, j) {

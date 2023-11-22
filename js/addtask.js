@@ -1,4 +1,4 @@
-let priorityOfTask;
+let priorityOfTask = null;
 let newSubtasks = [];
 let selectedContacts = [];
 let nextFreeId;

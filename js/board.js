@@ -42,7 +42,7 @@ function createTasks(filterString) {
               <div class="space-between align-center align-stretch min-height-32">
                 <div class="row" id="assignments${i}${j}">
                 </div>
-                <div class="urgency" id="urgency${i}${j}"><img src="./img/board/priority_low.svg" alt="" /></div>
+                <div class="urgency" id="urgency${i}${j}"><img src="" alt="" /></div>
               </div>
             </div>
               `;
@@ -107,11 +107,8 @@ function createUrgency(i, j) {
   let task = actualTasks[j];
   const urgency = getTaskUrgency(task);
 
-  // Check if urgency is not null
   if (urgency !== null) {
     const urgencyImageSrc = urgenciesImg[0][urgency];
-
-    /*html*/
     urgencyContainer.innerHTML = `
       <img src="${urgencyImageSrc}" alt="" />
     `;
@@ -153,7 +150,7 @@ function createAssignments(i, j) {
               <span>+ ${nonDisplayedUsers}</span>
             </div>
           `;
-          break; // Exit the loop when the condition is met
+          break;
         }
       }
     }
