@@ -8,7 +8,6 @@ async function init() {
 
 function loadContactList() {
     let contactList = document.getElementById('contact-list');
-    let letterUnderline = document.getElementById('letter-underline');
     contactList.innerHTML = '';
     contacts.sort((a, b) => a.firstname.localeCompare(b.firstname));
     let currentLetter = '';
@@ -30,11 +29,6 @@ function loadContactList() {
                 </svg>
             </div>
             `;
-        // if (window.innerWidth > 1330) {
-        //     letterUnderline.style.width = '318px';
-        // } if (window.innerWidth > 1200) {
-        //     letterUnderline.style.width = '256px';
-        // }
         }
 
 
