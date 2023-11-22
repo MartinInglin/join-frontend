@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      position: relative;
+      padding: 10px;
+      margin: 5px;
+      border: 1px solid #ccc;
+      display: flex;
+      align-items: center;
+    }
+
+    li:hover {
+      background-color: #e0e0e0;
+    }
+
+    li::before {
+      content: '\2022'; /* Unicode für den Bullet-Point */
+      color: #333;
+      font-size: 1.5em;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<ul>
+  <li>
+    <div>Hello</div>
+  </li>
+  <li>Eintrag 2</li>
+  <li>Eintrag 3</li>
+</ul>
+
+</body>
+</html>

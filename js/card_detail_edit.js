@@ -335,7 +335,7 @@ function createSubtasksCardEdit() {
 
     /*html*/
     subtasksContainer.innerHTML += `
-      <li class="subtasks-hover" id="subtaskListItem${i}" ondblclick="editSubtaskCardEdit(${i}, '${subtaskText}')">
+      <li id="subtaskListItem${i}" class="no-hover" ondblclick="editSubtaskCardEdit(${i}, '${subtaskText}')">
         <div class="subtask-item">
           <div class="subtask-text">${subtaskText}</div>
           <div class="edit-delete-subtasks">
@@ -350,11 +350,10 @@ function createSubtasksCardEdit() {
 }
 
 function editSubtaskCardEdit(i, subtaskText) {
-  let subtaskItemContainer = document.getElementById(`subtaskListItem${i}`);
+  let subtaskItemContainer = document.getElementById(`subtasksList`);
   subtaskItemContainer.innerHTML = "";
   /*html*/
   subtaskItemContainer.innerHTML = `
-  <li class="" id="">
     <div class="subtask-item-focused">
       <input type="text" name="" id="subtaskValue${i}" class="" value="${subtaskText}">
       <div class="edit-delete-subtask">
@@ -363,7 +362,6 @@ function editSubtaskCardEdit(i, subtaskText) {
         <img src="img/board_card_detail/subtasks_confirm.svg" alt="" class="hover-gray-circle" onclick="saveSubtaskCardEdit(${i}, '${subtaskText}')">
       </div>
     </div>
-  </li>
   `;
 }
 
