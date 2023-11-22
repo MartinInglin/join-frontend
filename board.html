@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./styles/dialoganimation.css" />
     <link rel="stylesheet" href="./styles/board_card_detail.css" />
     <link rel="stylesheet" href="./styles/card_detail_edit.css" />
+    <link rel="stylesheet" href="./styles/board_media.css" />
     <script src="./js/main.js"></script>
     <script src="./js/board.js"></script>
     <script src="./js/data_tasks.js"></script>
@@ -38,7 +39,7 @@
       <div class="title">
         <h1>Board</h1>
         <div class="title-right">
-          <form class="search" onsubmit="filterTasks(); return false">
+          <form class="search d-none" onsubmit="filterTasks(); return false">
             <input type="text" id="searchInput" placeholder="Find task" onkeyup="filterTasks()" />
             <div class="align-center gap-16px">
               <img src="./img/board/separator_find_task.svg" alt />
@@ -47,32 +48,39 @@
           </form>
 
           <button class="add-task align-center" onclick="openDialog()">Add Task <img src="./img/board/add_task.svg" alt /></button>
+          <button class="add-task-media align-center" onclick="openDialog()"><img src="./img/board/add_task.svg" alt /></button>
         </div>
       </div>
-
-      <div class="columns-titles">
-        <div class="title-column">
-          <span>To do</span>
-          <button onclick="openDialog(); setPositionTask('Todo')"><img src="./img/board/plus button.svg" alt /></button>
-        </div>
-        <div class="title-column">
-          <span>In progress</span>
-          <button onclick="openDialog(); setPositionTask('InProgress')"><img src="./img/board/plus button.svg" alt /></button>
-        </div>
-        <div class="title-column">
-          <span>Await feeback</span>
-          <button onclick="openDialog(); setPositionTask('AwaitFeedback')"><img src="./img/board/plus button.svg" alt /></button>
-        </div>
-        <div class="title-column">
-          <span>Done</span>
-        </div>
       </div>
 
-      <div class="columns-tasks flex-1 height-1">
-        <div class="task-column" id="tasksTodo" ondrop="changePosition('Todo')" ondragover="allowDrop(event)"></div>
-        <div class="task-column" id="tasksInProgress" ondrop="changePosition('InProgress')" ondragover="allowDrop(event)"></div>
-        <div class="task-column" id="tasksAwaitFeedback" ondrop="changePosition('AwaitFeedback')" ondragover="allowDrop(event)"></div>
-        <div class="task-column" id="tasksDone" ondrop="changePosition('Done')" ondragover="allowDrop(event)"></div>
+      <div class="grid-tasks flex-1 height-1">
+        <div class="columns" ondrop="changePosition('Todo')" ondragover="allowDrop(event)">
+          <div class="title-column">
+            <span>To do</span>
+            <button onclick="openDialog(); setPositionTask('Todo')"><img src="./img/board/plus button.svg" alt /></button>
+          </div>
+          <div id="tasksTodo" class="task-columns"></div>
+        </div>
+        <div class="columns" ondrop="changePosition('InProgress')" ondragover="allowDrop(event)">
+          <div class="title-column">
+            <span>In progress</span>
+            <button onclick="openDialog(); setPositionTask('InProgress')"><img src="./img/board/plus button.svg" alt /></button>
+          </div>
+          <div id="tasksInProgress" class="task-columns"></div>
+        </div>
+        <div class="columns" ondrop="changePosition('AwaitFeedback')" ondragover="allowDrop(event)">
+          <div class="title-column">
+            <span>Await feeback</span>
+            <button onclick="openDialog(); setPositionTask('AwaitFeedback')"><img src="./img/board/plus button.svg" alt /></button>
+          </div>
+          <div id="tasksAwaitFeedback" class="task-columns"></div>
+        </div>
+        <div class="columns" ondrop="changePosition('Done')" ondragover="allowDrop(event)">
+          <div class="title-column">
+            <span>Done</span>
+          </div>
+          <div id="tasksDone" class="task-columns"></div>
+        </div>
       </div>
     </main>
     <div class="card-detail-container d-none" id="cardDetailContainer" onclick="closeCardDetail(event)"></div>

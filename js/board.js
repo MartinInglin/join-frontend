@@ -36,7 +36,7 @@ function createTasks(filterString) {
         tasksContainer.innerHTML += `
             <div class="card" id="card${i}${j}" draggable="true" ondragstart="startDragging(${tasks["id"]}, ${i}, ${j})" ondragend="stopRotate(${i}, ${j})" onclick="showCardDetail(${i}, ${j})"> 
               <span class="category color-${categoryClass}">${tasks["category"]}</span>
-              <h3>${tasks["title"]}</h3>
+              <h3 class="overflow-hidden">${tasks["title"]}</h3>
               <p>${tasks["task"]}</p>
               <div class="subtasks-board" id="subtasks${i}${j}"></div>
               <div class="space-between align-center align-stretch min-height-32">
@@ -133,13 +133,13 @@ function createAssignments(i, j) {
       const user = contacts.find((contact) => contact.id === userId);
       if (user) {
         const userInitials = getUserInitials(user);
-        const userColorClass = `color-${user.icon}`;
+        const userColorClass = user.icon;
         const marginClass = index > 0 ? "negative-margin" : "";
         const nonDisplayedUsers = task.assignedTo.length - 4;
 
         /*html*/
         assignmentsContainer.innerHTML += `
-          <div class="member-button align-center justify-center ${userColorClass} ${marginClass}">
+          <div class="member-button align-center justify-center ${marginClass}" style="background-color: ${userColorClass};">
             <span>${userInitials}</span>
           </div>
         `;
@@ -157,7 +157,6 @@ function createAssignments(i, j) {
   }
 }
 
-
 function createDropDiv(i) {
   let tasksContainer = document.getElementById(`tasks${columns[i]}`);
   /*html*/
@@ -168,13 +167,21 @@ function createDropDiv(i) {
   `;
 }
 
+function emptyInputFilter() {
+  document.getElementById('searchInput').value = "";
+}
+
 function openDialog() {
-  let dialog = document.getElementById("dialog");
-  let closeDialog = document.getElementById("closeDialog");
-  closeDialog.classList.remove("d-none");
-  dialog.classList.remove("d-none");
-  dialog.classList.remove("fade-out-right");
-  dialog.classList.add("fade-from-right");
+  if (window.innerWidth < 970) {
+    redirectToAddTaskPage();
+  } else {
+    let dialog = document.getElementById("dialog");
+    let closeDialog = document.getElementById("closeDialog");
+    closeDialog.classList.remove("d-none");
+    dialog.classList.remove("d-none");
+    dialog.classList.remove("fade-out-right");
+    dialog.classList.add("fade-from-right");
+  }
 }
 
 function closeDialog() {
@@ -189,3 +196,8 @@ function closeDialog() {
 function doNotClose(event) {
   event.stopPropagation();
 }
+
+function redirectToAddTaskPage() {
+  window.location.href = 'addtask.html';
+}
+

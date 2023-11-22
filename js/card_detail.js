@@ -15,6 +15,7 @@ function findTask(i, j) {
 function closeCardDetail(event) {
   saveSubtasks();
   document.getElementById("cardDetailContainer").classList.add("d-none");
+  emptyInputFilter()
   createTasks();
 }
 
@@ -25,6 +26,7 @@ function stopPropagationCardDetail(event) {
 function closeCardDetailButton() {
   saveSubtasks();
   document.getElementById("cardDetailContainer").classList.add("d-none");
+  emptyInputFilter()
   createTasks();
 }
 
@@ -118,12 +120,12 @@ function createAssignmentsCardDetail() {
 
       if (user) {
         const userInitials = getUserInitials(user);
-        const userColorClass = `color-${user.icon}`;
+        const userColorClass = user.icon;
 
         /*html*/
         assignmentsContainer.innerHTML += `
             <div class="card-detail-members">
-              <div class="member-button align-center justify-center ${userColorClass}">
+              <div class="member-button align-center justify-center " style="background-color: ${userColorClass}">
                 <span>${userInitials}</span>
               </div>
               <span class="open-sans-19">${user["firstname"]} ${user["lastname"]}</span>

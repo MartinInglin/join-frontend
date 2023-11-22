@@ -1,0 +1,143 @@
+/* Media Queries for Header and Sidebar */
+@media (max-width: 970px) {
+  .dialog-content {
+    overflow: scroll;
+    scrollbar-width: none;
+  }
+
+  .dialog-content::-webkit-scrollbar {
+    display: none;
+  }
+
+  .size100 {
+    width: 100% !important;
+    height: 88% !important;
+    padding: 0 61px !important;
+  }
+
+  .headline {
+    margin: 0 !important;
+    padding: 0 0 0 16px !important;
+  }
+
+  .dialog-content {
+    position: relative !important;
+  }
+
+  .main-container {
+    height: auto !important;
+  }
+
+  .main-buttons {
+    top: calc(100vh - 209px) !important;
+    width: calc(100vw - 160px) !important;
+    background-color: white !important;
+  }
+
+  .close-dialog {
+    top: 16px;
+    right: 72px;
+  }
+
+  #showSubtasks {
+    overflow: visible !important;
+    max-height: none !important;
+  }
+
+  .sub-container {
+    padding: 32px 16px 80px 16px !important;
+  }
+}
+
+@media (max-width: 570px) {
+  .size100 {
+    padding: 0 16px !important;
+  }
+
+  .main-buttons {
+    width: calc(100vw - 70px) !important;
+  }
+}
+
+/* Media Queries for Content of Page */
+
+/* Small devices (portrait tablets and large phones up to 600px) */
+@media (max-width: 600px) {
+  .card-detail {
+    width: 75%;
+    display: flex;
+    padding: 32px 24px;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .card-detail-title {
+    font-size: 36px;
+  }
+  .card-detail-category {
+    font-size: 16px;
+  }
+  .font-20px-400 {
+    font-size: 19px;
+  }
+  .card-edit-priority {
+    flex-direction: column;
+  }
+  .card-edit-priority-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+  .drop-down-assigned-to {
+    width: 100%
+  }
+}
+
+/* Medium devices (landscape tablets up to 768px) */
+@media (max-width: 768px) {
+}
+
+/* Large devices (laptops/desktops up to 970px) */
+@media (max-width: 970px) {
+  main {
+    padding: 0;
+  }
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 80px;
+    margin-bottom: 0;
+    padding: 36px 16px;
+    box-sizing: border-box;
+  }
+  h1 {
+    margin: 0;
+    padding: 0;
+  }
+  .grid-tasks {
+    flex-direction: column;
+    overflow: auto;
+    margin-bottom: 80px;
+    padding-bottom: 24px;
+  }
+  .title-column {
+    width: 90%;
+    max-width: 280px;
+  }
+  .add-task {
+    display: none;
+  }
+  .add-task-media {
+    display: flex;
+  }
+  .task-columns {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+}
+
+/* Extra large devices (large laptops and desktops up to 1200px) */
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 1200px) {
+}
