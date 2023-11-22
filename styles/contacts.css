@@ -104,7 +104,6 @@ select {
     left: 28px;
     padding: 32px 24px 32px 24px;
     margin-top: 101px;
-    margin-bottom: 50px;
 }
 
 .letter {
@@ -206,6 +205,10 @@ select {
     line-height: 32px;
     letter-spacing: 0em;
     text-align: left;
+}
+
+.underline {
+    display: none;
 }
 
 .show-contact {
@@ -441,11 +444,25 @@ select {
         width: 315px;
         gap: 10px;
     }
-
+    
     .headline {
         top: 140px;
-        left: 650px;
+        left: 750px;
+        width: 350px;
         flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .headline h2 {
+        border-right: 0;
+    }
+
+    .headline span {
+        margin-bottom: 16px;
+    }
+
+    .underline {
+        display: flex;
     }
 }
 
@@ -459,7 +476,7 @@ select {
     }
 
     .btn-add-new-cont {
-        width: 315px;
+        width: 310px;
         left: 5px;
     }
 
@@ -473,12 +490,56 @@ select {
     }
 
     .headline {
-        left: 610px;
+        left: 580px;
         width: 300px;
     }
 
     .show-contact {
-        left: 610px;
+        left: 580px;
+        width: 300px;
+        height: 320px;
+    }
+
+    .show-cont-name {
+        width: 325px;
+        height: 300px;
+        gap: 0;
+    }
+}
+
+@media(max-width: 970px) {
+    .contacts {
+        top: 80px;
+        left: 0;
+        width: 420px;
+    }
+
+    .add-new-contact {
+        width: 410px;
+    }
+
+    .btn-add-new-cont {
+        width: 364px;
+        left: 24px;
+    }
+
+    .contact-list {
+        padding: 0 24px 32px 24px;
+        width: 364px;
+    }
+
+    .cont {
+        width: 315px;
+        gap: 10px;
+    }
+
+    .headline {
+        top: 140px;
+        left: 445px;
+    }
+
+    .show-contact {
+        left: 445px;
         width: 300px;
         height: 382px;
     }
@@ -486,12 +547,30 @@ select {
     .show-cont-name {
         width: 325px;
         height: 300px;
-        gap: 0;
-        flex-direction: column;
-        align-items: flex-start;
+        gap: 20px;
+        align-items: center;
+        flex-direction: row;
     }
 }
 
-@media(max-width: 970px) {
+@media(max-width: 870px) {
+    .contacts {
+        left: 28%;
+    }
 
+    .headline {
+        display: none;
+    }
+}
+
+@media(max-width: 600px) {
+    .contacts {
+        left: 16%;
+    }
+}
+
+@media(max-width: 500px) {
+    .contacts {
+        left: 0;
+    }
 }
