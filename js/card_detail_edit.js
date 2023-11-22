@@ -29,33 +29,31 @@ function showCardEdit() {
   cardDetailContainer.innerHTML = "";
   /*html*/
   cardDetailContainer.innerHTML = `
-
+  <form onsubmit="saveChangesCardEdit(); return false">
     <div class="card-detail left-50-percent" onclick="closeDropDownAssignedTo(); deleteInputAssignedTo(); stopPropagation(event)">
         <div class="card-detail-header justify-right">
           <div class="close-btn pointer"><img src="./img/board_card_detail/close.svg" alt="" onclick="closeCardDetailButton()" /></div>
         </div>
         <div class="card-edit-scroll">
-          <form>
             <div class="card-edit-section">
               <div class="subtitle">Title</div>
               <input type="text" name="" id="cardEditTitle" class="font-size-20 card-edit-section-input" required/>
             </div>
-          </form>
           <div class="card-edit-section">
             <div class="subtitle">Description</div>
             <textarea type="text" name="" id="cardEditDescription" class="font-size-20 card-edit-section-input card-edit-task"></textarea>
           </div>
           <div class="card-edit-section">
             <div class="subtitle">Due date</div>
-            <input type="date" name="" id="cardEditDate" class="font-size-19 card-edit-section-input" />
+            <input type="date" name="" id="cardEditDate" class="font-size-19 card-edit-section-input" max="2200-12-31"/>
           </div>
 
           <div class="card-edit-section">
             <div class="subtitle">Priority</div>
             <div class="card-edit-priority" id="cardEditPriorities">
-              <button class="card-edit-priority-btn" id="buttonUrgent" onclick="changePriority('urgent', 'buttonUrgent')">Urgent<img src="../img/add_task/urgent.png"></button>
-              <button class="card-edit-priority-btn" id="buttonMedium" onclick="changePriority('medium', 'buttonMedium')">Medium<img src="../img/add_task/medium.png"></button>
-              <button class="card-edit-priority-btn" id="buttonLow" onclick="changePriority('low', 'buttonLow')">Low<img src="../img/add_task/low.png"></button>
+              <button type="button" class="card-edit-priority-btn" id="buttonUrgent" onclick="changePriority('urgent', 'buttonUrgent')">Urgent<img src="../img/add_task/urgent.png"></button>
+              <button type="button" class="card-edit-priority-btn" id="buttonMedium" onclick="changePriority('medium', 'buttonMedium')">Medium<img src="../img/add_task/medium.png"></button>
+              <button type="button" class="card-edit-priority-btn" id="buttonLow" onclick="changePriority('low', 'buttonLow')">Low<img src="../img/add_task/low.png"></button>
             </div>
           </div>
 
@@ -84,15 +82,17 @@ function showCardEdit() {
 
           </div>
           </div>
+
           <div class="confirm-button-container">
-            <div class="confirm-button" onclick="saveChangesCardEdit()">
+            <button type="submit" class="confirm-button">
               <p>OK</p>
               <img src="./img/board_card_detail/confirm_white.svg" alt="">
-            </div>
+            </button>
           </div>
         </div>
 
       </div>
+      </form>
     `;
   setTitle();
   setDescription();
@@ -155,12 +155,11 @@ function setPriorityStyle(idOfContainer) {
   const container = document.getElementById(idOfContainer);
   const priorityColor = selectedTask["urgency"] ? colorsPriority.find((item) => item.priority === selectedTask["urgency"]) : null;
 
-  if (selectedTask['urgency']) {
+  if (selectedTask["urgency"]) {
     setBackgroundcolorPriority(container, priorityColor);
     setColorWhite(idOfContainer);
     setImageWhite(idOfContainer);
   }
-
 }
 
 function setBackgroundcolorWhite(container) {
