@@ -560,6 +560,11 @@ select {
 
     .headline {
         display: none;
+        left: 300px;
+    }
+
+    .show-contact {
+        left: 300px;
     }
 }
 

@@ -398,6 +398,8 @@
         background-image: url(/img/addnewcontact/close-mobil.svg);
         background-repeat: no-repeat;
         background-position: center;
+        top: 24px;
+        right: 16px;
     }
 
     .close-btn:hover {

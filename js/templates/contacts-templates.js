@@ -1,3 +1,16 @@
+function generatCurrenLetterHTML(i, currentLetter) {
+    return  /*html*/ `
+    <div class="letter">
+        <span>${currentLetter}</span>
+    </div>
+    <div class="letter-underline">
+        <svg id="letter-underline${i}" xmlns="http://www.w3.org/2000/svg" width="354" height="2" viewBox="0 0 354 2" fill="none">
+            <path d="M1 1H353" stroke="#D1D1D1" stroke-linecap="round"/>
+        </svg>
+    </div>
+    `;
+}
+
 function generatContactListHTML(i) {
     return  /*html*/`
     <div id="cont${contacts[i].id}" onclick="showContact(${contacts[i].id})" class="cont">
@@ -59,5 +72,52 @@ function generatInfoHTML(contact) {
         <p>Phone</p>
         <a href="#">${contact['phone-number']}</a>
     </div>
+    `;
+}
+
+function generatEditContactHTML(contact) {
+    return  /*html*/`
+    <div class="add-new-cont-left">
+        <div class="icon"> 
+            <img src="img/addnewcontact/icon.svg">
+        </div>
+        <div class="headline-add-new-cont">
+            <p>Edit contact</p>
+        </div>
+        <img src="img/addnewcontact/underline.svg">
+    </div>    
+    <div onclick="closeAddNewContact()" class="close-btn">
+    </div>
+    <div class="cont-icon-big circle">
+        <svg width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="60" cy="60" r="58" fill="${contact['icon']}" />
+            <text x="30" y="70" font-size="40" fill="white">${contact['firstname'].charAt(0)}</text>
+            <text x="65" y="70" font-size="40" fill="white">${contact['lastname'].charAt(0)}</text>                    
+        </svg>
+    </div>
+    <form class="info-new-cont" onsubmit="editOldContact(id); return false;">
+        <div class="input-field">
+            <input id="edit-name" type="text" value="${contact['firstname']} ${contact['lastname']}" pattern="[A-Z]{1,}[a-z]{2,} [A-Z]{1,}[a-z]{2,}" title="Capitalise the first letter e.g. Max Musterman" placeholder="Name" class="form-control" required>
+            <span class="info-icon icon-name"></span>
+        </div>
+        <div class="input-field"> 
+        <!-- pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$" -->
+            <input id="edit-email" type="email" value="${contact['email']}" title="e.g. maxmustermann@hotmail.de" placeholder="Email" class="form-control" required>
+            <span class="info-icon icon-email"></span>
+        </div>
+        <div class="input-field">
+            <input id="edit-phone" type="tel" value="${contact['phone-number']}" pattern="[+][0-9]{2} [0-9]{3}-[0-9]{4,}" title="e.g. +49 123-123456789" placeholder="Phone" class="form-control" required>
+            <span class="info-icon icon-phone"></span>
+        </div>
+        <div class="btn-cancel-create">
+            <button id="btn-delete" onclick="deleteContact(id)">
+                Delete
+            </button>
+            <button id="btn-save" type="submit">
+                Save
+                <img src="../img/add_task/check2.png" alt>
+            </button>
+        </div>
+    </form>
     `;
 }

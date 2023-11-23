@@ -11,7 +11,6 @@ function generatAddNewContactHTML(){
         <img src="img/addnewcontact/underline.svg">
     </div>    
     <div onclick="closeAddNewContact()" class="close-btn">
-        <!-- <img src="img/addnewcontact/close.svg"> -->
     </div>
     <div class="circle">
         <img src="img/addnewcontact/circle.svg">
