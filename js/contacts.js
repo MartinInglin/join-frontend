@@ -53,26 +53,6 @@ function showContact(id) {
     name.innerHTML = generatShowContactNameHTML(i, contact);
     info.innerHTML = generatInfoHTML(contact);
     animationShowContact();
-
-
-    // if (window.innerWidth <= 870) {
-    //     showContactMobil(id);
-    // } else {
-    //     highlight.classList.add('cont-clickt');
-    //     showcontact.classList.remove('d-none');
-    //     name.innerHTML = generatShowContactNameHTML(i, contact);
-    //     info.innerHTML = generatInfoHTML(contact);
-    //     animationShowContact();
-    // }
-}
-
-function showContactMobil(id) {
-    let contactsMobil = document.getElementById('contacts');
-    let showcontact = document.getElementById('show-contact');
-
-    contactsMobil.classList.add('d-none');
-    showcontact.classList.remove('d-none');
-    showContact(id);
 }
 
 function animationShowContact() {
