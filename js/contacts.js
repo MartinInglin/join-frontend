@@ -37,22 +37,24 @@ function getIndexById(contactId) {
 }
 
 function showContact(id) {
-    loadContactList();
-    let i = getIndexById(id);
+    if (window.innerWidth > 970) {
+        loadContactList();
+        let i = getIndexById(id);
 
-    const contact = contacts[i];
-    let showcontact = document.getElementById('show-contact');
-    let info = document.getElementById('info');
-    let name = document.getElementById('name');
-    let highlight = document.getElementById(`cont${contact.id}`);
+        const contact = contacts[i];
+        let showcontact = document.getElementById('show-contact');
+        let info = document.getElementById('info');
+        let name = document.getElementById('name');
+        let highlight = document.getElementById(`cont${contact.id}`);
 
-    hideContact(i);
+        hideContact(i);
 
-    highlight.classList.add('cont-clickt');
-    showcontact.classList.remove('d-none');
-    name.innerHTML = generatShowContactNameHTML(i, contact);
-    info.innerHTML = generatInfoHTML(contact);
-    animationShowContact();
+        highlight.classList.add('cont-clickt');
+        showcontact.classList.remove('d-none');
+        name.innerHTML = generatShowContactNameHTML(i, contact);
+        info.innerHTML = generatInfoHTML(contact);
+        animationShowContact();
+    }
 }
 
 function animationShowContact() {

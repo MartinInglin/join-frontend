@@ -92,7 +92,7 @@ function generatEditContactHTML(contact) {
             <text x="65" y="70" font-size="40" fill="white">${contact['lastname'].charAt(0)}</text>                    
         </svg>
     </div>
-    <form class="info-new-cont" onsubmit="editOldContact(id); return false;">
+    <form class="info-new-cont" onsubmit="editOldContact(${contact['id']}); return false;">
         <div class="input-field">
             <input id="edit-name" type="text" value="${contact['firstname']} ${contact['lastname']}" pattern="[A-Z]{1,}[a-z]{2,} [A-Z]{1,}[a-z]{2,}" title="Capitalise the first letter e.g. Max Musterman" placeholder="Name" class="form-control" required>
             <span class="info-icon icon-name"></span>
@@ -107,7 +107,7 @@ function generatEditContactHTML(contact) {
             <span class="info-icon icon-phone"></span>
         </div>
         <div class="btn-cancel-create">
-            <button id="btn-delete" onclick="deleteContact(id)">
+            <button id="btn-delete" onclick="deleteContact(${contact['id']})">
                 Delete
             </button>
             <button id="btn-save" type="submit">
