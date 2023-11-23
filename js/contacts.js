@@ -85,7 +85,8 @@ function editContact(id) {
 }
 
 function editOldContact(id) {
-    let contact = contacts[id];
+    const contactIndex = contacts.findIndex((c) => c.id === id);
+    let contact = contacts[contactIndex];
     let nameInput = document.getElementById('edit-name');
     let emailInput = document.getElementById('edit-email');
     let phoneInput = document.getElementById('edit-phone');
@@ -93,21 +94,23 @@ function editOldContact(id) {
     let firstname = nameParts[0] || '';
     let lastname = nameParts.slice(1).join(' ') || '';
 
-    if (!isValidEmail(emailInput.value)) {
+        if (!isValidEmail(emailInput.value)) {
         alert('Invalid email format. Please use e.g. maxmustermann@hotmail.de');
         return;
     }
 
-    contact.icon = contact.icon;
     contact.firstname = firstname;
     contact.lastname = lastname;
     contact.email = emailInput.value;
     contact['phone-number'] = phoneInput.value;
+    contacts[contactIndex] = contact;
 
     setContacts();
     closeAddNewContact();
     showContact(contact.id);
 }
+
+
 
 function isValidEmail(email) {
     const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
