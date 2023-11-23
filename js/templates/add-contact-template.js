@@ -32,7 +32,7 @@ function generatAddNewContactHTML(){
             <span class="info-icon icon-phone"></span>
         </div>
         <div class="btn-cancel-create">
-            <button id="btn-cancel" onclick="closeAddNewContact()">Cancel
+            <button id="btn-cancel" type="button" onclick="closeAddNewContact()">Cancel
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12.0692 12.0001L17.3122 17.2431M6.82617 17.2431L12.0692 12.0001L6.82617 17.2431ZM17.3122 6.75708L12.0682 12.0001L17.3122 6.75708ZM12.0682 12.0001L6.82617 6.75708L12.0682 12.0001Z" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
