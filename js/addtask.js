@@ -22,7 +22,7 @@ async function initAddTask() {
     await getContacts();
     loadContactsSelection();
     createHeaderInitials();
-    checkRequiredInput();
+    // checkRequiredInput();
 }
 
 function loadContactsSelection() {
