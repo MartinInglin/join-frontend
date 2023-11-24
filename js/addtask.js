@@ -318,7 +318,7 @@ function renderContactInitialIcons() {
     })
 }
 
-function createTask() {
+function createNewTask() {
     let createTask = document.getElementById('createTask');
     let inputTitel = document.getElementById('inputTitel').value;
     let inputDescription = document.getElementById('inputDescription').value;
@@ -347,7 +347,7 @@ function showSuccessDialog(dialogSucces) {
 
 function checkOpenBoard() {
     if (idOfCurrentPage == 2) {
-        createTasks();
+        renderTasksBoard();
         setTimeout(() => {
             closeDialog();
         }, 1000);

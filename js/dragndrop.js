@@ -19,7 +19,7 @@ function changePosition(newPosition) {
   } else {
     console.error("Task not found with ID:", id);
   }
-  createTasks();
+  renderTasksBoard();
   setTasks();
 }
 

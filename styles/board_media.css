@@ -89,6 +89,9 @@
   .drop-down-assigned-to {
     width: 100%
   }
+  .title-column {
+    width: 90%;
+  }
 }
 
 /* Medium devices (landscape tablets up to 768px) */
@@ -118,10 +121,6 @@
     overflow: auto;
     margin-bottom: 80px;
     padding-bottom: 24px;
-  }
-  .title-column {
-    width: 90%;
-    max-width: 280px;
   }
   .add-task {
     display: none;

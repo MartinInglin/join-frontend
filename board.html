@@ -39,7 +39,7 @@
       <div class="title">
         <h1>Board</h1>
         <div class="title-right">
-          <form class="search" onsubmit="filterTasks(); return false">
+          <form class="search d-none" onsubmit="filterTasks(); return false">
             <input type="text" id="searchInput" placeholder="Find task" onkeyup="filterTasks()" />
             <div class="align-center gap-16px">
               <img src="./img/board/separator_find_task.svg" alt />
@@ -50,7 +50,6 @@
           <button class="add-task align-center" onclick="openDialog()">Add Task <img src="./img/board/add_task.svg" alt /></button>
           <button class="add-task-media align-center" onclick="openDialog()"><img src="./img/board/add_task.svg" alt /></button>
         </div>
-      </div>
       </div>
 
       <div class="grid-tasks flex-1 height-1">

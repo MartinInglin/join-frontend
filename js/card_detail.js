@@ -16,7 +16,7 @@ function closeCardDetail(event) {
   saveSubtasks();
   document.getElementById("cardDetailContainer").classList.add("d-none");
   emptyInputFilter()
-  createTasks();
+  renderTasksBoard();
 }
 
 function stopPropagationCardDetail(event) {
@@ -27,7 +27,7 @@ function closeCardDetailButton() {
   saveSubtasks();
   document.getElementById("cardDetailContainer").classList.add("d-none");
   emptyInputFilter()
-  createTasks();
+  renderTasksBoard();
 }
 
 function saveSubtasks() {
@@ -185,5 +185,5 @@ function deleteTask(IdOfTask) {
   dataTasks.splice(taskIndex, 1);
   setTasks();
   closeCardDetailButton();
-  createTasks();  
+  renderTasksBoard();  
 }

@@ -12,11 +12,11 @@ async function initBoard() {
   await getUsers();
   await getCurrentUser();
   await getContacts();
-  createTasks();
+  renderTasksBoard();
   createHeaderInitials();
 }
 
-function createTasks(filterString) {
+function renderTasksBoard(filterString) {
   for (let i = 0; i < columns.length; i++) {
     let filteredTasks;
     if (filterString) {
