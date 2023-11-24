@@ -14,6 +14,7 @@ async function initBoard() {
   await getContacts();
   renderTasksBoard();
   createHeaderInitials();
+  adjustLayout()
 }
 
 function renderTasksBoard(filterString) {
@@ -201,3 +202,32 @@ function redirectToAddTaskPage() {
   window.location.href = 'addtask.html';
 }
 
+function adjustLayout() {
+  const screenWidth = window.innerWidth;
+  const breakpoint = 970;
+  let containerSearchInputDesktop = document.getElementById('searchInputDesktop');
+  let containerSearchInputMedia = document.getElementById('searchInputMedia');
+
+  if (screenWidth <= breakpoint) {
+    containerSearchInputDesktop.innerHTML = "";
+    containerSearchInputMedia.innerHTML = createSearchInput();
+  } else {
+    containerSearchInputMedia.innerHTML = "";
+    containerSearchInputDesktop.innerHTML = createSearchInput();
+  }
+}
+
+window.addEventListener('resize', adjustLayout);
+
+function createSearchInput() {
+  /*html*/
+  return `
+  <form class="search" onsubmit="filterTasks(); return false">
+  <input type="text" id="searchInput" placeholder="Find task" onkeyup="filterTasks()" />
+  <div class="align-center gap-16px">
+    <img src="./img/board/separator_find_task.svg" alt />
+    <button class="align-center"><img src="./img/board/search.svg" alt /></button>
+  </div>
+  </form>
+  `;
+}

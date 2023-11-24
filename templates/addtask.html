@@ -57,8 +57,8 @@
           <div class="choose-category">
             <div>Category<span>*</span></div>
             <div>
-              <select id="selectCategory" onchange="checkRequiredInput()">
-                <option selected>Select task category</option>
+              <select id="selectCategory" onchange="checkRequiredInput()" required>
+                <option disabled selected>Select task category</option>
                 <option value="Technical Task">Technical Task</option>
                 <option value="User Story">User Story</option>
               </select>

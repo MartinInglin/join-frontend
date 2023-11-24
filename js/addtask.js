@@ -390,7 +390,8 @@ function checkRequiredInput() {
     let inputDate = document.getElementById('inputDate').value;
     let selectCategory = document.getElementById('selectCategory').value;
     let createTask = document.getElementById('createTask');
-    if (inputTitel.length > 0 && inputDate.length > 0 && selectCategory !== 'Select task category') {
+
+    if (inputTitel.length > 0 && inputDate.length > 0 && selectCategory !== '') {
         createTask.disabled = false;
     } else {
         createTask.disabled = true;

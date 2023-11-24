@@ -185,5 +185,6 @@ function deleteTask(IdOfTask) {
   dataTasks.splice(taskIndex, 1);
   setTasks();
   closeCardDetailButton();
-  renderTasksBoard();  
+  renderTasksBoard();
+  console.log(dataTasks);
 }

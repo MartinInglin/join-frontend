@@ -81,6 +81,7 @@
   font-size: 20px;
   line-height: 24px;
   color: black;
+  width: 100%;
 }
 
 .search input:focus {
@@ -136,8 +137,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 12px;
-  width: 240px;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .title-column span {
@@ -225,6 +227,7 @@
   box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
   width: 218px;
   min-width: 218px;
+  height: fit-content;
 }
 
 .category {
