@@ -33,31 +33,13 @@ function renderTasksBoard(filterString) {
       for (let j = 0; j < filteredTasks.length; j++) {
         let tasks = filteredTasks[j];
         const categoryClass = setColorCategory(tasks["category"]);
-        /*html*/
-        tasksContainer.innerHTML += `
-            <div class="card" id="card${i}${j}" draggable="true" ondragstart="startDragging(${tasks["id"]}, ${i}, ${j})" ondragend="stopRotate(${i}, ${j})" onclick="showCardDetail(${i}, ${j})"> 
-              <span class="category color-${categoryClass}">${tasks["category"]}</span>
-              <h3 class="overflow-hidden">${tasks["title"]}</h3>
-              <p>${tasks["task"]}</p>
-              <div class="subtasks-board" id="subtasks${i}${j}"></div>
-              <div class="space-between align-center align-stretch min-height-32">
-                <div class="row" id="assignments${i}${j}">
-                </div>
-                <div class="urgency" id="urgency${i}${j}"><img src="" alt="" /></div>
-              </div>
-            </div>
-              `;
+        tasksContainer.innerHTML += createTasksHTML(i, j, tasks, categoryClass);
         createSubtasks(i, j);
         createUrgency(i, j);
         createAssignments(i, j);
       }
     } else {
-      /*html*/
-      tasksContainer.innerHTML = `
-          <div class="empty-task">
-            <span>No Tasks ${columnsText[i]}</span>
-          </div>
-        `;
+      tasksContainer.innerHTML = createEmptyTaskHTML(columnsText, i);
     }
     createDropDiv(i);
   }
@@ -81,14 +63,7 @@ function createSubtasks(i, j) {
   subtasksContainer.innerHTML = "";
 
   if (task.subtasks.length > 0) {
-    /*html*/
-    subtasksContainer.innerHTML += `
-      <div class="progress-bar-container">
-        <div class="progress-bar-background"></div>
-        <div class="progress-bar" style="width: ${widthProgressBar};"></div>
-      </div>
-      <div class="subtasks-text">${checkedSubtasksCount}/${task.subtasks.length} Subtasks</div>
-    `;
+    subtasksContainer.innerHTML += createSubstasksBoardHTML(widthProgressBar, checkedSubtasksCount, task);
   } else {
     subtasksContainer.classList.add("margin-12");
   }
@@ -138,19 +113,9 @@ function createAssignments(i, j) {
         const marginClass = index > 0 ? "negative-margin" : "";
         const nonDisplayedUsers = task.assignedTo.length - 4;
 
-        /*html*/
-        assignmentsContainer.innerHTML += `
-          <div class="member-button align-center justify-center ${marginClass}" style="background-color: ${userColorClass};">
-            <span>${userInitials}</span>
-          </div>
-        `;
+        assignmentsContainer.innerHTML += createAssignementsHTML(marginClass, userColorClass, userInitials);
         if (index > 2 && nonDisplayedUsers > 0) {
-          /*html*/
-          assignmentsContainer.innerHTML += `
-            <div class="member-button align-center justify-center color-standard-blue ${marginClass}">
-              <span>+ ${nonDisplayedUsers}</span>
-            </div>
-          `;
+          assignmentsContainer.innerHTML += createAssignmentsFistHTML(marginClass, nonDisplayedUsers);
           break;
         }
       }
@@ -160,12 +125,7 @@ function createAssignments(i, j) {
 
 function createDropDiv(i) {
   let tasksContainer = document.getElementById(`tasks${columns[i]}`);
-  /*html*/
-  tasksContainer.innerHTML += `
-    <div class="empty-task d-none" id="dropDiv${i}">
-      <span>Drop Task here</span>
-    </div>
-  `;
+  tasksContainer.innerHTML += createDropDivHTML(i);
 }
 
 function emptyInputFilter() {
@@ -218,16 +178,3 @@ function adjustLayout() {
 }
 
 window.addEventListener('resize', adjustLayout);
-
-function createSearchInput() {
-  /*html*/
-  return `
-  <form class="search" onsubmit="filterTasks(); return false">
-  <input type="text" id="searchInput" placeholder="Find task" onkeyup="filterTasks()" />
-  <div class="align-center gap-16px">
-    <img src="./img/board/separator_find_task.svg" alt />
-    <button class="align-center"><img src="./img/board/search.svg" alt /></button>
-  </div>
-  </form>
-  `;
-}
