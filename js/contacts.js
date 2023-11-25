@@ -115,24 +115,9 @@ function backToContactlist() {
 }
 
 function showContFunction(id) {
-    let i = getIndexById(id);
     let showContFunction = document.getElementById('show-cont-function');
     showContFunction.classList.remove('d-none');
-    showContFunction.innerHTML = 
-    /*html*/`
-    <div class="cont-function-edit">
-        <div onclick="editContact(${i})" class="edit" onmouseover="SVGOnHover('editImg', 'edit')" onmouseout="SVGMouseOut('editImg', 'edit')" onclick="showCardEdit()">
-          <img src="./img/board_card_detail/edit.svg" alt="" id="editImg">
-          <div>Edit</div>
-        </div>
-    </div>
-    <div onclick="deleteContact(${i})" class="cont-function-delete">
-        <div class="delete" onmouseover="SVGOnHover('deleteImg', 'delete')" onmouseout="SVGMouseOut('deleteImg', 'delete')">
-          <img src="./img/contact/delete.png" alt="" id="deleteImg">
-          <div>Delete</div>
-        </div>
-    </div>
-    `;
+    showContFunction.innerHTML = generatShowContFunctionHTML(id);
 }
 
 function animationShowContact() {

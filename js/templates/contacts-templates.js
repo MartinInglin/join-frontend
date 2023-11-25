@@ -72,8 +72,25 @@ function generatShowContactNameMobilHTML(i, contact) {
     <div class="cont-big-name">
         <span>${contact['firstname']} ${contact['lastname']}</span>
     </div>
-    <div onclick="showContFunction(id)" class="cont-function-menu">
+    <div onclick="showContFunction(${i})" class="cont-function-menu">
         <img src="img/contact/menu.svg">
+    </div>
+    `;
+}
+
+function generatShowContFunctionHTML(id) {
+    return /*html*/`
+    <div class="cont-function-edit-mobil">
+        <div onclick="editContact(${id})" class="edit" onmouseover="SVGOnHover('editImg', 'edit')" onmouseout="SVGMouseOut('editImg', 'edit')" onclick="showCardEdit()">
+          <img src="./img/board_card_detail/edit.svg" alt="" id="editImg">
+          <span>Edit</span>
+        </div>
+    </div>
+    <div onclick="deleteContact(${id})" class="cont-function-delete-mobil">
+        <div class="delete" onmouseover="SVGOnHover('deleteImg', 'delete')" onmouseout="SVGMouseOut('deleteImg', 'delete')">
+          <img src="./img/contact/delete.png" alt="" id="deleteImg">
+          <span>Delete</span>
+        </div>
     </div>
     `;
 }

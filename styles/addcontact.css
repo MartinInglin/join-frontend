@@ -392,6 +392,7 @@
 
     .btn-cancel-create {
         justify-content: center;
+        margin-top: 15px;
     }
 
     .close-btn {
