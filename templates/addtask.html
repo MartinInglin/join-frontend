@@ -31,7 +31,7 @@
           </div>
           <div class="assigned-to">
             <div>Assigned to</div>
-            <div id="contactList">
+            <div id="contactList" class="contact-list">
               <img src="../img/add_task/arrow_drop_down.png" id="openContactsDropDown" onclick="openContactList(); doNotTriggerEvent(event)" />
               <input type="text" id="contactInput" placeholder="Select contacts to assign" onclick="openContactList(); doNotTriggerEvent(event)" oninput="searchContactToAssign()" onfocus="openContactList()" />
               <div id="contactsDropDown"></div>
@@ -56,12 +56,12 @@
           </div>
           <div class="choose-category">
             <div>Category<span>*</span></div>
-            <div>
-              <select id="selectCategory" onchange="checkRequiredInput()" required>
-                <option disabled selected>Select task category</option>
-                <option value="Technical Task">Technical Task</option>
-                <option value="User Story">User Story</option>
-              </select>
+            <div class="select-category-container">
+              <input type="text" id="selectCategory" class="select-category" onclick="showDropDownCategory()" onblur="hideDropDownCategoryDelay()" required pattern="Technical Task|User Story"  placeholder="Select task category" title="Technical Task oder User Story" >
+                <div id="selectCategoryOptions" class="select-category-options position-relative d-none">
+                  <p onclick="setCategory('Technical Task')">Technical Task</p>
+                  <p onclick="setCategory('User Story')">User Story</p>
+                </div>
             </div>
           </div>
           <div class="subtasks">

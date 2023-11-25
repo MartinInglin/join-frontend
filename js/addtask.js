@@ -385,15 +385,23 @@ function addNewContact() {
     addContact.style.backgroundColor = '#091931';
 }
 
-function checkRequiredInput() {
-    let inputTitel = document.getElementById('inputTitel').value;
-    let inputDate = document.getElementById('inputDate').value;
-    let selectCategory = document.getElementById('selectCategory').value;
-    let createTask = document.getElementById('createTask');
+function showDropDownCategory() {
+    const selectCategoryOptions = document.getElementById('selectCategoryOptions');
+    selectCategoryOptions.classList.remove('d-none');
+}
 
-    if (inputTitel.length > 0 && inputDate.length > 0 && selectCategory !== '') {
-        createTask.disabled = false;
-    } else {
-        createTask.disabled = true;
-    }
+function setCategory(category) {
+    document.getElementById('selectCategory').value = category;
+    hideDropDownCategory();
+}
+
+function hideDropDownCategory() {
+    const selectCategoryOptions = document.getElementById('selectCategoryOptions');
+    selectCategoryOptions.classList.add('d-none');
+}
+
+function hideDropDownCategoryDelay() {
+    setTimeout(function () {
+        hideDropDownCategory();
+    }, 100);
 }

@@ -1,947 +1,977 @@
 h1 {
-    margin-top: 40.87px;
-    margin-bottom: 40.87px;
+  margin-top: 40.87px;
+  margin-bottom: 40.87px;
 }
 
 .main-container {
-    position: relative;
-    font-size: 20px;
-    color: rgba(42, 54, 71, 1);
+  position: relative;
+  font-size: 20px;
+  color: rgba(42, 54, 71, 1);
 }
 
 .main-container input,
 .main-container textarea,
-.main-container select,
+.main-container .select-category,
 .main-container button {
-    cursor: pointer;
-    font-size: 20px;
-    font-family: Inter;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: Inter;
 }
 
-.main-container input[type=text]:focus {
-    outline: none;
-    border: 1px solid rgba(41, 171, 226, 1);
-    font-size: 20px;
-    font-family: Inter;
+.main-container input[type="text"]:focus {
+  outline: none;
+  border: 1px solid rgba(41, 171, 226, 1);
+  font-size: 20px;
+  font-family: Inter;
 }
 
-.main-container input[type=date]:focus {
-    outline: none;
-    border: 1px solid rgba(41, 171, 226, 1);
-    font-size: 20px;
-    font-family: Inter;
+.main-container input[type="date"]:focus {
+  outline: none;
+  border: 1px solid rgba(41, 171, 226, 1);
+  font-size: 20px;
+  font-family: Inter;
 }
 
 .main-container input::placeholder {
-    color: rgba(209, 209, 209, 1);
-    font-size: 20px;
-    line-height: 24px;
-    font-family: Inter;
+  color: rgba(209, 209, 209, 1);
+  font-size: 20px;
+  line-height: 24px;
+  font-family: Inter;
 }
 
 .main-container textarea:focus {
-    width: 408px;
-    outline: none;
-    border: 1px solid rgba(41, 171, 226, 1);
-    font-size: 20px;
-    font-family: Inter;
+  width: 408px;
+  outline: none;
+  border: 1px solid rgba(41, 171, 226, 1);
+  font-size: 20px;
+  font-family: Inter;
 }
 
-.main-container select:focus {
-    height: 50px;
-    outline: none;
-    border: 1px solid rgba(41, 171, 226, 1);
-    font-size: 20px;
-    font-family: Inter;
+.main-container .select-category:focus {
+  outline: none;
+  border: 1px solid rgba(41, 171, 226, 1);
+  font-size: 20px;
+  font-family: Inter;
 }
 
 .main-container span {
-    color: rgba(255, 129, 144, 1);
+  color: rgba(255, 129, 144, 1);
 }
 
 .sub-container {
-    display: flex;
+  display: flex;
 }
 
 .left-container {
-    width: 440px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    position: relative;
+  width: 440px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
 }
 
 .titel {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .titel input {
-    height: 24px;
-    padding: 12px 21px 12px 21px;
-    border-radius: 10px;
-    border: 1px solid rgba(209, 209, 209, 1);
+  height: 24px;
+  padding: 12px 21px 12px 21px;
+  border-radius: 10px;
+  border: 1px solid rgba(209, 209, 209, 1);
 }
 
 .description {
-    height: 152px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  height: 152px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .description-input {
-    width: 406px;
-    height: 82px;
-    padding: 18px 16px;
-    display: flex;
-    align-items: flex-start;
-    border: 1px solid rgba(209, 209, 209, 1);
-    border-radius: 10px;
-    font-size: 20px;
+  width: 406px;
+  height: 82px;
+  padding: 18px 16px;
+  display: flex;
+  align-items: flex-start;
+  border: 1px solid rgba(209, 209, 209, 1);
+  border-radius: 10px;
+  font-size: 20px;
 }
 
 .description-input::placeholder {
-    color: rgba(209, 209, 209, 1);
-    font-size: 20px;
-    font-family: Inter;
+  color: rgba(209, 209, 209, 1);
+  font-size: 20px;
+  font-family: Inter;
 }
 
 .assigned-to {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-#contactList {
-    width: 440px;
-    height: 50px;
-    border-radius: 10px;
-    background: white;
-    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    cursor: pointer;
+.contact-list {
+  width: 440px;
+  height: 50px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  cursor: pointer;
 }
 
 #contactInput {
-    display: flex;
-    width: 406px;
-    height: 24px;
-    padding: 12px 16px;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 10px;
-    border: 1px solid #D1D1D1;
+  display: flex;
+  width: 406px;
+  height: 24px;
+  padding: 12px 16px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid #d1d1d1;
 }
 
 #contactInput::placeholder {
-    color: black;
-    font-size: 20px;
+  color: black;
+  font-size: 20px;
 }
 
 #openContactsDropDown {
-    position: absolute;
-    top: 13px;
-    right: 16px;
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
+  position: absolute;
+  top: 13px;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
 }
 
 #addContact {
-    width: 408px;
-    display: flex;
-    padding: 12px 16px;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    align-self: stretch;
-    border-radius: 10px;
-    border: 1px solid #2A3647;
-    background: #2A3647;
-    position: absolute;
-    top: 286px;
-    left: 16px;
-    color: white;
+  width: 408px;
+  display: flex;
+  padding: 12px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+  border-radius: 10px;
+  border: 1px solid #2a3647;
+  background: #2a3647;
+  position: absolute;
+  top: 286px;
+  left: 16px;
+  color: white;
 }
 
 #addContact:hover {
-    background-color: #29ABE2;
-    border: 1px solid #29ABE2;
+  background-color: #29abe2;
+  border: 1px solid #29abe2;
 }
 
 #contactsDropDown {
-    height: 230px;
-    overflow-y: auto;
+  height: 230px;
+  overflow-y: auto;
 }
 
 .contact {
-    position: relative;
-    display: flex;
-    width: 384px;
-    padding: 7px 16px;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 10px;
+  position: relative;
+  display: flex;
+  width: 384px;
+  padding: 7px 16px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
 }
 
 .contact-frame {
-    display: flex;
-    align-items: center;
-    gap: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .pos-rel {
-    position: relative;
+  position: relative;
 }
 
 .active-contact {
-    background-color: #2A3647;
-    color: white;
+  background-color: #2a3647;
+  color: white;
 }
 
 .active-contact:hover {
-    background-color: #091931;
+  background-color: #091931;
 }
 
 .parting-line {
-    width: 0px;
-    height: 424px;
-    border: 1px solid rgba(209, 209, 209, 1);
-    border-radius: 1px;
-    margin: 16px;
+  width: 0px;
+  height: 424px;
+  border: 1px solid rgba(209, 209, 209, 1);
+  border-radius: 1px;
+  margin: 16px;
 }
 
 .right-container {
-    width: 440px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  width: 440px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .due-date {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .due-date input {
-    width: 406px;
-    padding: 12px 16px 12px 16px;
-    border: 1px solid rgba(209, 209, 209, 1);
-    border-radius: 10px;
-    font-size: 20px;
-    font-weight: 400;
-    font-family: Inter;
+  width: 406px;
+  padding: 12px 16px 12px 16px;
+  border: 1px solid rgba(209, 209, 209, 1);
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: Inter;
 }
 
 .due-date input::-webkit-calendar-picker-indicator {
-    background: url(../img/add_task/date_picker.png) no-repeat;
-    width: 24px;
-    height: 24px;
+  background: url(../img/add_task/date_picker.png) no-repeat;
+  width: 24px;
+  height: 24px;
 }
 
 .prio {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .prio-button-container {
-    display: flex;
-    gap: 16px;
+  display: flex;
+  gap: 16px;
 }
 
 .prio-button-container button {
-    width: 136px;
-    height: 56px;
-    font-size: 20px;
-    border-radius: 10px;
-    padding: 16px 10px 16px 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background-color: white;
-    border: none;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+  width: 136px;
+  height: 56px;
+  font-size: 20px;
+  border-radius: 10px;
+  padding: 16px 10px 16px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: white;
+  border: none;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
 }
 
 .prio-button-container button:hover {
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .choose-category {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.choose-category select {
-    height: 50px;
-    width: 440px;
-    border-radius: 10px;
-    padding: 12px 16px 12px 16px;
-    border: 1px solid rgba(209, 209, 209, 1);
-    font-size: 20px;
-    font-family: Inter;
+.choose-category .select-category {
+  width: 406px;
+  border-radius: 10px;
+  padding: 12px 16px 12px 16px;
+  border: 1px solid rgba(209, 209, 209, 1);
+  font-size: 20px;
+  font-family: Inter;
 }
 
 .subtasks {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .subtasks input {
-    height: 24px;
-    width: 408px;
-    border-radius: 10px;
-    padding: 12px 16px 12px 16px;
-    border: 1px solid rgba(209, 209, 209, 1);
+  height: 24px;
+  width: 408px;
+  border-radius: 10px;
+  padding: 12px 16px 12px 16px;
+  border: 1px solid rgba(209, 209, 209, 1);
 }
 
-
 .input-group {
-    position: relative;
+  position: relative;
 }
 
 .input-group-buttons {
-    position: absolute;
-    top: 13px;
-    right: 16px;
-    display: flex;
-    gap: 4px;
-
+  position: absolute;
+  top: 13px;
+  right: 16px;
+  display: flex;
+  gap: 4px;
 }
 
 #inputSubTaskIcon1,
 #inputSubTaskIcon2 {
-    width: 24px;
-    height: 24px;
-    border: none;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 .parting-line-buttons {
-    width: 1px;
-    height: 24px;
-    background-color: rgba(209, 209, 209, 1);
-    border-radius: 1px;
+  width: 1px;
+  height: 24px;
+  background-color: rgba(209, 209, 209, 1);
+  border-radius: 1px;
 }
 
 .d-none {
-    display: none !important;
+  display: none !important;
 }
 
 .main-buttons {
-    position: absolute;
-    top: 558px;
-    display: flex;
-    width: 960px;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding-left: 16px;
-    font-size: 16px;
+  position: absolute;
+  top: 558px;
+  display: flex;
+  width: 960px;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-left: 16px;
+  font-size: 16px;
 }
 
 .main-buttons-sub {
-    display: flex;
-    gap: 16px;
+  display: flex;
+  gap: 16px;
 }
 
 #cancelCreateTask {
-    width: 126px;
-    height: 56px;
-    font-size: 20px;
-    border: 1px solid rgba(42, 54, 71, 1);
-    background-color: rgba(246, 247, 248, 1);
-    border-radius: 10px;
-    padding: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
+  width: 126px;
+  height: 56px;
+  font-size: 20px;
+  border: 1px solid rgba(42, 54, 71, 1);
+  background-color: rgba(246, 247, 248, 1);
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
 }
 
 #createTask {
-    width: 183px;
-    height: 56px;
-    font-size: 21px;
-    color: white;
-    font-weight: 700;
-    border: none;
-    background-color: rgba(42, 54, 71, 1);
-    border-radius: 10px;
-    padding: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
+  width: 183px;
+  height: 56px;
+  font-size: 21px;
+  color: white;
+  font-weight: 700;
+  border: none;
+  background-color: rgba(42, 54, 71, 1);
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
 }
 
 #createTask img {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 #cancelCreateTask:hover {
-    border: 2px solid #29ABE2;
-    box-shadow: 0px 4px 4px 0px #00000040;
-    color: #29ABE2;
+  border: 2px solid #29abe2;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  color: #29abe2;
 }
 
 #cancelCreateTask:hover path {
-    stroke: #29ABE2;
+  stroke: #29abe2;
 }
 
 #createTask:hover {
-    box-shadow: 0px 4px 4px 0px #00000040;
-    background-color: #29ABE2;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  background-color: #29abe2;
 }
 
 #showSubtasks {
-    margin: 0;
-    font-size: 16px;
-    line-height: 120%;
-    max-height: 108px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    list-style-type: disc;
+  margin: 0;
+  font-size: 16px;
+  line-height: 120%;
+  max-height: 108px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  list-style-type: disc;
 }
 
 .subtask-button-container {
-    display: flex;
-    gap: 4px;
+  display: flex;
+  gap: 4px;
 }
 
 .subtask-button-container img {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 .list-text {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 16px;
 }
 
 .editable-content {
-    background-color: white;
-    border-bottom: 1px solid #005DFF;
-    outline: none;
+  background-color: white;
+  border-bottom: 1px solid #005dff;
+  outline: none;
 }
 
 .pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .contact-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .outer-line {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .inner-line {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .initialTag {
-    font-size: 12px;
-    color: white;
+  font-size: 12px;
+  color: white;
 }
 
 #contactInitialIcons {
-    max-height: 120px;
-    display: flex;
-    gap: 8px;
-    position: absolute;
-    top: 388px;
-    overflow-y: auto;
+  max-height: 120px;
+  display: flex;
+  gap: 8px;
+  position: absolute;
+  top: 388px;
+  overflow-y: auto;
 }
 
 .selected-initial-contact {
-    position: relative;
+  position: relative;
 }
 
 .selected-initial-tag {
-    color: white;
-    position: absolute;
-    top: 2px;
-    left: 11px;
-    font-size: 12px;
+  color: white;
+  position: absolute;
+  top: 2px;
+  left: 11px;
+  font-size: 12px;
 }
 
 #contactInput:focus {
-    outline: none;
-    border: 1px solid rgba(41, 171, 226, 1);
+  outline: none;
+  border: 1px solid rgba(41, 171, 226, 1);
 }
 
 .dialog-succes {
-    display: flex;
-    width: 326px;
-    height: 74px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-    background: #2A3647;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
-    color: white;
+  display: flex;
+  width: 326px;
+  height: 74px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background: #2a3647;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+  color: white;
 }
 
 .dialog-succes-background {
-    z-index: 999;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.025);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
+  z-index: 999;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.025);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
 }
 
 .dialog-succes-text {
-    width: 235px;
-    height: 24px;
+  width: 235px;
+  height: 24px;
 }
 
-#selectCategory {
-    appearance: none;
-    background-image: url('../img/add_task/arrow_drop_down.png');
-    background-repeat: no-repeat;
-    background-position: right 16px top 50%;
-    background-size: 24px auto;
+.select-category {
+  appearance: none;
+  background-image: url("../img/add_task/arrow_drop_down.png");
+  background-repeat: no-repeat;
+  background-position: right 16px top 50%;
+  background-size: 24px auto;
 }
 
-#selectCategory:focus {
-    background-image: url('../img/add_task/arrow_drop_down_up.png');
+.select-category:focus {
+  background-image: url("../img/add_task/arrow_drop_down_up.png");
 }
 
 .size100 {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .headline {
-    padding-left: 16px;
+  padding-left: 16px;
 }
 
 .bg-background {
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(255, 255, 255, 0.2);
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
 }
 
 .create-new-contact {
-    top: 42% !important;
-    left: 50% !important;
+  top: 42% !important;
+  left: 50% !important;
 }
 
-
-@media(max-width: 1330px) {
-    main {
-        padding: 144px 64px 0 64px;
-    }
-
-    .dialog-content {
-        width: 994px;
-    }
-
-    .left-container {
-        width: 400px;
-        padding: 16px;
-        gap: 16px;
-    }
-
-    .right-container {
-        width: 400px;
-        padding: 16px;
-        gap: 16px;
-    }
-
-    .description-input {
-        width: 366px;
-    }
-
-    .main-container textarea:focus {
-        width: 366px;
-    }
-
-    #contactList {
-        width: 400px;
-    }
-
-    #contactInput {
-        width: 366px;
-    }
-
-    #contactInitialIcons {
-        top: 370px;
-    }
-
-    .due-date input {
-        width: 366px;
-    }
-
-    .choose-category select {
-        width: 400px;
-    }
-
-    .subtasks input {
-        width: 366px;
-    }
-
-    .main-buttons {
-        width: 866px;
-    }
-
-    .contact {
-        width: 360px;
-    }
-
-    #addContact {
-        width: 368px;
-    }
-
-    .parting-line {
-        height: 390px;
-    }
+.select-category-options {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0 0 10px 10px;
 }
 
-@media(max-width: 1200px) {
-    .main-container {
-        font-size: 16px;
-    }
-
-    .dialog-content {
-        width: 750px;
-    }
-
-    .main-container input,
-    .main-container textarea,
-    .main-container select,
-    .main-container button {
-        font-size: 16px;
-    }
-
-    .main-container input[type=text]:focus {
-        font-size: 16px;
-    }
-
-    .main-container input[type=date]:focus {
-        font-size: 16px;
-    }
-
-    .main-container input::placeholder {
-        font-size: 16px;
-        line-height: normal;
-    }
-
-    .main-container textarea:focus {
-        font-size: 16px;
-        width: 266px;
-
-    }
-
-    .main-container select:focus {
-        font-size: 16px;
-    }
-
-    .description-input {
-        font-size: 16px;
-    }
-
-    .description-input::placeholder {
-        font-size: 16px;
-    }
-
-    #contactInput::placeholder {
-        font-size: 16px;
-    }
-
-    .due-date input {
-        width: 266px;
-        font-size: 16px;
-    }
-
-    .prio-button-container button {
-        font-size: 16px;
-        gap: 4px;
-    }
-
-    .prio-button-container button img {
-        width: 16px;
-        height: 10px;
-    }
-
-    .choose-category select {
-        font-size: 16px;
-    }
-
-    .left-container {
-        width: 300px;
-        padding: 8px;
-        gap: 8px;
-    }
-
-    .description-input {
-        width: 266px;
-    }
-
-    #contactList {
-        width: 300px;
-        height: 46px;
-    }
-
-    #contactInput {
-        width: 266px;
-    }
-
-    #contactInitialIcons {
-        top: 332px;
-    }
-
-    .contact {
-        width: 260px;
-    }
-
-    #addContact {
-        width: 268px;
-        top: 222px;
-    }
-
-    .parting-line {
-        height: 340px;
-    }
-
-    .right-container {
-        width: 300px;
-        padding: 8px;
-        gap: 8px;
-    }
-
-    .due-date input::-webkit-calendar-picker-indicator {
-        background: url(../img/add_task/date_picker.png) no-repeat;
-        width: 19px;
-        height: 19px;
-    }
-
-    .prio-button-container {
-        gap: 8px;
-    }
-
-    .choose-category select {
-        width: 300px;
-    }
-
-    .subtasks input {
-        width: 266px;
-    }
-
-    .main-buttons {
-        width: 646px;
-        top: 472px;
-    }
-
-    #cancelCreateTask {
-        width: 120px;
-        height: 40px;
-    }
-
-    #createTask {
-        width: 184px;
-        height: 40px;
-    }
-
-    #contactsDropDown {
-        height: 164px;
-    }
+.select-category-options p {
+  color: black;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  padding: 12px 16px;
+  margin: 0;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
-@media(max-width: 970px) {
-    body {
-        overflow: hidden;
-    }
+.select-category-container input::placeholder {
+    color: black;
+}
 
-    .dialog-content {
-        width: 99%;
-        height: 80%;
-    }
+.select-category-options p:hover {
+    background-color: #d1d1d1;
+}
 
-    .sub-container {
-        scrollbar-width: none;
-    }
+.position-relative {
+  position: relative;
+}
 
-    .sub-container::-webkit-scrollbar {
-        display: none;
-    }
+@media (max-width: 1330px) {
+  main {
+    padding: 144px 64px 0 64px;
+  }
 
-    h1 {
-        font-size: 47px;
-        margin: 0;
-        margin-top: 80px;
-        padding-top: 48px;
-        padding-left: 16px;
-    }
+  .dialog-content {
+    width: 994px;
+  }
 
-    main {
-        width: 100vw;
-        height: 100vh;
-        margin: 0;
-        padding: 0;
-    }
+  .left-container {
+    width: 400px;
+    padding: 16px;
+    gap: 16px;
+  }
 
-    .size100 {
-        height: calc(100% - 167px);
-        overflow: auto;
-        scrollbar-width: none;
-    }
+  .right-container {
+    width: 400px;
+    padding: 16px;
+    gap: 16px;
+  }
 
-    .size100::-webkit-scrollbar {
-        display: none;
-    }
+  .description-input {
+    width: 366px;
+  }
 
-    .main-container {
-        height: calc(100vh - 201px);
-        position: relative;
-    }
+  .main-container textarea:focus {
+    width: 366px;
+  }
 
-    .parting-line {
-        display: none;
-    }
+  #contactList {
+    width: 400px;
+  }
 
-    .main-buttons {
-        background-color: #F6F7F8;
-        position: fixed;
-        top: calc(100vh - 167px);
-        width: calc(100vw - 32px);
-        justify-content: space-between;
-        align-items: center;
-        padding: 16px;
-        font-size: 16px;
-    }
+  #contactInput {
+    width: 366px;
+  }
 
-    #cancelCreateTask {
-        display: none;
-    }
+  #contactInitialIcons {
+    top: 370px;
+  }
 
-    #createTask {
-        width: 183px;
-        height: 56px;
-        display: flex;
-        padding: 16px;
-        justify-content: center;
-        align-items: center;
-        gap: 4px;
-    }
+  .due-date input {
+    width: 366px;
+  }
 
-    .sub-container {
-        flex-direction: column;
-        padding: 32px 16px 0 16px;
-    }
+  .choose-category .select-category {
+    width: 366px;
+  }
 
-    .left-container {
-        width: 100%;
-        padding: 0;
-        gap: 8px;
-    }
+  .subtasks input {
+    width: 366px;
+  }
 
-    .titel input {
-        padding: 10px 21px;
-        gap: 10px;
-    }
+  .main-buttons {
+    width: 866px;
+  }
 
-    .description {
-        width: 100%;
-        gap: 8px;
-    }
+  .contact {
+    width: 360px;
+  }
 
-    .description-input {
-        width: calc(100% - 34px);
-    }
+  #addContact {
+    width: 368px;
+  }
 
-    .main-container textarea:focus {
-        width: calc(100% - 34px);
-    }
+  .parting-line {
+    height: 390px;
+  }
+}
 
-    .assigned-to {
-        width: 100%;
-    }
+@media (max-width: 1200px) {
+  .main-container {
+    font-size: 16px;
+  }
 
-    #contactList {
-        width: 100%;
-    }
+  .dialog-content {
+    width: 750px;
+  }
 
-    #contactInput {
-        width: calc(100% - 34px);
-    }
+  .main-container input,
+  .main-container textarea,
+  .main-container .select-category-options p,
+  .main-container button {
+    font-size: 16px;
+  }
 
-    .contact {
-        width: calc(100% - 34px);
-    }
+  .main-container input[type="text"]:focus {
+    font-size: 16px;
+  }
 
-    #addContact {
-        width: 366px;
-    }
+  .main-container input[type="date"]:focus {
+    font-size: 16px;
+  }
 
-    #contactInitialIcons {
-        top: 322px;
-    }
+  .main-container input::placeholder {
+    font-size: 16px;
+    line-height: normal;
+  }
 
-    .right-container {
-        margin-top: 50px;
-        width: 100%;
-        padding: 0;
-        gap: 8px;
-    }
+  .main-container textarea:focus {
+    font-size: 16px;
+    width: 266px;
+  }
 
-    .due-date {
-        width: 100%;
-    }
+  .main-container .select-category-options p:focus {
+    font-size: 16px;
+  }
 
-    .due-date input {
-        width: calc(100% - 34px);
-    }
+  .description-input {
+    font-size: 16px;
+  }
 
-    .choose-category select {
-        width: 100%;
-    }
+  .description-input::placeholder {
+    font-size: 16px;
+  }
 
-    .subtasks input {
-        width: calc(100% - 34px);
-    }
+  #contactInput::placeholder {
+    font-size: 16px;
+  }
+
+  .due-date input {
+    width: 266px;
+    font-size: 16px;
+  }
+
+  .prio-button-container button {
+    font-size: 16px;
+    gap: 4px;
+  }
+
+  .prio-button-container button img {
+    width: 16px;
+    height: 10px;
+  }
+
+  .choose-category .select-category-options p {
+    font-size: 16px;
+  }
+
+  .left-container {
+    width: 300px;
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .description-input {
+    width: 266px;
+  }
+
+  #contactList {
+    width: 300px;
+    height: 46px;
+  }
+
+  #contactInput {
+    width: 266px;
+  }
+
+  #contactInitialIcons {
+    top: 332px;
+  }
+
+  .contact {
+    width: 260px;
+  }
+
+  #addContact {
+    width: 268px;
+    top: 222px;
+  }
+
+  .parting-line {
+    height: 340px;
+  }
+
+  .right-container {
+    width: 300px;
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .due-date input::-webkit-calendar-picker-indicator {
+    background: url(../img/add_task/date_picker.png) no-repeat;
+    width: 19px;
+    height: 19px;
+  }
+
+  .prio-button-container {
+    gap: 8px;
+  }
+
+  .choose-category .select-category {
+    width: 266px;
+    font-size: 16px;
+  }
+
+  .subtasks input {
+    width: 266px;
+  }
+
+  .main-buttons {
+    width: 646px;
+    top: 472px;
+  }
+
+  #cancelCreateTask {
+    width: 120px;
+    height: 40px;
+  }
+
+  #createTask {
+    width: 184px;
+    height: 40px;
+  }
+
+  #contactsDropDown {
+    height: 164px;
+  }
+}
+
+@media (max-width: 970px) {
+  body {
+    overflow: hidden;
+  }
+
+  .dialog-content {
+    width: 99%;
+    height: 80%;
+  }
+
+  .sub-container {
+    scrollbar-width: none;
+  }
+
+  .sub-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  h1 {
+    font-size: 47px;
+    margin: 0;
+    margin-top: 80px;
+    padding-top: 48px;
+    padding-left: 16px;
+  }
+
+  main {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .size100 {
+    height: calc(100% - 167px);
+    overflow: auto;
+    scrollbar-width: none;
+  }
+
+  .size100::-webkit-scrollbar {
+    display: none;
+  }
+
+  .main-container {
+    height: calc(100vh - 201px);
+    position: relative;
+  }
+
+  .parting-line {
+    display: none;
+  }
+
+  .main-buttons {
+    background-color: #f6f7f8;
+    position: fixed;
+    top: calc(100vh - 167px);
+    width: calc(100vw - 32px);
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    font-size: 16px;
+  }
+
+  #cancelCreateTask {
+    display: none;
+  }
+
+  #createTask {
+    width: 183px;
+    height: 56px;
+    display: flex;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .sub-container {
+    flex-direction: column;
+    padding: 32px 16px 0 16px;
+  }
+
+  .left-container {
+    width: 100%;
+    padding: 0;
+    gap: 8px;
+  }
+
+  .titel input {
+    padding: 10px 21px;
+    gap: 10px;
+  }
+
+  .description {
+    width: 100%;
+    gap: 8px;
+  }
+
+  .description-input {
+    width: calc(100% - 34px);
+  }
+
+  .main-container textarea:focus {
+    width: calc(100% - 34px);
+  }
+
+  .assigned-to {
+    width: 100%;
+  }
+
+  #contactList {
+    width: 100%;
+  }
+
+  #contactInput {
+    width: calc(100% - 34px);
+  }
+
+  .contact {
+    width: calc(100% - 34px);
+  }
+
+  #addContact {
+    width: 366px;
+  }
+
+  #contactInitialIcons {
+    top: 322px;
+  }
+
+  .right-container {
+    margin-top: 50px;
+    width: 100%;
+    padding: 0;
+    gap: 8px;
+  }
+
+  .due-date {
+    width: 100%;
+  }
+
+  .due-date input {
+    width: calc(100% - 34px);
+  }
+
+  .choose-category .select-category {
+    width: calc(100% - 34px);
+  }
+
+  .subtasks input {
+    width: calc(100% - 34px);
+  }
 }
