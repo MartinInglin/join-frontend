@@ -80,6 +80,9 @@
   .grid-tasks {
     gap: 16px;
   }
+  .card-title {
+    max-width: 160px;
+  }
 }
 
 /* Extra large devices (large laptops and desktops up to 1200px) */
@@ -102,6 +105,9 @@
   }
   .title-column span {
     font-size: 18px;
+  }
+  .card-title {
+    max-width: 120px;
   }
 }
 
@@ -164,6 +170,13 @@
   }
   .search {
     margin: 24px;
+  }
+  .card-title {
+    max-width: 230px;
+  }
+  .empty-task {
+    width: 240px;
+    min-width: 240px;
   }
 }
 

@@ -3,7 +3,7 @@ function createTasksHTML(i, j, tasks, categoryClass) {
     return `
     <div class="card" id="card${i}${j}" draggable="true" ondragstart="startDragging(${tasks["id"]}, ${i}, ${j})" ondragend="stopRotate(${i}, ${j})" onclick="showCardDetail(${i}, ${j})"> 
       <span class="category color-${categoryClass}">${tasks["category"]}</span>
-      <h3 class="overflow-hidden">${tasks["title"]}</h3>
+      <h3 class="card-title overflow-hidden">${tasks["title"]}</h3>
       <p>${tasks["task"]}</p>
       <div class="subtasks-board" id="subtasks${i}${j}"></div>
       <div class="space-between align-center align-stretch min-height-32">

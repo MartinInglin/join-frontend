@@ -200,8 +200,6 @@
   margin: 0 16px;
   flex-direction: column;
   align-self: stretch;
-  width: 240px;
-  min-width: 240px;
 }
 
 .empty-task span {
@@ -228,6 +226,10 @@
   width: 218px;
   min-width: 218px;
   height: fit-content;
+}
+
+.card-title {
+  max-width: 230px;
 }
 
 .category {
