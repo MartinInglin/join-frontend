@@ -59,6 +59,22 @@ function generatShowContactNameHTML(i, contact) {
     `;
 }
 
+function generatShowContactNameMobilHTML(i, contact) {
+    return /*html*/`
+        <div class="cont-icon-big">
+        <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="50" fill="white" />
+            <circle cx="50" cy="50" r="46" fill="${contact['icon']}" />
+            <text x="30" y="58" font-size="24" fill="white">${contact['firstname'].charAt(0)}</text>
+            <text x="50" y="58" font-size="24" fill="white">${contact['lastname'].charAt(0)}</text>                    
+        </svg>
+    </div>
+    <div class="cont-big-name">
+        <span>${contact['firstname']} ${contact['lastname']}</span>
+    </div>
+    `;
+}
+
 function generatInfoHTML(contact) {
     return /*html*/`
     <div class="email">

@@ -305,7 +305,7 @@
         width: 396px;
         height: 760px;
         top: 80px;
-        left: 30%;
+        left: 29.5%;
     }
 
     .add-new-cont-left {
@@ -416,4 +416,29 @@
         padding: 18px 10px;
         justify-content: center;
     }
+}
+
+@media(max-width: 870px) {
+    .show-add-new-contact {
+        left: 29.5%;
+    }
+}
+
+@media(max-width: 600px) {
+    .show-add-new-contact {
+        left: 18%;
+    }
+}
+
+@media(max-width: 500px) {
+    .show-add-new-contact {
+        left: 1.5%;
+    }
+}
+
+@media(max-width: 428px) {
+    .show-add-new-contact {
+        left: 16px;
+    }
+
 }

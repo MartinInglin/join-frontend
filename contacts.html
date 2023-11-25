@@ -33,8 +33,12 @@
     <main>
         <div id="contacts" class="contacts">
             <div class="add-new-contact">
-                <button onclick="addNewContact()" class="btn btn-add-new-cont">Add new contact <img
-                        src="./img/contact/person_add.png"></button>
+                <button onclick="addNewContact()" class="btn btn-add-new-cont">Add new contact 
+                    <img src="./img/contact/person_add.png">
+                </button>
+                <button id="btn-add-new-cont-mobil" onclick="addNewContact()" class="btn btn-add-new-cont-mobil d-none">
+                    <img src="./img/contact/person_add.png">
+                </button>
             </div>
             <div id="contact-list" class="contact-list">
             </div>
@@ -43,7 +47,7 @@
             <div id="add-new-contact" class="show-add-new-contact">
             </div>
         </div>
-        <div class="headline">
+        <div id="headline" class="headline">
             <h2>Contacts</h2>
             <span>Better with a team</span>
             <img class="underline" src="img/addnewcontact/underline.svg">
@@ -51,11 +55,13 @@
         <div id="show-contact" class="show-contact d-none">
             <div id="name" class="show-cont-name">
             </div>
+            <button id="btn-back"></button>
             <div class="contact-info">
                 <span>Contact Information</span>
             </div>
             <div id="info" class="info">
             </div>
+            <div id="cont-function" class="cont-function-mobil d-none"></div>
             <div id="create-new-contact" class="create-new-contact d-none">
                 <span>Contact succesfully created</span>
             </div>

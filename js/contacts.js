@@ -7,6 +7,32 @@ async function init() {
 }
 
 function loadContactList() {
+    if (window.innerWidth > 970) {
+        let contactList = document.getElementById('contact-list');
+        contactList.innerHTML = '';
+        contacts.sort((a, b) => a.firstname.localeCompare(b.firstname));
+        let currentLetter = '';
+
+        for (let i = 0; i < contacts.length; i++) {
+            const contact = contacts[i];
+            const firstLetter = contact.firstname.charAt(0).toUpperCase();
+
+            if (firstLetter !== currentLetter) {
+                currentLetter = firstLetter;
+                contactList.innerHTML += generatCurrenLetterHTML(i, currentLetter);
+            }
+
+            contactList.innerHTML += generatContactListHTML(i);
+            let highlight = document.getElementById(`cont${contact.id}`);
+            highlight.classList.remove('cont-clickt');
+        }
+        hideContact();
+    } if (window.innerWidth <= 970) {
+        loadContactListMobil();
+    }
+}
+
+function loadContactListMobil() {
     let contactList = document.getElementById('contact-list');
     contactList.innerHTML = '';
     contacts.sort((a, b) => a.firstname.localeCompare(b.firstname));
@@ -25,7 +51,6 @@ function loadContactList() {
         let highlight = document.getElementById(`cont${contact.id}`);
         highlight.classList.remove('cont-clickt');
     }
-    hideContact();
 }
 
 function getIndexById(contactId) {
@@ -40,8 +65,7 @@ function showContact(id) {
     if (window.innerWidth > 970) {
         loadContactList();
         let i = getIndexById(id);
-
-        const contact = contacts[i];
+        let contact = contacts[i];
         let showcontact = document.getElementById('show-contact');
         let info = document.getElementById('info');
         let name = document.getElementById('name');
@@ -54,7 +78,28 @@ function showContact(id) {
         name.innerHTML = generatShowContactNameHTML(i, contact);
         info.innerHTML = generatInfoHTML(contact);
         animationShowContact();
+    } if (window.innerWidth <= 970) {
+        showContactMobil(id);
     }
+}
+
+function showContactMobil(id) {
+    let i = getIndexById(id);
+    let contact = contacts[i];
+    let btnAddNewCont = document.getElementById('btn-add-new-cont');
+    let contactList = document.getElementById('contact-list');
+    let headline = document.getElementById('headline');
+    let showcontact = document.getElementById('show-contact');
+    let name = document.getElementById('name');
+    let info = document.getElementById('info');
+
+    contactList.classList.add('d-none');
+    btnAddNewCont.classList.add('d-none');
+    headline.style.display = "flex";
+    showcontact.classList.remove('d-none');
+    showcontact.style.transform = "translate(0%, 0%)";
+    name.innerHTML = generatShowContactNameMobilHTML(i, contact);
+    info.innerHTML = generatInfoHTML(contact);
 }
 
 function animationShowContact() {
@@ -94,7 +139,7 @@ function editOldContact(id) {
     let firstname = nameParts[0] || '';
     let lastname = nameParts.slice(1).join(' ') || '';
 
-        if (!isValidEmail(emailInput.value)) {
+    if (!isValidEmail(emailInput.value)) {
         alert('Invalid email format. Please use e.g. maxmustermann@hotmail.de');
         return;
     }
@@ -109,8 +154,6 @@ function editOldContact(id) {
     closeAddNewContact();
     showContact(contact.id);
 }
-
-
 
 function isValidEmail(email) {
     const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
