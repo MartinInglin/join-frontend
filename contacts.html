@@ -33,10 +33,10 @@
     <main>
         <div id="contacts" class="contacts">
             <div class="add-new-contact">
-                <button onclick="addNewContact()" class="btn btn-add-new-cont">Add new contact 
+                <button id="btn-add-new-cont" onclick="addNewContact()" class="btn btn-add-new-cont">Add new contact 
                     <img src="./img/contact/person_add.png">
                 </button>
-                <button id="btn-add-new-cont-mobil" onclick="addNewContact()" class="btn btn-add-new-cont-mobil d-none">
+                <button id="btn-add-new-cont-mobil" onclick="addNewContact()" class="btn btn-add-new-cont-mobil">
                     <img src="./img/contact/person_add.png">
                 </button>
             </div>
@@ -55,13 +55,16 @@
         <div id="show-contact" class="show-contact d-none">
             <div id="name" class="show-cont-name">
             </div>
-            <button id="btn-back"></button>
+            <div onclick="backToContactlist()" class="btn-back"> 
+                <img src="img/contact/back.svg">
+            </div>
             <div class="contact-info">
                 <span>Contact Information</span>
             </div>
             <div id="info" class="info">
             </div>
-            <div id="cont-function" class="cont-function-mobil d-none"></div>
+            <div id="show-cont-function" class="show-cont-function d-none">
+            </div>
             <div id="create-new-contact" class="create-new-contact d-none">
                 <span>Contact succesfully created</span>
             </div>
