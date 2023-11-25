@@ -4,6 +4,7 @@ let selectedContacts = [];
 let nextFreeId;
 let contactListOpen = false;
 let actualPosition = "Todo"
+let switchDropDownCategory = false;
 
 function setPositionTask(positionOfTask) {
     actualPosition = positionOfTask;
@@ -385,10 +386,22 @@ function addNewContact() {
     addContact.style.backgroundColor = '#091931';
 }
 
+
+function toggleDropDownCategory() {
+    switchDropDownCategory = !switchDropDownCategory;
+    if (switchDropDownCategory) {
+        showDropDownCategory();
+    } else {
+        hideDropDownCategoryDelay();
+    }
+}
+
 function showDropDownCategory() {
     const selectCategoryOptions = document.getElementById('selectCategoryOptions');
+    const arrow = document.getElementById('arrowDrowpDown');
     selectCategoryOptions.classList.remove('d-none');
-}
+    arrow.style.transform = 'rotate(180deg)';
+}  
 
 function setCategory(category) {
     document.getElementById('selectCategory').value = category;
@@ -397,7 +410,9 @@ function setCategory(category) {
 
 function hideDropDownCategory() {
     const selectCategoryOptions = document.getElementById('selectCategoryOptions');
+    const arrow = document.getElementById('arrowDrowpDown');
     selectCategoryOptions.classList.add('d-none');
+    arrow.style.transform = 'rotate(0deg)';
 }
 
 function hideDropDownCategoryDelay() {

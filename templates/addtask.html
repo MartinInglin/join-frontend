@@ -57,11 +57,15 @@
           <div class="choose-category">
             <div>Category<span>*</span></div>
             <div class="select-category-container">
-              <input type="text" id="selectCategory" class="select-category" onclick="showDropDownCategory()" onblur="hideDropDownCategoryDelay()" required pattern="Technical Task|User Story"  placeholder="Select task category" title="Technical Task oder User Story" >
-                <div id="selectCategoryOptions" class="select-category-options position-relative d-none">
-                  <p onclick="setCategory('Technical Task')">Technical Task</p>
-                  <p onclick="setCategory('User Story')">User Story</p>
-                </div>
+              <div class="input-category position-relative">
+                <input type="text" id="selectCategory" class="select-category" onclick="toggleDropDownCategory()" onblur="hideDropDownCategoryDelay()" required pattern="Technical Task|User Story" placeholder="Select task category" title="Technical Task oder User Story" autocomplete="off"/>
+                <img src="./img/add_task/arrow_drop_down.png" alt="" id="arrowDrowpDown" class="cursor-pointer" onclick="toggleDropDownCategory()">
+              </div>
+
+              <div id="selectCategoryOptions" class="select-category-options position-relative d-none">
+                <p onclick="setCategory('Technical Task')">Technical Task</p>
+                <p onclick="setCategory('User Story')">User Story</p>
+              </div>
             </div>
           </div>
           <div class="subtasks">
@@ -87,7 +91,7 @@
               <path d="M12.0692 12.0001L17.3122 17.2431M6.82617 17.2431L12.0692 12.0001L6.82617 17.2431ZM17.3122 6.75708L12.0682 12.0001L17.3122 6.75708ZM12.0682 12.0001L6.82617 6.75708L12.0682 12.0001Z" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </button>
-          <button id="createTask" type="submit">Create Task <img src="../img/add_task/check2.png"/></button>
+          <button id="createTask" type="submit">Create Task <img src="../img/add_task/check2.png" /></button>
         </div>
       </div>
     </form>

@@ -3,6 +3,10 @@ h1 {
   margin-bottom: 40.87px;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .main-container {
   position: relative;
   font-size: 20px;
@@ -533,14 +537,19 @@ h1 {
 
 .select-category {
   appearance: none;
-  background-image: url("../img/add_task/arrow_drop_down.png");
   background-repeat: no-repeat;
   background-position: right 16px top 50%;
   background-size: 24px auto;
 }
 
-.select-category:focus {
-  background-image: url("../img/add_task/arrow_drop_down_up.png");
+.input-category img {
+  position: absolute;
+  top: 14px;
+  right: 12px;
+}
+
+#arrowDrowDown {
+  transition: transform 0.3s ease; /* Add a smooth transition for better visual effect */
 }
 
 .size100 {
