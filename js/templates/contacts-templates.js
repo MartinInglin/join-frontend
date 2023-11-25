@@ -72,6 +72,9 @@ function generatShowContactNameMobilHTML(i, contact) {
     <div class="cont-big-name">
         <span>${contact['firstname']} ${contact['lastname']}</span>
     </div>
+    <div onclick="showContFunction(id)" class="cont-function-menu">
+        <img src="img/contact/menu.svg">
+    </div>
     `;
 }
 

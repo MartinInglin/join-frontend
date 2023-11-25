@@ -62,7 +62,7 @@ function getIndexById(contactId) {
 }
 
 function showContact(id) {
-    if (window.innerWidth > 970) {
+    if (window.innerWidth > 870) {
         loadContactList();
         let i = getIndexById(id);
         let contact = contacts[i];
@@ -78,7 +78,7 @@ function showContact(id) {
         name.innerHTML = generatShowContactNameHTML(i, contact);
         info.innerHTML = generatInfoHTML(contact);
         animationShowContact();
-    } if (window.innerWidth <= 970) {
+    } if (window.innerWidth <= 870) {
         showContactMobil(id);
     }
 }
@@ -86,20 +86,53 @@ function showContact(id) {
 function showContactMobil(id) {
     let i = getIndexById(id);
     let contact = contacts[i];
-    let btnAddNewCont = document.getElementById('btn-add-new-cont');
+    let btnAddNewCont = document.getElementById('btn-add-new-cont-mobil');
     let contactList = document.getElementById('contact-list');
     let headline = document.getElementById('headline');
     let showcontact = document.getElementById('show-contact');
     let name = document.getElementById('name');
     let info = document.getElementById('info');
 
-    contactList.classList.add('d-none');
     btnAddNewCont.classList.add('d-none');
+    contactList.classList.add('d-none');
     headline.style.display = "flex";
     showcontact.classList.remove('d-none');
     showcontact.style.transform = "translate(0%, 0%)";
     name.innerHTML = generatShowContactNameMobilHTML(i, contact);
     info.innerHTML = generatInfoHTML(contact);
+}
+
+function backToContactlist() {
+    let btnAddNewCont = document.getElementById('btn-add-new-cont-mobil');
+    let contactList = document.getElementById('contact-list');
+    let headline = document.getElementById('headline');
+    let showcontact = document.getElementById('show-contact');
+
+    btnAddNewCont.classList.remove('d-none');
+    contactList.classList.remove('d-none');
+    headline.style.display = "none";
+    showcontact.classList.add('d-none');
+}
+
+function showContFunction(id) {
+    let i = getIndexById(id);
+    let showContFunction = document.getElementById('show-cont-function');
+    showContFunction.classList.remove('d-none');
+    showContFunction.innerHTML = 
+    /*html*/`
+    <div class="cont-function-edit">
+        <div onclick="editContact(${i})" class="edit" onmouseover="SVGOnHover('editImg', 'edit')" onmouseout="SVGMouseOut('editImg', 'edit')" onclick="showCardEdit()">
+          <img src="./img/board_card_detail/edit.svg" alt="" id="editImg">
+          <div>Edit</div>
+        </div>
+    </div>
+    <div onclick="deleteContact(${i})" class="cont-function-delete">
+        <div class="delete" onmouseover="SVGOnHover('deleteImg', 'delete')" onmouseout="SVGMouseOut('deleteImg', 'delete')">
+          <img src="./img/contact/delete.png" alt="" id="deleteImg">
+          <div>Delete</div>
+        </div>
+    </div>
+    `;
 }
 
 function animationShowContact() {
