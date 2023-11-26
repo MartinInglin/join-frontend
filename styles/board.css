@@ -200,6 +200,7 @@
   margin: 0 16px;
   flex-direction: column;
   align-self: stretch;
+  text-align: center;
 }
 
 .empty-task span {
