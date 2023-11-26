@@ -9,12 +9,21 @@ function addNewContact() {
 }
 
 function showAddNewContact() {
-    let addNewContact = document.getElementById('add-new-contact');
-    addNewContact.style.transform = "translate(500%, 0%)";
-    setTimeout(() => {
-        addNewContact.style.transition = "transform 300ms ease, top 300ms ease";
-        addNewContact.style.transform = "translate(0%, 0%)";
-    }, 200);
+    if (window.innerWidth > 870) {
+        let addNewContact = document.getElementById('add-new-contact');
+        addNewContact.style.transform = "translate(500%, 0%)";
+        setTimeout(() => {
+            addNewContact.style.transition = "transform 300ms ease, top 300ms ease";
+            addNewContact.style.transform = "translate(0%, 0%)";
+        }, 200);
+    } if (window.innerWidth <= 870) {
+        let addNewContact = document.getElementById('add-new-contact');
+        addNewContact.style.transform = "translate(0%, 500%)";
+        setTimeout(() => {
+            addNewContact.style.transition = "transform 300ms ease, top 300ms ease";
+            addNewContact.style.transform = "translate(0%, 0%)";
+        }, 200);
+    }
 }
 
 function closeAddNewContact() {
@@ -25,22 +34,30 @@ function closeAddNewContact() {
             bgMessage.classList.add('d-none');
         }, 500);
     } if (window.innerWidth <= 870) {
+        hidenAddNewContact();
         setTimeout(() => {
             let bgMessage = document.getElementById('bg-message');
             bgMessage.classList.add('d-none');
         }, 500);
         let showContFunction = document.getElementById('show-cont-function');
-        showContFunction.classList.add('d-none');    
+        showContFunction.classList.add('d-none');
     }
 }
 
 function hidenAddNewContact() {
-    let addNewContact = document.getElementById('add-new-contact');
-    setTimeout(() => {
-        addNewContact.style.transition = "transform 300ms ease, top 300ms ease";
-        addNewContact.style.transform = "translate(500%, 0%)";
-    }, 200);
-
+    if (window.innerWidth > 870) {
+        let addNewContact = document.getElementById('add-new-contact');
+        setTimeout(() => {
+            addNewContact.style.transition = "transform 300ms ease, top 300ms ease";
+            addNewContact.style.transform = "translate(500%, 0%)";
+        }, 200);
+    } if(window.innerWidth <= 870) {
+        let addNewContact = document.getElementById('add-new-contact');
+        setTimeout(() => {
+            addNewContact.style.transition = "transform 300ms ease, top 300ms ease";
+            addNewContact.style.transform = "translate(0%, 500%)";
+        }, 200);
+    }
 }
 
 function createNewContact() {
@@ -50,6 +67,11 @@ function createNewContact() {
     let nameParts = nameInput.value.split(' ');
     let firstname = nameParts[0] || '';
     let lastname = nameParts.slice(1).join(' ') || '';
+
+    if (!isValidEmail(emailInput.value)) {
+        alert('Invalid email format. Please use e.g. maxmustermann@hotmail.de');
+        return;
+    }
 
     let newContact = {
         id: findFreeId(contacts),

@@ -56,7 +56,6 @@ body {
     height: 493px;
     background-color: white;
     border-color: white;
-    padding: 48px 115px 48px 115px;
     border-radius: 30px;
     position: absolute;
     top: 265.5px;
@@ -90,7 +89,7 @@ body {
     content: '';
     position: absolute;
     background: #2bbad6;
-    top: 180px;
+    top: 135px;
     left: 0;
     right: 0;
     margin: auto;
