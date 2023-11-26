@@ -15,7 +15,7 @@ function findTask(i, j) {
 function closeCardDetail(event) {
   saveSubtasks();
   document.getElementById("cardDetailContainer").classList.add("d-none");
-  emptyInputFilter()
+  emptyInputFilter();
   renderTasksBoard();
 }
 
@@ -26,7 +26,7 @@ function stopPropagationCardDetail(event) {
 function closeCardDetailButton() {
   saveSubtasks();
   document.getElementById("cardDetailContainer").classList.add("d-none");
-  emptyInputFilter()
+  emptyInputFilter();
   renderTasksBoard();
 }
 
@@ -43,54 +43,15 @@ function renderCardDetail(i, j) {
   const imgUrgency = createImgUrgency(selectedTask["urgency"]);
   const IdOfTask = selectedTask["id"];
   cardDetailContainer.innerHTML = "";
-  /*html*/
-  cardDetailContainer.innerHTML = `
-    <div class="card-detail move-in-right" id="cardDetail" onclick="stopPropagationCardDetail(event)">
-        <div class="card-detail-header">
-          <div class="card-detail-category color-${categoryClass}">${selectedTask["category"]}</div>
-          <div class="close-btn pointer"><img src="./img/board_card_detail/close.svg" alt="" onclick="closeCardDetailButton()"></div>
-        </div>
-        <div class="card-detail-title">${selectedTask["title"]}</div>
-        <div class="card-detail-task font-20px-400">${selectedTask["task"]}</div>
-        <div class="card-detail-date font-20px-400">
-          <div class="text-color-dark-blue">Due date:</div>
-          <div>${selectedTask["date"]}</div>
-        </div>
-        <div class="card-detail-priority font-20px-400">
-          <div class="text-color-dark-blue">Priority:</div>
-          <div class="card-detail-priority-right">
-            <div id="taskUrgency"></div>
-            <img src="${imgUrgency}" alt="">
-          </div>
-        </div>
-        <div class="text-color-dark-blue font-20px-400 margin-bottom-8 no-gap-div">Assigned To:</div>
-        <div class="card-detail-assigned" id="cardDetailAssigned"></div>
-
-        <div class="text-color-dark-blue font-20px-400 margin-bottom-8">Subtasks</div>
-        <div class="card-detail-subtasks" id="cardDetailSubtasks"></div>
-        <div class="justify-end">
-          <div class="delete-edit">
-            <div class="delete" onmouseover="SVGOnHover('deleteImg', 'delete')" onmouseout="SVGMouseOut('deleteImg', 'delete')" onclick="deleteTask(${IdOfTask})">
-              <img src="./img/board_card_detail/delete.svg" alt="" id="deleteImg">
-              <div>Delete</div>
-            </div>
-            <img src="./img/board_card_detail/separator_card_detail_bottom.svg" alt="">
-            <div class="edit" onmouseover="SVGOnHover('editImg', 'edit')" onmouseout="SVGMouseOut('editImg', 'edit')" onclick="showCardEdit()">
-              <img src="./img/board_card_detail/edit.svg" alt="" id="editImg">
-              <div>Edit</div>
-            </div>
-          </div>      
-        </div>
-    </div>
-    `;
-  createUrgencyCardDetail()
+  cardDetailContainer.innerHTML = renderCardDetailHTML(categoryClass, selectedTask, imgUrgency, IdOfTask);
+  createUrgencyCardDetail();
   createAssignmentsCardDetail();
   createSubtasksCardDetail();
   animationMoveIn();
 }
 
 function createUrgencyCardDetail() {
-  const taskUrgencyContainer = document.getElementById('taskUrgency');
+  const taskUrgencyContainer = document.getElementById("taskUrgency");
   if (selectedTask["urgency"]) {
     taskUrgencyContainer.innerHTML = `${selectedTask["urgency"]}`;
   } else {
@@ -111,30 +72,25 @@ function createImgUrgency(urgency) {
 
 function createAssignmentsCardDetail() {
   let assignmentsContainer = document.getElementById(`cardDetailAssigned`);
-
   assignmentsContainer.innerHTML = "";
 
   if (selectedTask.assignedTo.length > 0) {
     selectedTask.assignedTo.forEach((userId, index) => {
-      const user = contacts.find((contact) => contact.id === userId);
-
-      if (user) {
-        const userInitials = getUserInitials(user);
-        const userColorClass = user.icon;
-
-        /*html*/
-        assignmentsContainer.innerHTML += `
-            <div class="card-detail-members">
-              <div class="member-button align-center justify-center " style="background-color: ${userColorClass}">
-                <span>${userInitials}</span>
-              </div>
-              <span class="open-sans-19">${user["firstname"]} ${user["lastname"]}</span>
-            </div>
-          `;
-      }
+      renderAssignmentDetails(userId, assignmentsContainer);
     });
   }
 }
+
+function renderAssignmentDetails(userId, container) {
+  const user = contacts.find((contact) => contact.id === userId);
+
+  if (user) {
+    const userInitials = getUserInitials(user);
+    const userColorClass = user.icon;
+    container.innerHTML += renderAssigmentsHTML(userColorClass, userInitials, user);
+  }
+}
+
 
 function createSubtasksCardDetail() {
   let subtasksContainer = document.getElementById(`cardDetailSubtasks`);
@@ -143,14 +99,7 @@ function createSubtasksCardDetail() {
   if (selectedTask.subtasks.length > 0) {
     selectedTask.subtasks.forEach((subtask, index) => {
       const subtaskStatusClass = subtask.checked ? "Check_button_checked" : "Check_button_unchecked";
-
-      /*html*/
-      subtasksContainer.innerHTML += `
-          <div class="card-detail-subtask pointer" onclick="toggleSubtasks(${index}); doNotTriggerEvent(event)" onmouseover="SVGOnHover('checkbox${index}', '${subtaskStatusClass}')" onmouseout="SVGMouseOut('checkbox${index}', '${subtaskStatusClass}')">
-            <img src="./img/board_card_detail/${subtaskStatusClass}.svg" alt="" id="checkbox${index}">
-            <div class="font-16px-400">${subtask.content}</div>
-          </div>
-        `;
+      subtasksContainer.innerHTML += renderSubtasksHTML(index, subtaskStatusClass, subtask);
     });
   }
 }
