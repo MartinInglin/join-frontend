@@ -13,7 +13,7 @@ body {
 }
 
 .btn-close {
-    background-image: url('/img/login-register/back-btn.png');
+    background-image: url('/img/login-register/back_btn.png');
     position: absolute;
     left: 60px;
     opacity: 1;
