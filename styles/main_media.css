@@ -9,3 +9,9 @@
         padding: 8px 30px;
     }
   }
+
+  @media (max-width: 970px) {
+    main {
+      margin-left: 0;
+    }
+  }

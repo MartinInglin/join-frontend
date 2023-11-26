@@ -7,7 +7,7 @@ function createTasksHTML(i, j, tasks, categoryClass) {
       <p>${tasks["task"]}</p>
       <div class="subtasks-board" id="subtasks${i}${j}"></div>
       <div class="space-between align-center align-stretch min-height-32">
-        <div class="row" id="assignments${i}${j}">
+        <div class="row flex-wrap" id="assignments${i}${j}">
         </div>
         <div class="urgency" id="urgency${i}${j}"><img src="" alt="" /></div>
       </div>

@@ -34,6 +34,10 @@
   justify-content: end;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .card-detail-container {
   position: fixed;
   top: 0;
@@ -124,10 +128,12 @@
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
+  word-wrap: break-word;
 }
 
 .card-detail-task {
   align-self: stretch;
+  word-wrap: break-word;
 }
 
 .card-detail-date {

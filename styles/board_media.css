@@ -83,6 +83,9 @@
   .card-title {
     max-width: 160px;
   }
+  .card p {
+    width: 160px;
+  }
 }
 
 /* Extra large devices (large laptops and desktops up to 1200px) */
@@ -158,6 +161,8 @@
   }
   .card p {
     display: flex;
+    word-break: break-all;
+    width: 100%;
   }
   .title-column {
     padding: 0 16px;
