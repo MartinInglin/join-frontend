@@ -19,31 +19,46 @@ async function initBoard() {
 
 function renderTasksBoard(filterString) {
   for (let i = 0; i < columns.length; i++) {
-    let filteredTasks;
-    if (filterString) {
-      filteredTasks = dataTasks.filter((task) => task.position === columns[i] && (task.title.toLowerCase().includes(filterString) || task.task.toLowerCase().includes(filterString)));
-    } else {
-      filteredTasks = dataTasks.filter((task) => task.position === columns[i]);
-    }
+    const filteredTasks = filterTasksByColumn(filterString, i);
 
     let tasksContainer = document.getElementById(`tasks${columns[i]}`);
     tasksContainer.innerHTML = "";
 
     if (filteredTasks.length > 0) {
-      for (let j = 0; j < filteredTasks.length; j++) {
-        let tasks = filteredTasks[j];
-        const categoryClass = setColorCategory(tasks["category"]);
-        tasksContainer.innerHTML += createTasksHTML(i, j, tasks, categoryClass);
-        createSubtasks(i, j);
-        createUrgency(i, j);
-        createAssignments(i, j);
-      }
+      renderFilteredTasks(i, filteredTasks);
     } else {
       tasksContainer.innerHTML = createEmptyTaskHTML(columnsText, i);
     }
+
     createDropDiv(i);
   }
 }
+
+function filterTasksByColumn(filterString, columnIndex) {
+  if (filterString) {
+    return dataTasks.filter(
+      (task) =>
+        task.position === columns[columnIndex] &&
+        (task.title.toLowerCase().includes(filterString) || task.task.toLowerCase().includes(filterString))
+    );
+  } else {
+    return dataTasks.filter((task) => task.position === columns[columnIndex]);
+  }
+}
+
+function renderFilteredTasks(columnIndex, filteredTasks) {
+  for (let j = 0; j < filteredTasks.length; j++) {
+    let tasks = filteredTasks[j];
+    const categoryClass = setColorCategory(tasks["category"]);
+    const tasksContainer = document.getElementById(`tasks${columns[columnIndex]}`);
+    
+    tasksContainer.innerHTML += createTasksHTML(columnIndex, j, tasks, categoryClass);
+    createSubtasks(columnIndex, j);
+    createUrgency(columnIndex, j);
+    createAssignments(columnIndex, j);
+  }
+}
+
 
 function setColorCategory(category) {
   if (category === "User Story") {
@@ -85,9 +100,7 @@ function createUrgency(i, j) {
 
   if (urgency !== null) {
     const urgencyImageSrc = urgenciesImg[0][urgency];
-    urgencyContainer.innerHTML = `
-      <img src="${urgencyImageSrc}" alt="" />
-    `;
+    urgencyContainer.innerHTML = createUrgencyImg(urgencyImageSrc);
   }
 }
 
@@ -103,20 +116,26 @@ function createAssignments(i, j) {
   assignmentsContainer.innerHTML = "";
 
   if (task.assignedTo.length > 0) {
-    for (let index = 0; index < task.assignedTo.length; index++) {
-      const userId = task.assignedTo[index];
-      const user = contacts.find((contact) => contact.id === userId);
-      if (user) {
-        const userInitials = getUserInitials(user);
-        const userColorClass = user.icon;
-        const marginClass = index > 0 ? "negative-margin" : "";
-        const nonDisplayedUsers = task.assignedTo.length - 4;
+    renderAssignedUsers(assignmentsContainer, task.assignedTo);
+  }
+}
 
-        assignmentsContainer.innerHTML += createAssignementsHTML(marginClass, userColorClass, userInitials);
-        if (index > 2 && nonDisplayedUsers > 0) {
-          assignmentsContainer.innerHTML += createAssignmentsFistHTML(marginClass, nonDisplayedUsers);
-          break;
-        }
+function renderAssignedUsers(container, assignedTo) {
+  for (let index = 0; index < assignedTo.length; index++) {
+    const userId = assignedTo[index];
+    const user = contacts.find((contact) => contact.id === userId);
+
+    if (user) {
+      const userInitials = getUserInitials(user);
+      const userColorClass = user.icon;
+      const marginClass = index > 0 ? "negative-margin" : "";
+      const nonDisplayedUsers = assignedTo.length - 4;
+
+      container.innerHTML += createAssignmentsHTML(marginClass, userColorClass, userInitials);
+
+      if (index > 2 && nonDisplayedUsers > 0) {
+        container.innerHTML += createAssignmentsFirstHTML(marginClass, nonDisplayedUsers);
+        break;
       }
     }
   }
@@ -162,14 +181,7 @@ function redirectToAddTaskPage() {
 }
 
 function adjustLayoutFilter() {
-  let filterValue = null;
-
-  // Check if the element with id "searchInput" exists
-  let searchInput = document.getElementById("searchInput");
-  if (searchInput) {
-    filterValue = searchInput.value;
-  }
-
+  let filterValue = getValueofFilter();
   const screenWidth = window.innerWidth;
   const breakpoint = 970;
   let containerSearchInputDesktop = document.getElementById("searchInputDesktop");
@@ -183,9 +195,21 @@ function adjustLayoutFilter() {
     containerSearchInputDesktop.innerHTML = createSearchInput();
   }
   if (searchInput) {
-    document.getElementById('searchInput').value = filterValue;
+    setFilterValue(filterValue);
   }
 }
 
-
 window.addEventListener("resize", adjustLayoutFilter);
+
+function getValueofFilter() {
+  let filterValue = null;
+  let searchInput = document.getElementById("searchInput");
+  if (searchInput) {
+    filterValue = searchInput.value;
+  }
+  return filterValue;
+}
+
+function setFilterValue(filterValue) {
+  document.getElementById("searchInput").value = filterValue;
+}

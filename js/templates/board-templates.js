@@ -1,6 +1,6 @@
 function createTasksHTML(i, j, tasks, categoryClass) {
-    /*html*/
-    return `
+  /*html*/
+  return `
     <div class="card" id="card${i}${j}" draggable="true" ondragstart="startDragging(${tasks["id"]}, ${i}, ${j})" ondragend="stopRotate(${i}, ${j})" onclick="showCardDetail(${i}, ${j})"> 
       <span class="category color-${categoryClass}">${tasks["category"]}</span>
       <h3 class="card-title overflow-hidden">${tasks["title"]}</h3>
@@ -16,8 +16,8 @@ function createTasksHTML(i, j, tasks, categoryClass) {
 }
 
 function createEmptyTaskHTML(columnsText, i) {
-    /*html*/
-    return `
+  /*html*/
+  return `
     <div class="empty-task">
       <span>No Tasks ${columnsText[i]}</span>
     </div>
@@ -25,8 +25,8 @@ function createEmptyTaskHTML(columnsText, i) {
 }
 
 function createSubstasksBoardHTML(widthProgressBar, checkedSubtasksCount, task) {
-    /*html*/
-    return `
+  /*html*/
+  return `
     <div class="progress-bar-container">
       <div class="progress-bar-background"></div>
       <div class="progress-bar" style="width: ${widthProgressBar};"></div>
@@ -35,18 +35,18 @@ function createSubstasksBoardHTML(widthProgressBar, checkedSubtasksCount, task) 
   `;
 }
 
-function createAssignementsHTML(marginClass, userColorClass, userInitials) {
-    /*html*/
-    return `
+function createAssignmentsHTML(marginClass, userColorClass, userInitials) {
+  /*html*/
+  return `
     <div class="member-button align-center justify-center ${marginClass}" style="background-color: ${userColorClass};">
       <span>${userInitials}</span>
     </div>
   `;
 }
 
-function createAssignmentsFistHTML(marginClass, nonDisplayedUsers) {
-    /*html*/
-    return `
+function createAssignmentsFirstHTML(marginClass, nonDisplayedUsers) {
+  /*html*/
+  return `
     <div class="member-button align-center justify-center color-standard-blue ${marginClass}">
       <span>+ ${nonDisplayedUsers}</span>
     </div>
@@ -54,8 +54,8 @@ function createAssignmentsFistHTML(marginClass, nonDisplayedUsers) {
 }
 
 function createDropDivHTML(i) {
-    /*html*/
-    return `
+  /*html*/
+  return `
     <div class="empty-task d-none" id="dropDiv${i}">
       <span>Drop Task here</span>
     </div>
@@ -63,8 +63,8 @@ function createDropDivHTML(i) {
 }
 
 function createSearchInput() {
-    /*html*/
-    return `
+  /*html*/
+  return `
     <form class="search" onsubmit="filterTasks(); return false">
     <input type="text" id="searchInput" placeholder="Find task" onkeyup="filterTasks()" />
     <div class="align-center gap-16px">
@@ -73,4 +73,11 @@ function createSearchInput() {
     </div>
     </form>
     `;
-  }
+}
+
+function createUrgencyImg(urgencyImageSrc) {
+  /*html*/
+  return `
+    <img src="${urgencyImageSrc}" alt="" />
+  `;
+}
