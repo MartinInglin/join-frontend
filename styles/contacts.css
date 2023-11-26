@@ -183,6 +183,7 @@ select {
     gap: 5px;
     display: flex;
     flex-direction: column;
+    overflow: auto;
 }
 
 .headline {
@@ -252,7 +253,7 @@ select {
     flex-direction: column;
     width: 278px;
     height: 88px;
-    gap: 8px;
+    gap: 25px;
 }
 
 .cont-big-name span {
@@ -540,6 +541,7 @@ select {
 @media(max-width: 1200px) {
     .contacts {
         width: 328px;
+        left: 200px;
     }
 
     .add-new-contact {
@@ -578,7 +580,7 @@ select {
     .show-cont-name {
         width: 325px;
         height: 300px;
-        gap: 0;
+        gap: 20px;
     }
 }
 
