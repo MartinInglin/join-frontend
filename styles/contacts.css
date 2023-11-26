@@ -153,6 +153,7 @@ select {
 }
 
 .cont a {
+    word-wrap: break-word;
     color: #007CEE;
 }
 
@@ -177,7 +178,7 @@ select {
 }
 
 .cont-name-mail {
-    width: 159px;
+    width: 210px;
     height: 48px;
     gap: 5px;
     display: flex;
