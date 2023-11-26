@@ -108,6 +108,7 @@ function backToContactlist() {
     let headline = document.getElementById('headline');
     let showcontact = document.getElementById('show-contact');
 
+    hideContFunction();
     btnAddNewCont.classList.remove('d-none');
     contactList.classList.remove('d-none');
     headline.style.display = "none";
@@ -115,9 +116,28 @@ function backToContactlist() {
 }
 
 function showContFunction(id) {
-    let showContFunction = document.getElementById('show-cont-function');
+    let showContFunction = document.getElementById('bg-cont-function');
     showContFunction.classList.remove('d-none');
+    animationShowContFunction();
     showContFunction.innerHTML = generatShowContFunctionHTML(id);
+}
+
+function animationShowContFunction() {
+    let showContFunction = document.getElementById('show-cont-function');
+
+    setTimeout(() => {
+        showContFunction.style.transition = "transform 300ms ease, top 300ms ease";
+        showContFunction.style.transform = "translate(0%, 0%)";
+    }, 300);
+}
+
+function hideContFunction() {
+    let showContFunction = document.getElementById('show-cont-function');
+    document.getElementById('show-cont-function').classList.add('d-none')
+    setTimeout(() => {
+        showContFunction.style.transition = "transform 300ms ease, top 300ms ease";
+        showContFunction.style.transform = "translate(500%, 0%)";
+    }, 300);
 }
 
 function animationShowContact() {

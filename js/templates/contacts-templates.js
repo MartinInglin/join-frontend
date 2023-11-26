@@ -80,16 +80,18 @@ function generatShowContactNameMobilHTML(i, contact) {
 
 function generatShowContFunctionHTML(id) {
     return /*html*/`
-    <div class="cont-function-edit-mobil">
-        <div onclick="editContact(${id})" class="edit" onmouseover="SVGOnHover('editImg', 'edit')" onmouseout="SVGMouseOut('editImg', 'edit')" onclick="showCardEdit()">
-          <img src="./img/board_card_detail/edit.svg" alt="" id="editImg">
-          <span>Edit</span>
+    <div id="show-cont-function" class="show-cont-function">
+        <div class="cont-function-edit-mobil">
+            <div onclick="editContact(${id})" class="edit" onmouseover="SVGOnHover('editImg', 'edit')" onmouseout="SVGMouseOut('editImg', 'edit')" onclick="showCardEdit()">
+                <img src="./img/board_card_detail/edit.svg" alt="" id="editImg">
+                <span>Edit</span>
+            </div>
         </div>
-    </div>
-    <div onclick="deleteContact(${id})" class="cont-function-delete-mobil">
-        <div class="delete" onmouseover="SVGOnHover('deleteImg', 'delete')" onmouseout="SVGMouseOut('deleteImg', 'delete')">
-          <img src="./img/contact/delete.png" alt="" id="deleteImg">
-          <span>Delete</span>
+        <div onclick="deleteContact(${id})" class="cont-function-delete-mobil">
+            <div class="delete" onmouseover="SVGOnHover('deleteImg', 'delete')" onmouseout="SVGMouseOut('deleteImg', 'delete')">
+                <img src="./img/contact/delete.png" alt="" id="deleteImg">
+                <span>Delete</span>
+            </div>
         </div>
     </div>
     `;
@@ -134,7 +136,6 @@ function generatEditContactHTML(contact) {
             <span class="info-icon icon-name"></span>
         </div>
         <div class="input-field"> 
-        <!-- pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$" -->
             <input id="edit-email" type="email" value="${contact['email']}" title="e.g. maxmustermann@hotmail.de" placeholder="Email" class="form-control" required>
             <span class="info-icon icon-email"></span>
         </div>
