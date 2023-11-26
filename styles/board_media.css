@@ -97,9 +97,6 @@
     padding: 144px 12px 0 12px;
     margin-left: 200px;
   }
-  .menu-bar-main-container {
-    width: 200px;
-  }
   .title-column {
     padding: 0;
   }
@@ -113,9 +110,6 @@
 
 /* Large devices (laptops/desktops up to 970px) */
 @media (max-width: 970px) {
-  .menu-bar-main-container {
-    width: 100vw;
-  }
   main {
     padding: 0;
     margin-left: 0;
