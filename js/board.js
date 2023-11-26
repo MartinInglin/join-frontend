@@ -12,6 +12,7 @@ async function initBoard() {
   await getUsers();
   await getCurrentUser();
   await getContacts();
+  actuallyUserToContacts();
   renderTasksBoard();
   createHeaderInitials();
   adjustLayoutFilter();

@@ -21,6 +21,7 @@ async function initAddTask() {
     await getUsers();
     await getCurrentUser();
     await getContacts();
+    actuallyUserToContacts();
     loadContactsSelection();
     createHeaderInitials();
     // checkRequiredInput();
@@ -301,7 +302,7 @@ function chooseContactToAssign(id) {
 function unchooseContact(id) {
     let checkImg = document.getElementById(`checkContact${id}`);
     let contact = document.getElementById(`contact${id}`);
-    checkImg.setAttribute('src', '../img/add_task/Check button.png');
+    checkImg.setAttribute('src', '../img/add_task/Check_button.png');
     contact.setAttribute('onclick', `chooseContactToAssign(${id}); doNotTriggerEvent(event)`);
     contact.classList.remove('active-contact');
     let i = selectedContacts.indexOf(id);

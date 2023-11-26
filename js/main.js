@@ -175,3 +175,20 @@ function logOut() {
     currentUser = 1;
     setCurrentUser(1);
 }
+
+function actuallyUserToContacts() {
+    let i = getIndexOf(users, 'id', currentUser);
+    let user = users[i];
+    let nameParts = users[i].name.split(' ');
+    let lastname = nameParts.pop() || '';
+    let firstname = nameParts.join(' ') || '';
+    let userArray = {
+        id: findFreeId(contacts),
+        'icon': user.icon,
+        'firstname': firstname,
+        'lastname': lastname + '(YOU)',
+        'email': user.email,
+        'phone-number': '',
+    }
+    contacts.push(userArray);
+}
