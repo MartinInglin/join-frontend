@@ -8,7 +8,7 @@ body {
     top: 197px;
     left: calc(50% - 286px);
     border-radius: 30px;
-    padding: 48px 88px 48px 88px;
+    padding-top: 20px;
     gap: 32px;
 }
 
@@ -104,6 +104,18 @@ body {
     right: 0;
     bottom: 0;
     z-index: 3;
+}
+
+.underline::after {
+    width: 130px;
+    height: 3px;
+    content: '';
+    position: absolute;
+    background: #2bbad6;
+    top: 160px;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 @media(max-width: 970px) {
