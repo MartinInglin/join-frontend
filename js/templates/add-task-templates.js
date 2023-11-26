@@ -11,7 +11,7 @@ function renderContacts(contact) {
             </div>
             ${contact.firstname} ${contact.lastname}
         </div>
-        <img src="../img/add_task/Check button.png" id="checkContact${contact.id}">
+        <img src="./img/add_task/Check_button.png" id="checkContact${contact.id}">
     </div>
 `;
 }
@@ -24,7 +24,7 @@ function renderSubtasks(subtask, i) {
                 ${subtask.content}
             </div>
             <div class="subtask-button-container">
-                <img src="../img/add_task/edit.png" class="pointer" id="editSubtaskIcon1${i}" onclick="editSubtask('subtask${i}', 'editSubtaskIcon1${i}', 'editSubtaskIcon2${i}', '${i}')">
+                <img src="./img/add_task/edit.png" class="pointer" id="editSubtaskIcon1${i}" onclick="editSubtask('subtask${i}', 'editSubtaskIcon1${i}', 'editSubtaskIcon2${i}', '${i}')">
                 <div class="parting-line-buttons"></div>
                 <img src="img/add_task/delete.png" class="pointer" id="editSubtaskIcon2${i}" onclick="deleteSubtask('${i}')">
             </div>

@@ -143,7 +143,7 @@ function leaveSubTaskInput() {
     if (checkInputIsEmpty()) {
         icon1.classList.add('d-none');
         partingLine.classList.add('d-none');
-        icon2.innerHTML = '<img src="../img/add_task/add.png">';
+        icon2.innerHTML = '<img src="./img/add_task/add.png">';
         icon2.setAttribute('onClick', 'activateSubtask()')
     }
 }

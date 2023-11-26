@@ -246,7 +246,7 @@ h1 {
 }
 
 .due-date input::-webkit-calendar-picker-indicator {
-  background: url(../img/add_task/date_picker.png) no-repeat;
+  background: url(./img/add_task/date_picker.png) no-repeat;
   width: 24px;
   height: 24px;
 }

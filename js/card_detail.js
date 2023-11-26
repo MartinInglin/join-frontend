@@ -186,5 +186,4 @@ function deleteTask(IdOfTask) {
   setTasks();
   closeCardDetailButton();
   renderTasksBoard();
-  console.log(dataTasks);
 }
