@@ -437,6 +437,10 @@ h1 {
   padding: 6px 16px;
 }
 
+.list-text div {
+  outline: none;
+}
+
 .editable-content {
   background-color: white;
   border-bottom: 1px solid #005dff;
