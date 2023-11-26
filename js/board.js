@@ -14,7 +14,7 @@ async function initBoard() {
   await getContacts();
   renderTasksBoard();
   createHeaderInitials();
-  adjustLayout()
+  adjustLayoutFilter();
 }
 
 function renderTasksBoard(filterString) {
@@ -91,7 +91,6 @@ function createUrgency(i, j) {
   }
 }
 
-
 function getTaskUrgency(task) {
   return task.urgency;
 }
@@ -129,7 +128,7 @@ function createDropDiv(i) {
 }
 
 function emptyInputFilter() {
-  document.getElementById('searchInput').value = "";
+  document.getElementById("searchInput").value = "";
 }
 
 function openDialog() {
@@ -159,14 +158,22 @@ function doNotClose(event) {
 }
 
 function redirectToAddTaskPage() {
-  window.location.href = 'addtask.html';
+  window.location.href = "addtask.html";
 }
 
-function adjustLayout() {
+function adjustLayoutFilter() {
+  let filterValue = null;
+
+  // Check if the element with id "searchInput" exists
+  let searchInput = document.getElementById("searchInput");
+  if (searchInput) {
+    filterValue = searchInput.value;
+  }
+
   const screenWidth = window.innerWidth;
   const breakpoint = 970;
-  let containerSearchInputDesktop = document.getElementById('searchInputDesktop');
-  let containerSearchInputMedia = document.getElementById('searchInputMedia');
+  let containerSearchInputDesktop = document.getElementById("searchInputDesktop");
+  let containerSearchInputMedia = document.getElementById("searchInputMedia");
 
   if (screenWidth <= breakpoint) {
     containerSearchInputDesktop.innerHTML = "";
@@ -175,6 +182,10 @@ function adjustLayout() {
     containerSearchInputMedia.innerHTML = "";
     containerSearchInputDesktop.innerHTML = createSearchInput();
   }
+  if (searchInput) {
+    document.getElementById('searchInput').value = filterValue;
+  }
 }
 
-window.addEventListener('resize', adjustLayout);
+
+window.addEventListener("resize", adjustLayoutFilter);
