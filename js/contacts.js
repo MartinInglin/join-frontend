@@ -205,8 +205,7 @@ async function deleteContact(id) {
     } else {
         console.error("Invalid contact ID");
     }
-    await getContacts();
-    loadContactList();
+    init();
 }
 
 function SVGOnHover(elementId, iconName) {
