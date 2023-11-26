@@ -96,7 +96,7 @@ function renderMembersCardEditHTML(userColorClass, userInitials) {
   `;
 }
 
-function renderSubtasksHTML(i, subtaskText) {
+function renderSubtasksCardEditHTML(i, subtaskText) {
     /*html*/
     return `
     <li id="subtaskListItem${i}" class="no-hover" ondblclick="editSubtaskCardEdit(${i}, '${subtaskText}')">

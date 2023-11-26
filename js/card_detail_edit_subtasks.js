@@ -14,7 +14,7 @@ function changeIconConfirm() {
   
     for (let i = 0; i < selectedTask["subtasks"].length; i++) {
       const subtaskText = selectedTask["subtasks"][i]["content"];
-      subtasksContainer.innerHTML += renderSubtasksHTML(i, subtaskText);
+      subtasksContainer.innerHTML += renderSubtasksCardEditHTML(i, subtaskText);
     }
   }
   

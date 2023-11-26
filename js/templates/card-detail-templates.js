@@ -53,7 +53,7 @@ function renderAssigmentsHTML(userColorClass, userInitials, user) {
   `;
 }
 
-function renderSubtasksHTML(index, subtaskStatusClass, subtask) {
+function renderSubtasksCardDetailHTML(index, subtaskStatusClass, subtask) {
   /*html*/
   return `
   <div class="card-detail-subtask pointer" onclick="toggleSubtasks(${index}); doNotTriggerEvent(event)" onmouseover="SVGOnHover('checkbox${index}', '${subtaskStatusClass}')" onmouseout="SVGMouseOut('checkbox${index}', '${subtaskStatusClass}')">

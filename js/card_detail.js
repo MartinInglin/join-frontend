@@ -99,7 +99,7 @@ function createSubtasksCardDetail() {
   if (selectedTask.subtasks.length > 0) {
     selectedTask.subtasks.forEach((subtask, index) => {
       const subtaskStatusClass = subtask.checked ? "Check_button_checked" : "Check_button_unchecked";
-      subtasksContainer.innerHTML += renderSubtasksHTML(index, subtaskStatusClass, subtask);
+      subtasksContainer.innerHTML += renderSubtasksCardDetailHTML(index, subtaskStatusClass, subtask);
     });
   }
 }
