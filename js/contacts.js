@@ -2,6 +2,7 @@ async function init() {
     await getUsers();
     await getCurrentUser();
     await getContacts();
+    actuallyUserToContacts();
     createHeaderInitials();
     loadContactList();
 }

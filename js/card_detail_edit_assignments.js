@@ -6,6 +6,7 @@ function createDropDownAssignedTo() {
   
     for (let i = 0; i < filteredUsers.length; i++) {
       const contact = filteredUsers[i];
+      contacts.sort((a, b) => a.firstname.localeCompare(b.firstname));
       dropDownContainer.innerHTML += renderCardEditDropDownHTML(i, contact)
   
       if (selectedTask["assignedTo"].includes(contact.id)) {
