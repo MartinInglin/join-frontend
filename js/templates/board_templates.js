@@ -72,6 +72,7 @@ function createSearchInput() {
       <button class="align-center"><img src="./img/board/search.svg" alt /></button>
     </div>
     </form>
+    <div id="noTasksFound" class="no-tasks-found d-none">No tasks found</div>
     `;
 }
 

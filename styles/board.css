@@ -100,6 +100,14 @@
   cursor: pointer;
 }
 
+.no-tasks-found {
+  position: absolute;
+  bottom: -22px;
+  left: 20px;
+  color: red;
+  font-size: 16px;
+}
+
 .add-task {
   display: flex;
   background-color: #2a3647;
@@ -373,3 +381,5 @@
   padding: 0 61px !important;
   position: relative;
 }
+
+

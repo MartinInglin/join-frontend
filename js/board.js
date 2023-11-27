@@ -13,12 +13,15 @@ async function initBoard() {
   await getCurrentUser();
   await getContacts();
   actuallyUserToContacts();
+  adjustLayoutFilter();
   renderTasksBoard();
   createHeaderInitials();
-  adjustLayoutFilter();
+
 }
 
 function renderTasksBoard(filterString) {
+  anyFilteredTasks = false;
+
   for (let i = 0; i < columns.length; i++) {
     const filteredTasks = filterTasksByColumn(filterString, i);
 
@@ -27,25 +30,16 @@ function renderTasksBoard(filterString) {
 
     if (filteredTasks.length > 0) {
       renderFilteredTasks(i, filteredTasks);
+      anyFilteredTasks = true;
     } else {
       tasksContainer.innerHTML = createEmptyTaskHTML(columnsText, i);
     }
-
     createDropDiv(i);
   }
+  showHideMessageNoTasksFound(anyFilteredTasks);
+
 }
 
-function filterTasksByColumn(filterString, columnIndex) {
-  if (filterString) {
-    return dataTasks.filter(
-      (task) =>
-        task.position === columns[columnIndex] &&
-        (task.title.toLowerCase().includes(filterString) || task.task.toLowerCase().includes(filterString))
-    );
-  } else {
-    return dataTasks.filter((task) => task.position === columns[columnIndex]);
-  }
-}
 
 function renderFilteredTasks(columnIndex, filteredTasks) {
   for (let j = 0; j < filteredTasks.length; j++) {
@@ -179,38 +173,4 @@ function doNotClose(event) {
 
 function redirectToAddTaskPage() {
   window.location.href = "addtask.html";
-}
-
-function adjustLayoutFilter() {
-  let filterValue = getValueofFilter();
-  const screenWidth = window.innerWidth;
-  const breakpoint = 970;
-  let containerSearchInputDesktop = document.getElementById("searchInputDesktop");
-  let containerSearchInputMedia = document.getElementById("searchInputMedia");
-
-  if (screenWidth <= breakpoint) {
-    containerSearchInputDesktop.innerHTML = "";
-    containerSearchInputMedia.innerHTML = createSearchInput();
-  } else {
-    containerSearchInputMedia.innerHTML = "";
-    containerSearchInputDesktop.innerHTML = createSearchInput();
-  }
-  if (searchInput) {
-    setFilterValue(filterValue);
-  }
-}
-
-window.addEventListener("resize", adjustLayoutFilter);
-
-function getValueofFilter() {
-  let filterValue = null;
-  let searchInput = document.getElementById("searchInput");
-  if (searchInput) {
-    filterValue = searchInput.value;
-  }
-  return filterValue;
-}
-
-function setFilterValue(filterValue) {
-  document.getElementById("searchInput").value = filterValue;
 }

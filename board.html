@@ -45,12 +45,12 @@
       <div class="title">
         <h1>Board</h1>
         <div class="title-right">
-          <div id="searchInputDesktop"></div>
+          <div id="searchInputDesktop" class="position-relative"></div>
           <button class="add-task align-center" onclick="openDialog()">Add Task <img src="./img/board/add_task.svg" alt /></button>
           <button class="add-task-media align-center" onclick="openDialog()"><img src="./img/board/add_task.svg" alt /></button>
         </div>
       </div>
-      <div id="searchInputMedia"></div>
+      <div id="searchInputMedia" class="position-relative"></div>
 
       <div class="grid-tasks flex-1 height-1">
         <div class="columns" ondrop="changePosition('Todo')" ondragover="allowDrop(event)">

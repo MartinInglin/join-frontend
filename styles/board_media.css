@@ -177,6 +177,10 @@
     width: 240px;
     min-width: 240px;
   }
+  .no-tasks-found {
+    bottom: 0px;
+    left: 44px;
+  }
 }
 
 /* Medium devices (landscape tablets up to 768px) */
