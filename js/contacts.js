@@ -203,14 +203,16 @@ function isValidEmail(email) {
 }
 
 
-async function deleteContact(id) {
-    if (id >= 0 && id <= contacts.length) {
-        contacts.splice(id, 1);
+function deleteContact(id) {
+    const contactIndex = getIndexById(id);
+
+    if (contactIndex !== -1) {
+        // Remove the contact at the found index
+        contacts.splice(contactIndex, 1);
         setContacts();
     } else {
         console.error("Invalid contact ID");
     }
-    init();
 }
 
 function SVGOnHover(elementId, iconName) {

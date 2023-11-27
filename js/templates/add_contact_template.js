@@ -2,20 +2,20 @@ function generatAddNewContactHTML(){
     return  /*html*/`
     <div class="add-new-cont-left">
         <div class="icon"> 
-            <img src="img/addnewcontact/icon.svg">
+            <img src="img/add_new_contact/icon.svg">
         </div>
         <div class="headline-add-new-cont">
             <p>Add contact</p>
             <span>Tasks are better with a team!</span>
         </div>
-        <img src="img/addnewcontact/underline.svg">
+        <img src="img/add_new_contact/underline.svg">
     </div>    
     <div onclick="closeAddNewContact()" class="close-btn">
     </div>
     <div class="circle">
-        <img src="img/addnewcontact/circle.svg">
+        <img src="img/add_new_contact/circle.svg">
         <div class="img-person">
-            <img src="img/addnewcontact/person.svg">
+            <img src="img/add_new_contact/person.svg">
         </div>
     </div>
     <form class="info-new-cont" onsubmit="createNewContact(); return false;">

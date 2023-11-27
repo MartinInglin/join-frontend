@@ -59,7 +59,7 @@
 }
 
 .close-btn {
-    background-image: url(/img/addnewcontact/close.svg);
+    background-image: url(/img/add_new_contact/close.svg);
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
@@ -177,15 +177,15 @@
 }
 
 .icon-name {
-    background-image: url('/img/addnewcontact/person_gray.svg');
+    background-image: url('/img/add_new_contact/person_gray.svg');
 }
 
 .icon-email {
-    background-image: url('/img/addnewcontact/email.svg');
+    background-image: url('/img/add_new_contact/email.svg');
 }
 
 .icon-phone {
-    background-image: url('/img/addnewcontact/phone.svg');
+    background-image: url('/img/add_new_contact/phone.svg');
 }
 
 .btn-cancel-create {
@@ -383,7 +383,7 @@
     }
 
     .close-btn {
-        background-image: url(/img/addnewcontact/close-mobil.svg);
+        background-image: url(/img/add_new_contact/close_mobil.svg);
         background-repeat: no-repeat;
         background-position: center;
         top: 24px;

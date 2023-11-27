@@ -114,12 +114,12 @@ function generatEditContactHTML(contact) {
     return  /*html*/`
     <div class="add-new-cont-left">
         <div class="icon"> 
-            <img src="img/addnewcontact/icon.svg">
+            <img src="img/add_new_contact/icon.svg">
         </div>
         <div class="headline-add-new-cont">
             <p>Edit contact</p>
         </div>
-        <img src="img/addnewcontact/underline.svg">
+        <img src="img/add_new_contact/underline.svg">
     </div>    
     <div onclick="closeAddNewContact()" class="close-btn">
     </div>
@@ -140,7 +140,7 @@ function generatEditContactHTML(contact) {
             <span class="info-icon icon-email"></span>
         </div>
         <div class="input-field">
-            <input id="edit-phone" type="tel" value="${contact['phone-number']}" pattern="[+][0-9]{2} [0-9]{3}-[0-9]{4,}" title="e.g. +49 123-123456789" placeholder="Phone" class="form-control" required>
+            <input id="edit-phone" type="tel" value="${contact['phone-number']}" pattern="[0-9]{8,}" title="e.g. 0123-123456789" placeholder="Phone" class="form-control" required>
             <span class="info-icon icon-phone"></span>
         </div>
         <div class="btn-cancel-create">
