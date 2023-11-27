@@ -121,8 +121,8 @@ function backToContactlist() {
 function showContFunction(id) {
     let showContFunction = document.getElementById('bg-cont-function');
     showContFunction.classList.remove('d-none');
-    animationShowContFunction();
     showContFunction.innerHTML = generatShowContFunctionHTML(id);
+    animationShowContFunction();
 }
 
 

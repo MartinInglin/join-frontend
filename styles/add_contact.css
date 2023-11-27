@@ -383,7 +383,7 @@
     }
 
     .close-btn {
-        background-image: url(/img/add_new_contact/close_mobil.svg);
+        background-image: url(/img/add_new_contact/close_mobil.svg); 
         background-repeat: no-repeat;
         background-position: center;
         top: 24px;
