@@ -5,56 +5,103 @@ const STORAGE_TOKEN = 'RPU0FT0UVM1WMXF2YVD579M9QJN3HJWKW84Z2NEB';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 let currentUser;
 
+/**
+ * This function is used to get the users-informations on all sub-pages.
+ * 
+ */
 async function initOthers() {
     await getUsers();
     await getCurrentUser();
     createHeaderInitials();
 }
 
+/**
+ * This is the General Function to upload informations to the Server.
+ * @param {string} key - This is the parameter, to find the informations on the server. 
+ * @param {string} value - The value are the imformations to safe. 
+ * @returns - Ensures that after the function is called, other functions wait for it.
+ */
 async function setItem(key, value) {
     const payload = { key, value, token: STORAGE_TOKEN };
     return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload) })
         .then(res => res.json());
 }
 
+/**
+ * This is a function to get the safed informations from the server. 
+ * @param {string} key - Is needed do identify the right value.
+ * @returns - Ensures that after the function is called, other functions wait for it.
+ */
 async function getItem(key) {
     const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
     return fetch(url).then(res => res.json());
 }
 
+/**
+ * This function safes the Tasks on the Server.
+ * 
+ */
 function setTasks() {
     setItem('tasks', dataTasks);
 }
 
+/**
+ * This function safes the Users on the Server.
+ * 
+ */
 function setUsers() {
     setItem('users', users);
 }
 
+/**
+ * This function safes the Contacts on the Server.
+ * 
+ */
 function setContacts() {
     setItem('contacts', contacts);
 }
 
+/**
+ * This function safes the variable of current User on the Server.
+ * 
+ */
 async function setCurrentUser(id) {
     return setItem('currentUser', id);
 }
 
+/**
+ * This function retrieves the tasks from the server and converts them from a string to a JSON.
+ * 
+ */
 async function getTasks() {
     let data = await getItem('tasks');
     let asJson = data.data.value;
     dataTasks = JSON.parse(asJson);
 }
 
+/**
+ * This function retrieves the Users from the server and converts them from a string to a JSON.
+ * 
+ */
 async function getUsers() {
     let data = await getItem('users');
     let asJson = data.data.value;
     users = JSON.parse(asJson);
 }
 
+/**
+ * This function retrieves the current Users from the server.
+ * 
+ */
 async function getCurrentUser() {
     let data = await getItem('currentUser');
     currentUser = data.data.value;
 }
 
+/**
+ * This function retrieves the Contacts from the server and converts them from a string to a JSON.
+ * 
+ */
 async function getContacts() {
     let data = await getItem('contacts');
     let asJson = data.data.value;
@@ -97,6 +144,10 @@ function closeSubMenu() {
     document.getElementById('subMenu').classList.add('d-none');
 }
 
+/**
+ * This function set the value of an variable, which Site is current Displayd. Its needed to Highlight the Page Button in the Menu.
+ * @param {string} id - This is the id of the current Page
+ */
 function setIdOfCurrentPage(id) {
     idOfCurrentPage = id;
 }
@@ -134,10 +185,19 @@ function getUserInitials(user) {
     return firstnameInitial + lastnameInitial;
 }
 
+/**
+ * This is an onclick-function on some back-arrows. This function let the user get back to last Page.
+ * 
+ */
 function goBackToLastPage() {
     window.history.back();
 }
 
+/**
+ * This function iterates to an array and search for an empty id to return.
+ * @param {string} array - this is array to search.
+ * @returns - give the empty id back.
+ */
 function findFreeId(array) {
     const sortedArray = array.slice().sort((a, b) => a.id - b.id);
     let previousId = 0;
@@ -150,6 +210,13 @@ function findFreeId(array) {
     return previousId + 1;
 }
 
+/**
+ * This function compares the entered parameters with the values ​​in the array in order to return the index if there is a match.
+ * @param {string} array - This is the array to find the index
+ * @param {string} key - This is the key in which the values ​​are located. 
+ * @param {string} x - This is the value to be compared.
+ * @returns - Gives the Index of the Element back.
+ */
 function getIndexOf(array, key, x) {
     for (let i = 0; i < array.length; i++) {
         const object = array[i];
@@ -160,6 +227,10 @@ function getIndexOf(array, key, x) {
     }
 }
 
+/**
+ * This function is needed, to create the User initials on the header.
+ * 
+ */
 function createHeaderInitials() {
     try {
         let userInitials = document.getElementById('userInitials');
@@ -171,11 +242,19 @@ function createHeaderInitials() {
     } catch (e) { }
 }
 
+/**
+ * This function log the user out.
+ * 
+ */
 function logOut() {
     currentUser = 1;
     setCurrentUser(1);
 }
 
+/**
+ * This function push the actually User to the Contact-Array, that the current User can see his own Contact and can assignt to Tasks.
+ * 
+ */
 function actuallyUserToContacts() {
     let i = getIndexOf(users, 'id', currentUser);
     let user = users[i];
