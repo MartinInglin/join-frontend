@@ -152,7 +152,7 @@ body {
 .log-in-buttons {
     width: 322px;
     height: 48px;
-    margin-top: 5px;
+    margin: 25px 0 0 40px; 
 }
 
 .btn-log-in {

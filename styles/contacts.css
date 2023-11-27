@@ -334,7 +334,7 @@ select {
     flex-direction: column;
     width: 146px;
     height: 128px;
-    gap: 22px;
+    gap: 40px;
 }
 
 .email {
@@ -444,6 +444,7 @@ select {
     left: -5%;
     right: -30%;
     bottom: -79%;
+    background-color: #29ABE2;
 }
 
 .show-cont-function {

@@ -107,12 +107,14 @@ function backToContactlist() {
     let contactList = document.getElementById('contact-list');
     let headline = document.getElementById('headline');
     let showcontact = document.getElementById('show-contact');
+    let bgContFunction = document.getElementById('bg-cont-function');
 
     hideContFunction();
     btnAddNewCont.classList.remove('d-none');
     contactList.classList.remove('d-none');
     headline.style.display = "none";
     showcontact.classList.add('d-none');
+    bgContFunction.classList.add('d-none')
 }
 
 function showContFunction(id) {
@@ -133,11 +135,14 @@ function animationShowContFunction() {
 
 function hideContFunction() {
     let showContFunction = document.getElementById('show-cont-function');
-    document.getElementById('show-cont-function').classList.add('d-none')
+    let bgContFunction = document.getElementById('bg-cont-function');
+
     setTimeout(() => {
         showContFunction.style.transition = "transform 300ms ease, top 300ms ease";
         showContFunction.style.transform = "translate(500%, 0%)";
     }, 300);
+    bgContFunction.classList.add('d-none');
+    showContFunction.classList.add('d-none');
 }
 
 function animationShowContact() {
@@ -221,4 +226,3 @@ function SVGMouseOut(elementId, iconName) {
 
     svgElement.src = normalSVG;
 }
-

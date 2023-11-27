@@ -46,10 +46,11 @@
     <div id="log-in" class="card d-none">
         <div class="card-body">
             <h1 class="card-title">Log in</h1>
-            <form class="log-in">
+            <form class="log-in" onsubmit="logIn(); return false;">
                 <div class="input-container">
                     <div class="input-field">
-                        <input id="email" class="form-control email" type="email" placeholder="Email" required minlength="3">
+                        <input id="email" class="form-control email" type="email" placeholder="Email" required
+                            minlength="3">
                         <span class="icon email-icon"></span>
                     </div>
 
@@ -63,12 +64,11 @@
                     <input type="checkbox">
                     <span>Remember me</span>
                 </div>
+                <div class="log-in-buttons">
+                    <button type="submit" class="btn btn-log-in">Log in</button>
+                    <button type="button" onclick="guestLogIn()" class="btn btn-guest">Guest Log in</button>
+                </div>
             </form>
-
-            <div class="log-in-buttons">
-                <button onclick="logIn()" class="btn btn-log-in">Log in</button>
-                <button onclick="guestLogIn()" class="btn btn-guest">Guest Log in</button>
-            </div>
         </div>
     </div>
 
