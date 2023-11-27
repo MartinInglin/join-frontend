@@ -176,6 +176,7 @@
 
 .card-detail-subtasks {
   align-self: stretch;
+  word-break: break-all;
 }
 
 .card-detail-subtask {
