@@ -52,16 +52,11 @@ h2 {
 @media(max-width: 970px) {
     main {
         margin: 0;
+        padding: 120px 16px 80px 16px !important;
     }
 
     .main-container {
         height: calc(100vh - 206px - 80px);
-    }
-}
-
-@media(max-width: 650px) {
-    main {
-        padding: 120px 16px 80px 16px !important;
     }
 
     .main-container {

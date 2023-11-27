@@ -132,6 +132,10 @@ h1 {
   cursor: pointer;
 }
 
+.contact:hover {
+  background: #EEE;
+}
+
 #contactInput {
   display: flex;
   width: 406px;
