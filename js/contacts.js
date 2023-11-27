@@ -227,3 +227,18 @@ function SVGMouseOut(elementId, iconName) {
     const normalSVG = `./img/contact/${iconName}.png`;
     svgElement.src = normalSVG;
 }
+
+
+function adjustLayoutWidth() {
+    const screenWidth = window.innerWidth;
+    const breakpoint = 870;
+  
+    if (screenWidth <= breakpoint) {
+        
+    } else {
+
+    }
+  }
+  
+  window.addEventListener("resize", adjustLayoutWidth);
+  
