@@ -42,7 +42,7 @@ function renderCardEditHTML() {
             <div class="card-edit-section">
               <div class="subtitle">Subtasks</div>
               <div class="d-flex position-relative align-stretch">
-                <input type="text" name="" id="addNewSubtask" class="font-size-20 add-subtask card-edit-section-input width-100" placeholder="Add new subtask" onfocus="changeIconConfirm()" onfocusout="changIconPlus()"/>
+                <input type="text" name="" id="addNewSubtask" class="font-size-20 add-subtask card-edit-section-input width-100" placeholder="Add new subtask" onfocus="changeIconConfirm()" onfocusout="changIconPlus()" onkeydown="newTaskOnEnter(event)"/>
                 <div class="addDeleteSubtask">
                 <img class="hover-gray-circle" src="img/board_card_detail/subtask_cancel.svg" alt="" onclick="emptyInputAddSubtask()">
                 <img src="img/board_card_detail/subtasks_separator.svg" alt="">
@@ -116,7 +116,7 @@ function renderSubtasksEditHTML(i, subtaskText) {
     /*html*/
     return `
     <div class="subtask-item-focused">
-      <input type="text" name="" id="subtaskValue${i}" class="" value="${subtaskText}">
+      <input type="text" name="" id="subtaskValue${i}" class="" value="${subtaskText}" onkeydown="saveTaskOnEnter(event, ${i}, '${subtaskText}')">
       <div class="edit-delete-subtask">
         <img src="img/board_card_detail/subtask_delete.svg" alt="" class="hover-gray-circle" onclick="deleteSubtaskCardEdit(${i})">
         <img src="img/board_card_detail/subtasks_edit_separator.svg" alt="">
