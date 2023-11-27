@@ -178,6 +178,7 @@ function clearAll() {
     document.getElementById('inputDate').value = '';
     document.getElementById('inputSubTask').value = '';
     document.getElementById('selectCategory').selectedIndex = 0;
+    document.getElementById('selectCategory').value = '';
     newSubtasks.splice(0, newSubtasks.length);
     selectedContacts.splice(0, selectedContacts.length);
     resetAll();
