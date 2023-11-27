@@ -12,6 +12,7 @@ function setPositionTask(positionOfTask) {
 
 function handleEnter(event) {
     if (event.key === "Enter") {
+        event.preventDefault();
         addSubtask();
     }
 }

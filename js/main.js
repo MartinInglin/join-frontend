@@ -4,6 +4,8 @@ let templatesLoaded = false;
 const STORAGE_TOKEN = 'RPU0FT0UVM1WMXF2YVD579M9QJN3HJWKW84Z2NEB';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 let currentUser;
+let userContactId;
+
 
 /**
  * This function is used to get the users-informations on all sub-pages.
@@ -261,8 +263,9 @@ function actuallyUserToContacts() {
     let nameParts = users[i].name.split(' ');
     let lastname = nameParts.pop() || '';
     let firstname = nameParts.join(' ') || '';
+    userContactId = findFreeId(contacts);
     let userArray = {
-        id: findFreeId(contacts),
+        id: userContactId,
         'icon': user.icon,
         'firstname': firstname,
         'lastname': lastname + '(YOU)',
