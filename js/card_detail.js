@@ -12,12 +12,27 @@ function findTask(i, j) {
   selectedTask = tasksWithPosition[j];
 }
 
+let isMouseDownInsideCardDetail = false;
+
 function closeCardDetail(event) {
-  saveSubtasks();
-  document.getElementById("cardDetailContainer").classList.add("d-none");
-  emptyInputFilter();
-  renderTasksBoard();
+  if (!isMouseDownInsideCardDetail) {
+    saveSubtasks();
+    document.getElementById("cardDetailContainer").classList.add("d-none");
+    emptyInputFilter();
+    renderTasksBoard();
+  }
+  isMouseDownInsideCardDetail = false;
 }
+
+function onMouseDownInsideCardDetail() {
+  isMouseDownInsideCardDetail = true;
+}
+
+function onMouseUpInsideCardDetail() {
+  isMouseDownInsideCardDetail = false;
+}
+
+
 
 function stopPropagationCardDetail(event) {
   event.stopPropagation();

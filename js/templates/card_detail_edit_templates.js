@@ -1,7 +1,7 @@
 function renderCardEditHTML() {
     /*html*/
     return `
-    <form onsubmit="saveChangesCardEdit(); return false">
+    <form onsubmit="saveChangesCardEdit(); return false" onmousedown="onMouseDownInsideCardDetail()" onmouseup="onMouseUpInsideCardDetail()">
       <div class="card-detail left-50-percent" onclick="closeDropDownAssignedTo(); deleteInputAssignedTo(); stopPropagation(event)">
           <div class="card-detail-header justify-right">
             <div class="close-btn pointer"><img src="./img/board_card_detail/close.svg" alt="" onclick="closeCardDetailButton()" /></div>
