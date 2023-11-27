@@ -285,6 +285,20 @@ select {
     font-weight: 700;
 }
 
+.cont-function-edit-mobil {
+    display: flex;
+    align-items: center;
+    width: 62px;
+    height: 24px;
+    gap: 13px;
+    cursor: pointer;
+}
+
+.cont-function-edit-mobil span:hover {
+    color: #29ABE2;
+    font-weight: 700;
+}
+
 .edit {
     display: flex;
     align-items: center;
@@ -302,6 +316,20 @@ select {
 }
 
 .cont-function-delete:hover {
+    color: #29ABE2;
+    font-weight: 700;
+}
+
+.cont-function-delete-mobil {
+    display: flex;
+    align-items: center;
+    width: 81px;
+    height: 24px;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.cont-function-delete-mobil span:hover {
     color: #29ABE2;
     font-weight: 700;
 }
@@ -593,7 +621,6 @@ select {
 
     .add-new-contact {
         width: 410px;
-        background-color: transparent;
     }
 
     .btn-add-new-cont {
@@ -608,7 +635,6 @@ select {
     .contact-list {
         padding: 24px;
         width: 364px;
-        margin-top: 0;
         margin-bottom: 110px;
     }
 
@@ -650,6 +676,10 @@ select {
         left: 28%;
     }
 
+    .add-new-contact {
+        background-color: transparent;
+    }
+
     .btn-add-new-cont {
         display: none;
     }
@@ -677,6 +707,7 @@ select {
 
     .show-contact {
         left: 31%;
+        gap: 45px;
     }
 
     .btn-back {
@@ -695,6 +726,7 @@ select {
     }
 
     .cont-big-name span {
+        word-break: break-word;
         width: 245px;
         color: #000;
         font-family: Inter;

@@ -82,14 +82,14 @@ function generatShowContFunctionHTML(id) {
     return /*html*/`
     <div id="show-cont-function" class="show-cont-function">
         <div class="cont-function-edit-mobil">
-            <div onclick="editContact(${id})" class="edit" onmouseover="SVGOnHover('editImg', 'edit')" onmouseout="SVGMouseOut('editImg', 'edit')" onclick="showCardEdit()">
-                <img src="./img/board_card_detail/edit.svg" alt="" id="editImg">
+            <div onclick="editContact(${id})" class="edit" onmouseover="SVGOnHover('edit-img', 'edit')" onmouseout="SVGMouseOut('edit-img', 'edit')" onclick="showCardEdit()">
+                <img src="./img/board_card_detail/edit.svg" alt="" id="edit-img">
                 <span>Edit</span>
             </div>
         </div>
         <div onclick="deleteContact(${id})" class="cont-function-delete-mobil">
-            <div class="delete" onmouseover="SVGOnHover('deleteImg', 'delete')" onmouseout="SVGMouseOut('deleteImg', 'delete')">
-                <img src="./img/contact/delete.png" alt="" id="deleteImg">
+            <div class="delete" onmouseover="SVGOnHover('delete-img', 'delete')" onmouseout="SVGMouseOut('delete-img', 'delete')">
+                <img src="./img/contact/delete.png" alt="" id="delete-img">
                 <span>Delete</span>
             </div>
         </div>
