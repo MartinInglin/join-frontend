@@ -1,6 +1,7 @@
 let priorityOfTask = null;
 let newSubtasks = [];
 let selectedContacts = [];
+let hiddenContacts = 0;
 let nextFreeId;
 let contactListOpen = false;
 let actualPosition = "Todo"
@@ -403,7 +404,7 @@ function showDropDownCategory() {
     const arrow = document.getElementById('arrowDrowpDown');
     selectCategoryOptions.classList.remove('d-none');
     arrow.style.transform = 'rotate(180deg)';
-}  
+}
 
 function setCategory(category) {
     document.getElementById('selectCategory').value = category;

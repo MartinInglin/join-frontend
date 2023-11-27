@@ -493,6 +493,8 @@ h1 {
   position: absolute;
   top: 388px;
   overflow-y: auto;
+  max-width: 442px;
+  flex-wrap: wrap;
 }
 
 .selected-initial-contact {
@@ -659,6 +661,7 @@ h1 {
 
   #contactInitialIcons {
     top: 370px;
+    max-width: 400px;
   }
 
   .due-date input {
@@ -780,6 +783,7 @@ h1 {
 
   #contactInitialIcons {
     top: 332px;
+    max-width: 300px;
   }
 
   .contact {
@@ -968,6 +972,13 @@ h1 {
 
   #contactInitialIcons {
     top: 322px;
+    max-width: 100%;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+  }
+
+  #contactInitialIcons::-webkit-scrollbar {
+    display: none;
   }
 
   .right-container {
