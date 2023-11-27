@@ -428,5 +428,35 @@
     .show-add-new-contact {
         left: 16px;
     }
+}
 
+@media(max-width: 400px) {
+    .show-add-new-contact {
+        left: 5px;
+        width: 310px;
+    }
+
+    .add-new-cont-left {
+        width: 262px;
+    }
+
+    .circle {
+        left: 87px;
+    }
+
+    .info-new-cont {
+        width: 285px;
+    }
+
+    .input-field {
+        width: 250px;
+    }
+
+    .input-field input {
+        width: 237px;
+    }
+
+    .btn-cancel-create {
+        width: 290px;
+    }
 }

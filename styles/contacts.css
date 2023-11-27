@@ -387,6 +387,7 @@ select {
     font-weight: 400;
     font-size: 16px;
     color: #007CEE;
+    word-wrap: break-word;
 }
 
 .phone {
@@ -823,10 +824,6 @@ select {
         width: 428px;
     }
 
-    .add-new-contact {
-        width: 428px;
-    }
-
     .btn-add-new-cont-mobil {
         top: calc(100% - -580px);
         left: calc(100% - 80px);
@@ -851,5 +848,63 @@ select {
 
     .show-cont-function {
         left: 70%;
+    }
+}
+
+@media(max-width: 400px) {
+    .contacts {
+        width: 320px;
+    }
+
+    .btn-add-new-cont-mobil {
+        top: calc(100% - -580px);
+        left: calc(100% - -250px);
+    }
+
+    .contact-list {
+        width: 272px;
+        padding: 20px;
+    }
+
+    .cont {
+        width: 224px;
+        word-wrap: break-word;
+    }
+
+    .letter-underline {
+        width: 176px;
+    }
+
+    .show-contact {
+        width: 280px;
+    }
+
+    .cont-big-name {
+        width: 160px;
+    }
+
+    .cont-big-name span {
+        width: 160px;
+        font-size: 30px;
+    }
+
+    .contact-info {
+        margin-top: 25px;
+    }
+
+    .email a {
+        width: 210px;
+    }
+
+    .cont-function-menu {
+        left: 80%;
+    }
+
+    .show-cont-function {
+        left: 48%;
+    }
+
+    .btn-back {
+        left: 90%;
     }
 }
