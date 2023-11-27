@@ -335,6 +335,28 @@ h1 {
   display: flex;
   align-items: center;
   cursor: pointer;
+  border-radius: 50%;
+}
+
+#inputSubTaskIcon1:hover,
+#inputSubTaskIcon2:hover {
+  background-color: #d1d1d1;
+}
+
+.list-element {
+  border-radius: 10px;
+}
+
+.list-element:not(.editable-content):hover {
+  background-color: #d1d1d1;
+}
+
+.subtask-btn {
+  border-radius: 50%;
+}
+
+.subtask-btn:hover {
+  background-color: #d1d1d1;
 }
 
 .parting-line-buttons {
@@ -1023,5 +1045,10 @@ h1 {
 
   .select-category-options p {
     width: 100%
+  }
+
+  .select-category-options {
+    width: 100%;
+    overflow: hidden;
   }
 }
