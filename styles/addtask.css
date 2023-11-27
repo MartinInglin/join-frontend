@@ -593,6 +593,9 @@ h1 {
   flex-direction: column;
   border-radius: 0 0 10px 10px;
   box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+  top: 82px;
+  left: 0;
+  z-index: 1;
 }
 
 .select-category-options p {
@@ -606,6 +609,9 @@ h1 {
   margin: 0;
   border-radius: 10px;
   cursor: pointer;
+  background-color: white;
+  width: 407px;
+
 }
 
 .select-category-container input::placeholder {
@@ -687,6 +693,9 @@ h1 {
 
   .parting-line {
     height: 390px;
+  }
+  .select-category-options p {
+    width: 368px;
   }
 }
 
@@ -837,6 +846,14 @@ h1 {
 
   #contactsDropDown {
     height: 164px;
+  }
+
+  .select-category-options {
+    top: 74px;
+  }
+
+  .select-category-options p {
+    width: 268px;
   }
 }
 
@@ -991,5 +1008,9 @@ h1 {
 
   .subtasks input {
     width: calc(100% - 34px);
+  }
+
+  .select-category-options p {
+    width: 100%
   }
 }
