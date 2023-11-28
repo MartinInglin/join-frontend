@@ -48,7 +48,7 @@ function generatShowContactNameHTML(i, contact) {
                   <div>Edit</div>
                 </div>
             </div>
-            <div onclick="deleteContact(${i})" class="cont-function-delete">
+            <div onclick="deleteContact(${contact.id})" class="cont-function-delete">
                 <div class="delete" onmouseover="SVGOnHover('deleteImg', 'delete')" onmouseout="SVGMouseOut('deleteImg', 'delete')">
                   <img src="./img/contact/delete.svg" id="deleteImg">
                   <div>Delete</div>

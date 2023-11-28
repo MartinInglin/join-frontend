@@ -212,8 +212,12 @@ function deleteContact(id) {
 
     if (contactIndex !== -1) {
         // Remove the contact at the found index
+        if (contacts[contactIndex].user) {
+            logOut();
+        } else {
         contacts.splice(contactIndex, 1);
         setContacts();
+        }
     } else {
         console.error("Invalid contact ID");
     }
