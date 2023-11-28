@@ -416,7 +416,6 @@ function setCategory(category) {
 function hideDropDownCategory() {
     const selectCategoryOptions = document.getElementById('selectCategoryOptions');
     const arrow = document.getElementById('arrowDrowpDown');
-    selectCategoryOptions.classList.add('d-none');
     arrow.style.transform = 'rotate(0deg)';
     document.getElementById("selectCategory").blur();
     hideDropDownCategoryDelay()
@@ -425,5 +424,6 @@ function hideDropDownCategory() {
 function hideDropDownCategoryDelay() {
     setTimeout(function () {
         switchDropDownCategory = false;
-    }, 250);
+        selectCategoryOptions.classList.add('d-none');
+    }, 100);
 }
