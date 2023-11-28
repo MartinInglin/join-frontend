@@ -390,12 +390,17 @@ function addNewContact() {
     addContact.style.backgroundColor = '#091931';
 }
 
+<<<<<<< HEAD
 function toggleDropDownCategory(event) {
     // Check if the event is a mouseup event
     if (event.type === 'mouseup') {
         switchDropDownCategory = !switchDropDownCategory;
         return;
     }
+=======
+function toggleDropDownCategory() {
+    switchDropDownCategory = !switchDropDownCategory;
+>>>>>>> fee6bc6e1833ba8295bd1dcf90c10089228f71db
     if (switchDropDownCategory) {
         showDropDownCategory();
     } else {
@@ -419,16 +424,16 @@ function setCategory(category) {
 }
 
 function hideDropDownCategory() {
-    switchDropDownCategory = false;
     const selectCategoryOptions = document.getElementById('selectCategoryOptions');
     const arrow = document.getElementById('arrowDrowpDown');
     selectCategoryOptions.classList.add('d-none');
     arrow.style.transform = 'rotate(0deg)';
     document.getElementById("selectCategory").blur();
+    hideDropDownCategoryDelay()
 }
 
 function hideDropDownCategoryDelay() {
     setTimeout(function () {
-        hideDropDownCategory();
-    }, 500);
+        switchDropDownCategory = false;
+    }, 250);
 }
