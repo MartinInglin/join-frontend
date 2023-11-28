@@ -390,21 +390,22 @@ function addNewContact() {
     addContact.style.backgroundColor = '#091931';
 }
 
-
 function toggleDropDownCategory() {
     switchDropDownCategory = !switchDropDownCategory;
     if (switchDropDownCategory) {
         showDropDownCategory();
     } else {
-        hideDropDownCategoryDelay();
+        hideDropDownCategory();
     }
 }
 
 function showDropDownCategory() {
+    switchDropDownCategory = true;
     const selectCategoryOptions = document.getElementById('selectCategoryOptions');
     const arrow = document.getElementById('arrowDrowpDown');
     selectCategoryOptions.classList.remove('d-none');
     arrow.style.transform = 'rotate(180deg)';
+    document.getElementById("selectCategory").focus();
 }
 
 function setCategory(category) {
@@ -413,14 +414,16 @@ function setCategory(category) {
 }
 
 function hideDropDownCategory() {
+    switchDropDownCategory = false;
     const selectCategoryOptions = document.getElementById('selectCategoryOptions');
     const arrow = document.getElementById('arrowDrowpDown');
     selectCategoryOptions.classList.add('d-none');
     arrow.style.transform = 'rotate(0deg)';
+    document.getElementById("selectCategory").blur();
 }
 
 function hideDropDownCategoryDelay() {
     setTimeout(function () {
         hideDropDownCategory();
-    }, 100);
+    }, 500);
 }
