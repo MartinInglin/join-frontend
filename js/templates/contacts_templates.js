@@ -44,13 +44,13 @@ function generatShowContactNameHTML(i, contact) {
         <div class="cont-function">
             <div class="cont-function-edit">
                 <div onclick="editContact(${i})" class="edit" onmouseover="SVGOnHover('editImg', 'edit')" onmouseout="SVGMouseOut('editImg', 'edit')" onclick="showCardEdit()">
-                  <img src="./img/board_card_detail/edit.svg" alt="" id="editImg">
+                  <img src="./img/contact/edit.svg" id="editImg">
                   <div>Edit</div>
                 </div>
             </div>
             <div onclick="deleteContact(${i})" class="cont-function-delete">
                 <div class="delete" onmouseover="SVGOnHover('deleteImg', 'delete')" onmouseout="SVGMouseOut('deleteImg', 'delete')">
-                  <img src="./img/contact/delete.png" alt="" id="deleteImg">
+                  <img src="./img/contact/delete.svg" id="deleteImg">
                   <div>Delete</div>
                 </div>
             </div>
@@ -83,13 +83,13 @@ function generatShowContFunctionHTML(id) {
     <div id="show-cont-function" class="show-cont-function">
         <div class="cont-function-edit-mobil">
             <div onclick="editContact(${id})" class="edit" onmouseover="SVGOnHover('edit-img', 'edit')" onmouseout="SVGMouseOut('edit-img', 'edit')" onclick="showCardEdit()">
-                <img src="./img/board_card_detail/edit.svg" alt="" id="edit-img">
+                <img src="./img/contact/edit.svg" id="edit-img">
                 <span>Edit</span>
             </div>
         </div>
         <div onclick="deleteContact(${id})" class="cont-function-delete-mobil">
             <div class="delete" onmouseover="SVGOnHover('delete-img', 'delete')" onmouseout="SVGMouseOut('delete-img', 'delete')">
-                <img src="./img/contact/delete.png" alt="" id="delete-img">
+                <img src="./img/contact/delete.svg" id="delete-img">
                 <span>Delete</span>
             </div>
         </div>
