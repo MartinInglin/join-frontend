@@ -28,7 +28,7 @@ function generatAddNewContactHTML(){
             <span class="info-icon icon-email"></span>
         </div>
         <div class="input-field">
-            <input id="phone" type="tel" pattern="[0-9]{6, }" title="e.g. 0123123456789" placeholder="Phone" class="form-control" required>
+            <input id="phone" type="tel" pattern="[0-9]{6,}" title="e.g. 0123123456789" placeholder="Phone" class="form-control" required>
             <span class="info-icon icon-phone"></span>
         </div>
         <div class="btn-cancel-create">

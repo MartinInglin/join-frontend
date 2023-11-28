@@ -39,8 +39,6 @@ function closeAddNewContact() {
             let bgMessage = document.getElementById('bg-message');
             bgMessage.classList.add('d-none');
         }, 500);
-        let showContFunction = document.getElementById('show-cont-function');
-        showContFunction.classList.add('d-none');
     }
 }
 

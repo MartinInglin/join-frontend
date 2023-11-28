@@ -109,12 +109,15 @@ function backToContactlist() {
     let headline = document.getElementById('headline');
     let showcontact = document.getElementById('show-contact');
     let bgContFunction = document.getElementById('bg-cont-function');
-    hideContFunction();
+
     btnAddNewCont.classList.remove('d-none');
     contactList.classList.remove('d-none');
     headline.style.display = "none";
     showcontact.classList.add('d-none');
-    bgContFunction.classList.add('d-none')
+
+    if (!bgContFunction.classList.contains('d-none')) {
+        hideContFunction();
+    }
 }
 
 
@@ -143,7 +146,6 @@ function hideContFunction() {
         showContFunction.style.transform = "translate(500%, 0%)";
     }, 300);
     bgContFunction.classList.add('d-none');
-    showContFunction.classList.add('d-none');
 }
 
 
