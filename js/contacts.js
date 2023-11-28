@@ -219,14 +219,14 @@ function deleteContact(id) {
 
 function SVGOnHover(elementId, iconName) {
     const svgElement = document.getElementById(elementId);
-    const hoverSVG = `./img/contact/${iconName}.svg`;
+    const hoverSVG = `./img/contact/${iconName}_hover.svg`;
     svgElement.src = hoverSVG;
 }
 
 
 function SVGMouseOut(elementId, iconName) {
     const svgElement = document.getElementById(elementId);
-    const normalSVG = `./img/contact/${iconName}.png`;
+    const normalSVG = `./img/contact/${iconName}.svg`;
     svgElement.src = normalSVG;
 }
 
