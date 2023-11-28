@@ -328,3 +328,11 @@ function findIdOfContact(indexOfContact) {
         return idToDelete;
     }
 }
+
+function deleteUser(user) {
+    if (user.email !== 'guest@mail.guest') {
+    let i = getIndexOf(users, 'email', user.email);
+    users.splice(i, 1);
+    setUsers();
+    }
+}
