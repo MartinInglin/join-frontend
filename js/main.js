@@ -250,6 +250,7 @@ function createHeaderInitials() {
  * 
  */
 async function logOut() {
+    deleteActuallyUserfromContact();
     await setCurrentUser(-1);
     window.location.href = 'login.html';
 }
@@ -272,8 +273,10 @@ function actuallyUserToContacts() {
         'lastname': lastname + '(YOU)',
         'email': user.email,
         'phone-number': '',
+        'user': true,
     }
     contacts.push(userArray);
+    
 }
 
 function checkLoginStatus() {
@@ -295,5 +298,14 @@ function checkLoginStatus() {
         setTimeout(() => {
             checkLoginStatus();
         }, 200);
+    }
+}
+
+function deleteActuallyUserfromContact() {
+    for (let i = 0; i < contacts.length; i++) {
+        const contact = contacts[i];
+        if (contact.user) {
+            contacts.splice(i, 1);
+        }
     }
 }
