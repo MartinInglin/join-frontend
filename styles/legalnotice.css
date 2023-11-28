@@ -5,6 +5,7 @@ main {
     font-style: normal !important;
     font-weight: 400 !important;
     line-height: 120% !important;
+    overflow: auto;
 }
 
 h1 {
@@ -25,7 +26,6 @@ h2 {
 
 .main-container {
     position: relative;
-    overflow: auto;
     display: flex;
     max-width: 1014px;
     width: 100%;

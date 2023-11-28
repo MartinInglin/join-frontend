@@ -15,6 +15,7 @@ async function initOthers() {
     await getUsers();
     await getCurrentUser();
     createHeaderInitials();
+    checkLoginStatus();
 }
 
 /**
@@ -248,9 +249,10 @@ function createHeaderInitials() {
  * This function log the user out.
  * 
  */
-function logOut() {
-    currentUser = 0;
-    setCurrentUser(currentUser);
+async function logOut() {
+    // debugger
+    await setCurrentUser(-1);
+    window.location.href = 'login.html';
 }
 
 /**
@@ -273,4 +275,26 @@ function actuallyUserToContacts() {
         'phone-number': '',
     }
     contacts.push(userArray);
+}
+
+function checkLoginStatus() {
+    if (templatesLoaded) {
+        let menuBarMainContainer = document.getElementById('menuBarMainContainer');
+        let menuContainer = document.getElementById('menuContainer');
+        let headerMenu = document.getElementById('headerMenu');
+        if (currentUser == -1) {
+            headerMenu.classList.add('d-none')
+            if (window.innerWidth <= 970) {
+                let mainContainer = document.getElementById('mainContainer');
+                mainContainer.style.height = 'calc(100vh - 206px)'
+                menuBarMainContainer.classList.add('d-none');
+            } else if (window.innerWidth > 970) {
+                menuContainer.classList.add('d-none');
+            }
+        }
+    } else {
+        setTimeout(() => {
+            checkLoginStatus();
+        }, 200);
+    }
 }
