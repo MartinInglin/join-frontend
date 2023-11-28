@@ -390,7 +390,12 @@ function addNewContact() {
     addContact.style.backgroundColor = '#091931';
 }
 
-function toggleDropDownCategory() {
+function toggleDropDownCategory(event) {
+    // Check if the event is a mouseup event
+    if (event.type === 'mouseup') {
+        return;
+    }
+
     switchDropDownCategory = !switchDropDownCategory;
     if (switchDropDownCategory) {
         showDropDownCategory();
@@ -398,6 +403,7 @@ function toggleDropDownCategory() {
         hideDropDownCategory();
     }
 }
+
 
 function showDropDownCategory() {
     switchDropDownCategory = true;

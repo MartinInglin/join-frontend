@@ -59,7 +59,7 @@
             <div class="select-category-container">
               <div class="input-category position-relative">
                 <input type="text" id="selectCategory" class="select-category" onclick="showDropDownCategory()" onblur="hideDropDownCategory()" required pattern="Technical Task|User Story" placeholder="Select task category" title="Technical Task oder User Story" autocomplete="off"/>
-                <img src="../img/add_task/arrow_drop_down.png" alt="" id="arrowDrowpDown" class="cursor-pointer" onclick="toggleDropDownCategory()">
+                <img src="../img/add_task/arrow_drop_down.png" alt="" id="arrowDrowpDown" class="cursor-pointer" onclick="toggleDropDownCategory(event)">
               </div>
 
               <div id="selectCategoryOptions" class="select-category-options d-none">
