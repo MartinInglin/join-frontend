@@ -59,7 +59,6 @@ async function logIn() {
 }
 
 async function guestLogIn() {
-    // debugger
     await setCurrentUser(1);
     window.location.href = 'summary.html';
 }

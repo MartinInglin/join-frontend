@@ -69,7 +69,6 @@ function setContacts() {
  * 
  */
 async function setCurrentUser(id) {
-    debugger
     return setItem('currentUser', id);
 }
 
@@ -251,7 +250,6 @@ function createHeaderInitials() {
  * 
  */
 async function logOut() {
-    // debugger
     await setCurrentUser(-1);
     window.location.href = 'login.html';
 }
