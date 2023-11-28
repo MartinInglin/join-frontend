@@ -565,6 +565,14 @@ select {
     .show-contact {
         top: 350px;
     }
+
+    /* .cont-big-name {
+        gap: 65px;
+    }
+
+    .cont-big-name span {
+        word-break: break-word;
+    } */
 }
 
 @media(max-width: 1200px) {
@@ -611,6 +619,10 @@ select {
         height: 300px;
         gap: 20px;
     }
+
+    /* .cont-big-name {
+        margin-bottom: 30px;
+    } */
 }
 
 @media(max-width: 970px) {
@@ -732,7 +744,6 @@ select {
     }
 
     .cont-big-name span {
-        word-break: break-word;
         width: 245px;
         color: #000;
         font-family: Inter;

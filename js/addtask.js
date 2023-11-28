@@ -393,10 +393,9 @@ function addNewContact() {
 function toggleDropDownCategory(event) {
     // Check if the event is a mouseup event
     if (event.type === 'mouseup') {
+        switchDropDownCategory = !switchDropDownCategory;
         return;
     }
-
-    switchDropDownCategory = !switchDropDownCategory;
     if (switchDropDownCategory) {
         showDropDownCategory();
     } else {
