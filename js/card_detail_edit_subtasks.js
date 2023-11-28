@@ -1,11 +1,16 @@
 function changeIconConfirm() {
   const confirmImage = document.getElementById("addOrConfirm");
   confirmImage.src = "img/board_card_detail/subtasks_confirm.svg";
+  document.getElementById('emptyInputAddSubtaskButton').classList.remove('d-none');
+  document.getElementById('separatorAddSubtask').classList.remove('d-none');
 }
 
-function changIconPlus() {
+function changeIconPlus() {
   const confirmImage = document.getElementById("addOrConfirm");
   confirmImage.src = "./img/board_card_detail/add_subtask.svg";
+  document.getElementById('emptyInputAddSubtaskButton').classList.add('d-none');
+  document.getElementById('separatorAddSubtask').classList.add('d-none');
+  emptyInputAddSubtask();
 }
 
 function createSubtasksCardEdit() {
@@ -46,6 +51,7 @@ function addSubtaskCardEdit() {
   selectedTask.subtasks.unshift(newSubtask);
   createSubtasksCardEdit();
   emptyInputAddSubtask();
+  document.getElementById('addNewSubtask').focus();
 }
 
 function emptyInputAddSubtask() {

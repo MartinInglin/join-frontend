@@ -69,6 +69,7 @@ function setContacts() {
  * 
  */
 async function setCurrentUser(id) {
+    debugger
     return setItem('currentUser', id);
 }
 

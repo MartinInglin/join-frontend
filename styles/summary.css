@@ -125,6 +125,10 @@
   color: #2a3647;
 }
 
+.separator-urgent-date {
+  height: 67%;
+}
+
 .date {
   display: flex;
   flex-direction: column;
@@ -400,6 +404,9 @@
     align-items: center;
     gap: 0;
     flex-shrink: 0;
+  }
+  .separator-urgent-date {
+    height: 143%;
   }
 }
 
