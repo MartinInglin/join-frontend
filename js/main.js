@@ -249,8 +249,8 @@ function createHeaderInitials() {
  * 
  */
 function logOut() {
-    currentUser = 1;
-    setCurrentUser(1);
+    currentUser = 0;
+    setCurrentUser(currentUser);
 }
 
 /**

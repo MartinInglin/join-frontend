@@ -399,7 +399,6 @@ function toggleDropDownCategory() {
     }
 }
 
-
 function showDropDownCategory() {
     switchDropDownCategory = true;
     const selectCategoryOptions = document.getElementById('selectCategoryOptions');

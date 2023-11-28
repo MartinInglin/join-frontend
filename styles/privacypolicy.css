@@ -27,6 +27,7 @@ span {
 }
 
 .main-container {
+    max-width: 1014px;
     position: relative;
     overflow: auto;
     height: calc(100vh - 206px - 40px);
