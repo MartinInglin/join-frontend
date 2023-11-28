@@ -65,6 +65,10 @@ body {
     margin-left: 0;
 }
 
+.remember a {
+    color: #29ABE2;
+}
+
 .sign-up-buttons {
     display: flex;
     justify-content: center;
