@@ -2,6 +2,7 @@ async function init() {
     await getUsers();
     await getCurrentUser();
     await getContacts();
+    await getTasks();
     actuallyUserToContacts();
     createHeaderInitials();
     loadContactList();
@@ -207,6 +208,7 @@ function isValidEmail(email) {
 
 function deleteContact(id) {
     const contactIndex = getIndexById(id);
+    deleteAssignedTasks(id);
 
     if (contactIndex !== -1) {
         // Remove the contact at the found index
