@@ -209,7 +209,6 @@ function isValidEmail(email) {
 function deleteContact(id) {
     const contactIndex = getIndexById(id);
     deleteAssignedTasks(id);
-    debugger;
     if (contactIndex !== -1) {
         // Remove the contact at the found index
         if (contacts[contactIndex].user) {
