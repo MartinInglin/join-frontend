@@ -390,24 +390,14 @@ function addNewContact() {
     addContact.style.backgroundColor = '#091931';
 }
 
-<<<<<<< HEAD
-function toggleDropDownCategory(event) {
-    // Check if the event is a mouseup event
-    if (event.type === 'mouseup') {
-        switchDropDownCategory = !switchDropDownCategory;
-        return;
-    }
-=======
 function toggleDropDownCategory() {
     switchDropDownCategory = !switchDropDownCategory;
->>>>>>> fee6bc6e1833ba8295bd1dcf90c10089228f71db
     if (switchDropDownCategory) {
         showDropDownCategory();
     } else {
         hideDropDownCategory();
     }
 }
-
 
 function showDropDownCategory() {
     switchDropDownCategory = true;
