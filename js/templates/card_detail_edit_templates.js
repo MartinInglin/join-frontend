@@ -42,10 +42,10 @@ function renderCardEditHTML() {
             <div class="card-edit-section">
               <div class="subtitle">Subtasks</div>
               <div class="d-flex position-relative align-stretch">
-                <input type="text" name="" id="addNewSubtask" class="font-size-20 add-subtask card-edit-section-input width-100" placeholder="Add new subtask" onfocus="changeIconConfirm()" onfocusout="changIconPlus()" onkeydown="newTaskOnEnter(event)"/>
+                <input type="text" name="" id="addNewSubtask" class="font-size-20 add-subtask card-edit-section-input width-100" placeholder="Add new subtask" onfocus="changeIconConfirm()" onfocusout="changeIconPlus()" onkeydown="newTaskOnEnter(event)"/>
                 <div class="addDeleteSubtask">
-                <img class="hover-gray-circle" src="img/board_card_detail/subtask_cancel.svg" alt="" onclick="emptyInputAddSubtask()">
-                <img src="img/board_card_detail/subtasks_separator.svg" alt="">
+                <img class="hover-gray-circle d-none" src="img/board_card_detail/subtask_cancel.svg" alt="" onclick="emptyInputAddSubtask()" id="emptyInputAddSubtaskButton">
+                <img class="d-none" src="img/board_card_detail/subtasks_separator.svg" alt="" id="separatorAddSubtask">
                 <img class="hover-gray-circle" src="./img/board_card_detail/add_subtask.svg" alt="" id="addOrConfirm" onclick="addSubtaskCardEdit()">
                 </div>
               </div>
