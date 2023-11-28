@@ -217,6 +217,7 @@ function deleteContact(id) {
     } else {
         console.error("Invalid contact ID");
     }
+    loadContactList();
 }
 
 function SVGOnHover(elementId, iconName) {

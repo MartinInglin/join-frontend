@@ -309,3 +309,23 @@ function deleteActuallyUserfromContact() {
         }
     }
 }
+
+
+function deleteAssignedTasks(indexOfContact) {
+    let idToDelete = findIdOfContact(indexOfContact);
+    for (let i = 0; i < dataTasks.length; i++) {
+        const assignedToIndex = dataTasks[i]['assignedTo'].indexOf(idToDelete);
+        console.log(assignedToIndex);
+        if (assignedToIndex !== -1) {
+            dataTasks[i]['assignedTo'].splice(assignedToIndex, 1);
+            console.log(`Deleted assignment of task ${dataTasks[i].taskId} for contact with id: ${idToDelete}`);
+        }
+    }
+    setTasks();
+}
+function findIdOfContact(indexOfContact) {
+    if (indexOfContact >= 0 && indexOfContact < contacts.length) {
+        const idToDelete = contacts[indexOfContact].id;
+        return idToDelete;
+    }
+}
