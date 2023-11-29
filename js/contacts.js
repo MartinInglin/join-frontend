@@ -39,7 +39,7 @@ function loadContactList() {
             contactList.innerHTML += generatContactListHTML(i);
         }
         hideContact();
-        document.getElementById('headline').classList.remove('d-none')
+document.getElementById('headline').classList.remove('d-none')
     } if (window.innerWidth <= 970) {
         loadContactListMobil();
     }
@@ -111,13 +111,13 @@ function showContact(id) {
         let info = document.getElementById('info');
         let name = document.getElementById('name');
         hideContact(i);
-        highlightContact(id);
+                highlightContact(id);
         showcontact.classList.remove('d-none');
         name.innerHTML = generatShowContactNameHTML(i, contact);
         info.innerHTML = generatInfoHTML(contact);
         animationShowContact();
     } if (window.innerWidth <= 870) {
-        showContactMobil(id);
+    showContactMobil(id);
     }
 }
 
@@ -137,14 +137,14 @@ function showContactMobil(id) {
     let showcontact = document.getElementById('show-contact');
     let name = document.getElementById('name');
     let info = document.getElementById('info');
-    btnAddNewCont.classList.add('d-none');
+        btnAddNewCont.classList.add('d-none');
     contactList.classList.add('d-none');
     headline.style.display = "flex";
     showcontact.classList.remove('d-none');
     showcontact.style.transform = "translate(0%, 0%)";
     name.innerHTML = generatShowContactNameMobilHTML(i, contact);
     info.innerHTML = generatInfoHTML(contact);
-}
+    }
 
 
 /**
