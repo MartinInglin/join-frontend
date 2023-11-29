@@ -5,6 +5,7 @@
 async function init() {
     await getUsers();
     await getCurrentUser();
+    await getContacts();
     startImage();
     showLogIn();
 }
@@ -16,6 +17,7 @@ async function init() {
 async function initLogin() {
     await getUsers();
     await getCurrentUser();
+    await getContacts();
 }
 
 
@@ -71,7 +73,9 @@ async function logIn() {
         } else {
             if (checkUser(i, email)) {
                 if (checkPasswort(i, password)) {
+                    currentUser = users[i].id;
                     await setCurrentUser(users[i].id);
+                    await actuallyUserToContacts();
                     window.location.href = 'summary.html';
                 } else {
                     alert('Passwort falsch');

@@ -259,7 +259,7 @@ async function logOut() {
  * This function push the actually User to the Contact-Array, that the current User can see his own Contact and can assignt to Tasks.
  * 
  */
-function actuallyUserToContacts() {
+async function actuallyUserToContacts() {
     let i = getIndexOf(users, 'id', currentUser);
     let user = users[i];
     let nameParts = users[i].name.split(' ');
@@ -276,7 +276,7 @@ function actuallyUserToContacts() {
         'user': true,
     }
     contacts.push(userArray);
-    setContacts();
+    await setContacts();
 }
 
 /**
@@ -314,6 +314,7 @@ function deleteActuallyUserfromContact() {
         const contact = contacts[i];
         if (contact.user) {
             contacts.splice(i, 1);
+            setContacts();
         }
     }
 }
