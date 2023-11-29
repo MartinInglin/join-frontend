@@ -276,9 +276,13 @@ function actuallyUserToContacts() {
         'user': true,
     }
     contacts.push(userArray);
-    
+
 }
 
+/**
+ * This function check that everyone is logged in. Is only needed to show privacy policies and legal notice on login an register whitout menus.
+ * 
+ */
 function checkLoginStatus() {
     if (templatesLoaded) {
         let menuBarMainContainer = document.getElementById('menuBarMainContainer');
@@ -301,6 +305,10 @@ function checkLoginStatus() {
     }
 }
 
+/**
+ * This function delets the actually User from Contacts-Array. It called when User logged out.
+ * 
+ */
 function deleteActuallyUserfromContact() {
     for (let i = 0; i < contacts.length; i++) {
         const contact = contacts[i];
@@ -310,7 +318,10 @@ function deleteActuallyUserfromContact() {
     }
 }
 
-
+/**
+ * This function is used to delete Contacts from tasks when the contact is deleted.
+ * @param {string} indexOfContact = the parameter is needed to find the right contact to delete. 
+ */
 function deleteAssignedTasks(indexOfContact) {
     let idToDelete = findIdOfContact(indexOfContact);
     for (let i = 0; i < dataTasks.length; i++) {
@@ -322,6 +333,12 @@ function deleteAssignedTasks(indexOfContact) {
     }
     setTasks();
 }
+
+/**
+ * This function is needed to find the right index in Array whit id of contact.
+ * @param {string} indexOfContact = this is the index of the contact in array. 
+ * @returns 
+ */
 function findIdOfContact(indexOfContact) {
     if (indexOfContact >= 0 && indexOfContact < contacts.length) {
         const idToDelete = contacts[indexOfContact].id;
@@ -329,10 +346,14 @@ function findIdOfContact(indexOfContact) {
     }
 }
 
+/**
+ * this function delete the user-account. 
+ * @param {string} user = this is the user object from contacts-array, that was deletet.
+ */
 function deleteUser(user) {
     if (user.email !== 'guest@mail.guest') {
-    let i = getIndexOf(users, 'email', user.email);
-    users.splice(i, 1);
-    setUsers();
+        let i = getIndexOf(users, 'email', user.email);
+        users.splice(i, 1);
+        setUsers();
     }
 }

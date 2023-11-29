@@ -11,6 +11,10 @@ function setPositionTask(positionOfTask) {
     actualPosition = positionOfTask;
 }
 
+/**
+ * This function ensures that you can add a new subtask with the "ENTER" key. 
+ * @param {string} event = This parameter is the event that is passed when the Enter key is pressed.
+ */
 function handleEnter(event) {
     if (event.key === "Enter") {
         event.preventDefault();
@@ -18,6 +22,10 @@ function handleEnter(event) {
     }
 }
 
+/**
+ * This function initializes the add task page.
+ * 
+ */
 async function initAddTask() {
     await getTasks();
     await getUsers();
@@ -26,9 +34,12 @@ async function initAddTask() {
     actuallyUserToContacts();
     loadContactsSelection();
     createHeaderInitials();
-    // checkRequiredInput();
 }
 
+/**
+ * This function triggers the rendering of the contact list.
+ * 
+ */
 function loadContactsSelection() {
     if (templatesLoaded) {
         loadContacts();
@@ -39,6 +50,10 @@ function loadContactsSelection() {
     }
 }
 
+/**
+ * With this function the contacts are loaded into the selection list.
+ * 
+ */
 function loadContacts() {
     let content = document.getElementById('contactsDropDown');
     content.innerHTML = '';
@@ -49,6 +64,10 @@ function loadContacts() {
     };
 }
 
+/**
+ * This function triggers the checking of the priority buttons.
+ * @param {string} id = This value corresponds to the clicked button.
+ */
 function activePrioButton(id) {
     let button1 = document.getElementById('urgent');
     let button2 = document.getElementById('medium');
@@ -56,6 +75,13 @@ function activePrioButton(id) {
     checkPrioButton(id, button1, button2, button3);
 }
 
+/**
+ * This function checks which button was clicked and then triggers the corresponding function to highlight it.
+ * @param {string} id = This is the clicked Button.
+ * @param {string} button1 = This ist the "urgent"-button.
+ * @param {string} button2 = This ist the "medium"-button.
+ * @param {string} button3 = This ist the "low"-button.
+ */
 function checkPrioButton(id, button1, button2, button3) {
     if (priorityOfTask == id) {
         resetAll();
@@ -68,6 +94,10 @@ function checkPrioButton(id, button1, button2, button3) {
     };
 }
 
+/**
+ * When a button is clicked that is already highlighted, this function is called to remove the highlight.
+ * 
+ */
 function resetAll() {
     let button1 = document.getElementById('urgent');
     let button2 = document.getElementById('medium');
@@ -78,18 +108,38 @@ function resetAll() {
     priorityOfTask = false;
 }
 
+/**
+ * This function Highlight button "urgent"
+ * @param {string} button1 = This ist the "urgent"-button.
+ * @param {string} button2 = This ist the "medium"-button.
+ * @param {string} button3 = This ist the "low"-button.
+ */
 function highlightButton1(button1, button2, button3) {
     activateButton(button1, 'urgent')
     button1.style.backgroundColor = '#FF3D00';
     resetButton(button2, 'medium');
     resetButton(button3, 'low');
 }
+
+/**
+ * This function Highlight button "medium"
+ * @param {string} button1 = This ist the "urgent"-button.
+ * @param {string} button2 = This ist the "medium"-button.
+ * @param {string} button3 = This ist the "low"-button.
+ */
 function highlightButton2(button1, button2, button3,) {
     activateButton(button2, 'medium');
     button2.style.backgroundColor = '#FFA800';
     resetButton(button1, 'urgent');
     resetButton(button3, 'low');
 }
+
+/**
+ * This function Highlight button "low"
+ * @param {string} button1 = This ist the "urgent"-button.
+ * @param {string} button2 = This ist the "medium"-button.
+ * @param {string} button3 = This ist the "low"-button.
+ */
 function highlightButton3(button1, button2, button3) {
     activateButton(button3, 'low');
     button3.style.backgroundColor = '#7AE229';
@@ -97,18 +147,32 @@ function highlightButton3(button1, button2, button3) {
     resetButton(button2, 'medium');
 }
 
+/**
+ * This function set the design for an Highlighted Button.
+ * @param {string} button = This is the Button to Highlight.
+ * @param {string} id = this is the id(name) of the button.
+ */
 function activateButton(button, id) {
     button.style.color = '#FFFFFF';
     button.childNodes[1].src = `../img/add_task/${id}_white.png`;
     priorityOfTask = id;
 }
 
+/**
+ * This function set the design of the button to normal.
+ * @param {string} button = This is the Button to Highlight.
+ * @param {string} id = this is the id(name) of the button.
+ */
 function resetButton(button, id) {
     button.style.backgroundColor = 'white';
     button.style.color = '#000000';
     button.childNodes[1].src = `../img/add_task/${id}.png`;
 }
 
+/**
+ * This function creates the icons in the input field for the subtasks.
+ * 
+ */
 function activateSubtask() {
     let icon1 = document.getElementById('inputSubTaskIcon1');
     let icon2 = document.getElementById('inputSubTaskIcon2');
@@ -122,6 +186,10 @@ function activateSubtask() {
     input.focus();
 }
 
+/**
+ * This function clears the input field of the subtasks.
+ * 
+ */
 function clearSubTaskInput() {
     let icon1 = document.getElementById('inputSubTaskIcon1');
     let icon2 = document.getElementById('inputSubTaskIcon2');
@@ -135,10 +203,18 @@ function clearSubTaskInput() {
     input.value = '';
 }
 
+/**
+ * This checks whether something has been entered in the input field of the subtasks.
+ * @returns = Returns true if at least one character was written.
+ */
 function checkInputIsEmpty() {
     return document.getElementById('inputSubTask').value.length == 0;
 }
 
+/**
+ * Here the icons are removed from the input field of the subtasks when the focus disappears.
+ * 
+ */
 function leaveSubTaskInput() {
     let icon1 = document.getElementById('inputSubTaskIcon1');
     let icon2 = document.getElementById('inputSubTaskIcon2');
@@ -151,6 +227,10 @@ function leaveSubTaskInput() {
     }
 }
 
+/**
+ * This function adds the created subtask to an array and triggers the function that displays it.
+ * 
+ */
 function addSubtask() {
     let input = document.getElementById('inputSubTask');
     let newSubtask = {
@@ -162,6 +242,10 @@ function addSubtask() {
     input.value = '';
 }
 
+/**
+ * This function ensures that the subtask is displayed and triggers rendering.
+ * 
+ */
 function loadSubtasks() {
     let showSubtasks = document.getElementById('showSubtasks');
     let i = 0;
@@ -172,6 +256,10 @@ function loadSubtasks() {
     })
 }
 
+/**
+ * This function deletes all user input on the addTask page.
+ * 
+ */
 function clearAll() {
     document.getElementById('inputTitel').value = '';
     document.getElementById('inputDescription').value = '';
@@ -187,6 +275,13 @@ function clearAll() {
     renderContactInitialIcons();
 }
 
+/**
+ * This function triggers the subtasks to become editable.
+ * @param {string} id = id of button.
+ * @param {string} btn1 = Thats the edit-button in the editable field. 
+ * @param {string} btn2 = Thats the delete-button in the editable field.
+ * @param {string} i = The index of subtask in array subtasks.
+ */
 function editSubtask(id, btn1, btn2, i) {
     let subtask = document.getElementById(id);
     let button1 = document.getElementById(btn1);
@@ -197,6 +292,17 @@ function editSubtask(id, btn1, btn2, i) {
     } catch (e) { };
 }
 
+/**
+ * Here the subtask is made editable.
+ * @param {string} subtask = This is the Object subtaks.
+ * @param {string} button1 = Thats the delete-button in the editable field. 
+ * @param {string} button2 = Thats the safe-button in the editable field.
+ * @param {string} content = The div where the Subtasks rendert.
+ * @param {string} id = The id of the subtask.
+ * @param {string} i = The index of the subtask in array.
+ * @param {string} btn1 = Thats the edit-button in the editable field. 
+ * @param {string} btn2 = Thats the delete-button in the editable field.
+ */
 function makeEditable(subtask, button1, button2, content, id, i, btn1, btn2) {
     content.setAttribute('contentEditable', 'true');
     subtask.classList.add('editable-content')
@@ -208,11 +314,22 @@ function makeEditable(subtask, button1, button2, content, id, i, btn1, btn2) {
     button2.setAttribute('onclick', `saveEditSubtask('${id}', '${btn1}', '${btn2}', '${i}'); 'doNotTriggerEvent(event)'`);
 }
 
+/**
+ * This function deletes the subtask.
+ * @param {string} i = Index of subtask in array.
+ */
 function deleteSubtask(i) {
     newSubtasks.splice(i, 1);
     loadSubtasks();
 }
 
+/**
+ * This function saves the entered text after editing.
+ * @param {string} id = The id of the subtask.
+ * @param {string} btn1 = Thats the edit-button in the editable field. 
+ * @param {string} btn2 = Thats the delete-button in the editable field.
+ * @param {string} i = The index of the subtask in array.
+ */
 function saveEditSubtask(id, btn1, btn2, i) {
     let subtask = document.getElementById(id);
     let content = document.getElementById(`subtaskContent${i}`);
@@ -222,6 +339,15 @@ function saveEditSubtask(id, btn1, btn2, i) {
     loadSubtasks();
 }
 
+/**
+ * This function saves the entered text in the array and sets the editability to false.
+ * @param {string} id = The id of the subtask.
+ * @param {string} i = The index of the subtask in array.
+ * @param {string} subtask = This is the Object subtaks.
+ * @param {string} content = The div where the Subtasks rendert.
+ * @param {string} button1 = Thats the delete-button in the editable field. 
+ * @param {string} button2 = Thats the safe-button in the editable field.
+ */
 function pushEditSubtask(id, i, subtask, content, button1, button2) {
     newSubtasks.splice(i, 1,
         {
@@ -236,10 +362,18 @@ function pushEditSubtask(id, i, subtask, content, button1, button2) {
     button2.setAttribute('onclick', `deleteSubtask('${i}')`);
 }
 
+/**
+ * This function ensures that the dialog is not closed when saving a subtask.
+ * @param {*} event = The close event from parent.
+ */
 function doNotTriggerEvent(event) {
     event.stopPropagation();
 }
 
+/**
+ * This function opens the contact list in the "Assigned to" selection field.
+ * 
+ */
 function openContactList() {
     let contactList = document.getElementById('contactList');
     let openContactsDropDown = document.getElementById('openContactsDropDown');
@@ -252,6 +386,10 @@ function openContactList() {
     }, 100);
 }
 
+/**
+ * This function checks the screen width when closing the selection field in order to display the height correctly.
+ * @param {string} contactList = The div, where the contacts are rendered.
+ */
 function checkScreenWidth(contactList) {
     if (window.innerWidth <= 1200) {
         if (contactListOpen) {
@@ -268,6 +406,10 @@ function checkScreenWidth(contactList) {
     }
 }
 
+/**
+ * This function closes the contact list in the "Assigned to" selection field.
+ * 
+ */
 function closeContactList() {
     let contactList = document.getElementById('contactList');
     let openContactsDropDown = document.getElementById('openContactsDropDown');
