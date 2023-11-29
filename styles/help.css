@@ -77,15 +77,3 @@ ol h2 {
 #helpUpperArrowBack rect:hover {
     fill: #EEEEEE;
 }
-
-@media(max-width: 970px) {
-    main {
-        margin: 0;
-    }
-}
-
-@media(max-width: 650px) {
-    main {
-        padding: 120px 16px 80px 16px !important;
-    }
-}
