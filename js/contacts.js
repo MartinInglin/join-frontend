@@ -39,6 +39,7 @@ function loadContactList() {
             contactList.innerHTML += generatContactListHTML(i);
         }
         hideContact();
+        document.getElementById('headline').classList.remove('d-none')
     } if (window.innerWidth <= 970) {
         loadContactListMobil();
     }
