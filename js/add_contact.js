@@ -59,16 +59,18 @@ function closeAddNewContactAddTask() {
         setTimeout(() => {
             let bgMessage = document.getElementById('bg-message');
             bgMessage.classList.add('d-none');
+            loadContactsToAssign();
+            openContactList();
         }, 500);
     } if (window.innerWidth <= 870) {
         hidenAddNewContact();
         setTimeout(() => {
             let bgMessage = document.getElementById('bg-message');
             bgMessage.classList.add('d-none');
+            loadContactsToAssign();
+            openContactList();
         }, 500);
     }
-    loadContacts();
-    openContactList();
 }
 
 
@@ -97,6 +99,7 @@ function hidenAddNewContact() {
  * Displays an alert if the email format is invalid.
  */
 function createNewContact() {
+    debugger;
     let nameInput = document.getElementById('nameInput');
     let emailInput = document.getElementById('email');
     let phoneInput = document.getElementById('phone');
@@ -104,10 +107,10 @@ function createNewContact() {
     let firstname = nameParts[0] || '';
     let lastname = nameParts.slice(1).join(' ') || '';
 
-    if (!isValidEmail(emailInput.value)) {
-        alert('Invalid email format. Please use e.g. maxmustermann@hotmail.de');
-        return;
-    }
+    // if (!isValidEmail(emailInput.value)) {
+    //     alert('Invalid email format. Please use e.g. maxmustermann@hotmail.de');
+    //     return;
+    // } else {
 
     let newContact = {
         id: findFreeId(contacts),
@@ -122,6 +125,7 @@ function createNewContact() {
     } else if (idOfCurrentPage == 1) {
         pushNewContactAddTask(newContact);
     }
+// }
 }
 
 /**

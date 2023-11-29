@@ -41,7 +41,7 @@ async function initAddTask() {
  */
 function loadContactsSelection() {
     if (templatesLoaded) {
-        loadContacts();
+        loadContactsToAssign();
     } else {
         setTimeout(() => {
             loadContactsSelection();
@@ -53,7 +53,7 @@ function loadContactsSelection() {
  * With this function the contacts are loaded into the selection list.
  * 
  */
-function loadContacts() {
+function loadContactsToAssign() {
     let content = document.getElementById('contactsDropDown');
     content.innerHTML = '';
     contacts.sort((a, b) => a.firstname.localeCompare(b.firstname));
