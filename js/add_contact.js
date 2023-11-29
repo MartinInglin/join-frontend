@@ -160,17 +160,7 @@ function pushNewContactAddTask(newContact) {
     contacts.push(newContact);
     setContacts();
     createNewContactMessage();
-    setTimeout(() => {
-        if (idOfCurrentPage == 1) {
-            getContacts();
-            setTimeout(() => {
-                renderContacts();
-            }, 150);
-        } else {
-            showContact(newContact.id);
-        }
-        closeAddNewContactAddTask();
-    }, 100);
+    closeAddNewContactAddTask();
 }
 
 /**
