@@ -270,7 +270,7 @@ function actuallyUserToContacts() {
         id: userContactId,
         'icon': user.icon,
         'firstname': firstname,
-        'lastname': lastname + '(YOU)',
+        'lastname': lastname + ' (YOU)',
         'email': user.email,
         'phone-number': '',
         'user': true,
