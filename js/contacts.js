@@ -38,7 +38,8 @@ function loadContactList() {
             contactList.innerHTML += generatContactListHTML(i);
         }
         hideContact();
-document.getElementById('headline').classList.remove('d-none')
+        document.getElementById('headline').classList.remove('d-none');
+        document.getElementById('contact-list').classList.remove('d-none');
     } if (window.innerWidth <= 970) {
         loadContactListMobil();
     }
@@ -76,6 +77,7 @@ function loadContactListMobil() {
         contactList.innerHTML += generatContactListHTML(i);
         let highlight = document.getElementById(`cont${contact.id}`);
         highlight.classList.remove('cont-clickt');
+        document.getElementById('headline').classList.add('d-none');
     }
 }
 
