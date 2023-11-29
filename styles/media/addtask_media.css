@@ -353,7 +353,7 @@
     }
   
     #addContact {
-      width: 366px;
+      width: calc(100% - 32px);
     }
   
     #contactInitialIcons {
