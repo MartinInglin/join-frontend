@@ -126,3 +126,10 @@
         bottom: 64px;
     }
 }
+
+@media (max-width: 320px) {
+    .log-in-buttons {
+        width: 280px;
+        margin: 25px 0 0 0;
+    }
+}
