@@ -22,7 +22,7 @@ function renderCardEditHTML() {
             </div>
             <div class="card-edit-section">
               <div class="subtitle">Due date</div>
-              <input type="date" name="" id="cardEditDate" class="font-size-19 card-edit-section-input cursor-pointer" max="2200-12-31" required/>
+              <input type="date" name="" id="cardEditDate" class="font-size-19 card-edit-section-input cursor-pointer" max="2200-12-31" min="2000-01-01" required/>
             </div>
   
             <div class="card-edit-section">
