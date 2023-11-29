@@ -1,3 +1,8 @@
+/**
+ * This function generates HTML for the card edit section.
+ * 
+ * @returns {string} The generated HTML.
+ */
 function renderCardEditHTML() {
     /*html*/
     return `
@@ -68,6 +73,14 @@ function renderCardEditHTML() {
       `;
 }
 
+
+/**
+ * This function generates HTML for a contact in the card edit dropdown.
+ * 
+ * @param {number} i - The index of the contact.
+ * @param {Object} contact - The contact object.
+ * @returns {string} The generated HTML.
+ */
 function renderCardEditDropDownHTML(i, contact) {
     /*html*/
     return `
@@ -87,6 +100,14 @@ function renderCardEditDropDownHTML(i, contact) {
     `;
 }
 
+
+/**
+ * This function generates HTML for a member in the card edit section.
+ * 
+ * @param {string} userColorClass - The color class for user styling.
+ * @param {string} userInitials - The initials of the user.
+ * @returns {string} The generated HTML.
+ */
 function renderMembersCardEditHTML(userColorClass, userInitials) {
     /*html*/
     return `
@@ -96,6 +117,14 @@ function renderMembersCardEditHTML(userColorClass, userInitials) {
   `;
 }
 
+
+/**
+ * This function generates HTML for a subtask in the card edit section.
+ * 
+ * @param {number} i - The index of the subtask.
+ * @param {string} subtaskText - The text of the subtask.
+ * @returns {string} The generated HTML.
+ */
 function renderSubtasksCardEditHTML(i, subtaskText) {
     /*html*/
     return `
@@ -112,6 +141,14 @@ function renderSubtasksCardEditHTML(i, subtaskText) {
   `;
 }
 
+
+/**
+ * This function generates HTML for an editable subtask in the card edit section.
+ * 
+ * @param {number} i - The index of the subtask.
+ * @param {string} subtaskText - The text of the subtask.
+ * @returns {string} The generated HTML.
+ */
 function renderSubtasksEditHTML(i, subtaskText) {
     /*html*/
     return `

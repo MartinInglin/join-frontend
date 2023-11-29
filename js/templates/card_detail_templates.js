@@ -1,3 +1,12 @@
+/**
+ * This function generates HTML for the card detail section.
+ * 
+ * @param {string} categoryClass - The CSS class for the category color.
+ * @param {Object} selectedTask - The selected task object.
+ * @param {string} imgUrgency - The source of the urgency image.
+ * @param {number} IdOfTask - The ID of the task.
+ * @returns {string} The generated HTML.
+ */
 function renderCardDetailHTML(categoryClass, selectedTask, imgUrgency, IdOfTask) {
   /*html*/
   return `
@@ -41,6 +50,15 @@ function renderCardDetailHTML(categoryClass, selectedTask, imgUrgency, IdOfTask)
     `;
 }
 
+
+/**
+ * This function generates HTML for a user assignment in the card detail section.
+ * 
+ * @param {string} userColorClass - The color class for user styling.
+ * @param {string} userInitials - The initials of the user.
+ * @param {Object} user - The user object.
+ * @returns {string} The generated HTML.
+ */
 function renderAssigmentsHTML(userColorClass, userInitials, user) {
   /*html*/
   return `
@@ -53,6 +71,15 @@ function renderAssigmentsHTML(userColorClass, userInitials, user) {
   `;
 }
 
+
+/**
+ * This function generates HTML for a subtask in the card detail section.
+ * 
+ * @param {number} index - The index of the subtask.
+ * @param {string} subtaskStatusClass - The CSS class for subtask status.
+ * @param {Object} subtask - The subtask object.
+ * @returns {string} The generated HTML.
+ */
 function renderSubtasksCardDetailHTML(index, subtaskStatusClass, subtask) {
   /*html*/
   return `

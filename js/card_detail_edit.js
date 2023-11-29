@@ -24,6 +24,9 @@ const priorityImages = [
 ];
 const priorityButtonsIDs = ["buttonUrgent", "buttonMedium", "buttonLow"];
 
+/**
+ * This function initializes the task card if the user clicks on a task.
+ */
 function showCardEdit() {
   let cardDetailContainer = document.getElementById("cardDetailContainer");
   cardDetailContainer.innerHTML = "";
@@ -37,21 +40,34 @@ function showCardEdit() {
   createSubtasksCardEdit();
 }
 
+/**
+ * This function sets the title of the task card.
+ */
 function setTitle() {
   const titleInput = document.getElementById("cardEditTitle");
   titleInput.value = selectedTask["title"];
 }
 
+/**
+ * This function sets the despription of the task card.
+ */
 function setDescription() {
   const titleInput = document.getElementById("cardEditDescription");
   titleInput.value = selectedTask["task"];
 }
 
+/**
+ * This function sets the date of the task card.
+ */
 function setDate() {
   const titleInput = document.getElementById("cardEditDate");
   titleInput.value = selectedTask["date"];
 }
 
+/**
+ * This function finds out the priority of the selected task.
+ * @returns - Just used to stop the function.
+ */
 function findIdPriorityContainer() {
   const priorities = ["urgent", "medium", "low"];
   const priority = selectedTask["urgency"];
@@ -64,10 +80,22 @@ function findIdPriorityContainer() {
   }
 }
 
+/**
+ * This function normalizes the ID of the container. It sets "button" first and then the Priority of the clicked button (example: "buttonUrgent").
+ * 
+ * @param {string} idOfContainer - "low", "medium" or "urgent".
+ * @returns 
+ */
 function idOfContainerNormalized(idOfContainer) {
   return "button" + idOfContainer.charAt(0).toUpperCase() + idOfContainer.slice(1);
 }
 
+/**
+ * This function changes the priority if the user clicks on a button.
+ * 
+ * @param {string} priority - Priority of the clicked button.
+ * @param {string} idOfContainer - ID of the button.
+ */
 function changePriority(priority, idOfContainer) {
   if (selectedTask["urgency"] === priority) {
     selectedTask["urgency"] = null;
@@ -77,6 +105,11 @@ function changePriority(priority, idOfContainer) {
   setPriorityStyle(idOfContainer);
 }
 
+/**
+ * This function sets the style of the container.
+ * 
+ * @param {string} idOfContainer - ID of the button.
+ */
 function setPriorityStyle(idOfContainer) {
   for (let i = 0; i < priorityButtonsIDs.length; i++) {
     const containerID = priorityButtonsIDs[i];
@@ -96,22 +129,48 @@ function setPriorityStyle(idOfContainer) {
   }
 }
 
+/**
+ * This function sets the backgroundcolor to white if the button urgent is unchecked.
+ * 
+ * @param {string} container - ID of the button.
+ */
 function setBackgroundcolorWhite(container) {
   container.style.backgroundColor = "white";
 }
 
+/**
+ * This function sets the background color of the button if it is checked.
+ * 
+ * @param {string} container - ID of the button.
+ * @param {string} priorityColor - This is the color of the button.
+ */
 function setBackgroundcolorPriority(container, priorityColor) {
   container.style.backgroundColor = priorityColor.color;
 }
 
+/**
+ * This function sets the color of the font to black if the button is unchecked.
+ * 
+ * @param {string} idOfContainer - ID of the button.
+ */
 function setColorBlack(idOfContainer) {
   document.getElementById(idOfContainer).classList.remove("card-edit-priority-color-white");
 }
 
+/**
+ * This function sets the color of the font to white if the button is checked.
+ * 
+ * @param {string} idOfContainer - ID of the button.
+ */
 function setColorWhite(idOfContainer) {
   document.getElementById(idOfContainer).classList.add("card-edit-priority-color-white");
 }
 
+/**
+ * This color sets the image inside of the button to white if the button is checked.
+ * 
+ * @param {string} idOfContainer - ID of the button.
+ */
 function setImageWhite(idOfContainer) {
   const priority = idOfContainer.replace("button", "").toLowerCase();
   const imgElement = document.querySelector(`#${idOfContainer} img`);
@@ -120,6 +179,11 @@ function setImageWhite(idOfContainer) {
   }
 }
 
+/**
+ * This function sets the image back to its default color if the button is unchecked.
+ * 
+ * @param {string} idOfContainer - ID of the button.
+ */
 function setImageColor(idOfContainer) {
   const priority = idOfContainer.replace("button", "").toLowerCase();
   const imgElement = document.querySelector(`#${idOfContainer} img`);
@@ -128,6 +192,9 @@ function setImageColor(idOfContainer) {
   }
 }
 
+/**
+ * This function saves all the changes the user has made in the task.
+ */
 function saveChangesCardEdit() {
   let IdOfTask = selectedTask["id"];
   const taskIndex = dataTasks.findIndex((task) => task.id === IdOfTask);
