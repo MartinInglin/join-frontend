@@ -189,6 +189,7 @@
 }
 
 .btn-cancel-create {
+    cursor: pointer;
     width: 364px;
     height: 57px;
     display: inline-flex;
