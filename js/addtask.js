@@ -422,6 +422,10 @@ function closeContactList() {
     }, 100);
 }
 
+/**
+ * This function takes the value from the input field and searches for matches.
+ * 
+ */
 function searchContactToAssign() {
     let contactsDropDown = document.getElementById('contactsDropDown');
     let input = document.getElementById('contactInput').value.toLowerCase();
@@ -434,6 +438,10 @@ function searchContactToAssign() {
     })
 }
 
+/**
+ * This function highlights the selected contact and adds the contact to the symbol array.
+ * @param {string} id = This is the id of the contact.
+ */
 function chooseContactToAssign(id) {
     let checkImg = document.getElementById(`checkContact${id}`);
     let contact = document.getElementById(`contact${id}`);
@@ -444,6 +452,10 @@ function chooseContactToAssign(id) {
     renderContactInitialIcons();
 }
 
+/**
+ * This function removes the highlite from the selected contact and delete the contact to the symbol array.
+ * @param {string} id = This is the id of the contact.
+ */
 function unchooseContact(id) {
     let checkImg = document.getElementById(`checkContact${id}`);
     let contact = document.getElementById(`contact${id}`);
@@ -455,6 +467,10 @@ function unchooseContact(id) {
     renderContactInitialIcons();
 }
 
+/**
+ * This function triggers the rendering of the contact icons.
+ * 
+ */
 function renderContactInitialIcons() {
     let contactInitialIcons = document.getElementById('contactInitialIcons');
     contactInitialIcons.innerHTML = '';
@@ -465,6 +481,10 @@ function renderContactInitialIcons() {
     })
 }
 
+/**
+ * This function collects all the information required to create a new task and triggers the creation itself.
+ * 
+ */
 function createNewTask() {
     let createTask = document.getElementById('createTask');
     let inputTitel = document.getElementById('inputTitel').value;
@@ -475,6 +495,15 @@ function createNewTask() {
     CreateTaskRoutine(createTask, inputTitel, inputDescription, inputDate, selectCategory, dialogSucces);
 }
 
+/**
+ * This function calls up all the functions required to create the task.
+ * @param {string} createTask = This is the button to submit.
+ * @param {string} inputTitel = Task Titel
+ * @param {string} inputDescription = This is the Description of the Task.
+ * @param {string} inputDate = This is the date by which the task must be completed.
+ * @param {string} selectCategory = This is the Task category.
+ * @param {string} dialogSucces = This is the dialog that is displayed when the task has been successfully created.
+ */
 function CreateTaskRoutine(createTask, inputTitel, inputDescription, inputDate, selectCategory, dialogSucces) {
     nextFreeId = findFreeId(dataTasks);
     createTask.style.backgroundColor = '#091931';
@@ -484,6 +513,10 @@ function CreateTaskRoutine(createTask, inputTitel, inputDescription, inputDate, 
     showSuccessDialog(dialogSucces);
 }
 
+/**
+ * This function shows the dialog when the task has been successfully created.
+ * @param {string} dialogSucces = This is the dialog that is displayed when the task has been successfully created.
+ */
 function showSuccessDialog(dialogSucces) {
     dialogSucces.classList.remove('d-none');
     setTimeout(() => {
@@ -492,6 +525,10 @@ function showSuccessDialog(dialogSucces) {
     }, 1000);
 }
 
+/**
+ * This function checks whether the task was created from the dialog in the board or directly via add task.
+ * 
+ */
 function checkOpenBoard() {
     if (idOfCurrentPage == 2) {
         renderTasksBoard();
@@ -505,6 +542,14 @@ function checkOpenBoard() {
     }
 }
 
+/**
+ * This function creates the JSON, which is then pushed into the Tasks array.
+ * @param {string} nextFreeId = This is the next free id in Array Tasks.
+ * @param {string} inputTitel = Task Titel
+ * @param {string} inputDescription = This is the Description of the Task.
+ * @param {string} inputDate = This is the date by which the task must be completed.
+ * @param {string} selectCategory = This is the Task category.
+ */
 function createJson(nextFreeId, inputTitel, inputDescription, inputDate, selectCategory) {
     let newTask = {
         id: nextFreeId,
@@ -521,11 +566,16 @@ function createJson(nextFreeId, inputTitel, inputDescription, inputDate, selectC
     dataTasks.push(newTask);
 }
 
+/**
+ * This function pushes the subtasks into the newtask array.
+ * @param {string} newTask = The new task is cached in this JSON. 
+ */
 function pushSubtasks(newTask) {
     newSubtasks.forEach((task) => {
         newTask.subtasks.push(task);
     });
 }
+
 
 function addNewContact() {
     let addContact = document.getElementById('addContact');
