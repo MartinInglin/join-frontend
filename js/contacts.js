@@ -1,3 +1,8 @@
+/**
+ * This function initializes the application by fetching users, the current user, contacts, and tasks.
+ * Also performs additional setup tasks, such as associating users with contacts,
+ * creating header initials, and loading the contact list.
+ */
 async function init() {
     await getUsers();
     await getCurrentUser();
@@ -9,6 +14,11 @@ async function init() {
 }
 
 
+/**
+ * This function loads the contact list based on the window width.
+ * Sorts contacts alphabetically and displays them with initial letter headers.
+ * Highlights the selected contact if it is specified.
+ */
 function loadContactList() {
     if (window.innerWidth > 970) {
         let contactList = document.getElementById('contact-list');
@@ -31,12 +41,22 @@ function loadContactList() {
 }
 
 
+/**
+ * This function highlights a contact by adding the 'cont-clickt' class to its HTML element.
+ * 
+ * @param {string} id - The unique identifier of the contact to highlight.
+ */
 function highlightContact(id) {
     let highlight = document.getElementById(`cont${id}`);
     highlight.classList.toggle('cont-clickt');
 }
 
 
+/**
+ * This function loads the mobile version of the contact list.
+ * Sorts contacts alphabetically, hides the contact list on the desktop,
+ * and removes the 'cont-clickt' class from all contact elements.
+ */
 function loadContactListMobil() {
     let contactList = document.getElementById('contact-list');
     contactList.innerHTML = '';
@@ -56,6 +76,12 @@ function loadContactListMobil() {
 }
 
 
+/**
+ * This function retrieves the index of a contact in the contacts array based on its ID.
+ * 
+ * @param {string} contactId - The unique identifier of the contact.
+ * @returns {number} - The index of the contact in the contacts array.
+ */
 function getIndexById(contactId) {
     for (let i = 0; i < contacts.length; i++) {
         if (contacts[i].id === contactId) {
@@ -113,6 +139,14 @@ function getIndexById(contactId) {
 //     info.innerHTML = generatInfoHTML(contact);
 // }
 
+
+/**
+ * This function shows the contact details based on the window width.
+ * Loads the contact list and highlights the selected contact on desktops,
+ * or shows the mobile version of the contact details on smaller screens.
+ * 
+ * @param {string} id - The unique identifier of the contact to show.
+ */
 function showContact(id) {
     if (window.innerWidth > 870) {
         loadContactList();
@@ -133,6 +167,12 @@ function showContact(id) {
 }
 
 
+/**
+ * This function shows the mobile version of the contact details.
+ * Hides the contact list and displays the selected contact's information.
+ * 
+ * @param {string} id - The unique identifier of the contact to show.
+ */
 function showContactMobil(id) {
     let i = getIndexById(id);
     let contact = contacts[i];
@@ -152,6 +192,11 @@ function showContactMobil(id) {
 }
 
 
+/**
+ * This function navigates back to the contact list view from the contact details view.
+ * Restores the visibility of the contact list, headline, and the 'Add New Contact' button,
+ * and hides the contact details view.
+ */
 function backToContactlist() {
     let btnAddNewCont = document.getElementById('btn-add-new-cont-mobil');
     let contactList = document.getElementById('contact-list');
@@ -170,6 +215,11 @@ function backToContactlist() {
 }
 
 
+/**
+ * This function displays the contact function menu for a specific contact.
+ * 
+ * @param {string} id - The unique identifier of the contact.
+ */
 function showContFunction(id) {
     let showContFunction = document.getElementById('bg-cont-function');
     showContFunction.classList.remove('d-none');
@@ -178,6 +228,9 @@ function showContFunction(id) {
 }
 
 
+/**
+ * This function animates the appearance of the contact function menu.
+ */
 function animationShowContFunction() {
     let showContFunction = document.getElementById('show-cont-function');
     setTimeout(() => {
@@ -187,6 +240,9 @@ function animationShowContFunction() {
 }
 
 
+/**
+ * This function hides the contact function menu with a sliding animation.
+ */
 function hideContFunction() {
     let showContFunction = document.getElementById('show-cont-function');
     let bgContFunction = document.getElementById('bg-cont-function');
@@ -198,6 +254,9 @@ function hideContFunction() {
 }
 
 
+/**
+ * This function animates the appearance of the contact details view.
+ */
 function animationShowContact() {
     let showcontact = document.getElementById('show-contact');
     setTimeout(() => {
@@ -207,6 +266,9 @@ function animationShowContact() {
 }
 
 
+/**
+ * This function hides the contact details view with a sliding animation.
+ */
 function hideContact() {
     let showcontact = document.getElementById('show-contact');
     showcontact.classList.add('d-none');
@@ -214,6 +276,12 @@ function hideContact() {
 }
 
 
+/**
+ * This function initiates the process of editing a contact by displaying the 'Add New Contact' form
+ * with the information of the selected contact pre-filled.
+ * 
+ * @param {string} id - The unique identifier of the contact to edit.
+ */
 function editContact(id) {
     showAddNewContact();
     let bgMessage = document.getElementById('bg-message');
@@ -224,6 +292,12 @@ function editContact(id) {
 }
 
 
+/**
+ * This function saves the changes made to an existing contact after editing.
+ * Validates the email format and updates the contact in the contacts array.
+ * 
+ * @param {string} id - The unique identifier of the contact being edited.
+ */
 function editOldContact(id) {
     const contactIndex = contacts.findIndex((c) => c.id === id);
     let contact = contacts[contactIndex];
@@ -248,12 +322,24 @@ function editOldContact(id) {
 }
 
 
+/**
+ * This function validates an email address using a regular expression.
+ * 
+ * @param {string} email - The email address to validate.
+ * @returns {boolean} - True if the email format is valid, otherwise false.
+ */
 function isValidEmail(email) {
     const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return emailRegex.test(email);
 }
 
 
+/**
+ * This function deletes a contact by removing it from the contacts array.
+ * Also deletes any tasks assigned to the contact.
+ * 
+ * @param {string} id - The unique identifier of the contact to delete.
+ */
 function deleteContact(id) {
     const contactIndex = getIndexById(id);
     deleteAssignedTasks(id);
@@ -273,6 +359,13 @@ function deleteContact(id) {
     loadContactList();
 }
 
+
+/**
+ * This function handles the hover event for an SVG element by changing its source to the hover version.
+ * 
+ * @param {string} elementId - The HTML ID of the SVG element.
+ * @param {string} iconName - The base name of the SVG icon.
+ */
 function SVGOnHover(elementId, iconName) {
     const svgElement = document.getElementById(elementId);
     const hoverSVG = `./img/contact/${iconName}_hover.svg`;
@@ -280,6 +373,12 @@ function SVGOnHover(elementId, iconName) {
 }
 
 
+/**
+ * This function handles the mouseout event for an SVG element by changing its source to the normal version.
+ * 
+ * @param {string} elementId - The HTML ID of the SVG element.
+ * @param {string} iconName - The base name of the SVG icon.
+ */
 function SVGMouseOut(elementId, iconName) {
     const svgElement = document.getElementById(elementId);
     const normalSVG = `./img/contact/${iconName}.svg`;
@@ -287,6 +386,9 @@ function SVGMouseOut(elementId, iconName) {
 }
 
 
+/**
+ * This function adjusts the layout width based on the window width and triggers the showContact function.
+ */
 function adjustLayoutWidth() {
     const screenWidth = window.innerWidth;
     const breakpoint = 870;
@@ -296,4 +398,7 @@ function adjustLayoutWidth() {
     showContact(selectedContactId, screenWidth);
 }
 
+/**
+ *Attach the event listener to the window resize event.  
+ * */ 
 window.addEventListener("resize", adjustLayoutWidth);

@@ -1,5 +1,5 @@
 /**
- * Displays the add new contact form and background overlay.
+ * This function displays the "Add new contact" form and the background overlay.
  */
 function addNewContact() {
     showAddNewContact();
@@ -13,7 +13,7 @@ function addNewContact() {
 
 
 /**
- * Shows the add new contact form with a sliding animation based on the screen width.
+ * This function shows the add new contact form with a sliding animation based on the screen width.
  */
 function showAddNewContact() {
     if (window.innerWidth > 870) {
@@ -35,7 +35,7 @@ function showAddNewContact() {
 
 
 /**
- * Closes the add new contact form with a sliding animation based on the screen width.
+ * This function closes the add new contact form with a sliding animation based on the screen width.
  */
 function closeAddNewContact() {
     if (window.innerWidth > 870) {
@@ -55,7 +55,7 @@ function closeAddNewContact() {
 
 
 /**
- * Hides the add new contact form with a sliding animation based on the screen width.
+ * This function hides the add new contact form with a sliding animation based on the screen width.
  */
 function hidenAddNewContact() {
     if (window.innerWidth > 870) {
@@ -75,7 +75,7 @@ function hidenAddNewContact() {
 
 
 /**
- * Creates a new contact based on the input values and adds it to the contacts array.
+ * This function creates a new contact based on the input values and adds it to the contacts array.
  * Displays an alert if the email format is invalid.
  */
 function createNewContact() {
@@ -103,7 +103,7 @@ function createNewContact() {
 }
 
 /**
- * Adds a new contact to the contacts array, sets the contacts, and triggers additional actions.
+ * This function adds a new contact to the contacts array, sets the contacts, and triggers additional actions.
  * 
  * @param {object} newContact - The new contact to be added.
  * @param {string} newContact.id - The unique identifier for the new contact.
@@ -131,7 +131,7 @@ function pushNewContact(newContact) {
 }
 
 /**
- * Generates a random color code for the contact icon.
+ * This function generates a random color code for the contact icon.
  * 
  * @returns {string} A random color code.
  */
@@ -142,7 +142,7 @@ function getRandomColor() {
 
 
 /**
- * Creates a new contact and displays a success message.
+ * This function creates a new contact and displays a success message.
  */
 function createNewContactMessage() {
     let createNewContact = document.getElementById('create-new-contact');
@@ -153,7 +153,7 @@ function createNewContactMessage() {
 
 
 /**
- * Displays a message with a sliding animation.
+ * This function displays a message with a sliding animation.
  * 
  * @param {HTMLElement} element - The HTML element to be displayed.
  */
@@ -168,7 +168,7 @@ function showMessage(createNewContact) {
 
 
 /**
- * Hides a message with a sliding animation.
+ * This function hides a message with a sliding animation.
  * 
  * @param {HTMLElement} element - The HTML element to be hidden.
  */
