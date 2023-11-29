@@ -1,11 +1,21 @@
 let anyFilteredTasks = false;
 
+/**
+ * This function finds out the string the user inserts into the input field on the board.
+ */
 function filterTasks() {
   const filterInput = document.getElementById("searchInput");
   const filterValue = filterInput.value.toLowerCase();
   renderTasksBoard(filterValue);
 }
 
+/**
+ * This function finds all the tasks which are in a certain column.
+ * 
+ * @param {string} filterString - The text the user writes in the search field on the board.
+ * @param {number} columnIndex - Index of the column.
+ * @returns 
+ */
 function filterTasksByColumn(filterString, columnIndex) {
   if (filterString) {
     return dataTasks.filter((task) => task.position === columns[columnIndex] && (task.title.toLowerCase().includes(filterString) || task.task.toLowerCase().includes(filterString)));
@@ -14,6 +24,9 @@ function filterTasksByColumn(filterString, columnIndex) {
   }
 }
 
+/**
+ * This function displays the message if no task match to the search of th user.
+ */
 function showHideMessageNoTasksFound() {
   if (anyFilteredTasks) {
     hideMessageNoTasksFound();
@@ -22,14 +35,23 @@ function showHideMessageNoTasksFound() {
   }
 }
 
+/**
+ * This function shows the message that no task is found.
+ */
 function showMessageNoTasksFound() {
   document.getElementById("noTasksFound").classList.remove("d-none");
 }
 
+/**
+ * This function hides the message that no task is found.
+ */
 function hideMessageNoTasksFound() {
   document.getElementById("noTasksFound").classList.add("d-none");
 }
 
+/**
+ * This functoin finds out the widht of the window. If the display changes to mobile the search field is rendered in a different div.
+ */
 function adjustLayoutFilter() {
   let filterValue = getValueofFilter();
   const screenWidth = window.innerWidth;
@@ -49,9 +71,15 @@ function adjustLayoutFilter() {
   }
   showHideMessageNoTasksFound();
 }
-
+/**
+ * Listens if the user resize the window.
+ */
 window.addEventListener("resize", adjustLayoutFilter);
 
+/**
+ * Gets the input the user wrote into to input field. It is used to reset it after the user resized the the window.
+ * @returns - Value put in the input field by the user.
+ */
 function getValueofFilter() {
   let filterValue = null;
   let searchInput = document.getElementById("searchInput");
@@ -65,6 +93,10 @@ function setFilterValue(filterValue) {
   document.getElementById("searchInput").value = filterValue;
 }
 
+/**
+ * This function finds the users that match to the search input of the user in the 
+ * @returns - Returns all the contacts which match the users input.
+ */
 function filterUsers() {
   const searchInput = document.getElementById("searchUser").value.toLowerCase();
 

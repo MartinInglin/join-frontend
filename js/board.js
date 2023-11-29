@@ -7,6 +7,9 @@ const urgenciesImg = [
   },
 ];
 
+/**
+ * This function initializes the page board. It gets the data of the tasks, users, contacts and the current user from the database and initializes rendering the board.
+ */
 async function initBoard() {
   await getTasks();
   await getUsers();
@@ -19,6 +22,11 @@ async function initBoard() {
 
 }
 
+/**
+ * This function initalizes the rendering of the tasks on the board. If there are no filterd tasks, all the tasks are displayed.
+ * 
+ * @param {string} filterString - This is the string coming from the filter.js which is the the input the user inserts in the search field.
+ */
 function renderTasksBoard(filterString) {
   anyFilteredTasks = false;
 
@@ -40,7 +48,12 @@ function renderTasksBoard(filterString) {
 
 }
 
-
+/**
+ * This function initializes the rendering of the filtered tasks.
+ * 
+ * @param {number} columnIndex - This variable is the number of the column on the board. 0 stands for "Todo", 1 for "In Progress", 2 for "Await feedback" and 4 for "Done".
+ * @param {Array} filteredTasks - This JSON contains the filterd tasks. If there is no input in the search field, filteredTasks contains all the tasks.
+ */
 function renderFilteredTasks(columnIndex, filteredTasks) {
   for (let j = 0; j < filteredTasks.length; j++) {
     let tasks = filteredTasks[j];
@@ -54,7 +67,12 @@ function renderFilteredTasks(columnIndex, filteredTasks) {
   }
 }
 
-
+/**
+ * This function sets the color of the selected category.
+ * 
+ * @param {string} category - "User Story" or "Technical Task" can be in this parameter.
+ * @returns - Returns the color of the category which can be blue or some kind of green.
+ */
 function setColorCategory(category) {
   if (category === "User Story") {
     return "blue";
@@ -64,6 +82,12 @@ function setColorCategory(category) {
   return "";
 }
 
+/**
+ * This function creates the subtasks.
+ * 
+ * @param {number} i - This is the number of the column starting from left to right.
+ * @param {number} j - This is the number of the task in the column starting from top to down. 
+ */
 function createSubtasks(i, j) {
   let subtasksContainer = document.getElementById(`subtasks${i}${j}`);
   let actualTasks = dataTasks.filter((task) => task.position === columns[i]);
@@ -79,14 +103,33 @@ function createSubtasks(i, j) {
   }
 }
 
+/**
+ * This function counts the checked subtasks.
+ * 
+ * @param {string} task - This parameter contains the object of the task. 
+ * @returns - Returns the number of the checked subtasks.
+ */
 function countCheckedSubtasks(task) {
   return task.subtasks.reduce((count, subtask) => count + (subtask.checked ? 1 : 0), 0);
 }
 
+/**
+ * This function calculates the width of the progress bar in the subtasks.
+ * 
+ * @param {string} task - This parameter contains the object of the task. 
+ * @param {number} checkedSubtasksCount - This variable contains the number of the checked subtasks.
+ * @returns 
+ */
 function getWidthProgressBar(task, checkedSubtasksCount) {
   return (128 / task.subtasks.length) * checkedSubtasksCount + "px";
 }
 
+/**
+ * This function creates the icon priority.
+ * 
+ * @param {number} i - This is the number of the column starting from left to right.
+ * @param {number} j - This is the number of the task in the column starting from top to down. 
+ */
 function createUrgency(i, j) {
   let urgencyContainer = document.getElementById(`urgency${i}${j}`);
   let actualTasks = dataTasks.filter((task) => task.position === columns[i]);
@@ -99,10 +142,22 @@ function createUrgency(i, j) {
   }
 }
 
+/**
+ * This function finds out the priority of the task.
+ * 
+ * @param {string} task - This parameter contains the object of the task. 
+ * @returns - This can be "low", "medium" or "urgent".
+ */
 function getTaskUrgency(task) {
   return task.urgency;
 }
 
+/**
+ * This function filters through the array dataTasks and creates an array with the tasks that are displayed in the column.
+ * 
+ * @param {number} i - This is the number of the column starting from left to right.
+ * @param {number} j - This is the number of the task in the column starting from top to down. 
+ */
 function createAssignments(i, j) {
   let assignmentsContainer = document.getElementById(`assignments${i}${j}`);
   let actualTasks = dataTasks.filter((task) => task.position === columns[i]);
@@ -115,6 +170,12 @@ function createAssignments(i, j) {
   }
 }
 
+/**
+ * This function renders the contacts which are assigend to the task.
+ * 
+ * @param {string} container - This is the container where the assigned contacts are rendered.
+ * @param {array} assignedTo - This is an array which contains the assigned contacts.
+ */
 function renderAssignedUsers(container, assignedTo) {
   for (let index = 0; index < assignedTo.length; index++) {
     const userId = assignedTo[index];
@@ -136,15 +197,26 @@ function renderAssignedUsers(container, assignedTo) {
   }
 }
 
+/**
+ * This function creates the field where tasks can be dropped. It only appears when dragging is startd.
+ * 
+ * @param {number} i - Index of the column.
+ */
 function createDropDiv(i) {
   let tasksContainer = document.getElementById(`tasks${columns[i]}`);
   tasksContainer.innerHTML += createDropDivHTML(i);
 }
 
+/**
+ * This function empties the input search.
+ */
 function emptyInputFilter() {
   document.getElementById("searchInput").value = "";
 }
 
+/**
+ * This function opens the dialog if a task is added.
+ */
 function openDialog() {
   if (window.innerWidth < 970) {
     redirectToAddTaskPage();
@@ -158,6 +230,9 @@ function openDialog() {
   }
 }
 
+/**
+ * This function closes the dialog if a task is added.
+ */
 function closeDialog() {
   let dialog = document.getElementById("dialog");
   let closeDialog = document.getElementById("closeDialog");
@@ -167,10 +242,18 @@ function closeDialog() {
   dialog.classList.add("d-none");
 }
 
+/**
+ * This function prevents the div below from doing action.
+ * 
+ * @param {event} event - click 
+ */
 function doNotClose(event) {
   event.stopPropagation();
 }
 
+/**
+ * This function is used on mobile devices. It directs the user to the addtask page.
+ */
 function redirectToAddTaskPage() {
   window.location.href = "addtask.html";
 }
