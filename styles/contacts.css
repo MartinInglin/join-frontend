@@ -368,7 +368,7 @@ select {
 .email {
     display: flex;
     flex-direction: column;
-    width: 124px;
+    width: 150px;
     height: 53px;
     gap: 15px;
 }
