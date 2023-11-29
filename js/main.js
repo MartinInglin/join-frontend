@@ -276,7 +276,7 @@ function actuallyUserToContacts() {
         'user': true,
     }
     contacts.push(userArray);
-
+    setContacts();
 }
 
 /**

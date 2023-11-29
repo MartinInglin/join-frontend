@@ -31,7 +31,6 @@ async function initAddTask() {
     await getUsers();
     await getCurrentUser();
     await getContacts();
-    actuallyUserToContacts();
     loadContactsSelection();
     createHeaderInitials();
 }

@@ -15,7 +15,6 @@ async function initBoard() {
   await getUsers();
   await getCurrentUser();
   await getContacts();
-  actuallyUserToContacts();
   adjustLayoutFilter();
   renderTasksBoard();
   createHeaderInitials();

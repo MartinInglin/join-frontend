@@ -8,7 +8,6 @@ async function init() {
     await getCurrentUser();
     await getContacts();
     await getTasks();
-    actuallyUserToContacts();
     createHeaderInitials();
     loadContactList();
 }
