@@ -13,6 +13,10 @@ async function init() {
     loadContactList();
 }
 
+/**
+ * This function searches for the width of the window.
+ */
+window.addEventListener("resize", loadContactList);
 
 /**
  * This function loads the contact list based on the window width.
