@@ -576,12 +576,19 @@ function pushSubtasks(newTask) {
     });
 }
 
-
+/**
+ * This function changes the color of the button.
+ * 
+ */
 function addNewContact() {
     let addContact = document.getElementById('addContact');
     addContact.style.backgroundColor = '#091931';
 }
 
+/**
+ * Diese Funktion überprüft ob das Drop Down Menu geöffnet ist.
+ * 
+ */
 function toggleDropDownCategory() {
     switchDropDownCategory = !switchDropDownCategory;
     if (switchDropDownCategory) {
@@ -591,6 +598,10 @@ function toggleDropDownCategory() {
     }
 }
 
+/**
+ * This function opens the drop down menu.
+ * 
+ */
 function showDropDownCategory() {
     switchDropDownCategory = true;
     const selectCategoryOptions = document.getElementById('selectCategoryOptions');
@@ -600,11 +611,19 @@ function showDropDownCategory() {
     document.getElementById("selectCategory").focus();
 }
 
+/**
+ * The selected category takes over this function.
+ * @param {string} category 
+ */
 function setCategory(category) {
     document.getElementById('selectCategory').value = category;
     hideDropDownCategory();
 }
 
+/**
+ * This function closes the drop down menu.
+ * 
+ */
 function hideDropDownCategory() {
     const selectCategoryOptions = document.getElementById('selectCategoryOptions');
     const arrow = document.getElementById('arrowDrowpDown');
@@ -613,6 +632,10 @@ function hideDropDownCategory() {
     hideDropDownCategoryDelay()
 }
 
+/**
+ * This function close the drop down menu.
+ * 
+ */
 function hideDropDownCategoryDelay() {
     setTimeout(function () {
         switchDropDownCategory = false;
