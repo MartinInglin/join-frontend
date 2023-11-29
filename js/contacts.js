@@ -90,56 +90,6 @@ function getIndexById(contactId) {
     }
 }
 
-// function showContact(id, screenWidth) {
-//     if (id) {
-//         // Kontakt ausgewählt
-//         if (screenWidth <= 870) {
-//             showContactMobil(id);
-//         } else {
-//             loadContactList();
-//             let i = getIndexById(id);
-//             let contact = contacts[i];
-//             let showcontact = document.getElementById('show-contact');
-//             let info = document.getElementById('info');
-//             let name = document.getElementById('name');
-//             hideContact(i);
-//             highlightContact(id);
-//             showcontact.classList.remove('d-none');
-//             name.innerHTML = generatShowContactNameHTML(i, contact);
-//             info.innerHTML = generatInfoHTML(contact);
-//             animationShowContact();
-//         }
-//     } else {
-//         // Kein Kontakt ausgewählt
-//         if (screenWidth <= 870) {
-//             loadContactListMobil();
-//             // Hier showContactMobil aufrufen
-//             showContactMobil(); // Ohne ID aufrufen
-//         } else {
-//             loadContactList();
-//         }
-//     }
-// }
-
-// function showContactMobil(id) {
-//     let i = getIndexById(id);
-//     let contact = contacts[i];
-//     let btnAddNewCont = document.getElementById('btn-add-new-cont-mobil');
-//     let contactList = document.getElementById('contact-list');
-//     let headline = document.getElementById('headline');
-//     let showcontact = document.getElementById('show-contact');
-//     let name = document.getElementById('name');
-//     let info = document.getElementById('info');
-//     btnAddNewCont.classList.add('d-none');
-//     contactList.classList.add('d-none');
-//     headline.style.display = "flex";
-//     showcontact.classList.remove('d-none');
-//     showcontact.style.transform = "translate(0%, 0%)";
-//     name.innerHTML = generatShowContactNameMobilHTML(i, contact);
-//     info.innerHTML = generatInfoHTML(contact);
-// }
-
-
 /**
  * This function shows the contact details based on the window width.
  * Loads the contact list and highlights the selected contact on desktops,
@@ -386,19 +336,19 @@ function SVGMouseOut(elementId, iconName) {
 }
 
 
-/**
- * This function adjusts the layout width based on the window width and triggers the showContact function.
- */
-function adjustLayoutWidth() {
-    const screenWidth = window.innerWidth;
-    const breakpoint = 870;
+// /**
+//  * This function adjusts the layout width based on the window width and triggers the showContact function.
+//  */
+// function adjustLayoutWidth() {
+//     const screenWidth = window.innerWidth;
+//     const breakpoint = 870;
 
-    const selectedContactId = contacts['id'];
+//     const selectedContactId = contacts['id'];
 
-    showContact(selectedContactId, screenWidth);
-}
+//     showContact(selectedContactId, screenWidth);
+// }
 
-/**
- *Attach the event listener to the window resize event.  
- * */ 
-window.addEventListener("resize", adjustLayoutWidth);
+// /**
+//  *Attach the event listener to the window resize event.  
+//  * */ 
+// window.addEventListener("resize", adjustLayoutWidth);
