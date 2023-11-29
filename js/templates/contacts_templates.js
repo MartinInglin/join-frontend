@@ -1,3 +1,10 @@
+/**
+ * This function generates HTML for the current letter and an underline.
+ * 
+ * @param {number} i - The index.
+ * @param {string} currentLetter - The current letter.
+ * @returns {string} The generated HTML.
+ */
 function generatCurrenLetterHTML(i, currentLetter) {
     return  /*html*/ `
     <div class="letter">
@@ -8,6 +15,13 @@ function generatCurrenLetterHTML(i, currentLetter) {
     `;
 }
 
+
+/**
+ * This function generates HTML for a contact list item.
+ * 
+ * @param {number} i - The index.
+ * @returns {string} The generated HTML.
+ */
 function generatContactListHTML(i) {
     return  /*html*/`
     <div id="cont${contacts[i].id}" onclick="showContact(${contacts[i].id})" class="cont">
@@ -29,6 +43,14 @@ function generatContactListHTML(i) {
     `;
 }
 
+
+/**
+ * This function generates HTML for displaying a contact's name and icon.
+ * 
+ * @param {number} i - The index.
+ * @param {Object} contact - The contact object.
+ * @returns {string} The generated HTML.
+ */
 function generatShowContactNameHTML(i, contact) {
     return /*html*/`
     <div class="cont-icon-big">
@@ -59,6 +81,14 @@ function generatShowContactNameHTML(i, contact) {
     `;
 }
 
+
+/**
+ * This function generates HTML for displaying a contact's name and icon on mobile.
+ * 
+ * @param {number} i - The index.
+ * @param {Object} contact - The contact object.
+ * @returns {string} The generated HTML.
+ */
 function generatShowContactNameMobilHTML(i, contact) {
     return /*html*/`
         <div class="cont-icon-big">
@@ -78,6 +108,13 @@ function generatShowContactNameMobilHTML(i, contact) {
     `;
 }
 
+
+/**
+ * This function generates HTML for displaying contact function options on mobile.
+ * 
+ * @param {number} id - The contact ID.
+ * @returns {string} The generated HTML.
+ */
 function generatShowContFunctionHTML(id) {
     return /*html*/`
     <div id="show-cont-function" class="show-cont-function">
@@ -97,6 +134,13 @@ function generatShowContFunctionHTML(id) {
     `;
 }
 
+
+/**
+ * This function generates HTML for displaying contact information.
+ * 
+ * @param {Object} contact - The contact object.
+ * @returns {string} The generated HTML.
+ */
 function generatInfoHTML(contact) {
     return /*html*/`
     <div class="email">
@@ -110,6 +154,13 @@ function generatInfoHTML(contact) {
     `;
 }
 
+
+/**
+ * This function generates HTML for editing a contact.
+ * 
+ * @param {Object} contact - The contact object.
+ * @returns {string} The generated HTML.
+ */
 function generatEditContactHTML(contact) {
     return  /*html*/`
     <div class="add-new-cont-left">

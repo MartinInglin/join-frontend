@@ -1,3 +1,12 @@
+/**
+ * This function generates HTML for a task card.
+ * 
+ * @param {number} i - The index of the outer loop.
+ * @param {number} j - The index of the inner loop.
+ * @param {Object} tasks - The tasks object.
+ * @param {string} categoryClass - The category class for styling.
+ * @returns {string} The generated HTML.
+ */
 function createTasksHTML(i, j, tasks, categoryClass) {
   /*html*/
   return `
@@ -15,6 +24,14 @@ function createTasksHTML(i, j, tasks, categoryClass) {
       `;
 }
 
+
+/**
+ * This function generates HTML for an empty task card.
+ * 
+ * @param {string} columnsText - Text for the columns.
+ * @param {number} i - The index of the loop.
+ * @returns {string} The generated HTML.
+ */
 function createEmptyTaskHTML(columnsText, i) {
   /*html*/
   return `
@@ -24,6 +41,15 @@ function createEmptyTaskHTML(columnsText, i) {
   `;
 }
 
+
+/**
+ * This function generates HTML for the subtasks board.
+ * 
+ * @param {string} widthProgressBar - The width of the progress bar.
+ * @param {number} checkedSubtasksCount - The count of checked subtasks.
+ * @param {Object} task - The task object.
+ * @returns {string} The generated HTML.
+ */
 function createSubstasksBoardHTML(widthProgressBar, checkedSubtasksCount, task) {
   /*html*/
   return `
@@ -35,6 +61,15 @@ function createSubstasksBoardHTML(widthProgressBar, checkedSubtasksCount, task) 
   `;
 }
 
+
+/**
+ * This function generates HTML for assignments.
+ * 
+ * @param {string} marginClass - The margin class for styling.
+ * @param {string} userColorClass - The color class for user styling.
+ * @param {string} userInitials - The initials of the user.
+ * @returns {string} The generated HTML.
+ */
 function createAssignmentsHTML(marginClass, userColorClass, userInitials) {
   /*html*/
   return `
@@ -44,6 +79,14 @@ function createAssignmentsHTML(marginClass, userColorClass, userInitials) {
   `;
 }
 
+
+/**
+ * This function generates HTML for the first assignment.
+ * 
+ * @param {string} marginClass - The margin class for styling.
+ * @param {number} nonDisplayedUsers - The count of non-displayed users.
+ * @returns {string} The generated HTML.
+ */
 function createAssignmentsFirstHTML(marginClass, nonDisplayedUsers) {
   /*html*/
   return `
@@ -53,6 +96,13 @@ function createAssignmentsFirstHTML(marginClass, nonDisplayedUsers) {
   `;
 }
 
+
+/**
+ * This function generates HTML for the drop div.
+ * 
+ * @param {number} i - The index of the loop.
+ * @returns {string} The generated HTML.
+ */
 function createDropDivHTML(i) {
   /*html*/
   return `
@@ -62,6 +112,12 @@ function createDropDivHTML(i) {
   `;
 }
 
+
+/**
+ * This function generates HTML for the search input.
+ * 
+ * @returns {string} The generated HTML.
+ */
 function createSearchInput() {
   /*html*/
   return `
@@ -76,6 +132,14 @@ function createSearchInput() {
     `;
 }
 
+
+
+/**
+ * This function generates HTML for the urgency image.
+ * 
+ * @param {string} urgencyImageSrc - The source of the urgency image.
+ * @returns {string} The generated HTML.
+ */
 function createUrgencyImg(urgencyImageSrc) {
   /*html*/
   return `
