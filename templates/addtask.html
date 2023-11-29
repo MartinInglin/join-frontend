@@ -35,7 +35,7 @@
               <img src="./img/add_task/arrow_drop_down.png" id="openContactsDropDown" onclick="openContactList(); doNotTriggerEvent(event)" />
               <input type="text" id="contactInput" placeholder="Select contacts to assign" onclick="openContactList(); doNotTriggerEvent(event)" oninput="searchContactToAssign()" onfocus="openContactList()" />
               <div id="contactsDropDown"></div>
-              <button id="addContact" type="button" onclick="addNewContact()">Add new contact<img src="../img/add_task/person_add.png" /></button>
+              <button id="addContact" type="button" onclick="addNewContact(); changeBtnColor()">Add new contact<img src="../img/add_task/person_add.png" /></button>
             </div>
             <div id="contactInitialIcons"></div>
           </div>

@@ -579,7 +579,7 @@ function pushSubtasks(newTask) {
  * This function changes the color of the button.
  * 
  */
-function addNewContact() {
+function changeBtnColor() {
     let addContact = document.getElementById('addContact');
     addContact.style.backgroundColor = '#091931';
 }

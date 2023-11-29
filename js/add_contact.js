@@ -53,6 +53,24 @@ function closeAddNewContact() {
     }
 }
 
+function closeAddNewContactAddTask() {
+    if (window.innerWidth > 870) {
+        hidenAddNewContact();
+        setTimeout(() => {
+            let bgMessage = document.getElementById('bg-message');
+            bgMessage.classList.add('d-none');
+        }, 500);
+    } if (window.innerWidth <= 870) {
+        hidenAddNewContact();
+        setTimeout(() => {
+            let bgMessage = document.getElementById('bg-message');
+            bgMessage.classList.add('d-none');
+        }, 500);
+    }
+    loadContacts();
+    openContactList();
+}
+
 
 /**
  * This function hides the add new contact form with a sliding animation based on the screen width.
@@ -64,7 +82,7 @@ function hidenAddNewContact() {
             addNewContact.style.transition = "transform 300ms ease, top 300ms ease";
             addNewContact.style.transform = "translate(500%, 0%)";
         }, 200);
-    } if(window.innerWidth <= 870) {
+    } if (window.innerWidth <= 870) {
         let addNewContact = document.getElementById('add-new-contact');
         setTimeout(() => {
             addNewContact.style.transition = "transform 300ms ease, top 300ms ease";
@@ -99,7 +117,11 @@ function createNewContact() {
         email: emailInput.value,
         'phone-number': phoneInput.value
     };
-    pushNewContact(newContact);
+    if (idOfCurrentPage == 3) {
+        pushNewContact(newContact);
+    } else if (idOfCurrentPage == 1) {
+        pushNewContactAddTask(newContact);
+    }
 }
 
 /**
@@ -127,6 +149,23 @@ function pushNewContact(newContact) {
             showContact(newContact.id);
         }
         closeAddNewContact();
+    }, 100);
+}
+
+function pushNewContactAddTask(newContact) {
+    contacts.push(newContact);
+    setContacts();
+    createNewContactMessage();
+    setTimeout(() => {
+        if (idOfCurrentPage == 1) {
+            getContacts();
+            setTimeout(() => {
+                renderContacts();
+            }, 150);
+        } else {
+            showContact(newContact.id);
+        }
+        closeAddNewContactAddTask();
     }, 100);
 }
 
