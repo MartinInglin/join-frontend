@@ -1,3 +1,9 @@
+/**
+ * This function renders HTML for a contact item in the contact list.
+ * 
+ * @param {Object} contact - The contact object.
+ * @returns {string} The generated HTML.
+ */
 function renderContacts(contact) {
     return `
     <div id="contact${contact.id}" class="contact"onclick="chooseContactToAssign(${contact.id}); doNotTriggerEvent(event)">
@@ -16,6 +22,14 @@ function renderContacts(contact) {
 `;
 }
 
+
+/**
+ * This function renders HTML for a subtask item in the task details view.
+ * 
+ * @param {Object} subtask - The subtask object.
+ * @param {number} i - The index of the subtask.
+ * @returns {string} The generated HTML.
+ */
 function renderSubtasks(subtask, i) {
     return `
     <li class="list-element" id="subtask${i}" ondblclick="editSubtask('subtask${i}', 'editSubtaskIcon1${i}', 'editSubtaskIcon2${i}', '${i}')">
@@ -32,6 +46,13 @@ function renderSubtasks(subtask, i) {
     </li>`;
 }
 
+
+/**
+ * This function renders HTML for the initial icon in the contact frame.
+ * 
+ * @param {Object} contact - The contact object.
+ * @returns {string} The generated HTML.
+ */
 function showInitialIcon(contact) {
     return `
     <div class="contact-frame">

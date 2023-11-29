@@ -1,3 +1,10 @@
+/**
+ * This function generates and returns HTML code for the "Add New Contact" section.
+ * Includes input fields for the contact's name, email, and phone number,
+ * along with buttons for canceling or creating the contact.
+ * 
+ * @returns {string} - The HTML code for the "Add New Contact" section.
+ */
 function generatAddNewContactHTML(){
     return  /*html*/`
     <div class="add-new-cont-left">

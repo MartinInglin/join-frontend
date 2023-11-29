@@ -1,3 +1,6 @@
+/**
+ * This function displays the "Add new contact" form and the background overlay.
+ */
 function addNewContact() {
     showAddNewContact();
     let bgMessage = document.getElementById('bg-message');
@@ -8,6 +11,10 @@ function addNewContact() {
     addNewContact.innerHTML = generatAddNewContactHTML();
 }
 
+
+/**
+ * This function shows the add new contact form with a sliding animation based on the screen width.
+ */
 function showAddNewContact() {
     if (window.innerWidth > 870) {
         let addNewContact = document.getElementById('add-new-contact');
@@ -26,6 +33,10 @@ function showAddNewContact() {
     }
 }
 
+
+/**
+ * This function closes the add new contact form with a sliding animation based on the screen width.
+ */
 function closeAddNewContact() {
     if (window.innerWidth > 870) {
         hidenAddNewContact();
@@ -42,6 +53,10 @@ function closeAddNewContact() {
     }
 }
 
+
+/**
+ * This function hides the add new contact form with a sliding animation based on the screen width.
+ */
 function hidenAddNewContact() {
     if (window.innerWidth > 870) {
         let addNewContact = document.getElementById('add-new-contact');
@@ -58,6 +73,11 @@ function hidenAddNewContact() {
     }
 }
 
+
+/**
+ * This function creates a new contact based on the input values and adds it to the contacts array.
+ * Displays an alert if the email format is invalid.
+ */
 function createNewContact() {
     let nameInput = document.getElementById('nameInput');
     let emailInput = document.getElementById('email');
@@ -79,7 +99,21 @@ function createNewContact() {
         email: emailInput.value,
         'phone-number': phoneInput.value
     };
+    pushNewContact(newContact);
+}
 
+/**
+ * This function adds a new contact to the contacts array, sets the contacts, and triggers additional actions.
+ * 
+ * @param {object} newContact - The new contact to be added.
+ * @param {string} newContact.id - The unique identifier for the new contact.
+ * @param {string} newContact.icon - The color code for the contact icon.
+ * @param {string} newContact.firstname - The first name of the contact.
+ * @param {string} newContact.lastname - The last name of the contact.
+ * @param {string} newContact.email - The email address of the contact.
+ * @param {string} newContact ['phone-number'] - The phone number of the contact.
+ */
+function pushNewContact(newContact) {
     contacts.push(newContact);
     setContacts();
     createNewContactMessage();
@@ -96,11 +130,20 @@ function createNewContact() {
     }, 100);
 }
 
+/**
+ * This function generates a random color code for the contact icon.
+ * 
+ * @returns {string} A random color code.
+ */
 function getRandomColor() {
     let colors = ['#FF7A00', '#FF5EB3', '#6E52FF', '#9327FF', '#00BEE8', '#1FD7C1', '#FF745E', '#FFA35E', '#FC71FF', '#FFC701', '#0038FF', '#C3FF2B', '#FFE62B', '#FF4646', '#FFBB2B', '#9b1212', '#7a80e8', '#046657', '#869b4c'];
     return colors[Math.floor(Math.random() * colors.length)];
 }
 
+
+/**
+ * This function creates a new contact and displays a success message.
+ */
 function createNewContactMessage() {
     let createNewContact = document.getElementById('create-new-contact');
 
@@ -108,6 +151,12 @@ function createNewContactMessage() {
     hidenMessage(createNewContact);
 }
 
+
+/**
+ * This function displays a message with a sliding animation.
+ * 
+ * @param {HTMLElement} element - The HTML element to be displayed.
+ */
 function showMessage(createNewContact) {
     createNewContact.style.transform = "translate(500%, 0%)";
     createNewContact.classList.remove('d-none');
@@ -117,6 +166,12 @@ function showMessage(createNewContact) {
     }, 800);
 }
 
+
+/**
+ * This function hides a message with a sliding animation.
+ * 
+ * @param {HTMLElement} element - The HTML element to be hidden.
+ */
 function hidenMessage(createNewContact) {
     setTimeout(() => {
         createNewContact.style.transition = "transform 800ms ease, top 800ms ease";
