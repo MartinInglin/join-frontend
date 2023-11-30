@@ -99,7 +99,6 @@ function hidenAddNewContact() {
  * Displays an alert if the email format is invalid.
  */
 function createNewContact() {
-    debugger;
     let nameInput = document.getElementById('nameInput');
     let emailInput = document.getElementById('email');
     let phoneInput = document.getElementById('phone');
