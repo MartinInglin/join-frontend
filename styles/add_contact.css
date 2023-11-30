@@ -137,6 +137,7 @@
 }
 
 .input-field input {
+    cursor: pointer;
     display: flex;
     width: calc(380px - 42px);
     justify-content: space-between;
@@ -198,6 +199,7 @@
 }
 
 #btn-cancel {
+    cursor: pointer;
     width: 126px;
     height: 56px;
     font-size: 20px;
@@ -211,6 +213,7 @@
 }
 
 #btn-create {
+    cursor: pointer;
     width: 183px;
     height: 56px;
     font-size: 17px;
