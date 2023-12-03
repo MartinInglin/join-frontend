@@ -181,6 +181,9 @@
     bottom: 0px;
     left: 44px;
   }
+  .showCategories {
+    display: flex;
+  }
 }
 
 /* Medium devices (landscape tablets up to 768px) */

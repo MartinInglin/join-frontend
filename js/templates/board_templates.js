@@ -10,8 +10,19 @@
 function createTasksHTML(i, j, tasks, categoryClass) {
   /*html*/
   return `
-    <div class="card" id="card${i}${j}" draggable="true" ondragstart="startDragging(${tasks["id"]}, ${i}, ${j})" ondragend="stopRotate(${i}, ${j})" onclick="showCardDetail(${i}, ${j})"> 
-      <span class="category color-${categoryClass}">${tasks["category"]}</span>
+    <div class="card" id="card${i}${j}" draggable="true" ondragstart="startDragging(${tasks["id"]}, ${i}, ${j})" ondragend="stopRotate(${i}, ${j})" onclick="showCardDetail(${i}, ${j})">
+      <div class="category-button-change-mobile">
+        <span class="category color-${categoryClass}">${tasks["category"]}</span>
+        <div onclick="showDropDownCategories(${i}, ${j}), doNotClose(event)" class="showCategories" id="showCategories${i}${j}">
+          <img src="img/contact/menu.svg">
+        </div>
+          <div class="drop-down-change-category-mobile d-none" id="dropDownChangeCategoryMobile${i},${j}" onclick="doNotClose(event)">
+            <span>To do</span>
+            <span>In progress</span>
+            <span>Await feedback</span>
+            <span>Done</span>
+          </div>
+        </div>
       <h3 class="card-title overflow-hidden">${tasks["title"]}</h3>
       <p>${tasks["task"]}</p>
       <div class="subtasks-board" id="subtasks${i}${j}"></div>
@@ -146,3 +157,4 @@ function createUrgencyImg(urgencyImageSrc) {
     <img src="${urgencyImageSrc}" alt="" />
   `;
 }
+

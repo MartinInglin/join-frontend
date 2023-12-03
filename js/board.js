@@ -18,12 +18,11 @@ async function initBoard() {
   adjustLayoutFilter();
   renderTasksBoard();
   createHeaderInitials();
-
 }
 
 /**
  * This function initalizes the rendering of the tasks on the board. If there are no filterd tasks, all the tasks are displayed.
- * 
+ *
  * @param {string} filterString - This is the string coming from the filter.js which is the the input the user inserts in the search field.
  */
 function renderTasksBoard(filterString) {
@@ -44,12 +43,11 @@ function renderTasksBoard(filterString) {
     createDropDiv(i);
   }
   showHideMessageNoTasksFound(anyFilteredTasks);
-
 }
 
 /**
  * This function initializes the rendering of the filtered tasks.
- * 
+ *
  * @param {number} columnIndex - This variable is the number of the column on the board. 0 stands for "Todo", 1 for "In Progress", 2 for "Await feedback" and 4 for "Done".
  * @param {Array} filteredTasks - This JSON contains the filterd tasks. If there is no input in the search field, filteredTasks contains all the tasks.
  */
@@ -58,7 +56,7 @@ function renderFilteredTasks(columnIndex, filteredTasks) {
     let tasks = filteredTasks[j];
     const categoryClass = setColorCategory(tasks["category"]);
     const tasksContainer = document.getElementById(`tasks${columns[columnIndex]}`);
-    
+
     tasksContainer.innerHTML += createTasksHTML(columnIndex, j, tasks, categoryClass);
     createSubtasks(columnIndex, j);
     createUrgency(columnIndex, j);
@@ -68,7 +66,7 @@ function renderFilteredTasks(columnIndex, filteredTasks) {
 
 /**
  * This function sets the color of the selected category.
- * 
+ *
  * @param {string} category - "User Story" or "Technical Task" can be in this parameter.
  * @returns - Returns the color of the category which can be blue or some kind of green.
  */
@@ -83,9 +81,9 @@ function setColorCategory(category) {
 
 /**
  * This function creates the subtasks.
- * 
+ *
  * @param {number} i - This is the number of the column starting from left to right.
- * @param {number} j - This is the number of the task in the column starting from top to down. 
+ * @param {number} j - This is the number of the task in the column starting from top to down.
  */
 function createSubtasks(i, j) {
   let subtasksContainer = document.getElementById(`subtasks${i}${j}`);
@@ -104,8 +102,8 @@ function createSubtasks(i, j) {
 
 /**
  * This function counts the checked subtasks.
- * 
- * @param {string} task - This parameter contains the object of the task. 
+ *
+ * @param {string} task - This parameter contains the object of the task.
  * @returns - Returns the number of the checked subtasks.
  */
 function countCheckedSubtasks(task) {
@@ -114,10 +112,10 @@ function countCheckedSubtasks(task) {
 
 /**
  * This function calculates the width of the progress bar in the subtasks.
- * 
- * @param {string} task - This parameter contains the object of the task. 
+ *
+ * @param {string} task - This parameter contains the object of the task.
  * @param {number} checkedSubtasksCount - This variable contains the number of the checked subtasks.
- * @returns 
+ * @returns
  */
 function getWidthProgressBar(task, checkedSubtasksCount) {
   return (128 / task.subtasks.length) * checkedSubtasksCount + "px";
@@ -125,9 +123,9 @@ function getWidthProgressBar(task, checkedSubtasksCount) {
 
 /**
  * This function creates the icon priority.
- * 
+ *
  * @param {number} i - This is the number of the column starting from left to right.
- * @param {number} j - This is the number of the task in the column starting from top to down. 
+ * @param {number} j - This is the number of the task in the column starting from top to down.
  */
 function createUrgency(i, j) {
   let urgencyContainer = document.getElementById(`urgency${i}${j}`);
@@ -143,8 +141,8 @@ function createUrgency(i, j) {
 
 /**
  * This function finds out the priority of the task.
- * 
- * @param {string} task - This parameter contains the object of the task. 
+ *
+ * @param {string} task - This parameter contains the object of the task.
  * @returns - This can be "low", "medium" or "urgent".
  */
 function getTaskUrgency(task) {
@@ -153,9 +151,9 @@ function getTaskUrgency(task) {
 
 /**
  * This function filters through the array dataTasks and creates an array with the tasks that are displayed in the column.
- * 
+ *
  * @param {number} i - This is the number of the column starting from left to right.
- * @param {number} j - This is the number of the task in the column starting from top to down. 
+ * @param {number} j - This is the number of the task in the column starting from top to down.
  */
 function createAssignments(i, j) {
   let assignmentsContainer = document.getElementById(`assignments${i}${j}`);
@@ -171,7 +169,7 @@ function createAssignments(i, j) {
 
 /**
  * This function renders the contacts which are assigend to the task.
- * 
+ *
  * @param {string} container - This is the container where the assigned contacts are rendered.
  * @param {array} assignedTo - This is an array which contains the assigned contacts.
  */
@@ -198,7 +196,7 @@ function renderAssignedUsers(container, assignedTo) {
 
 /**
  * This function creates the field where tasks can be dropped. It only appears when dragging is startd.
- * 
+ *
  * @param {number} i - Index of the column.
  */
 function createDropDiv(i) {
@@ -243,8 +241,8 @@ function closeDialog() {
 
 /**
  * This function prevents the div below from doing action.
- * 
- * @param {event} event - click 
+ *
+ * @param {event} event - click
  */
 function doNotClose(event) {
   event.stopPropagation();
@@ -255,4 +253,24 @@ function doNotClose(event) {
  */
 function redirectToAddTaskPage() {
   window.location.href = "addtask.html";
+}
+
+function showDropDownCategories(i, j) {
+  const dropdownContainer = document.getElementById(`dropDownChangeCategoryMobile${i},${j}`);
+  dropdownContainer.classList.remove("d-none");
+  createEventlistenerCloseDropDownCategories(i, j, dropdownContainer)
+}
+
+function createEventlistenerCloseDropDownCategories(i, j, dropdownContainer) {
+  document.addEventListener("click", (event) => {
+    const isClickInsideDropdown = dropdownContainer.contains(event.target);
+    if (!isClickInsideDropdown) {
+      hideDropDownCategories(i, j);
+    }
+  });
+}
+
+function hideDropDownCategories(i, j) {
+  const dropdownContainer = document.getElementById(`dropDownChangeCategoryMobile${i},${j}`);
+  dropdownContainer.classList.add("d-none");
 }
