@@ -16,7 +16,6 @@ function changeIconPlus() {
   confirmImage.src = "./img/board_card_detail/add_subtask.svg";
   document.getElementById("emptyInputAddSubtaskButton").classList.add("d-none");
   document.getElementById("separatorAddSubtask").classList.add("d-none");
-  //emptyInputAddSubtask();
 }
 
 /**

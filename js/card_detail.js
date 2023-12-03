@@ -193,6 +193,8 @@ function toggleSubtasks(index) {
   if (selectedTask.subtasks && selectedTask.subtasks[index]) {
     selectedTask.subtasks[index].checked = !selectedTask.subtasks[index].checked;
     createSubtasksCardDetail();
+    saveSubtasks();
+    renderTasksBoard();
   }
 }
 
