@@ -23,7 +23,7 @@ window.addEventListener("resize", loadContactList);
  * Highlights the selected contact if it is specified.
  */
 function loadContactList() {
-    if (window.innerWidth > 970) {
+    if (window.innerWidth > 870) {
         let contactList = document.getElementById('contact-list');
         contactList.innerHTML = '';
         contacts.sort((a, b) => a.firstname.localeCompare(b.firstname));
@@ -40,7 +40,7 @@ function loadContactList() {
         hideContact();
         document.getElementById('headline').classList.remove('d-none');
         document.getElementById('contact-list').classList.remove('d-none');
-    } if (window.innerWidth <= 970) {
+    } if (window.innerWidth <= 870) {
         loadContactListMobil();
     }
 }
@@ -141,6 +141,7 @@ function showContactMobil(id) {
         btnAddNewCont.classList.add('d-none');
     contactList.classList.add('d-none');
     headline.style.display = "flex";
+    headline.classList.remove('d-none');
     showcontact.classList.remove('d-none');
     showcontact.style.transform = "translate(0%, 0%)";
     name.innerHTML = generatShowContactNameMobilHTML(i, contact);

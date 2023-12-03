@@ -236,7 +236,7 @@
     .cont-function-menu {
         cursor: pointer;
         position: absolute;
-        top: calc(100% - -100px);
+        bottom: 0;
         left: 102%;
         display: inline-flex;
         justify-content: center;
@@ -325,26 +325,29 @@
         width: 428px;
     }
 
-    /* .btn-add-new-cont-mobil {
-        top: calc(100% - -580px);
-        left: calc(100% - 80px);
-    } */
-
     .contact-list {
         width: 338px;
     }
 
     .headline {
         display: none;
-        left: 20px;
+        top: 85px;
+        left: 45px;
     }
 
     .show-contact {
-        left: 20px;
+        top: 245px;
+        left: 45px;
+        gap: 0;
     }
 
     .btn-back {
+        top: -135px;
         left: 110%;
+    }
+
+    .info {
+        gap: 25px;
     }
 
     .show-cont-function {
