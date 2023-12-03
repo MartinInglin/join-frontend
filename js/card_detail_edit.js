@@ -57,11 +57,12 @@ function setDescription() {
 }
 
 /**
- * This function sets the date of the task card.
+ * This function sets the date of the task card. It checks that the date the users chooses is not in the past.
  */
 function setDate() {
   const titleInput = document.getElementById("cardEditDate");
   titleInput.value = selectedTask["date"];
+  document.getElementById("cardEditDate").min = new Date().toISOString().split("T")[0];
 }
 
 /**
@@ -82,9 +83,9 @@ function findIdPriorityContainer() {
 
 /**
  * This function normalizes the ID of the container. It sets "button" first and then the Priority of the clicked button (example: "buttonUrgent").
- * 
+ *
  * @param {string} idOfContainer - "low", "medium" or "urgent".
- * @returns 
+ * @returns
  */
 function idOfContainerNormalized(idOfContainer) {
   return "button" + idOfContainer.charAt(0).toUpperCase() + idOfContainer.slice(1);
@@ -92,7 +93,7 @@ function idOfContainerNormalized(idOfContainer) {
 
 /**
  * This function changes the priority if the user clicks on a button.
- * 
+ *
  * @param {string} priority - Priority of the clicked button.
  * @param {string} idOfContainer - ID of the button.
  */
@@ -107,7 +108,7 @@ function changePriority(priority, idOfContainer) {
 
 /**
  * This function sets the style of the container.
- * 
+ *
  * @param {string} idOfContainer - ID of the button.
  */
 function setPriorityStyle(idOfContainer) {
@@ -131,7 +132,7 @@ function setPriorityStyle(idOfContainer) {
 
 /**
  * This function sets the backgroundcolor to white if the button urgent is unchecked.
- * 
+ *
  * @param {string} container - ID of the button.
  */
 function setBackgroundcolorWhite(container) {
@@ -140,7 +141,7 @@ function setBackgroundcolorWhite(container) {
 
 /**
  * This function sets the background color of the button if it is checked.
- * 
+ *
  * @param {string} container - ID of the button.
  * @param {string} priorityColor - This is the color of the button.
  */
@@ -150,7 +151,7 @@ function setBackgroundcolorPriority(container, priorityColor) {
 
 /**
  * This function sets the color of the font to black if the button is unchecked.
- * 
+ *
  * @param {string} idOfContainer - ID of the button.
  */
 function setColorBlack(idOfContainer) {
@@ -159,7 +160,7 @@ function setColorBlack(idOfContainer) {
 
 /**
  * This function sets the color of the font to white if the button is checked.
- * 
+ *
  * @param {string} idOfContainer - ID of the button.
  */
 function setColorWhite(idOfContainer) {
@@ -168,7 +169,7 @@ function setColorWhite(idOfContainer) {
 
 /**
  * This color sets the image inside of the button to white if the button is checked.
- * 
+ *
  * @param {string} idOfContainer - ID of the button.
  */
 function setImageWhite(idOfContainer) {
@@ -181,7 +182,7 @@ function setImageWhite(idOfContainer) {
 
 /**
  * This function sets the image back to its default color if the button is unchecked.
- * 
+ *
  * @param {string} idOfContainer - ID of the button.
  */
 function setImageColor(idOfContainer) {
