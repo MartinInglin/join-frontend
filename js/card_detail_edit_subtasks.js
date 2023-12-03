@@ -4,8 +4,8 @@
 function changeIconConfirm() {
   const confirmImage = document.getElementById("addOrConfirm");
   confirmImage.src = "img/board_card_detail/subtasks_confirm.svg";
-  document.getElementById('emptyInputAddSubtaskButton').classList.remove('d-none');
-  document.getElementById('separatorAddSubtask').classList.remove('d-none');
+  document.getElementById("emptyInputAddSubtaskButton").classList.remove("d-none");
+  document.getElementById("separatorAddSubtask").classList.remove("d-none");
 }
 
 /**
@@ -14,9 +14,9 @@ function changeIconConfirm() {
 function changeIconPlus() {
   const confirmImage = document.getElementById("addOrConfirm");
   confirmImage.src = "./img/board_card_detail/add_subtask.svg";
-  document.getElementById('emptyInputAddSubtaskButton').classList.add('d-none');
-  document.getElementById('separatorAddSubtask').classList.add('d-none');
-  emptyInputAddSubtask();
+  document.getElementById("emptyInputAddSubtaskButton").classList.add("d-none");
+  document.getElementById("separatorAddSubtask").classList.add("d-none");
+  //emptyInputAddSubtask();
 }
 
 /**
@@ -34,7 +34,7 @@ function createSubtasksCardEdit() {
 
 /**
  * This function changes the display of the subtask if it is double clicked or opened by the pencil.
- * 
+ *
  * @param {number} i - Index of the subtask.
  * @param {string} subtaskText - Text of the selected subtask.
  */
@@ -46,7 +46,7 @@ function editSubtaskCardEdit(i, subtaskText) {
 
 /**
  * This function deletes the subtasks.
- * 
+ *
  * @param {number} i - Index of the subtask.
  */
 function deleteSubtaskCardEdit(i) {
@@ -57,7 +57,7 @@ function deleteSubtaskCardEdit(i) {
 
 /**
  * This function saves the subtask in the temporarily stored array "selectedTask" if the user adds a subtask in the input field.
- * 
+ *
  * @param {number} i - Index of the subtask.
  */
 function saveSubtaskCardEdit(i) {
@@ -72,14 +72,16 @@ function saveSubtaskCardEdit(i) {
 function addSubtaskCardEdit() {
   const subtaskValue = document.getElementById("addNewSubtask").value;
 
-  const newSubtask = {
-    content: subtaskValue,
-    checked: false,
-  };
-  selectedTask.subtasks.unshift(newSubtask);
-  createSubtasksCardEdit();
-  emptyInputAddSubtask();
-  document.getElementById('addNewSubtask').focus();
+  if (subtaskValue) {
+    const newSubtask = {
+      content: subtaskValue,
+      checked: false,
+    };
+    selectedTask.subtasks.unshift(newSubtask);
+    createSubtasksCardEdit();
+    emptyInputAddSubtask();
+    document.getElementById("addNewSubtask").focus();
+  }
 }
 
 /**
@@ -91,7 +93,7 @@ function emptyInputAddSubtask() {
 
 /**
  * This function creates a new subtask if the user presses the key "enter" and the input field is focused.
- * 
+ *
  * @param {key} event - press key
  */
 function newTaskOnEnter(event) {
@@ -103,13 +105,13 @@ function newTaskOnEnter(event) {
 
 /**
  * This function saves the subtask if the user is editing the subtask.
- * @param {key} event- press key 
+ * @param {key} event- press key
  * @param {number} i - Index of the subtask.
  * @param {string} subtaskText - Text of the selected subtask.
  */
 function saveTaskOnEnter(event, i, subtaskText) {
   if (event.key === "Enter") {
     event.preventDefault();
-    saveSubtaskCardEdit(i, subtaskText)
+    saveSubtaskCardEdit(i, subtaskText);
   }
 }
