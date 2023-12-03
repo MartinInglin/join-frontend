@@ -179,9 +179,9 @@
     }
 
     .btn-add-new-cont-mobil {
-        position: absolute;
-        top: calc(100% - -580px);
-        left: calc(100% - -340px);
+        position: fixed;
+        bottom: 100px;
+        right: 25%;
         width: 48px;
         display: inline-flex;
         justify-content: center;
@@ -236,7 +236,7 @@
     .cont-function-menu {
         cursor: pointer;
         position: absolute;
-        top: calc(100% - -100px);
+        bottom: 0;
         left: 102%;
         display: inline-flex;
         justify-content: center;
@@ -264,9 +264,19 @@
     }
 }
 
+@media (max-width: 750px) {
+    .btn-add-new-cont-mobil {
+        right: 15%;
+    }
+}
+
 @media(max-width: 600px) {
     .contacts {
         left: 16%;
+    }
+
+    .btn-add-new-cont-mobil {
+        right: 18%;
     }
 
     .headline {
@@ -315,26 +325,29 @@
         width: 428px;
     }
 
-    .btn-add-new-cont-mobil {
-        top: calc(100% - -580px);
-        left: calc(100% - 80px);
-    }
-
     .contact-list {
         width: 338px;
     }
 
     .headline {
         display: none;
-        left: 20px;
+        top: 85px;
+        left: 45px;
     }
 
     .show-contact {
-        left: 20px;
+        top: 245px;
+        left: 45px;
+        gap: 0;
     }
 
     .btn-back {
+        top: -135px;
         left: 110%;
+    }
+
+    .info {
+        gap: 25px;
     }
 
     .show-cont-function {
@@ -348,12 +361,12 @@
 
 @media(max-width: 400px) {
     .contacts {
+        left: 8%;
         width: 320px;
     }
 
     .btn-add-new-cont-mobil {
-        top: calc(100% - -580px);
-        left: calc(100% - -250px);
+        right: 35px;
     }
 
     .contact-list {

@@ -183,7 +183,7 @@ select {
     gap: 5px;
     display: flex;
     flex-direction: column;
-    overflow: auto;
+    word-break: break-all;
 }
 
 .headline {
