@@ -27,13 +27,23 @@ async function initLogin() {
 function startImage() {
     let startImage = document.getElementById("start-image");
 
-    setTimeout(() => {
-        startImage.style.transition = "transform 1000ms ease, top 1000ms ease";
-        startImage.style.transform = "translate(-50%, -40%) scale(0.4)";
-        startImage.style.top = "5%";
-        startImage.style.left = "10%";
-        startImage.style.zIndex = "5";
-    }, 1000);
+    if (window.innerWidth > 970) {
+        setTimeout(() => {
+            startImage.style.transition = "transform 1000ms ease, top 1000ms ease";
+            startImage.style.transform = "translate(-50%, -40%) scale(0.4)";
+            startImage.style.top = "5%";
+            startImage.style.left = "10%";
+            startImage.style.zIndex = "5";
+        }, 1000);
+    } else {
+        setTimeout(() => {
+            startImage.style.transition = "transform 1000ms ease, top 1000ms ease";
+            startImage.style.transform = "translate(-45%, -48%) scale(0.2)";
+            startImage.style.top = "5%";
+            startImage.style.left = "10%";
+            startImage.style.zIndex = "5";
+        }, 1000);
+    }
 }
 
 
