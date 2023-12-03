@@ -103,6 +103,7 @@
 @media(max-width: 400px) {
     .card {
         width: 320px;
+        height: 425px;
     }
 
     .card-body {
@@ -121,16 +122,25 @@
 
     .input-field {
         width: 300px;
+        margin-bottom: 10px;
+    }
+
+    .remember {
+        position: absolute;
+        top: 255px;
     }
 
     .sign-up {
         bottom: 64px;
+    }
+
+    .log-in-buttons {
+        margin: 10px 0 0 0;
     }
 }
 
 @media (max-width: 320px) {
     .log-in-buttons {
         width: 280px;
-        margin: 25px 0 0 0;
     }
 }
