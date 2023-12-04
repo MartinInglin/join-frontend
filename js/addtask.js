@@ -271,7 +271,7 @@ function clearAll() {
     selectedContacts.splice(0, selectedContacts.length);
     resetAll();
     loadSubtasks();
-    loadContacts();
+    loadContactsSelection();
     renderContactInitialIcons();
 }
 
