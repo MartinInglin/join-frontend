@@ -195,8 +195,8 @@
         padding: 12px;
         gap: 10px;
         border-radius: 46px;
-        border: 1px solid var(--version-2-main-color, #2A3647);
-        background: var(--version-2-main-color, #2A3647);
+        border: 1px solid #2A3647;
+        background: #2A3647;
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     }
 
@@ -256,18 +256,6 @@
         border: 1px solid #2A3647;
         background: #2A3647;
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    }
-
-    .input-field {
-        display: flex;
-        height: 41px;
-        padding: 13px 21px;
-        align-items: center;
-        gap: 10px;
-        align-self: stretch;
-        border-radius: 10px;
-        border: 1px #29ABE2;
-        background: #FFF;
     }
 }
 

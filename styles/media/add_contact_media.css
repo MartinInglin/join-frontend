@@ -1,13 +1,13 @@
 @media (max-width: 1440px) {
     .show-add-new-contact {
-        left: 8%;
+        right: 8%;
     }
 }
 
 @media (max-width: 1330px) {
     .show-add-new-contact {
         width: 1125px;
-        left: 4%;
+        right: 4%;
     }
 
     .circle {
@@ -17,7 +17,7 @@
 
 @media (max-width: 1200px) {
     .show-add-new-contact {
-        left: 1%;
+        right: 4%;
         width: 950px;
     }
 
@@ -32,12 +32,18 @@
     }
 }
 
+@media (max-width: 1000px) {
+    .show-add-new-contact {
+        right: 1%;
+    }
+}
+
 @media (max-width: 970px) {
     .show-add-new-contact {
         width: 396px;
         height: 760px;
         top: 80px;
-        left: 29.5%;
+        right: 29.5%;
     }
 
     .add-new-cont-left {
@@ -140,31 +146,31 @@
 
 @media(max-width: 870px) {
     .show-add-new-contact {
-        left: 29.5%;
+        right: 26%;
     }
 }
 
 @media(max-width: 600px) {
     .show-add-new-contact {
-        left: 18%;
+        right: 18%;
     }
 }
 
 @media(max-width: 500px) {
     .show-add-new-contact {
-        left: 1.5%;
+        right: 9.5%;
     }
 }
 
 @media(max-width: 428px) {
     .show-add-new-contact {
-        left: 16px;
+        right: 1%;
     }
 }
 
 @media(max-width: 400px) {
     .show-add-new-contact {
-        left: 5px;
+        right: 8%;
         width: 310px;
     }
 
@@ -190,5 +196,51 @@
 
     .btn-cancel-create {
         width: 290px;
+    }
+}
+
+@media (max-height: 825px) {
+    .show-add-new-contact {
+        top: 20px;
+    }
+}
+
+@media (max-height: 750px) {
+    .show-add-new-contact {
+        height: 696px;
+    }
+
+    .add-new-cont-left {
+        height: 170px;
+    }
+
+    .circle {
+        top: 235px;
+    }
+
+    .info-new-cont {
+        top: 400px;
+    }
+}
+
+@media (max-height: 670px) {
+    .show-add-new-contact {
+        height: 627px;
+    }
+
+    .add-new-cont-left {
+        padding: 40px 24px;
+    }
+
+    .headline-add-new-cont p {
+        font-size: 40px;
+    }
+
+    .circle {
+        top: 200px;
+    }
+
+    .info-new-cont {
+        top: 335px;
     }
 }
