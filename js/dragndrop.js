@@ -22,6 +22,11 @@ function startDragging(id, i, j) {
   rotateCard(i, j);
 }
 
+function changePositionMobile(id, i, j, newPosition) {
+  currentDraggedElement = id;
+  changePosition(newPosition);
+}
+
 /**
  * This function changes the position of the task, for example from "Todo" to "In Progress".
  * 
