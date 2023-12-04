@@ -54,6 +54,7 @@
   
     .main-buttons {
       width: 866px;
+      top: 818px;
     }
   
     .contact {
@@ -204,7 +205,7 @@
   
     .main-buttons {
       width: 646px;
-      top: 472px;
+      top: 760px;
     }
   
     #cancelCreateTask {
