@@ -27,15 +27,15 @@ function generatAddNewContactHTML(){
     </div>
     <form class="info-new-cont" onsubmit="createNewContact(); return false;">
         <div class="input-field">
-            <input id="nameInput" type="text" pattern="[A-Z, a-z]{1,}[A-Z, a-z]{1,}" title="Capitalise the first letter e.g. Max Musterman" placeholder="Name" class="form-control" required>
-            <span class="info-icon icon-name"></span>
+        <input id="nameInput" type="text" pattern="[A-ZÄÖÜß][a-zA-ZäöüÄÖÜß]* [A-ZÄÖÜß][a-zA-ZäöüÄÖÜß]*" placeholder="Name" class="form-control" title="Capitalize the first letter." required>
+        <span class="info-icon icon-name"></span>
         </div>
         <div class="input-field"> 
             <input id="email" type="email" title="e.g. maxmustermann@hotmail.de" placeholder="Email" class="form-control" required>
             <span class="info-icon icon-email"></span>
         </div>
         <div class="input-field">
-            <input id="phone" type="tel" pattern="[0-9]{6,}" title="e.g. 0123123456789" placeholder="Phone" class="form-control" required>
+        <input id="phone" type="tel" pattern="^[0-9]{6,}$" title="You must enter at least 6 characters." placeholder="Phone" class="form-control" required>
             <span class="info-icon icon-phone"></span>
         </div>
         <div class="btn-cancel-create">

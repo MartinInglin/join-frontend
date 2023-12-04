@@ -183,7 +183,7 @@ function generatEditContactHTML(contact) {
     </div>
     <form class="info-new-cont" onsubmit="editOldContact(${contact['id']}); return false;">
         <div class="input-field">
-            <input id="edit-name" type="text" value="${contact['firstname']} ${contact['lastname']}" pattern="[A-Z, a-z]{1,}[A-Z, a-z]{1,}" title="Capitalise the first letter e.g. Max Musterman" placeholder="Name" class="form-control" required>
+            <input id="edit-name" type="text" value="${contact['firstname']} ${contact['lastname']}" pattern="[A-ZÄÖÜß][a-zA-ZäöüÄÖÜß]* [A-ZÄÖÜß][a-zA-ZäöüÄÖÜß]*" title="Capitalise the first letter e.g. Max Musterman" placeholder="Name" class="form-control" required>
             <span class="info-icon icon-name"></span>
         </div>
         <div class="input-field"> 

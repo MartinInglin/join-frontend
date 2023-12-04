@@ -156,7 +156,7 @@
   }
   .card p {
     display: flex;
-    word-break: break-all;
+    word-break: break-word;
     width: 100%;
   }
   .title-column {
