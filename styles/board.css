@@ -394,12 +394,12 @@
 
 .close-dialog {
   position: absolute;
-  top: 64px;
-  right: 40px;
+  top: 0;
+  right: 81px;
   border-radius: 50%;
   display: flex !important;
-  width: 32px;
-  height: 32px;
+  width: 16px;
+  height: 16px;
   padding: 4px;
   justify-content: center;
   align-items: center;
@@ -408,8 +408,8 @@
 }
 
 .close-dialog img {
-  height: 24px;
-  width: 24px;
+  height: 16px;
+  width: 16px;
 }
 
 .close-dialog:hover {
