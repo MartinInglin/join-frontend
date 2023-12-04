@@ -28,12 +28,20 @@ function filterTasksByColumn(filterString, columnIndex) {
  * This function displays the message if no task match to the search of th user.
  */
 function showHideMessageNoTasksFound() {
+  // Check if dataTasks is empty, return early if true
+  if (!(dataTasks && dataTasks.length > 0)) {
+    return;
+  }
+
   if (anyFilteredTasks) {
     hideMessageNoTasksFound();
   } else {
     showMessageNoTasksFound();
   }
 }
+
+
+
 
 /**
  * This function shows the message that no task is found.
@@ -71,6 +79,7 @@ function adjustLayoutFilter() {
   }
   showHideMessageNoTasksFound();
 }
+
 /**
  * Listens if the user resize the window.
  */
