@@ -25,13 +25,13 @@ function generatAddNewContactHTML(){
             <img src="img/add_new_contact/person.svg">
         </div>
     </div>
-    <form class="info-new-cont" onsubmit="createNewContact(); return false;">
+    <form class="info-new-cont" onsubmit="return createNewContact()">
         <div class="input-field">
         <input id="nameInput" type="text" pattern="[A-ZÄÖÜß][a-zA-ZäöüÄÖÜß]* [A-ZÄÖÜß][a-zA-ZäöüÄÖÜß]*" placeholder="Name" class="form-control" title="Capitalize the first letter." required>
         <span class="info-icon icon-name"></span>
         </div>
         <div class="input-field"> 
-            <input id="email" type="text" pattern="[A-Za-z0-9\.\_\+\-]{1,}[@]{1,}[A-Za-z0-9]{1,}[.]{1,}[A-Za-z]{2,}" title="e.g. maxmustermann@hotmail.de" placeholder="Email" class="form-control" required>
+            <input id="email" type="email" pattern="[a-z0-9._%+]+@[a-z0-9.]+\.[a-z]{2,3}" title="e.g. maxmustermann@hotmail.de" placeholder="Email" class="form-control" required>
             <span class="info-icon icon-email"></span>
         </div>
         <div class="input-field">
