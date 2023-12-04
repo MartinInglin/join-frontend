@@ -31,7 +31,7 @@ function generatAddNewContactHTML(){
         <span class="info-icon icon-name"></span>
         </div>
         <div class="input-field"> 
-            <input id="email" type="email" title="e.g. maxmustermann@hotmail.de" placeholder="Email" class="form-control" required>
+            <input id="email" type="text" pattern="[A-Za-z0-9\.\_\+\-]{1,}[@]{1,}[A-Za-z0-9]{1,}[.]{1,}[A-Za-z]{2,}" title="e.g. maxmustermann@hotmail.de" placeholder="Email" class="form-control" required>
             <span class="info-icon icon-email"></span>
         </div>
         <div class="input-field">

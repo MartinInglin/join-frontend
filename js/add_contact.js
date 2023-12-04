@@ -106,11 +106,6 @@ function createNewContact() {
     let firstname = nameParts[0] || '';
     let lastname = nameParts.slice(1).join(' ') || '';
 
-    if (!isValidEmail(emailInput.value)) {
-        alert('Invalid email format. Please use e.g. maxmustermann@hotmail.de');
-        return;
-    } else {
-
     let newContact = {
         id: findFreeId(contacts),
         icon: getRandomColor(),
@@ -124,7 +119,6 @@ function createNewContact() {
     } else if (idOfCurrentPage == 1) {
         pushNewContactAddTask(newContact);
     }
-}
 }
 
 /**
