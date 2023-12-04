@@ -112,13 +112,13 @@ function showContact(id) {
         let info = document.getElementById('info');
         let name = document.getElementById('name');
         hideContact(i);
-                highlightContact(id);
+        highlightContact(id);
         showcontact.classList.remove('d-none');
         name.innerHTML = generatShowContactNameHTML(i, contact);
         info.innerHTML = generatInfoHTML(contact);
         animationShowContact();
     } if (window.innerWidth <= 870) {
-    showContactMobil(id);
+        showContactMobil(id);
     }
 }
 
@@ -138,7 +138,7 @@ function showContactMobil(id) {
     let showcontact = document.getElementById('show-contact');
     let name = document.getElementById('name');
     let info = document.getElementById('info');
-        btnAddNewCont.classList.add('d-none');
+    btnAddNewCont.classList.add('d-none');
     contactList.classList.add('d-none');
     headline.style.display = "flex";
     headline.classList.remove('d-none');
@@ -146,7 +146,7 @@ function showContactMobil(id) {
     showcontact.style.transform = "translate(0%, 0%)";
     name.innerHTML = generatShowContactNameMobilHTML(i, contact);
     info.innerHTML = generatInfoHTML(contact);
-    }
+}
 
 
 /**
@@ -166,6 +166,7 @@ function backToContactlist() {
     headline.style.display = "none";
     showcontact.classList.add('d-none');
 
+    loadContactListMobil();
     if (!bgContFunction.classList.contains('d-none')) {
         hideContFunction();
     }
@@ -285,10 +286,10 @@ function editOldContact(id) {
  * @param {string} email - The email address to validate.
  * @returns {boolean} - True if the email format is valid, otherwise false.
  */
-// function isValidEmail(email) {
-//     const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-//     return emailRegex.test(email);
-// }
+function isValidEmail(email) {
+    const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return emailRegex.test(email);
+}
 
 
 /**
@@ -341,21 +342,3 @@ function SVGMouseOut(elementId, iconName) {
     const normalSVG = `./img/contact/${iconName}.svg`;
     svgElement.src = normalSVG;
 }
-
-
-// /**
-//  * This function adjusts the layout width based on the window width and triggers the showContact function.
-//  */
-// function adjustLayoutWidth() {
-//     const screenWidth = window.innerWidth;
-//     const breakpoint = 870;
-
-//     const selectedContactId = contacts['id'];
-
-//     showContact(selectedContactId, screenWidth);
-// }
-
-// /**
-//  *Attach the event listener to the window resize event.  
-//  * */ 
-// window.addEventListener("resize", adjustLayoutWidth);

@@ -27,7 +27,7 @@ function generatAddNewContactHTML(){
     </div>
     <form class="info-new-cont" onsubmit="createNewContact(); return false;">
         <div class="input-field">
-            <input id="nameInput" type="text" pattern="[A-Z]{1}[a-z]{2,} [A-Z]{1}[a-z]{2,}" title="Capitalise the first letter e.g. Max Musterman" placeholder="Name" class="form-control" required>
+            <input id="nameInput" type="text" pattern="[A-Z, a-z]{1,}[A-Z, a-z]{1,}" title="Capitalise the first letter e.g. Max Musterman" placeholder="Name" class="form-control" required>
             <span class="info-icon icon-name"></span>
         </div>
         <div class="input-field"> 
