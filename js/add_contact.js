@@ -158,8 +158,12 @@ function pushNewContact(newContact) {
 function pushNewContactAddTask(newContact) {
     contacts.push(newContact);
     setContacts();
+    selectedContacts.push(newContact.id);
     createNewContactMessage();
+    loadContactsSelection();
+    renderContactInitialIcons();
     closeAddNewContactAddTask();
+    openContactList();
 }
 
 /**
