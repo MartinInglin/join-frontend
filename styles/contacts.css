@@ -470,7 +470,7 @@ select {
 
 .bg-cont-function {
     position: absolute;
-    top: -58%;
+    top: -50%;
     left: -5%;
     right: -30%;
     bottom: -79%;
@@ -478,8 +478,8 @@ select {
 
 .show-cont-function {
     position: absolute;
-    top: 75%;
-    left: 66%;
+    right: 20px;
+    bottom: 90px;
     width: 106px;
     height: 80px;
     padding: 10px;

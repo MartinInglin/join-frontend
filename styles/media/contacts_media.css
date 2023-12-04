@@ -295,10 +295,6 @@
     .cont-function-menu {
         left: 90%;
     }
-
-    .show-cont-function {
-        left: 60%;
-    }
 }
 
 @media(max-width: 500px) {
@@ -348,10 +344,6 @@
 
     .info {
         gap: 25px;
-    }
-
-    .show-cont-function {
-        left: 70%;
     }
 
     .cont-function-menu {
@@ -412,11 +404,20 @@
         left: 80%;
     }
 
-    .show-cont-function {
-        left: 48%;
-    }
-
     .btn-back {
         left: 90%;
+    }
+
+    .bg-cont-function {
+        top: -33%;
+        left: -5%;
+        right: -40px;
+        bottom: -32%;
+    }
+}
+
+@media (min-height: 700px) {
+    .show-cont-function {
+        bottom: 225px;
     }
 }
