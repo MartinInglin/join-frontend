@@ -49,16 +49,6 @@
   }
 }
 
-@media (max-width: 570px) {
-  .size100 {
-    padding: 0 16px !important;
-  }
-
-  .main-buttons {
-    width: calc(100vw - 70px) !important;
-  }
-}
-
 /* Media Queries for Content of Page */
 
 @media (max-width: 1500px) {
@@ -109,7 +99,11 @@
   .card-title {
     max-width: 120px;
   }
+  .close-dialog {
+    right: 69px;
+  }
 }
+
 
 /* Large devices (laptops/desktops up to 970px) */
 @media (max-width: 970px) {
@@ -217,5 +211,19 @@
   }
   .drop-down-assigned-to {
     width: 100%
+  }
+}
+
+@media (max-width: 570px) {
+  .size100 {
+    padding: 0 16px !important;
+  }
+
+  .main-buttons {
+    width: calc(100vw - 70px) !important;
+  }
+
+  .close-dialog {
+    right: 32px;
   }
 }
