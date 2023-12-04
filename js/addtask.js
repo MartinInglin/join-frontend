@@ -384,6 +384,7 @@ function openContactList() {
         contactList.setAttribute('onclick', 'closeContactList()');
         openContactsDropDown.setAttribute('onclick', 'closeContactList()');
     }, 100);
+    highlightChoosenContact();
 }
 
 /**
@@ -443,13 +444,19 @@ function searchContactToAssign() {
  * @param {string} id = This is the id of the contact.
  */
 function chooseContactToAssign(id) {
-    let checkImg = document.getElementById(`checkContact${id}`);
-    let contact = document.getElementById(`contact${id}`);
-    checkImg.setAttribute('src', '../img/add_task/checked.png');
-    contact.setAttribute('onclick', `unchooseContact(${id}); doNotTriggerEvent(event)`);
-    contact.classList.add('active-contact');
     selectedContacts.push(id);
+    highlightChoosenContact();
     renderContactInitialIcons();
+}
+
+function highlightChoosenContact() {
+    selectedContacts.forEach((choosenContact) => {
+        let checkImg = document.getElementById(`checkContact${choosenContact}`);
+        let contact = document.getElementById(`contact${choosenContact}`);
+        checkImg.setAttribute('src', '../img/add_task/checked.png');
+        contact.setAttribute('onclick', `unchooseContact(${choosenContact}); doNotTriggerEvent(event)`);
+        contact.classList.add('active-contact');
+    })
 }
 
 /**
