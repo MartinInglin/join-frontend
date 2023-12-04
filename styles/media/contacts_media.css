@@ -165,8 +165,14 @@
 }
 
 @media(max-width: 870px) {
+    main {
+        padding: 100px 64px 0 64px;
+    }
+
     .contacts {
-        left: 28%;
+        position: unset;
+        width: 420px;
+        height: calc(100% - 78px);
     }
 
     .add-new-contact {
@@ -180,8 +186,8 @@
 
     .btn-add-new-cont-mobil {
         position: fixed;
-        bottom: 100px;
-        right: 25%;
+        bottom: 110px;
+        right: 27%;
         width: 48px;
         display: inline-flex;
         justify-content: center;
@@ -196,6 +202,7 @@
 
     .contact-list {
         margin-top: 0;
+        margin-bottom: 0;
     }
 
     .headline {
@@ -266,7 +273,7 @@
 
 @media (max-width: 750px) {
     .btn-add-new-cont-mobil {
-        right: 15%;
+        right: 27%;
     }
 }
 
@@ -276,7 +283,7 @@
     }
 
     .btn-add-new-cont-mobil {
-        right: 18%;
+        right: 22%;
     }
 
     .headline {
@@ -302,6 +309,10 @@
         left: 0;
     }
 
+    .btn-add-new-cont-mobil {
+        right: 19%;
+    }
+
     .headline {
         display: none;
         left: 5%;
@@ -318,7 +329,7 @@
 
 @media(max-width: 428px) {
     .contacts {
-        width: 428px;
+        width: 400px;
     }
 
     .contact-list {
@@ -358,7 +369,7 @@
     }
 
     .btn-add-new-cont-mobil {
-        right: 35px;
+        right: 13%;
     }
 
     .contact-list {
