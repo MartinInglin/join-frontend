@@ -141,6 +141,7 @@
     overflow-x: auto;
     padding: 0 24px;
     box-sizing: border-box;
+    min-height: 88px;
   }
   .card {
     width: 218px;
@@ -226,4 +227,14 @@
   .close-dialog {
     right: 32px;
   }
+
+  .task-columns {
+    scrollbar-width: none;
+  }
+
+  .task-columns::-webkit-scrollbar {
+    display: none;
+  }
+
+
 }
