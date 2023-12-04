@@ -372,7 +372,7 @@ h1 {
 
 .main-buttons {
   position: absolute;
-  top: 558px;
+  bottom: -40px;
   display: flex;
   width: 960px;
   justify-content: space-between;

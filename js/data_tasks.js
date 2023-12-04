@@ -1,6 +1,10 @@
 const columns = ["Todo", "InProgress", "AwaitFeedback", "Done"];
 const urgencies = ['low', 'medium', 'urgent']
 
+/**
+ * This array is needed to restore the test tasks.
+ * 
+ */
 let dataTasks = [
   // {
   //   id: 0,

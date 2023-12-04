@@ -33,6 +33,7 @@ async function initAddTask() {
     await getContacts();
     loadContactsSelection();
     createHeaderInitials();
+    minDateToday();
 }
 
 /**
@@ -640,4 +641,10 @@ function hideDropDownCategoryDelay() {
         switchDropDownCategory = false;
         selectCategoryOptions.classList.add('d-none');
     }, 100);
+}
+
+function minDateToday() {
+    let inputDate = document.getElementById('inputDate');
+    let today = new Date().toISOString().split("T")[0];
+    inputDate.min = today;
 }

@@ -1,3 +1,7 @@
+/**
+ * Thsi array is needed to restore the test contacts.
+ * 
+ */
 let contacts = [
     // {
     //     id: 1,

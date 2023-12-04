@@ -1,3 +1,7 @@
+/**
+ * This Array is needed to restore the test user.
+ * 
+ */
 let users = [
 // {id: 1,icon: '#0c2e621f', name: 'Guest', email: 'guest@mail.guest', password: 'guest'},
 // {id: 2,icon: '#FF7A00', name: 'Sofia Müller', email: 'sofiam@gmail.com', password: 'mypassword123'},
