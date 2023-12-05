@@ -50,7 +50,9 @@
     }
 
     .cont-big-name span {
-        word-break: break-all;
+        display: flex;
+        align-items: center;
+        word-break: break-word;
         height: 70px;
     }
 }
@@ -99,10 +101,6 @@
         height: 300px;
         gap: 20px;
     }
-
-    /* .cont-big-name {
-        margin-bottom: 30px;
-    } */
 }
 
 @media(max-width: 970px) {
@@ -231,7 +229,7 @@
     }
 
     .cont-big-name span {
-        width: 245px;
+        width: 200px;
         color: #000;
         font-family: Inter;
         font-size: 36px;
