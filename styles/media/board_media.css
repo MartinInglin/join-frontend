@@ -180,6 +180,7 @@
   }
   .card-edit-section-input {
     font-size: 16px;
+    padding: 12px;
   }
   .card-edit-section-input::placeholder {
     font-size: 16px;
@@ -192,6 +193,9 @@
   }
   .open-dropdown-assign {
     top: 40px;
+  }
+  .addDeleteSubtask {
+    top: 10px;
   }
 }
 
@@ -248,5 +252,8 @@
 
   .task-columns::-webkit-scrollbar {
     display: none;
+  }
+  .open-dropdown-assign {
+    right: 8px;
   }
 }
