@@ -5,7 +5,10 @@
     background: #FFF;
     position: absolute;
     top: 22.5%;
-    right: 15%;
+    right: 0;
+    left: 0;
+    align-items: center;
+    margin: auto;
 }
 
 .add-new-cont-left {
