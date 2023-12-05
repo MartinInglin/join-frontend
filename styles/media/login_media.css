@@ -100,7 +100,53 @@
     }
 }
 
+@media(max-width: 450px) {
+    .start-image {
+        width: 64px;
+        height: 78px;
+    }
+    
+    @keyframes startAnimationContainer {
+        0% {
+          transform: translate(-0%, -0%) scale(1);
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background-color: #2A3647;
+        }
+        100% {
+          transform: translate(-45%, -48%) scale(100px, 122px);
+          top: 5%;
+          left: 10%;
+          width: 64px;
+          height: 78px;
+          background-color: #F6F7F8;
+        }
+      }
+    
+      @keyframes startAnimationLogo {
+        0% {
+          transform: translate(-0%, -0%) scale(1);
+          top: 0;
+          left: 0;
+          width: 100px;
+          height: 122px;
+        }
+        100% {
+          transform: translate(-45%, -48%) scale(100px, 122px);
+          top: 5%;
+          left: 10%;
+          width: 64px;
+          height: 78px;
+        }
+      }
+}
+
 @media(max-width: 400px) {
+    body {
+        overflow: hidden;
+    }
     .card {
         width: 320px;
         height: 425px;
