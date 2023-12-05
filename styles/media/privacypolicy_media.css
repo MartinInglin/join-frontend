@@ -17,8 +17,14 @@
     }
 }
 
-@media(max-width: 480px) {
+@media(max-width: 500px) {
     h1 {
         font-size: 40px;
+    }
+}
+
+@media(max-width: 350px) {
+    h1 {
+        font-size: 32px;
     }
 }
