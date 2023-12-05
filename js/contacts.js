@@ -81,7 +81,6 @@ function loadContactListMobil() {
     }
 }
 
-
 /**
  * This function retrieves the index of a contact in the contacts array based on its ID.
  * 

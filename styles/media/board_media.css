@@ -104,7 +104,6 @@
   }
 }
 
-
 /* Large devices (laptops/desktops up to 970px) */
 @media (max-width: 970px) {
   main {
@@ -179,6 +178,21 @@
   .showCategories {
     display: flex;
   }
+  .card-edit-section-input {
+    font-size: 16px;
+  }
+  .card-edit-section-input::placeholder {
+    font-size: 16px;
+  }
+  .subtitle {
+    font-size: 16px;
+  }
+  .card-edit-priority-btn {
+    font-size: 16px;
+  }
+  .open-dropdown-assign {
+    top: 40px;
+  }
 }
 
 /* Medium devices (landscape tablets up to 768px) */
@@ -211,7 +225,7 @@
     max-width: 200px;
   }
   .drop-down-assigned-to {
-    width: 100%
+    width: 100%;
   }
 }
 
@@ -235,6 +249,4 @@
   .task-columns::-webkit-scrollbar {
     display: none;
   }
-
-
 }
