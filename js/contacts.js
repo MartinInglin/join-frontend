@@ -49,7 +49,7 @@ function loadContactList() {
   }
   if (contactOpen) {
     showContact(IdOfCurrentContact);
-}
+  }
 }
 
 /**
@@ -115,15 +115,14 @@ function getIndexById(contactId) {
  */
 function showContact(id) {
   IdOfCurrentContact = id;
-  console.log(IdOfCurrentContact);
   contactOpen = true;
   if (window.innerWidth > 870) {
-    //loadContactList();
     let i = getIndexById(id);
     let contact = contacts[i];
     let showcontact = document.getElementById("show-contact");
     let info = document.getElementById("info");
     let name = document.getElementById("name");
+    unhighlightContacts();
     hideContact(i);
     highlightContact(id);
     showcontact.classList.remove("d-none");
@@ -133,6 +132,14 @@ function showContact(id) {
   }
   if (window.innerWidth <= 870) {
     showContactMobil(id);
+  }
+}
+
+function unhighlightContacts() {
+  for (let i = 0; i < contacts.length; i++) {
+    const contact = contacts[i];
+    let highlight = document.getElementById(`cont${contact.id}`);
+    highlight.classList.remove("cont-clickt");
   }
 }
 
@@ -320,6 +327,8 @@ function deleteContact(id) {
   } else {
     console.error("Invalid contact ID");
   }
+  contactOpen = false;
+  IdOfCurrentContact = null;
   loadContactList();
 }
 

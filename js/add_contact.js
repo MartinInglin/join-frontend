@@ -133,6 +133,7 @@ function createNewContact() {
  * @param {string} newContact ['phone-number'] - The phone number of the contact.
  */
 function pushNewContact(newContact) {
+    debugger
     contacts.push(newContact);
     setContacts();
     createNewContactMessage();
