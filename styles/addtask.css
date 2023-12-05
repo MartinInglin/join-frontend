@@ -593,6 +593,14 @@ h1 {
   padding-left: 16px;
 }
 
+.bg-message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
 .bg-background {
   width: 100vw;
   height: 100vh;
