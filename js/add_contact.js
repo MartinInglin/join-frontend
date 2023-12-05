@@ -105,7 +105,7 @@ function createNewContact() {
     let nameParts = nameInput.value.split(' ');
     let firstname = nameParts[0] || '';
     let lastname = nameParts.slice(1).join(' ') || '';
-
+    
     let newContact = {
         id: findFreeId(contacts),
         icon: getRandomColor(),

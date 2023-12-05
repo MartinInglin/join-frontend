@@ -52,6 +52,7 @@ function loadContactList() {
 }
 }
 
+
 /**
  * This function highlights a contact by adding the 'cont-clickt' class to its HTML element.
  *
