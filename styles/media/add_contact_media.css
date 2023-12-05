@@ -170,7 +170,6 @@
 
 @media(max-width: 400px) {
     .show-add-new-contact {
-        right: 8%;
         width: 310px;
     }
 
