@@ -6,7 +6,7 @@ async function init() {
     await getUsers();
     await getCurrentUser();
     await getContacts();
-    startImage();
+    // startImage();
     showLogIn();
 }
 
@@ -22,32 +22,6 @@ async function initLogin() {
 
 
 /**
- * This function animates the start image by applying a transformation and changing its position.
- */
-function startImage() {
-    let startImage = document.getElementById("start-image");
-
-    if (window.innerWidth > 970) {
-        setTimeout(() => {
-            startImage.style.transition = "transform 1000ms ease, top 1000ms ease";
-            startImage.style.transform = "translate(-50%, -40%) scale(0.4)";
-            startImage.style.top = "5%";
-            startImage.style.left = "10%";
-            startImage.style.zIndex = "5";
-        }, 1000);
-    } else {
-        setTimeout(() => {
-            startImage.style.transition = "transform 1000ms ease, top 1000ms ease";
-            startImage.style.transform = "translate(-45%, -48%) scale(0.2)";
-            startImage.style.top = "5%";
-            startImage.style.left = "10%";
-            startImage.style.zIndex = "5";
-        }, 1000);
-    }
-}
-
-
-/**
  * This function shows the login and signup elements after a delay.
  */
 function showLogIn() {
@@ -55,7 +29,7 @@ function showLogIn() {
         document.getElementById('sign-up').classList.remove('d-none');
         document.getElementById('log-in').classList.remove('d-none');
         document.getElementById('footer').classList.remove('d-none');
-    }, 1000);
+    }, 500);
 }
 
 
