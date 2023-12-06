@@ -3,6 +3,10 @@ h1 {
   margin-bottom: 40.87px;
 }
 
+main {
+  padding: 152px 64px 0 64px;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -371,8 +375,8 @@ h1 {
 }
 
 .main-buttons {
-  position: fixed;
-  top: 880px;
+  position: absolute;
+  bottom: -56px;
   display: flex;
   width: 960px;
   justify-content: space-between;
@@ -440,7 +444,7 @@ h1 {
   margin: 0;
   font-size: 16px;
   line-height: 120%;
-  max-height: 108px;
+  height: 108px;
   overflow-y: auto;
   overflow-x: hidden;
   list-style-type: disc;
@@ -605,7 +609,7 @@ h1 {
 .bg-background {
   width: 100vw;
   height: 100vh;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 0;
   left: 0;
