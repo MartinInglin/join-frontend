@@ -117,6 +117,7 @@ function createNewContact() {
   if (idOfCurrentPage == 3) {
     pushNewContact(newContact);
   } else if (idOfCurrentPage == 1) {
+    debugger;
     pushNewContactAddTask(newContact);
   }
 }
@@ -143,9 +144,9 @@ async function pushNewContact(newContact) {
   }, 100);
 }
 
-function pushNewContactAddTask(newContact) {
+async function pushNewContactAddTask(newContact) {
   contacts.push(newContact);
-  setContacts();
+  await setContacts();
   selectedContacts.push(newContact.id);
   createNewContactMessage();
   loadContactsSelection();
