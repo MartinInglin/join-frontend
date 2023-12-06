@@ -87,6 +87,9 @@ function loadContactListMobil() {
   }
 }
 
+/**
+ * This function checks if a contact is open. If not, the class d-none is added.
+ */
 function showHideHeadline() {
   if (!contactOpen) {
     document.getElementById("headline").classList.add("d-none");
@@ -136,6 +139,9 @@ function showContact(id) {
   }
 }
 
+/**
+ * This function unhighlights the contacts. It is needed in case the window is rezized.
+ */
 function unhighlightContacts() {
   for (let i = 0; i < contacts.length; i++) {
     const contact = contacts[i];

@@ -40,9 +40,6 @@ function showHideMessageNoTasksFound() {
   }
 }
 
-
-
-
 /**
  * This function shows the message that no task is found.
  */
