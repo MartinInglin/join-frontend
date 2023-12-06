@@ -304,7 +304,7 @@ function editOldContact(id) {
  *
  * @param {string} id - The unique identifier of the contact to delete.
  */
-function deleteContact(id) {
+async function deleteContact(id) {
   const contactIndex = getIndexById(id);
   deleteAssignedTasks(id);
   if (contactIndex !== -1) {
@@ -315,7 +315,7 @@ function deleteContact(id) {
       logOut();
     } else {
       contacts.splice(contactIndex, 1);
-      setContacts();
+      await setContacts();
     }
   } else {
     console.error("Invalid contact ID");
