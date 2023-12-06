@@ -183,7 +183,7 @@ function generatEditContactHTML(contact) {
     </div>
     <form class="info-new-cont" onsubmit="editOldContact(${contact['id']}); return false;">
         <div class="input-field">
-            <input id="edit-name" type="text" value="${contact['firstname']} ${contact['lastname']}" pattern="[A-ZÄÖÜß][a-zA-ZäöüÄÖÜß]* [A-ZÄÖÜß][a-zA-ZäöüÄÖÜß]*" title="Capitalise the first letter e.g. Max Musterman" placeholder="Name" class="form-control" required>
+            <input id="edit-name" type="text" value="${contact['firstname']} ${contact['lastname']}" pattern="[A-ZÄÖÜß][a-zA-ZäöüÄÖÜß ]* [A-ZÄÖÜß][a-zA-ZäöüÄÖÜß]*" title="Capitalise the first letter e.g. Max Musterman" placeholder="Name" class="form-control" required>
             <span class="info-icon icon-name"></span>
         </div>
         <div class="input-field"> 
@@ -191,7 +191,7 @@ function generatEditContactHTML(contact) {
             <span class="info-icon icon-email"></span>
         </div>
         <div class="input-field">
-            <input id="edit-phone" type="tel" value="${contact['phone-number']}" pattern="[0-9]{6,}" title="You must enter at least 6 characters. Only numbers allowed." placeholder="Phone" class="form-control" required>
+            <input id="edit-phone" type="tel" value="${contact['phone-number']}" pattern="[0-9 ]{6,}" title="You must enter at least 6 characters. Only numbers allowed." placeholder="Phone" class="form-control" required>
             <span class="info-icon icon-phone"></span>
         </div>
         <div class="btn-cancel-create">
