@@ -194,7 +194,7 @@ function generatEditContactHTML(contact) {
             <span class="info-icon icon-phone"></span>
         </div>
         <div class="btn-cancel-create">
-            <button id="btn-delete" onclick="deleteContact(${IdOfCurrentContact})">
+            <button type="button" id="btn-delete" onclick="deleteContact(${IdOfCurrentContact})">
                 Delete
             </button>
             <button id="btn-save" type="submit">
