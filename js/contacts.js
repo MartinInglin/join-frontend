@@ -320,6 +320,9 @@ function deleteContact(id) {
   } else {
     console.error("Invalid contact ID");
   }
+  if (window.innerWidth <= 870) {
+    backToContactlist();
+  }
   contactOpen = false;
   IdOfCurrentContact = null;
   loadContactList();
