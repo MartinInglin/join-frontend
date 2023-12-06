@@ -36,7 +36,6 @@
     }
   
     #contactInitialIcons {
-      top: 370px;
       max-width: 400px;
     }
   
@@ -166,7 +165,7 @@
     }
   
     #contactInitialIcons {
-      top: 332px;
+      top: 88px;
       max-width: 300px;
     }
   
@@ -363,7 +362,7 @@
     }
   
     #contactInitialIcons {
-      top: 322px;
+      top: 86px;
       max-width: 100%;
       flex-wrap: nowrap;
       scrollbar-width: none;
@@ -374,7 +373,7 @@
     }
   
     .right-container {
-      margin-top: 62px;
+      margin-top: 112px;
       width: 100%;
       padding: 0;
       gap: 8px;

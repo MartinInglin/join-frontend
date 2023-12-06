@@ -520,7 +520,7 @@ main {
   display: flex;
   gap: 8px;
   position: absolute;
-  top: 388px;
+  top: 90px;
   overflow-y: auto;
   max-width: 442px;
   flex-wrap: wrap;
