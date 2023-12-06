@@ -126,12 +126,12 @@ function showContact(id) {
     let showcontact = document.getElementById("show-contact");
     let info = document.getElementById("info");
     let name = document.getElementById("name");
-    unhighlightContacts();
     hideContact(i);
-    highlightContact(id);
     showcontact.classList.remove("d-none");
     name.innerHTML = generatShowContactNameHTML(i, contact);
     info.innerHTML = generatInfoHTML(contact);
+    unhighlightContacts();
+    highlightContact(id);
     animationShowContact();
   }
   if (window.innerWidth <= 870) {
