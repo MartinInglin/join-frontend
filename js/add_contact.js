@@ -53,25 +53,17 @@ function closeAddNewContact() {
   }
 }
 
+/**
+ * This function closes the dialog "Create New Contact" on "Add Task".
+ */
 function closeAddNewContactAddTask() {
-  if (window.innerWidth > 870) {
-    hidenAddNewContact();
-    setTimeout(() => {
-      let bgMessage = document.getElementById("bg-message");
-      bgMessage.classList.add("d-none");
-      loadContactsToAssign();
-      openContactList();
-    }, 500);
-  }
-  if (window.innerWidth <= 870) {
-    hidenAddNewContact();
-    setTimeout(() => {
-      let bgMessage = document.getElementById("bg-message");
-      bgMessage.classList.add("d-none");
-      loadContactsToAssign();
-      openContactList();
-    }, 500);
-  }
+  hidenAddNewContact();
+  setTimeout(() => {
+    let bgMessage = document.getElementById("bg-message");
+    bgMessage.classList.add("d-none");
+    loadContactsToAssign();
+    openContactList();
+  }, 500);
 }
 
 /**
@@ -117,7 +109,6 @@ function createNewContact() {
   if (idOfCurrentPage == 3) {
     pushNewContact(newContact);
   } else if (idOfCurrentPage == 1) {
-    debugger;
     pushNewContactAddTask(newContact);
   }
 }
@@ -144,6 +135,11 @@ async function pushNewContact(newContact) {
   }, 100);
 }
 
+/**
+ * This function pushes a new contact to the array contacts if the contact comes from Add Task.
+ * 
+ * @param {object} newContact - Contains the values of the new contact.
+ */
 async function pushNewContactAddTask(newContact) {
   contacts.push(newContact);
   await setContacts();
