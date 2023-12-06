@@ -268,7 +268,8 @@ function editContact(id) {
   let bgMessage = document.getElementById("bg-message");
   bgMessage.classList.remove("d-none");
   let addNewContact = document.getElementById("add-new-contact");
-  let contact = contacts[id];
+  let i = getIndexOf(contacts, 'id', id);
+  let contact = contacts[i];
   addNewContact.innerHTML = generatEditContactHTML(contact);
 }
 
