@@ -287,10 +287,7 @@ function editOldContact(id) {
   let nameParts = nameInput.value.split(" ");
   let firstname = nameParts[0] || "";
   let lastname = nameParts.slice(1).join(" ") || "";
-  if (!isValidEmail(emailInput.value)) {
-    alert("Invalid email format. Please use e.g. maxmustermann@hotmail.de");
-    return;
-  }
+
   contact.firstname = firstname;
   contact.lastname = lastname;
   contact.email = emailInput.value;
@@ -299,17 +296,6 @@ function editOldContact(id) {
   setContacts();
   closeAddNewContact();
   showContact(contact.id);
-}
-
-/**
- * This function validates an email address using a regular expression.
- *
- * @param {string} email - The email address to validate.
- * @returns {boolean} - True if the email format is valid, otherwise false.
- */
-function isValidEmail(email) {
-  const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return emailRegex.test(email);
 }
 
 /**
