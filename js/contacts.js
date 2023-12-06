@@ -173,7 +173,7 @@ function showContactMobil(id) {
   headline.classList.remove("d-none");
   showcontact.classList.remove("d-none");
   showcontact.style.transform = "translate(0%, 0%)";
-  name.innerHTML = generatShowContactNameMobilHTML(i, contact);
+  name.innerHTML = generatShowContactNameMobilHTML(contact);
   info.innerHTML = generatInfoHTML(contact);
 }
 

@@ -85,11 +85,10 @@ function generatShowContactNameHTML(i, contact) {
 /**
  * This function generates HTML for displaying a contact's name and icon on mobile.
  * 
- * @param {number} i - The index.
  * @param {Object} contact - The contact object.
  * @returns {string} The generated HTML.
  */
-function generatShowContactNameMobilHTML(i, contact) {
+function generatShowContactNameMobilHTML(contact) {
     return /*html*/`
         <div class="cont-icon-big">
         <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
@@ -102,7 +101,7 @@ function generatShowContactNameMobilHTML(i, contact) {
     <div class="cont-big-name">
         <span>${contact['firstname']} ${contact['lastname']}</span>
     </div>
-    <div onclick="showContFunction(${i})" class="cont-function-menu">
+    <div onclick="showContFunction(${contact.id})" class="cont-function-menu">
         <img src="img/contact/menu.svg">
     </div>
     `;
