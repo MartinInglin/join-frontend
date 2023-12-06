@@ -407,6 +407,16 @@
     }
 }
 
+@media (max-width: 350px) {
+    .btn-back {
+        left: 85%;
+    }
+
+    .cont-function-menu {
+        right: 10px;
+    }
+}
+
 @media (max-width: 320px) {
     .headline {
         left: 5%;
