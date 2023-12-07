@@ -140,9 +140,9 @@ async function pushNewContact(newContact) {
  * 
  * @param {object} newContact - Contains the values of the new contact.
  */
-async function pushNewContactAddTask(newContact) {
+function pushNewContactAddTask(newContact) {
   contacts.push(newContact);
-  await setContacts();
+  setContacts();
   selectedContacts.push(newContact.id);
   createNewContactMessage();
   loadContactsSelection();
