@@ -142,8 +142,8 @@ async function pushNewContact(newContact) {
  */
 function pushNewContactAddTask(newContact) {
   contacts.push(newContact);
-  setContacts();
   selectedContacts.push(newContact.id);
+  setContacts();
   createNewContactMessage();
   loadContactsSelection();
   renderContactInitialIcons();
