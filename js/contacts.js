@@ -295,6 +295,7 @@ function editOldContact(id) {
   contacts[contactIndex] = contact;
   setContacts();
   closeAddNewContact();
+  loadContactList();
   showContact(contact.id);
 }
 
