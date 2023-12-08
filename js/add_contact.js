@@ -61,8 +61,8 @@ function closeAddNewContactAddTask() {
   setTimeout(() => {
     let bgMessage = document.getElementById("bg-message");
     bgMessage.classList.add("d-none");
-    loadContactsToAssign();
-    openContactList();
+    // loadContactsToAssign();
+    // openContactList();
   }, 500);
 }
 
@@ -108,7 +108,7 @@ function createNewContact() {
   };
   if (idOfCurrentPage == 3) {
     pushNewContact(newContact);
-  } else if (idOfCurrentPage == 1) {
+  } else if (idOfCurrentPage == 1 || idOfCurrentPage == 2) {
     pushNewContactAddTask(newContact);
   }
 }
@@ -142,12 +142,12 @@ async function pushNewContact(newContact) {
  */
 function pushNewContactAddTask(newContact) {
   contacts.push(newContact);
-  selectedContacts.push(newContact.id);
   setContacts();
+  selectedContacts.push(newContact.id);
   createNewContactMessage();
-  loadContactsSelection();
+  loadContactsToAssign();
   renderContactInitialIcons();
-  closeAddNewContactAddTask();
+  closeAddNewContact();
   openContactList();
 }
 

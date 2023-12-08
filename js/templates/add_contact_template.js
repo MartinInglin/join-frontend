@@ -25,7 +25,7 @@ function generatAddNewContactHTML(){
             <img src="img/add_new_contact/person.svg">
         </div>
     </div>
-    <form class="info-new-cont" onsubmit="return createNewContact()">
+    <form class="info-new-cont" onsubmit="createNewContact(); doNotTriggerEvent(event); return false">
         <div class="input-field">
         <input id="nameInput" type="text" pattern="[A-ZÄÖÜß][a-zA-ZäöüÄÖÜß ]* [A-ZÄÖÜß][a-zA-ZäöüÄÖÜß]*" placeholder="Name" class="form-control" title="Capitalize the first letter." required>
         <span class="info-icon icon-name"></span>
