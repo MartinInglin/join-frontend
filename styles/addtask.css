@@ -311,7 +311,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .subtasks input {
