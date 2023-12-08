@@ -261,15 +261,14 @@ function hideContact() {
  * This function initiates the process of editing a contact by displaying the 'Add New Contact' form
  * with the information of the selected contact pre-filled.
  *
- * @param {string} id - The unique identifier of the contact to edit.
+ * @param {string} index - Index of contact in Array contacts.
  */
-function editContact(id) {
+function editContact(index) {
   showAddNewContact();
   let bgMessage = document.getElementById("bg-message");
   bgMessage.classList.remove("d-none");
   let addNewContact = document.getElementById("add-new-contact");
-  let i = getIndexOf(contacts, 'id', id);
-  let contact = contacts[i];
+  let contact = contacts[index];
   addNewContact.innerHTML = generatEditContactHTML(contact);
 }
 
