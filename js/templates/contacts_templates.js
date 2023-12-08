@@ -114,11 +114,11 @@ function generatShowContactNameMobilHTML(contact) {
  * @param {number} id - The contact ID.
  * @returns {string} The generated HTML.
  */
-function generatShowContFunctionHTML(id) {
+function generatShowContFunctionHTML(id, index) {
     return /*html*/`
     <div id="show-cont-function" class="show-cont-function">
         <div class="cont-function-edit-mobil">
-            <div onclick="editContact(${id})" class="edit" onmouseover="SVGOnHover('edit-img', 'edit')" onmouseout="SVGMouseOut('edit-img', 'edit')" onclick="showCardEdit()">
+            <div onclick="editContact(${index})" class="edit" onmouseover="SVGOnHover('edit-img', 'edit')" onmouseout="SVGMouseOut('edit-img', 'edit')" onclick="showCardEdit()">
                 <img src="./img/contact/edit.svg" id="edit-img">
                 <span>Edit</span>
             </div>

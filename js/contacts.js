@@ -207,9 +207,10 @@ function backToContactlist() {
  * @param {string} id - The unique identifier of the contact.
  */
 function showContFunction(id) {
+  const indexOfContact = getIndexById(id);
   let showContFunction = document.getElementById("bg-cont-function");
   showContFunction.classList.remove("d-none");
-  showContFunction.innerHTML = generatShowContFunctionHTML(id);
+  showContFunction.innerHTML = generatShowContFunctionHTML(id, indexOfContact);
   animationShowContFunction();
 }
 
