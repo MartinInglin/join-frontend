@@ -48,17 +48,16 @@
         <div class="card-body">
             <h1 class="card-title">Log in</h1>
             <form class="log-in" onsubmit="logIn(); return false;">
-                <div class="input-container">
-                    <div class="input-field">
-                        <input id="email" class="form-control email" type="email" placeholder="Email" required
-                            minlength="3">
+                <div id="error-message" class="input-container">
+                    <div class="input-field error">
+                        <input id="email" class="form-control email" type="email" placeholder="Email" required minlength="3">
                         <span class="icon email-icon"></span>
+                        <div id="error-message-email" class="error-message"></div>
                     </div>
-
-                    <div class="input-field">
-                        <input id="password" class="form-control keyhole" type="password" placeholder="Password"
-                            required minlength="3">
+                    <div class="input-field error">
+                        <input id="password" class="form-control keyhole" type="password" placeholder="Password" required minlength="3">
                         <span class="icon keyhole-icon"></span>
+                        <div id="error-message-password" class="error-message"></div>
                     </div>
                 </div>
                 <div class="remember">

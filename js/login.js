@@ -44,6 +44,9 @@ function signUp() {
 async function logIn() {
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
+    let errorMessage = document.getElementById('error-message');
+    let errorMessageEmail = document.getElementById('error-message-email');
+    let errorMessagePassword = document.getElementById('error-message-password');
     let i = getIndexOfUser(email);
 
     if (email.length <= 3) {
@@ -59,10 +62,12 @@ async function logIn() {
                     await actuallyUserToContacts();
                     window.location.href = 'summary.html';
                 } else {
-                    alert('Passwort falsch');
+                    errorMessagePassword.innerHTML = 'Password incorrect';
+                    errorMessage.style.gap = "5px";
                 }
             } else {
-                alert('Email falsch oder nicht vorhanden');
+                errorMessageEmail.innerHTML = 'Email incorrect or not available';
+                errorMessage.style.gap = "5px";
             }
         }
     }

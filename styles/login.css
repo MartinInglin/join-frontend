@@ -102,13 +102,16 @@ body {
 }
 
 .input-container {
+    display: flex;
     height: 152px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
 }
 
 .input-field {
     width: 422px;
     position: relative;
-    margin-bottom: 35px;
 }
 
 .input-field input {
@@ -125,10 +128,19 @@ body {
     height: 24px;
     position: absolute;
     right: 5px;
-    top: 50%;
+    top: 20px;
     transform: translateY(-50%);
     background-size: contain;
     background-repeat: no-repeat;
+}
+
+.error {
+    display: block !important;
+}
+
+.error-message {
+    color: red;
+    font-size: small;
 }
 
 .email-icon {
