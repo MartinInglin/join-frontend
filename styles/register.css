@@ -37,6 +37,10 @@ body {
     margin-bottom: 15px;
 }
 
+.error {
+    display: block !important;
+}
+
 .name-icon {
     background-image: url('/img/login-register/person.png');
     width: 16px;
