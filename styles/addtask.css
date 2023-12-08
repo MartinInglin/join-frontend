@@ -333,6 +333,7 @@ main {
   right: 16px;
   display: flex;
   gap: 4px;
+  background-color: white;
 }
 
 #inputSubTaskIcon1,
@@ -474,6 +475,7 @@ main {
 
 .list-text div {
   outline: none;
+  word-break: break-word;
 }
 
 .editable-content {
