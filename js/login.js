@@ -10,6 +10,7 @@ async function init() {
     showLogIn();
 }
 
+
 /**
  * This function initializes the login process by fetching users and the current user.
  */
@@ -18,6 +19,7 @@ async function initLogin() {
     await getCurrentUser();
     await getContacts();
 }
+
 
 /**
  * This function shows the login and signup elements after a delay.
@@ -30,12 +32,14 @@ function showLogIn() {
     }, 500);
 }
 
+
 /**
  * This function redirects the user to the signup page.
  */
 function signUp() {
     window.location.href = 'register.html';
 }
+
 
 /**
  * This function logs in the user by checking the provided email and password.
@@ -45,6 +49,7 @@ async function logIn() {
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
     let i = getIndexOfUser(email);
+
     if (email.length <= 3) {
         alert('Bitte Email eingeben');
     } else {
@@ -61,11 +66,12 @@ async function logIn() {
                     alert('Passwort falsch');
                 }
             } else {
-                alert('Email falsch');
+                alert('Email falsch oder nicht vorhanden');
             }
         }
     }
 }
+
 
 /**
  * This function logs in the guest user and redirects to the summary page.
@@ -75,6 +81,7 @@ async function guestLogIn() {
     window.location.href = 'summary.html';
 }
 
+
 /**
  * This function checks if the provided email matches the email of the user at the given index.
  * 
@@ -83,8 +90,9 @@ async function guestLogIn() {
  * @returns {boolean} - True if the emails match, false otherwise.
  */
 function checkUser(i, email) {
-    return users[i].email == email;
+    return i !== -1 && users[i].email == email;
 }
+
 
 /**
  * This function finds the index of the user with the given email in the users array.
@@ -99,7 +107,9 @@ function getIndexOfUser(email) {
             return i;
         }
     }
+    return -1;
 }
+
 
 /**
  * This function checks if the provided password matches the password of the user at the given index.
