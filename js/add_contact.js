@@ -91,6 +91,7 @@ function hidenAddNewContact() {
  * Displays an alert if the email format is invalid.
  */
 function createNewContact() {
+  debugger;
   let nameInput = document.getElementById("nameInput");
   let emailInput = document.getElementById("email");
   let phoneInput = document.getElementById("phone");
@@ -195,4 +196,12 @@ function hidenMessage(createNewContact) {
     createNewContact.style.transition = "transform 800ms ease, top 800ms ease";
     createNewContact.style.transform = "translate(500%, 0%)";
   }, 2500);
+}
+
+/**
+ * This function ensures that the dialog is not closed when saving a subtask.
+ * @param {*} event = The close event from parent.
+ */
+function doNotTriggerEvent(event) {
+  event.stopPropagation();
 }
