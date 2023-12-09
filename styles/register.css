@@ -34,7 +34,6 @@ body {
     width: 422px;
     height: 48px;
     gap: 8px;
-    margin-bottom: 15px;
 }
 
 .error {
@@ -65,7 +64,6 @@ body {
     display: flex;
     justify-content: center;
     font-size: 14px;
-    margin-top: 35px;
     margin-left: 0;
 }
 
