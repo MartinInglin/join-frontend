@@ -257,3 +257,10 @@
     right: 8px;
   }
 }
+
+@media (max-width: 570px) {
+  .search {
+    margin: 10px;
+    height: 30px;
+  }
+}
