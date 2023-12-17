@@ -66,6 +66,12 @@
   overflow: auto;
 }
 
+.card-detail::-webkit-scrollbar-track {
+  border-radius: 5px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
 .no-gap-div {
   margin-bottom: -16px;
 }
