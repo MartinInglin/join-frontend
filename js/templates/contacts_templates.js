@@ -199,7 +199,7 @@ function generatEditContactHTML(contact) {
             </button>
             <button id="btn-save" type="submit">
                 Save
-                <img src="../img/add_task/check2.png" alt>
+                <img src="./img/add_task/check2.png" alt>
             </button>
         </div>
     </form>

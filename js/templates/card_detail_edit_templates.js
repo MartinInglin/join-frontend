@@ -28,9 +28,9 @@ function renderCardEditHTML() {
             <div class="card-edit-section">
               <div class="subtitle">Priority</div>
               <div class="card-edit-priority" id="cardEditPriorities">
-                <button type="button" class="card-edit-priority-btn" id="buttonUrgent" onclick="changePriority('urgent', 'buttonUrgent')">Urgent<img src="../img/add_task/urgent.png"></button>
-                <button type="button" class="card-edit-priority-btn" id="buttonMedium" onclick="changePriority('medium', 'buttonMedium')">Medium<img src="../img/add_task/medium.png"></button>
-                <button type="button" class="card-edit-priority-btn" id="buttonLow" onclick="changePriority('low', 'buttonLow')">Low<img src="../img/add_task/low.png"></button>
+                <button type="button" class="card-edit-priority-btn" id="buttonUrgent" onclick="changePriority('urgent', 'buttonUrgent')">Urgent<img src="./img/add_task/urgent.png"></button>
+                <button type="button" class="card-edit-priority-btn" id="buttonMedium" onclick="changePriority('medium', 'buttonMedium')">Medium<img src="./img/add_task/medium.png"></button>
+                <button type="button" class="card-edit-priority-btn" id="buttonLow" onclick="changePriority('low', 'buttonLow')">Low<img src="./img/add_task/low.png"></button>
               </div>
             </div>
   

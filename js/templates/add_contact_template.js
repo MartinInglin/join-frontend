@@ -45,7 +45,7 @@ function generatAddNewContactHTML(){
                 </svg>
             </button>
             <button id="btn-create" type="submit">Create contact
-                <img src="../img/add_task/check2.png" alt>
+                <img src="./img/add_task/check2.png" alt>
             </button>
         </div>
     </form>
