@@ -1,40 +1,111 @@
+function login() {
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
+  let errorMessage = document.getElementById("error-message");
+  let errorMessageEmail = document.getElementById("error-message-email");
+  let errorMessagePassword = document.getElementById("error-message-password");
+  
+  const user = {
+    email: email,
+    password: password,
+  };
+
+  if (email.length <= 3) {
+    errorMessageEmail.innerHTML = "Please enter email address.";
+    errorMessage.style.gap = "5px";
+  } else {
+    if (password.length <= 3) {
+      errorMessageEmail.innerHTML = "Please enter password.";
+      errorMessage.style.gap = "5px";
+    } else {
+      loginUserBackend(user)
+        .then((loginSuccess) => {
+          if (loginSuccess) {
+            window.location.href = "summary.html";
+          } else {
+            errorMessagePassword.innerHTML = "No user with these credentials.";
+            errorMessage.style.gap = "5px";
+          }
+        })
+        .catch((error) => {
+          console.error("Unexpected error during login:", error);
+          errorMessagePassword.innerHTML = "Login failed.";
+          errorMessage.style.gap = "5px";
+        });
+    }
+  }
+}
+
+async function loginUserBackend(userData) {
+  const url = "http://localhost:8000/login/";
+
+  return await fetch(url, {
+    method: "POST",
+    body: JSON.stringify(userData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then(async (response) => {
+      if (!response.ok) {
+        const json = await response.json();
+        throw new Error(json.error || "An error occurred during login.");
+      }
+      return response.json();
+    })
+    .then((json) => {
+      console.log("Login successful:", json);
+      setCurrentUserLocalStorage(json);
+      return true;
+    })
+    .catch((error) => {
+      console.error("Login failed:", error.message);
+      return false;
+    });
+}
+
+function setCurrentUserLocalStorage(user) {
+  debugger;
+  localStorage.setItem("currentUser", JSON.stringify(user));
+}
+
 /**
  * This function initializes the application by fetching users, the current user, and displaying the start image.
  * Also, shows the login/signup elements after a delay.
  */
 async function init() {
-    await getUsers();
-    await getCurrentUser();
-    await getContacts();
-    // startImage();
-    showLogIn();
+  await getUsers();
+  await getCurrentUser();
+  await getContacts();
+  // startImage();
+  showLogIn();
 }
 
 /**
  * This function initializes the login process by fetching users and the current user.
  */
 async function initLogin() {
-    await getUsers();
-    await getCurrentUser();
-    await getContacts();
+  await getUsers();
+  await getCurrentUser();
+  await getContacts();
 }
 
 /**
  * This function shows the login and signup elements after a delay.
  */
 function showLogIn() {
-    setTimeout(() => {
-        document.getElementById('sign-up').classList.remove('d-none');
-        document.getElementById('log-in').classList.remove('d-none');
-        document.getElementById('footer').classList.remove('d-none');
-    }, 500);
+  setTimeout(() => {
+    document.getElementById("sign-up").classList.remove("d-none");
+    document.getElementById("log-in").classList.remove("d-none");
+    document.getElementById("footer").classList.remove("d-none");
+  }, 500);
 }
 
 /**
  * This function redirects the user to the signup page.
  */
 function signUp() {
-    window.location.href = 'register.html';
+  window.location.href = "register.html";
 }
 
 /**
@@ -42,79 +113,79 @@ function signUp() {
  * Redirects to the summary page if the login is successful.
  */
 async function logIn() {
-    let email = document.getElementById('email').value;
-    let password = document.getElementById('password').value;
-    let errorMessage = document.getElementById('error-message');
-    let errorMessageEmail = document.getElementById('error-message-email');
-    let errorMessagePassword = document.getElementById('error-message-password');
-    let i = getIndexOfUser(email);
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
+  let errorMessage = document.getElementById("error-message");
+  let errorMessageEmail = document.getElementById("error-message-email");
+  let errorMessagePassword = document.getElementById("error-message-password");
+  let i = getIndexOfUser(email);
 
-    if (email.length <= 3) {
-        alert('Bitte Email eingeben');
+  if (email.length <= 3) {
+    alert("Bitte Email eingeben");
+  } else {
+    if (password.length <= 3) {
+      alert("Bitte Passwort eingeben");
     } else {
-        if (password.length <= 3) {
-            alert('Bitte Passwort eingeben');
+      if (checkUser(i, email)) {
+        if (checkPasswort(i, password)) {
+          currentUser = users[i].id;
+          await setCurrentUser(users[i].id);
+          await actuallyUserToContacts();
+          window.location.href = "summary.html";
         } else {
-            if (checkUser(i, email)) {
-                if (checkPasswort(i, password)) {
-                    currentUser = users[i].id;
-                    await setCurrentUser(users[i].id);
-                    await actuallyUserToContacts();
-                    window.location.href = 'summary.html';
-                } else {
-                    errorMessagePassword.innerHTML = 'Password incorrect';
-                    errorMessage.style.gap = "5px";
-                }
-            } else {
-                errorMessageEmail.innerHTML = 'Email incorrect or not available';
-                errorMessage.style.gap = "5px";
-            }
+          errorMessagePassword.innerHTML = "Password incorrect";
+          errorMessage.style.gap = "5px";
         }
+      } else {
+        errorMessageEmail.innerHTML = "Email incorrect or not available";
+        errorMessage.style.gap = "5px";
+      }
     }
+  }
 }
 
 /**
  * This function logs in the guest user and redirects to the summary page.
  */
 async function guestLogIn() {
-    await setCurrentUser(1);
-    window.location.href = 'summary.html';
+  await setCurrentUser(1);
+  window.location.href = "summary.html";
 }
 
 /**
  * This function checks if the provided email matches the email of the user at the given index.
- * 
+ *
  * @param {number} i - The index of the user in the users array.
  * @param {string} email - The email to compare.
  * @returns {boolean} - True if the emails match, false otherwise.
  */
 function checkUser(i, email) {
-    return i !== -1 && users[i].email == email;
+  return i !== -1 && users[i].email == email;
 }
 
 /**
  * This function finds the index of the user with the given email in the users array.
- * 
+ *
  * @param {string} email - The email to search for.
  * @returns {number} - The index of the user in the users array.
  */
 function getIndexOfUser(email) {
-    for (let i = 0; i < users.length; i++) {
-        const user = users[i];
-        if (email == user.email) {
-            return i;
-        }
+  for (let i = 0; i < users.length; i++) {
+    const user = users[i];
+    if (email == user.email) {
+      return i;
     }
-    return -1;
+  }
+  return -1;
 }
 
 /**
  * This function checks if the provided password matches the password of the user at the given index.
- * 
+ *
  * @param {number} i - The index of the user in the users array.
  * @param {string} password - The password to compare.
  * @returns {boolean} - True if the passwords match, false otherwise.
  */
 function checkPasswort(i, password) {
-    return users[i].password == password;
+  return users[i].password == password;
 }
