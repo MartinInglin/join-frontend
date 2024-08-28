@@ -6,7 +6,6 @@ const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 let currentUser;
 let userContactId;
 
-
 /**
  * This function is used to get the users-informations on all sub-pages.
  *
@@ -95,9 +94,15 @@ async function getUsers() {
  * This function retrieves the current Users from the server.
  *
  */
-async function getCurrentUser() {
-  let data = await getItem("currentUser");
-  currentUser = data.data.value;
+function getCurrentUser() {
+  let data = localStorage.getItem("currentUser");
+  if (data) {
+    let dataAsJson = JSON.parse(data);
+    currentUser = dataAsJson;
+  } else {
+    window.location.href = "/login.html";
+    return;
+  }
 }
 
 /**
@@ -105,9 +110,28 @@ async function getCurrentUser() {
  *
  */
 async function getContacts() {
-  let data = await getItem("contacts");
-  let asJson = data.data.value;
-  contacts = JSON.parse(asJson);
+  const url = "http://localhost:8000/team/";
+  const token = currentUser.token;
+
+  await fetch(url, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Token ${token}`,
+    },
+  })
+    .then(async (response) => {
+      if (!response.ok) {
+        const json = await response.json();
+        throw new Error(json.error || "Could not get team.");
+      } else {
+        contacts = await response.json();
+      }
+    })
+    .catch((error) => {
+      console.error("Get team failed:", error.message);
+      return false;
+    });
 }
 
 /**
@@ -182,7 +206,7 @@ function resetHighlight() {
  * @returns
  */
 function getUserInitials(user) {
-  const firstnameInitial = user.firstname.charAt(0).toUpperCase();
+  const firstnameInitial = currentUser.name.charAt(0).toUpperCase();
   const lastnameInitial = user.lastname.charAt(0).toUpperCase();
   return firstnameInitial + lastnameInitial;
 }
@@ -234,14 +258,15 @@ function getIndexOf(array, key, x) {
  *
  */
 function createHeaderInitials() {
-  try {
-    let userInitials = document.getElementById("userInitials");
-    let i = getIndexOf(users, "id", currentUser);
-    let nameParts = users[i].name.split(" ");
-    let lastname = nameParts.pop() || "";
-    let firstname = nameParts.join(" ") || "";
-    userInitials.innerText = `${firstname.charAt(0)}${lastname.charAt(0)}`;
-  } catch (e) {}
+  let userInitials = document.getElementById("userInitials");
+  let nameParts = currentUser.name.split(" ");
+  let lastname = nameParts.pop() || "";
+  let firstname = nameParts.join(" ") || "";
+
+  let firstInitial = firstname.charAt(0).toUpperCase();
+  let lastInitial = lastname.charAt(0).toUpperCase();
+
+  userInitials.innerText = `${firstInitial}${lastInitial}`;
 }
 
 /**
@@ -250,20 +275,24 @@ function createHeaderInitials() {
  */
 async function logOut() {
   const url = "http://localhost:8000/logout/";
-  fetch(url, {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-})
-.then(response => {
-    if (response.ok) {
-        window.location.href = '/login.html';
-    } else {
+  try {
+    await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((response) => {
+      if (response.ok) {
+        localStorage.removeItem("currentUser");
+        window.location.href = "/login.html";
+      } else {
         // Handle error
-        console.error('Logout failed');
-    }
-});
+        console.error("Logout failed");
+      }
+    });
+  } catch (error) {
+    console.error("Error:", error);
+  }
 }
 
 /**

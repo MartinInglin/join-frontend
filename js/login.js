@@ -4,14 +4,14 @@ function login() {
   let errorMessage = document.getElementById("error-message");
   let errorMessageEmail = document.getElementById("error-message-email");
   let errorMessagePassword = document.getElementById("error-message-password");
-  
+
   const user = {
     email: email,
     password: password,
   };
 
   if (email.length <= 3) {
-    errorMessageEmail.innerHTML = "Please enter email address.";
+    errorMessageEmail.innerHTML = "Please enter valid email address.";
     errorMessage.style.gap = "5px";
   } else {
     if (password.length <= 3) {
@@ -65,7 +65,6 @@ async function loginUserBackend(userData) {
 }
 
 function setCurrentUserLocalStorage(user) {
-  debugger;
   localStorage.setItem("currentUser", JSON.stringify(user));
 }
 
@@ -79,15 +78,6 @@ async function init() {
   await getContacts();
   // startImage();
   showLogIn();
-}
-
-/**
- * This function initializes the login process by fetching users and the current user.
- */
-async function initLogin() {
-  await getUsers();
-  await getCurrentUser();
-  await getContacts();
 }
 
 /**
@@ -106,42 +96,6 @@ function showLogIn() {
  */
 function signUp() {
   window.location.href = "register.html";
-}
-
-/**
- * This function logs in the user by checking the provided email and password.
- * Redirects to the summary page if the login is successful.
- */
-async function logIn() {
-  let email = document.getElementById("email").value;
-  let password = document.getElementById("password").value;
-  let errorMessage = document.getElementById("error-message");
-  let errorMessageEmail = document.getElementById("error-message-email");
-  let errorMessagePassword = document.getElementById("error-message-password");
-  let i = getIndexOfUser(email);
-
-  if (email.length <= 3) {
-    alert("Bitte Email eingeben");
-  } else {
-    if (password.length <= 3) {
-      alert("Bitte Passwort eingeben");
-    } else {
-      if (checkUser(i, email)) {
-        if (checkPasswort(i, password)) {
-          currentUser = users[i].id;
-          await setCurrentUser(users[i].id);
-          await actuallyUserToContacts();
-          window.location.href = "summary.html";
-        } else {
-          errorMessagePassword.innerHTML = "Password incorrect";
-          errorMessage.style.gap = "5px";
-        }
-      } else {
-        errorMessageEmail.innerHTML = "Email incorrect or not available";
-        errorMessage.style.gap = "5px";
-      }
-    }
-  }
 }
 
 /**

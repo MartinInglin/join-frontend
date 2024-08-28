@@ -4,9 +4,9 @@ let idOfUser = 1;
  * This function contains all the functionts that should be called on load of the body.
  */
 async function init() {
+  getCurrentUser();
   await getTasks();
   await getUsers();
-  await getCurrentUser();
   getTimeOfDay();
   setAmountTasksPosition();
   setTotalTasks();
@@ -36,7 +36,7 @@ function getTimeOfDay() {
 /**
  *
  * This function creates the greeting on the right side of the summary page. If the ID of the user is set to 0 in the Variable idOfUser, no Name is displayed.
- * 
+ *
  * @param {string} timeOfDay morning, afternoon or evening, depending on the daytime.
  */
 function createGreeting(timeOfDay) {
@@ -49,12 +49,8 @@ function createGreeting(timeOfDay) {
   if (currentUser === 1) {
     welcomeText = `Good ${timeOfDay}`;
   } else {
-    const user = users.find((user) => user.id === currentUser);
-
-    if (user) {
-      welcomeText = `Good ${timeOfDay},`;
-      userNameText = `${user.name}`;
-    }
+    welcomeText = `Good ${timeOfDay},`;
+    userNameText = `${currentUser.name}`;
   }
 
   /*html*/
@@ -67,7 +63,7 @@ function createGreeting(timeOfDay) {
 /**
  *
  * This function changes the icon from dark to light on hover.
- * 
+ *
  * @param {string} idContainer The ID of the container that should change the image.
  * @param {string} requiredImage The actual path where the image is stored.
  */
@@ -91,7 +87,7 @@ function setAmountTasksPosition() {
 
 /**
  * This function counts the number of tasks in the column "position"
- * 
+ *
  * @param {string} position - The positions are stored in the array columns in data.tasks.js
  * @returns {number} - Number of tasks in the position, for example "Todo".
  */
@@ -140,7 +136,7 @@ function formatNextDate() {
 
 /**
  * This function gets the next date from now on. The time from currentDate is set to 0 because otherwise todays deadlines would not be displayed.
- * 
+ *
  * @returns{Date} - upcoming dates or null if there is none.
  */
 function getNextDate() {

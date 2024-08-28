@@ -308,7 +308,6 @@ select {
 .cont-function-delete {
     display: flex;
     align-items: center;
-    width: 81px;
     height: 24px;
     gap: 8px;
     margin-left: 10px;

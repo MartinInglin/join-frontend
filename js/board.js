@@ -12,9 +12,9 @@ const urgenciesImg = [
  * This function initializes the page board. It gets the data of the tasks, users, contacts and the current user from the database and initializes rendering the board.
  */
 async function initBoard() {
+  getCurrentUser();
   await getTasks();
   await getUsers();
-  await getCurrentUser();
   await getContacts();
   adjustLayoutFilter();
   renderTasksBoard();
@@ -258,7 +258,7 @@ function redirectToAddTaskPage() {
 
 /**
  * This function opens and closes the drop down menu where the user can choose the positon ("To do..."). This menu only shows up in mobile view.
- * 
+ *
  * @param {number} i - This is the number of the column starting from left to right.
  * @param {number} j - This is the number of the task in the column starting from top to down.
  */
@@ -279,7 +279,7 @@ function toggleDropDownCategories(i, j) {
 
 /**
  * This function creates the eventlistener which listens to any click outside the drop down menu. If so it closes the menu.
- * 
+ *
  * @param {number} i - This is the number of the column starting from left to right.
  * @param {number} j - This is the number of the task in the column starting from top to down.
  * @param {Element} dropdownContainer - The container where the drop down menu is rendered.
@@ -295,7 +295,7 @@ function createEventlistenerCloseDropDownCategories(i, j, dropdownContainer) {
 
 /**
  * This function closes the drop down menu where the user can change the position of the task.
- * 
+ *
  * @param {number} i - This is the number of the column starting from left to right.
  * @param {number} j - This is the number of the task in the column starting from top to down.
  */
@@ -305,4 +305,3 @@ function hideDropDownCategories(i, j) {
     openDropdown = null;
   }
 }
-

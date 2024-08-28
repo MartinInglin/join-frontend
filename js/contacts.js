@@ -7,8 +7,8 @@ let IdOfCurrentContact;
  * creating header initials, and loading the contact list.
  */
 async function init() {
+  getCurrentUser();
   await getUsers();
-  await getCurrentUser();
   await getContacts();
   await getTasks();
   createHeaderInitials();
@@ -29,16 +29,16 @@ function loadContactList() {
   if (window.innerWidth > 870) {
     let contactList = document.getElementById("contact-list");
     contactList.innerHTML = "";
-    contacts.sort((a, b) => a.firstname.localeCompare(b.firstname));
+    contacts.sort((a, b) => a.username.localeCompare(b.username));
     let currentLetter = "";
     for (let i = 0; i < contacts.length; i++) {
       const contact = contacts[i];
-      const firstLetter = contact.firstname.charAt(0).toUpperCase();
+      const firstLetter = contact.username.charAt(0).toUpperCase();
       if (firstLetter !== currentLetter) {
         currentLetter = firstLetter;
         contactList.innerHTML += generatCurrenLetterHTML(i, currentLetter);
       }
-      contactList.innerHTML += generatContactListHTML(i);
+      contactList.innerHTML += generatContactListHTML(i, firstLetter);
     }
     hideContact();
     document.getElementById("headline").classList.remove("d-none");
@@ -71,11 +71,11 @@ function highlightContact(id) {
 function loadContactListMobil() {
   let contactList = document.getElementById("contact-list");
   contactList.innerHTML = "";
-  contacts.sort((a, b) => a.firstname.localeCompare(b.firstname));
+  contacts.sort((a, b) => a.username.localeCompare(b.username));
   let currentLetter = "";
   for (let i = 0; i < contacts.length; i++) {
     const contact = contacts[i];
-    const firstLetter = contact.firstname.charAt(0).toUpperCase();
+    const firstLetter = contact.username.charAt(0).toUpperCase();
     if (firstLetter !== currentLetter) {
       currentLetter = firstLetter;
       contactList.innerHTML += generatCurrenLetterHTML(i, currentLetter);
