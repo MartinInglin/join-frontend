@@ -8,8 +8,7 @@ let IdOfCurrentContact;
  */
 async function init() {
   getCurrentUser();
-  await getUsers();
-  await getContacts();
+  await getTeamMembers();
   await getTasks();
   createHeaderInitials();
   loadContactList();
@@ -38,7 +37,11 @@ function loadContactList() {
         currentLetter = firstLetter;
         contactList.innerHTML += generatCurrenLetterHTML(i, currentLetter);
       }
-      contactList.innerHTML += generatContactListHTML(i, firstLetter);
+      if (contact.id != currentUser.user_id) {
+        contactList.innerHTML += generatContactListHTML(i, firstLetter);
+      } else {
+        contactList.innerHTML += generatContactListCurrentUserHTML(i, firstLetter);
+      }
     }
     hideContact();
     document.getElementById("headline").classList.remove("d-none");
@@ -51,7 +54,6 @@ function loadContactList() {
     showContact(IdOfCurrentContact);
   }
 }
-
 
 /**
  * This function highlights a contact by adding the 'cont-clickt' class to its HTML element.
@@ -80,7 +82,11 @@ function loadContactListMobil() {
       currentLetter = firstLetter;
       contactList.innerHTML += generatCurrenLetterHTML(i, currentLetter);
     }
-    contactList.innerHTML += generatContactListHTML(i);
+    if (contact.id != currentUser.user_id) {
+      contactList.innerHTML += generatContactListHTML(i, firstLetter);
+    } else {
+      contactList.innerHTML += generatContactListCurrentUserHTML(i, firstLetter);
+    }
     let highlight = document.getElementById(`cont${contact.id}`);
     highlight.classList.remove("cont-clickt");
     showHideHeadline();
@@ -128,7 +134,11 @@ function showContact(id) {
     let name = document.getElementById("name");
     hideContact(i);
     showcontact.classList.remove("d-none");
-    name.innerHTML = generatShowContactNameHTML(i, contact);
+    if (contact.id != currentUser.user_id) {
+      name.innerHTML = generatShowContactNameHTML(i, contact);
+    } else {
+      name.innerHTML = generatShowContactCurrentUserNameHTML(i, contact);
+    }
     info.innerHTML = generatInfoHTML(contact);
     unhighlightContacts();
     highlightContact(id);
@@ -173,7 +183,11 @@ function showContactMobil(id) {
   headline.classList.remove("d-none");
   showcontact.classList.remove("d-none");
   showcontact.style.transform = "translate(0%, 0%)";
-  name.innerHTML = generatShowContactNameMobilHTML(contact);
+  if (contact.id != currentUser.user_id) {
+    name.innerHTML = generatShowContactNameMobilHTML(contact);
+  } else {
+    name.innerHTML = generatShowContactNameCurrentUserMobilHTML(contact);
+  }
   info.innerHTML = generatInfoHTML(contact);
 }
 
@@ -307,28 +321,40 @@ function editOldContact(id) {
  * @param {string} id - The unique identifier of the contact to delete.
  */
 async function deleteContact(id) {
-  const contactIndex = getIndexById(id);
-  deleteAssignedTasks(id);
-  if (contactIndex !== -1) {
-    // Remove the contact at the found index
-    if (contacts[contactIndex].user) {
-      let user = contacts[contactIndex];
-      deleteUser(user);
-      logOut();
-    } else {
-      contacts.splice(contactIndex, 1);
-      await setContacts();
-    }
-  } else {
-    console.error("Invalid contact ID");
-  }
-  closeAddNewContact();
-  contactOpen = false;
-  IdOfCurrentContact = null;
+  const url = "http://localhost:8000/team/";
+  const token = currentUser.token;
+  await fetch(url, {
+    method: "POST",
+    body: JSON.stringify({ user_id: id }),
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Token ${token}`,
+    },
+  })
+    .then(async (response) => {
+      if (!response.ok) {
+        const json = await response.json();
+        throw new Error(json.error || "An error occurred during removing user.");
+      }
+      return response.json();
+    })
+    .then((json) => {
+      console.log("User remove successful:", json);
+      contactOpen = false;
+      IdOfCurrentContact = null;
+      renderMembers();
+      if (window.innerWidth <= 870) {
+        backToContactlist();
+      }
+    })
+    .catch((error) => {
+      console.error("Removing user failed:", error.message);
+    });
+}
+
+async function renderMembers() {
+  await getTeamMembers();
   loadContactList();
-  if (window.innerWidth <= 870) {
-    backToContactlist();
-  }
 }
 
 /**

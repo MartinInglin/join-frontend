@@ -11,7 +11,6 @@ let userContactId;
  *
  */
 async function initOthers() {
-  await getUsers();
   await getCurrentUser();
   createHeaderInitials();
   checkLoginStatus();
@@ -85,9 +84,29 @@ async function getTasks() {
  *
  */
 async function getUsers() {
-  let data = await getItem("users");
-  let asJson = data.data.value;
-  users = JSON.parse(asJson);
+  const url = "http://localhost:8000/addMember/";
+  const token = currentUser.token;
+  await fetch(url, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Token ${token}`,
+    },
+  })
+    .then(async (response) => {
+      if (!response.ok) {
+        const json = await response.json();
+        throw new Error(json.error || "Error occured when getting users.");
+      }
+      return response.json();
+    })
+    .then((json) => {
+      console.log("Got users:", json);
+      users = json;
+    })
+    .catch((error) => {
+      console.error("Getting users failed:", error.message);
+    });
 }
 
 /**
@@ -109,7 +128,7 @@ function getCurrentUser() {
  * This function retrieves the Contacts from the server and converts them from a string to a JSON.
  *
  */
-async function getContacts() {
+async function getTeamMembers() {
   const url = "http://localhost:8000/team/";
   const token = currentUser.token;
 

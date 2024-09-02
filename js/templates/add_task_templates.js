@@ -5,17 +5,17 @@
  * @returns {string} The generated HTML.
  */
 function renderContacts(contact) {
-    return `
+    return /*html*/`
     <div id="contact${contact.id}" class="contact"onclick="chooseContactToAssign(${contact.id}); doNotTriggerEvent(event)">
         <div class="contact-icon">
             <div class="contact-icon">
                 <div class="outer-line">
-                    <div class="inner-line" style="background-color:${contact.icon}">
-                        <p class="initialTag">${contact.firstname.charAt(0)}${contact.lastname.charAt(0)}</p>
+                    <div class="inner-line" style="background-color:${contact.user_color}">
+                        <p class="initialTag">${contact.username.charAt(0)}</p>
                     </div>
                 </div>
             </div>
-            ${contact.firstname} ${contact.lastname}
+            ${contact.username}
         </div>
         <img src="./img/add_task/Check_button.png" id="checkContact${contact.id}">
     </div>
@@ -31,7 +31,7 @@ function renderContacts(contact) {
  * @returns {string} The generated HTML.
  */
 function renderSubtasks(subtask, i) {
-    return `
+    return /*html*/`
     <li class="list-element" id="subtask${i}" ondblclick="editSubtask('subtask${i}', 'editSubtaskIcon1${i}', 'editSubtaskIcon2${i}', '${i}')">
         <div class="list-text pointer">
             <div id="subtaskContent${i}">
@@ -54,12 +54,12 @@ function renderSubtasks(subtask, i) {
  * @returns {string} The generated HTML.
  */
 function showInitialIcon(contact) {
-    return `
+    return /*html*/`
     <div class="contact-frame">
         <div class="contact-icon">
             <div class="outer-line">
-                <div class="inner-line" style="background-color:${contact.icon}">
-                    <p class="initialTag">${contact.firstname.charAt(0)}${contact.lastname.charAt(0)}</p>
+                <div class="inner-line" style="background-color:${contact.user_color}">
+                    <p class="initialTag">${contact.username.charAt(0)}</p>
                 </div>
             </div>
         </div>

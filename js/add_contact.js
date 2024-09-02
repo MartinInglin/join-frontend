@@ -1,14 +1,36 @@
+let switchDropDownCategory = false;
+let userToAddId;
+
 /**
  * This function displays the "Add new contact" form and the background overlay.
  */
-function addNewContact() {
+async function addNewContact() {
+  await getUsers();
   showAddNewContact();
   let bgMessage = document.getElementById("bg-message");
   bgMessage.classList.remove("d-none");
 
   let addNewContact = document.getElementById("add-new-contact");
-
   addNewContact.innerHTML = generatAddNewContactHTML();
+
+  let contactsList = document.getElementById("selectCategoryOptions");
+  contactsList.innerHTML = "";
+
+  sortedUsers = users.sort((a, b) => a.username.localeCompare(b.username));
+  console.log(sortedUsers);
+
+  sortedUsers.forEach((user) => {
+    const userExists = contacts.some((contact) => contact.username === user.username);
+    if (!userExists) {
+      contactsList.innerHTML += generateContactsList(user);
+    }
+  });
+}
+
+function addUserToInput(userId, username) {
+  userToAddId = userId;
+  const inputfield = document.getElementById("selectCategory");
+  inputfield.value = username;
 }
 
 /**
@@ -90,27 +112,35 @@ function hidenAddNewContact() {
  * This function creates a new contact based on the input values and adds it to the contacts array.
  * Displays an alert if the email format is invalid.
  */
-function createNewContact() {
-  let nameInput = document.getElementById("nameInput");
-  let emailInput = document.getElementById("email");
-  let phoneInput = document.getElementById("phone");
-  let nameParts = nameInput.value.split(" ");
-  let firstname = nameParts[0] || "";
-  let lastname = nameParts.slice(1).join(" ") || "";
-
-  let newContact = {
-    id: findFreeId(contacts),
-    icon: getRandomColor(),
-    firstname: firstname,
-    lastname: lastname,
-    email: emailInput.value,
-    "phone-number": phoneInput.value,
-  };
-  if (idOfCurrentPage == 3) {
-    pushNewContact(newContact);
-  } else if (idOfCurrentPage == 1 || idOfCurrentPage == 2) {
-    pushNewContactAddTask(newContact);
-  }
+async function addNewMember() {
+  const url = "http://localhost:8000/addMember/";
+  const token = currentUser.token;
+  await fetch(url, {
+    method: "POST",
+    body: JSON.stringify({ user_id: userToAddId }),
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Token ${token}`,
+    },
+  })
+    .then(async (response) => {
+      if (!response.ok) {
+        const json = await response.json();
+        throw new Error(json.error || "An error occurred during adding user.");
+      }
+      return response.json();
+    })
+    .then((json) => {
+      console.log("User add successful:", json);
+      if (idOfCurrentPage == 3) {
+        pushNewContact();
+      } else if (idOfCurrentPage == 1 || idOfCurrentPage == 2) {
+        pushNewContactAddTask();
+      }
+    })
+    .catch((error) => {
+      console.error("Adding user failed:", error.message);
+    });
 }
 
 /**
@@ -124,26 +154,24 @@ function createNewContact() {
  * @param {string} newContact.email - The email address of the contact.
  * @param {string} newContact ['phone-number'] - The phone number of the contact.
  */
-async function pushNewContact(newContact) {
-  contacts.push(newContact);
-  await setContacts();
+async function pushNewContact() {
+  await getTeamMembers();
   loadContactList();
   createNewContactMessage();
   setTimeout(() => {
-    showContact(newContact.id);
+    showContact(userToAddId);
     closeAddNewContact();
   }, 100);
 }
 
 /**
  * This function pushes a new contact to the array contacts if the contact comes from Add Task.
- * 
+ *
  * @param {object} newContact - Contains the values of the new contact.
  */
-function pushNewContactAddTask(newContact) {
-  contacts.push(newContact);
-  setContacts();
-  selectedContacts.push(newContact.id);
+async function pushNewContactAddTask() {
+  await getTeamMembers();
+  selectedContacts.push(userToAddId);
   createNewContactMessage();
   loadContactsToAssign();
   renderContactInitialIcons();
@@ -157,7 +185,27 @@ function pushNewContactAddTask(newContact) {
  * @returns {string} A random color code.
  */
 function getRandomColor() {
-  let colors = ["#FF7A00", "#FF5EB3", "#6E52FF", "#9327FF", "#00BEE8", "#1FD7C1", "#FF745E", "#FFA35E", "#FC71FF", "#FFC701", "#0038FF", "#C3FF2B", "#FFE62B", "#FF4646", "#FFBB2B", "#9b1212", "#7a80e8", "#046657", "#869b4c"];
+  let colors = [
+    "#FF7A00",
+    "#FF5EB3",
+    "#6E52FF",
+    "#9327FF",
+    "#00BEE8",
+    "#1FD7C1",
+    "#FF745E",
+    "#FFA35E",
+    "#FC71FF",
+    "#FFC701",
+    "#0038FF",
+    "#C3FF2B",
+    "#FFE62B",
+    "#FF4646",
+    "#FFBB2B",
+    "#9b1212",
+    "#7a80e8",
+    "#046657",
+    "#869b4c",
+  ];
   return colors[Math.floor(Math.random() * colors.length)];
 }
 
@@ -203,4 +251,54 @@ function hidenMessage(createNewContact) {
  */
 function doNotTriggerEvent(event) {
   event.stopPropagation();
+}
+
+/**
+ * Diese Funktion überprüft ob das Drop Down Menu geöffnet ist.
+ *
+ */
+function toggleDropDownCategory() {
+  switchDropDownCategory = !switchDropDownCategory;
+  if (switchDropDownCategory) {
+    showDropDownCategory();
+  } else {
+    hideDropDownCategory();
+  }
+}
+
+/**
+ * This function opens the drop down menu.
+ *
+ */
+function showDropDownCategory() {
+  switchDropDownCategory = true;
+  const selectCategoryOptions = document.getElementById("selectCategoryOptions");
+  const arrow = document.getElementById("arrowDrowpDown");
+  selectCategoryOptions.classList.remove("d-none");
+  arrow.style.transform = "rotate(180deg)";
+  document.getElementById("selectCategory").focus();
+}
+
+/**
+ * This function closes the drop down menu.
+ *
+ */
+function hideDropDownCategory() {
+  const selectCategoryOptions = document.getElementById("selectCategoryOptions");
+  const arrow = document.getElementById("arrowDrowpDown");
+  arrow.style.transform = "rotate(0deg)";
+  document.getElementById("selectCategory").blur();
+  hideDropDownCategoryDelay();
+}
+
+/**
+ * This function close the drop down menu.
+ *
+ */
+function hideDropDownCategoryDelay() {
+  const selectCategoryOptions = document.getElementById("selectCategoryOptions");
+  setTimeout(function () {
+    switchDropDownCategory = false;
+    selectCategoryOptions.classList.add("d-none");
+  }, 100);
 }

@@ -1,6 +1,6 @@
 @media (max-width: 1330px) {
     .contacts {
-        width: 420px;
+        width: 430px;
     }
 
     .add-new-contact {
@@ -59,7 +59,7 @@
 
 @media(max-width: 1200px) {
     .contacts {
-        width: 328px;
+        width: 338px;
         left: 200px;
     }
 
@@ -125,7 +125,7 @@
 
     .contact-list {
         padding: 24px;
-        width: 364px;
+        width: 355px;
         margin-bottom: 110px;
     }
 

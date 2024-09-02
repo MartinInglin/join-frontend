@@ -40,6 +40,25 @@ function generatContactListHTML(i, letter) {
     `;
 }
 
+function generatContactListCurrentUserHTML(i, letter) {
+  return /*html*/ `
+      <div id="cont${contacts[i].id}" onclick="showContact(${contacts[i].id})" class="cont">
+          <div class="cont-icon">
+              <div>
+                  <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="21" cy="21" r="21" fill="white" />
+                      <circle cx="21" cy="21" r="18" fill="${contacts[i]["user_color"]}" />
+                      <text x="12" y="25" font-size="12" fill="white">${letter}</text>                  
+                  </svg>
+              </div>
+          </div>
+          <div class="cont-name-mail">
+              <span>${contacts[i]["username"]} (You)</span>
+          </div>
+      </div>
+      `;
+}
+
 /**
  * This function generates HTML for displaying a contact's name and icon.
  *
@@ -70,6 +89,25 @@ function generatShowContactNameHTML(i, contact) {
     `;
 }
 
+function generatShowContactCurrentUserNameHTML(i, contact) {
+  return /*html*/ `
+      <div class="cont-icon-big">
+          <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="50" fill="white" />
+              <circle cx="50" cy="50" r="46" fill="${contact["user_color"]}" />
+              <text x="30" y="58" font-size="24" fill="white">${contact["username"].charAt(0)}</text>                
+          </svg>
+      </div>
+      <div class="cont-big-name">
+          <span>${contact["username"]} (You)</span>
+          <div class="cont-function">
+              <div onclick="deleteContact(${contact.id})" class="cont-function-delete">
+              </div>
+          </div>
+      </div>
+      `;
+}
+
 /**
  * This function generates HTML for displaying a contact's name and icon on mobile.
  *
@@ -94,6 +132,21 @@ function generatShowContactNameMobilHTML(contact) {
     `;
 }
 
+function generatShowContactNameCurrentUserMobilHTML(contact) {
+  return /*html*/ `
+          <div class="cont-icon-big">
+          <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="50" fill="white" />
+              <circle cx="50" cy="50" r="46" fill="${contact["user_color"]}" />
+              <text x="30" y="58" font-size="24" fill="white">${contact["username"].charAt(0)}</text>                  
+          </svg>
+      </div>
+      <div class="cont-big-name">
+          <span>${contact["username"]} (You)</span>
+      </div>
+      `;
+}
+
 /**
  * This function generates HTML for displaying contact function options on mobile.
  *
@@ -103,16 +156,10 @@ function generatShowContactNameMobilHTML(contact) {
 function generatShowContFunctionHTML(id, index) {
   return /*html*/ `
     <div id="show-cont-function" class="show-cont-function">
-        <div class="cont-function-edit-mobil">
-            <div onclick="editContact(${index})" class="edit" onmouseover="SVGOnHover('edit-img', 'edit')" onmouseout="SVGMouseOut('edit-img', 'edit')" onclick="showCardEdit()">
-                <img src="./img/contact/edit.svg" id="edit-img">
-                <span>Edit</span>
-            </div>
-        </div>
         <div onclick="deleteContact(${id})" class="cont-function-delete-mobil">
             <div class="delete" onmouseover="SVGOnHover('delete-img', 'delete')" onmouseout="SVGMouseOut('delete-img', 'delete')">
                 <img src="./img/contact/delete.svg" id="delete-img">
-                <span>Delete</span>
+                <span>Remove from team</span>
             </div>
         </div>
     </div>

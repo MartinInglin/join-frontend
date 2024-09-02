@@ -43,10 +43,6 @@
       width: 366px;
     }
   
-    .choose-category .select-category {
-      width: 366px;
-    }
-  
     .subtasks input {
       width: 366px;
     }
@@ -198,7 +194,6 @@
     }
   
     .choose-category .select-category {
-      width: 266px;
       font-size: 16px;
     }
   
@@ -384,10 +379,6 @@
     }
   
     .due-date input {
-      width: calc(100% - 34px);
-    }
-  
-    .choose-category .select-category {
       width: calc(100% - 34px);
     }
   

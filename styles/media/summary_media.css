@@ -362,15 +362,3 @@
     }
   
   }
-  
-  /* @media(max-height: 720px) {
-    .content {
-      overflow: auto;
-      height: calc(100vh - 264px - 80px);
-      scrollbar-width: none;
-    }
-  
-    .content::-webkit-scrollbar {
-      display: none;
-    }
-  } */
