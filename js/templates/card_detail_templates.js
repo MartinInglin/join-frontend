@@ -66,7 +66,7 @@ function renderAssigmentsHTML(userColorClass, userInitials, user) {
       <div class="member-button align-center justify-center " style="background-color: ${userColorClass}">
         <span>${userInitials}</span>
       </div>
-      <span class="open-sans-19">${user["firstname"]} ${user["lastname"]}</span>
+      <span class="open-sans-19">${user["username"]}</span>
     </div>
   `;
 }

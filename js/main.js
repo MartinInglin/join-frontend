@@ -5,6 +5,7 @@ const STORAGE_TOKEN = "RPU0FT0UVM1WMXF2YVD579M9QJN3HJWKW84Z2NEB";
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 let currentUser;
 let userContactId;
+let backendDataTasks;
 
 /**
  * This function is used to get the users-informations on all sub-pages.
@@ -16,57 +17,129 @@ async function initOthers() {
   checkLoginStatus();
 }
 
-/**
- * This is the General Function to upload informations to the Server.
- * @param {string} key - This is the parameter, to find the informations on the server.
- * @param {string} value - The value are the imformations to safe.
- * @returns - Ensures that after the function is called, other functions wait for it.
- */
-async function setItem(key, value) {
-  const payload = { key, value, token: STORAGE_TOKEN };
-  return fetch(STORAGE_URL, { method: "POST", body: JSON.stringify(payload) }).then((res) => res.json());
+// /**
+//  * This is the General Function to upload informations to the Server.
+//  * @param {string} key - This is the parameter, to find the informations on the server.
+//  * @param {string} value - The value are the imformations to safe.
+//  * @returns - Ensures that after the function is called, other functions wait for it.
+//  */
+// async function setItem(key, value) {
+//   const payload = { key, value, token: STORAGE_TOKEN };
+//   return fetch(STORAGE_URL, { method: "POST", body: JSON.stringify(payload) }).then((res) => res.json());
+// }
+
+// /**
+//  * This is a function to get the safed informations from the server.
+//  * @param {string} key - Is needed do identify the right value.
+//  * @returns - Ensures that after the function is called, other functions wait for it.
+//  */
+// async function getItem(key) {
+//   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+//   return fetch(url).then((res) => res.json());
+// }
+
+// /**
+//  * This function safes the Tasks on the Server.
+//  *
+//  */
+// function setTasks() {
+//   setItem("tasks", dataTasks);
+// }
+
+// /**
+//  * This function safes the Users on the Server.
+//  *
+//  */
+// function setUsers() {
+//   setItem("users", users);
+// }
+
+// /**
+//  * This function safes the Contacts on the Server.
+//  *
+//  */
+// function setContacts() {
+//   setItem("contacts", contacts);
+// }
+
+// /**
+//  * This function safes the variable of current User on the Server.
+//  *
+//  */
+// async function setCurrentUser(id) {
+//   return setItem("currentUser", id);
+// }
+
+async function updateTask(data, index) {
+  const url = "http://localhost:8000/board/";
+  const token = currentUser.token;
+  let updatedData = adaptDataStringsForBackend(data);
+  await fetch(url, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Token ${token}`,
+    },
+    body: JSON.stringify(updatedData),
+  })
+    .then(async (response) => {
+      if (!response.ok) {
+        const json = await response.json();
+        throw new Error(json.error || "Error occured when updating task.");
+      }
+      return response.json();
+    })
+    .then((json) => {
+      const dataTask = adaptDataStringsForFrontend(json);
+      dataTasks[index] = dataTask;
+      renderTasksBoard();
+    })
+    .catch((error) => {
+      console.error("Updating task failed:", error.message);
+    });
 }
 
-/**
- * This is a function to get the safed informations from the server.
- * @param {string} key - Is needed do identify the right value.
- * @returns - Ensures that after the function is called, other functions wait for it.
- */
-async function getItem(key) {
-  const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
-  return fetch(url).then((res) => res.json());
+function adaptDataStringsForBackend(dataTask) {
+  if (dataTask.position === "Todo") {
+    dataTask.position = "todo";
+  } else if (dataTask.position === "InProgress") {
+    dataTask.position = "in_progress";
+  } else if (dataTask.position === "AwaitFeedback") {
+    dataTask.position = "await_feedback";
+  } else {
+    dataTask.position = "done";
+  }
+  if (dataTask.catergory === "Technical Task") {
+    dataTask.category = "technical_task";
+  } else {
+    dataTask.category = "user_story";
+  }
+  let userIds = [];
+  if (dataTask.assignedTo.length != 0) {
+    dataTask.assignedTo.forEach((user) => {
+      userIds.push(user.id);
+    });
+    dataTask.assignedTo = userIds;
+  };
+  return dataTask;
 }
 
-/**
- * This function safes the Tasks on the Server.
- *
- */
-function setTasks() {
-  setItem("tasks", dataTasks);
-}
-
-/**
- * This function safes the Users on the Server.
- *
- */
-function setUsers() {
-  setItem("users", users);
-}
-
-/**
- * This function safes the Contacts on the Server.
- *
- */
-function setContacts() {
-  setItem("contacts", contacts);
-}
-
-/**
- * This function safes the variable of current User on the Server.
- *
- */
-async function setCurrentUser(id) {
-  return setItem("currentUser", id);
+function adaptDataStringsForFrontend(dataTask) {
+  if (dataTask.position === "todo") {
+    dataTask.position = "Todo";
+  } else if (dataTask.position === "in_progress") {
+    dataTask.position = "InProgress";
+  } else if (dataTask.position === "await_feedback") {
+    dataTask.position = "AwaitFeedback";
+  } else {
+    dataTask.position = "Done";
+  }
+  if (dataTask.catergory === "technical_task") {
+    dataTask.category = "Technical Task";
+  } else {
+    dataTask.category = "User Story";
+  }
+  return dataTask;
 }
 
 /**
@@ -74,9 +147,49 @@ async function setCurrentUser(id) {
  *
  */
 async function getTasks() {
-  let data = await getItem("tasks");
-  let asJson = data.data.value;
-  dataTasks = JSON.parse(asJson);
+  const url = "http://localhost:8000/board/";
+  const token = currentUser.token;
+
+  await fetch(url, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Token ${token}`,
+    },
+  })
+    .then(async (response) => {
+      if (!response.ok) {
+        const json = await response.json();
+        throw new Error(json.error || "Error occured when getting users.");
+      }
+      return response.json();
+    })
+    .then((json) => {
+      dataTasks = adaptDataStrings(json);
+    })
+    .catch((error) => {
+      console.error("Getting users failed:", error.message);
+    });
+}
+
+function adaptDataStrings(dataTasks) {
+  dataTasks.forEach((task) => {
+    if (task.position === "todo") {
+      task.position = "Todo";
+    } else if (task.position === "in_progress") {
+      task.position = "InProgress";
+    } else if (task.position === "await_feedback") {
+      task.position = "AwaitFeedback";
+    } else {
+      task.position = "Done";
+    }
+    if (task.catergory === "technical_task") {
+      task.category = "Technical Task";
+    } else {
+      task.category = "User Story";
+    }
+  });
+  return dataTasks;
 }
 
 /**
@@ -101,7 +214,6 @@ async function getUsers() {
       return response.json();
     })
     .then((json) => {
-      console.log("Got users:", json);
       users = json;
     })
     .catch((error) => {
@@ -224,10 +336,9 @@ function resetHighlight() {
  * @param {string} user - This parameter refers to the array contacts in arraycontacts.js and should look like this: contacts[0]
  * @returns
  */
-function getUserInitials(user) {
+function getUserInitials() {
   const firstnameInitial = currentUser.name.charAt(0).toUpperCase();
-  const lastnameInitial = user.lastname.charAt(0).toUpperCase();
-  return firstnameInitial + lastnameInitial;
+  return firstnameInitial;
 }
 
 /**

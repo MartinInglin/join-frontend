@@ -121,7 +121,9 @@ function setPriorityStyle(idOfContainer) {
   }
 
   const container = document.getElementById(idOfContainer);
-  const priorityColor = selectedTask["urgency"] ? colorsPriority.find((item) => item.priority === selectedTask["urgency"]) : null;
+  const priorityColor = selectedTask["urgency"]
+    ? colorsPriority.find((item) => item.priority === selectedTask["urgency"])
+    : null;
 
   if (selectedTask["urgency"]) {
     setBackgroundcolorPriority(container, priorityColor);
@@ -202,7 +204,6 @@ function saveChangesCardEdit() {
   selectedTask["title"] = document.getElementById("cardEditTitle").value;
   selectedTask["task"] = document.getElementById("cardEditDescription").value;
   selectedTask["date"] = document.getElementById("cardEditDate").value;
-  dataTasks[taskIndex] = selectedTask;
-  setTasks();
+  updateTask(selectedTask, taskIndex);
   closeCardDetailButton();
 }

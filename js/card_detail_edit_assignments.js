@@ -7,12 +7,11 @@ function createDropDownAssignedTo() {
 
   const filteredUsers = filterUsers();
 
-  for (let i = 0; i < filteredUsers.length; i++) {
-    const contact = filteredUsers[i];
-    contacts.sort((a, b) => a.firstname.localeCompare(b.firstname));
+  for (let i = 0; i < contacts.length; i++) {
+    const contact = contacts[i];
+    contacts.sort((a, b) => a.username.localeCompare(b.username));
     dropDownContainer.innerHTML += renderCardEditDropDownHTML(i, contact);
-
-    if (selectedTask["assignedTo"].includes(contact.id)) {
+    if (selectedTask.assignedTo.some((user) => user.id === contact.id)) {
       styleUserSelected(i);
     }
   }
@@ -68,16 +67,21 @@ function stopPropagation(event) {
  * @param {number} contactID - This is the ID of the user.
  */
 function addContactToAssign(contactID) {
-  const assignedToIndex = selectedTask["assignedTo"].indexOf(contactID);
+  const userToAssign = getUserToAssign(contactID);
+  const assignedToIndex = selectedTask["assignedTo"].findIndex((user) => user.id === userToAssign.id);
 
   if (assignedToIndex !== -1) {
-    selectedTask["assignedTo"].splice(assignedToIndex, 1);
+    selectedTask.assignedTo.splice(assignedToIndex, 1);
   } else {
-    selectedTask["assignedTo"].push(contactID);
+    selectedTask.assignedTo.push(userToAssign);
   }
 
   createDropDownAssignedTo();
   createCardEditMembers();
+}
+
+function getUserToAssign(contactId) {
+  return contacts.find((user) => user.id == contactId);
 }
 
 /**
@@ -133,7 +137,7 @@ function createCardEditMembers() {
 
     if (user) {
       const userInitials = getUserInitials(user);
-      const userColorClass = user.icon;
+      const userColorClass = user.user_color;
       cardEditMembersContainer.innerHTML += renderMembersCardEditHTML(userColorClass, userInitials);
     }
   }

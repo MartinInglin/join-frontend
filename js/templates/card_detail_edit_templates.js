@@ -1,11 +1,11 @@
 /**
  * This function generates HTML for the card edit section.
- * 
+ *
  * @returns {string} The generated HTML.
  */
 function renderCardEditHTML() {
-    /*html*/
-    return `
+  /*html*/
+  return `
     <form onsubmit="saveChangesCardEdit(); return false" onmousedown="onMouseDownInsideCardDetail()" onmouseup="onMouseUpInsideCardDetail()">
       <div class="card-detail left-50-percent" onclick="closeDropDownAssignedTo(); deleteInputAssignedTo(); stopPropagation(event)">
           <div class="card-detail-header justify-right">
@@ -73,61 +73,58 @@ function renderCardEditHTML() {
       `;
 }
 
-
 /**
  * This function generates HTML for a contact in the card edit dropdown.
- * 
+ *
  * @param {number} i - The index of the contact.
  * @param {Object} contact - The contact object.
  * @returns {string} The generated HTML.
  */
 function renderCardEditDropDownHTML(i, contact) {
-    /*html*/
-    return `
+  /*html*/
+  return `
     <div id="dropDownContact${i}" class="contact" onclick="addContactToAssign(${contact.id}); doNotTriggerEvent(event)">
         <div class="contact-icon">
             <div class="contact-icon">
                 <div class="outer-line">
-                    <div class="inner-line" style="background-color:${contact.icon}">
-                        <p class="initialTag">${contact.firstname.charAt(0)}${contact.lastname.charAt(0)}</p>
+                    <div class="inner-line" style="background-color:${contact.user_color}">
+                        <p class="initialTag">${contact.username.charAt(0)}</p>
                     </div>
                 </div>
             </div>
-            ${contact.firstname} ${contact.lastname}
+            ${contact.username}
         </div>
         <img src="./img/board_card_detail/Check_button_unchecked.svg" alt="" id="assignedUserCheckbox${i}">
     </div>
     `;
 }
 
-
 /**
  * This function generates HTML for a member in the card edit section.
- * 
+ *
  * @param {string} userColorClass - The color class for user styling.
  * @param {string} userInitials - The initials of the user.
  * @returns {string} The generated HTML.
  */
 function renderMembersCardEditHTML(userColorClass, userInitials) {
-    /*html*/
-    return `
+  /*html*/
+  return `
     <div class="member-button align-center justify-center" style="background-color: ${userColorClass}">
       <span>${userInitials}</span>
     </div>
   `;
 }
 
-
 /**
  * This function generates HTML for a subtask in the card edit section.
- * 
+ *
  * @param {number} i - The index of the subtask.
  * @param {string} subtaskText - The text of the subtask.
  * @returns {string} The generated HTML.
  */
 function renderSubtasksCardEditHTML(i, subtaskText) {
-    /*html*/
-    return `
+  /*html*/
+  return `
     <li id="subtaskListItem${i}" class="no-hover" ondblclick="editSubtaskCardEdit(${i}, '${subtaskText}')">
       <div class="subtask-item">
         <div class="subtask-text">${subtaskText}</div>
@@ -141,17 +138,16 @@ function renderSubtasksCardEditHTML(i, subtaskText) {
   `;
 }
 
-
 /**
  * This function generates HTML for an editable subtask in the card edit section.
- * 
+ *
  * @param {number} i - The index of the subtask.
  * @param {string} subtaskText - The text of the subtask.
  * @returns {string} The generated HTML.
  */
 function renderSubtasksEditHTML(i, subtaskText) {
-    /*html*/
-    return `
+  /*html*/
+  return `
     <div class="subtask-item-focused">
       <input type="text" name="" id="subtaskValue${i}" class="" value="${subtaskText}" onkeydown="saveTaskOnEnter(event, ${i}, '${subtaskText}')">
       <div class="edit-delete-subtask">

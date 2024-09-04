@@ -15,7 +15,6 @@ async function initBoard() {
   getCurrentUser();
   await getTasks();
   await getUsers();
-  await getContacts();
   adjustLayoutFilter();
   renderTasksBoard();
   createHeaderInitials();
@@ -57,7 +56,6 @@ function renderFilteredTasks(columnIndex, filteredTasks) {
     let tasks = filteredTasks[j];
     const categoryClass = setColorCategory(tasks["category"]);
     const tasksContainer = document.getElementById(`tasks${columns[columnIndex]}`);
-
     tasksContainer.innerHTML += createTasksHTML(columnIndex, j, tasks, categoryClass);
     createSubtasks(columnIndex, j);
     createUrgency(columnIndex, j);
@@ -176,12 +174,10 @@ function createAssignments(i, j) {
  */
 function renderAssignedUsers(container, assignedTo) {
   for (let index = 0; index < assignedTo.length; index++) {
-    const userId = assignedTo[index];
-    const user = contacts.find((contact) => contact.id === userId);
-
+    const user = assignedTo[index];
     if (user) {
-      const userInitials = getUserInitials(user);
-      const userColorClass = user.icon;
+      const userInitials = getUserAssignedToInitials(user);
+      const userColorClass = user.user_color;
       const marginClass = index > 0 ? "negative-margin" : "";
       const nonDisplayedUsers = assignedTo.length - 4;
 
@@ -193,6 +189,11 @@ function renderAssignedUsers(container, assignedTo) {
       }
     }
   }
+}
+
+function getUserAssignedToInitials(user) {
+  const firstnameInitial = user.username.charAt(0).toUpperCase();
+  return firstnameInitial;
 }
 
 /**

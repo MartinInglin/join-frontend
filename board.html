@@ -63,21 +63,21 @@
         <div class="columns" ondrop="changePosition('Todo')" ondragover="allowDrop(event)">
           <div class="title-column">
             <span>To do</span>
-            <button onclick="openDialog(); setPositionTask('Todo')"><img src="./img/board/plus button.svg" alt /></button>
+            <button onclick="openDialog(); setPositionTask('todo')"><img src="./img/board/plus button.svg" alt /></button>
           </div>
           <div id="tasksTodo" class="task-columns"></div>
         </div>
         <div class="columns" ondrop="changePosition('InProgress')" ondragover="allowDrop(event)">
           <div class="title-column">
             <span>In progress</span>
-            <button onclick="openDialog(); setPositionTask('InProgress')"><img src="./img/board/plus button.svg" alt /></button>
+            <button onclick="openDialog(); setPositionTask('in_progress')"><img src="./img/board/plus button.svg" alt /></button>
           </div>
           <div id="tasksInProgress" class="task-columns"></div>
         </div>
         <div class="columns" ondrop="changePosition('AwaitFeedback')" ondragover="allowDrop(event)">
           <div class="title-column">
             <span>Await feeback</span>
-            <button onclick="openDialog(); setPositionTask('AwaitFeedback')"><img src="./img/board/plus button.svg" alt /></button>
+            <button onclick="openDialog(); setPositionTask('await_feedback')"><img src="./img/board/plus button.svg" alt /></button>
           </div>
           <div id="tasksAwaitFeedback" class="task-columns"></div>
         </div>

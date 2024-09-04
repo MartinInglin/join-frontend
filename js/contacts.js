@@ -339,7 +339,6 @@ async function deleteContact(id) {
       return response.json();
     })
     .then((json) => {
-      console.log("User remove successful:", json);
       contactOpen = false;
       IdOfCurrentContact = null;
       renderMembers();

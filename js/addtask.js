@@ -29,7 +29,6 @@ function handleEnter(event) {
  */
 async function initAddTask() {
   getCurrentUser();
-  await getTasks();
   await getUsers();
   await getTeamMembers();
   loadContactsSelection();
@@ -512,7 +511,6 @@ function createNewTask() {
  * @param {string} dialogSucces = This is the dialog that is displayed when the task has been successfully created.
  */
 async function createTaskRoutine(createTask, inputTitel, inputDescription, inputDate, selectCategory, dialogSucces) {
-  console.log("newSubtasks before createTaskRoutine", newSubtasks);
   createTask.style.backgroundColor = "#091931";
   createJson(inputTitel, inputDescription, inputDate, selectCategory);
   await addTask();
@@ -564,8 +562,9 @@ function showSuccessDialog(dialogSucces) {
  * This function checks whether the task was created from the dialog in the board or directly via add task.
  *
  */
-function checkOpenBoard() {
+async function checkOpenBoard() {
   if (idOfCurrentPage == 2) {
+    await getTasks()
     renderTasksBoard();
     setTimeout(() => {
       closeDialog();
