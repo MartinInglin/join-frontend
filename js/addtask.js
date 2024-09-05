@@ -240,7 +240,6 @@ function addSubtask() {
   newSubtasks.push(newSubtask);
   loadSubtasks();
   input.value = "";
-  console.log("newSubtasks after addSubtask", newSubtasks);
 }
 
 /**
@@ -521,7 +520,6 @@ async function createTaskRoutine(createTask, inputTitel, inputDescription, input
 async function addTask() {
   const url = "http://localhost:8000/addTask/";
   const token = currentUser.token;
-  console.log(newTask);
 
   try {
     const response = await fetch(url, {
@@ -540,7 +538,6 @@ async function addTask() {
     }
 
     const data = await response.json();
-    console.log("Success:", data);
   } catch (error) {
     console.error("Fetch error:", error);
   }
@@ -584,7 +581,6 @@ async function checkOpenBoard() {
  * @param {string} selectCategory = This is the Task category.
  */
 function createJson(inputTitel, inputDescription, inputDate, selectCategory) {
-  console.log("newSubtasks before createJson", newSubtasks);
   newTask = {
     author: currentUser.user_id,
     position: actualPosition,

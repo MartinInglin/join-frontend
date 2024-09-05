@@ -59,6 +59,10 @@ function renderCardEditHTML() {
   
             </div>
             </div>
+
+            <div class="card-edit-section">
+            <div class="subtitle">Author: ${authorName}</div>
+          </div>
   
             <div class="confirm-button-container">
               <button type="submit" class="confirm-button">

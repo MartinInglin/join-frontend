@@ -91,7 +91,11 @@ async function updateTask(data, index) {
     })
     .then((json) => {
       const dataTask = adaptDataStringsForFrontend(json);
-      dataTasks[index] = dataTask;
+      if (dataTask.author == currentUser.user_id || dataTask.assignedTo.some((element) => element.id === currentUser.user_id)) {
+        dataTasks[index] = dataTask;
+      } else {
+        dataTasks.splice(index, 1)
+      }
       renderTasksBoard();
     })
     .catch((error) => {
@@ -120,7 +124,7 @@ function adaptDataStringsForBackend(dataTask) {
       userIds.push(user.id);
     });
     dataTask.assignedTo = userIds;
-  };
+  }
   return dataTask;
 }
 

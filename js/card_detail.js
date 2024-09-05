@@ -33,10 +33,8 @@ let isMouseDownInsideCardDetail = false;
  */
 function closeCardDetail(event) {
   if (!isMouseDownInsideCardDetail) {
-    saveSubtasks();
     document.getElementById("cardDetailContainer").classList.add("d-none");
     emptyInputFilter();
-    renderTasksBoard();
   }
   isMouseDownInsideCardDetail = false;
 }
@@ -224,10 +222,34 @@ function SVGMouseOut(elementId, iconName) {
  *
  * @param {number} IdOfTask - ID of the task.
  */
-function deleteTask(IdOfTask) {
-  const taskIndex = dataTasks.findIndex((task) => task.id === IdOfTask);
-  dataTasks.splice(taskIndex, 1);
-  setTasks();
-  closeCardDetailButton();
-  renderTasksBoard();
+async function deleteTask(IdOfTask) {
+  const url = "http://localhost:8000/board/";
+  const token = currentUser.token;
+
+  await fetch(url, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Token ${token}`,
+    },
+    body: JSON.stringify({id: IdOfTask}),
+  })
+    .then(async (response) => {
+      if (!response.ok) {
+        const json = await response.json();
+        throw new Error(json.error || "Error occured when deleting task.");
+      }
+      return response.json();
+    })
+    .then((json) => {
+      dataTasks = adaptDataStrings(json);
+      renderTasksBoard();
+      closeCardDetailButton();
+    })
+    .catch((error) => {
+      console.error("Deleting task failed:", error.message);
+    });
+
+
+
 }

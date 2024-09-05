@@ -23,11 +23,13 @@ const priorityImages = [
   },
 ];
 const priorityButtonsIDs = ["buttonUrgent", "buttonMedium", "buttonLow"];
+let authorName;
 
 /**
  * This function initializes the task card if the user clicks on a task.
  */
 function showCardEdit() {
+  getNameAuthor();
   let cardDetailContainer = document.getElementById("cardDetailContainer");
   cardDetailContainer.innerHTML = "";
   cardDetailContainer.innerHTML = renderCardEditHTML();
@@ -38,6 +40,11 @@ function showCardEdit() {
   createDropDownAssignedTo();
   createCardEditMembers();
   createSubtasksCardEdit();
+}
+
+function getNameAuthor() {
+  const author = users.find((user) => user.id === selectedTask.author);
+  authorName = author.username;
 }
 
 /**
