@@ -17,7 +17,6 @@ async function addNewContact() {
   contactsList.innerHTML = "";
 
   sortedUsers = users.sort((a, b) => a.username.localeCompare(b.username));
-  console.log(sortedUsers);
 
   sortedUsers.forEach((user) => {
     const userExists = contacts.some((contact) => contact.username === user.username);
@@ -130,8 +129,7 @@ async function addNewMember() {
       }
       return response.json();
     })
-    .then((json) => {
-      console.log("User add successful:", json);
+    .then(() => {
       if (idOfCurrentPage == 3) {
         pushNewContact();
       } else if (idOfCurrentPage == 1 || idOfCurrentPage == 2) {

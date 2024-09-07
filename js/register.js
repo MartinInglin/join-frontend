@@ -14,7 +14,7 @@ function register() {
   let email = document.getElementById("email");
   let password = document.getElementById("password");
   let confirm_password = document.getElementById("confirm-password");
-  let errorContainer = document.getElementById("error-container");
+  let errorContainer = document.getElementById("error-message");
 
   if (password.value !== confirm_password.value) {
     errorContainer.innerHTML = "The passwords do not match. Please check your input.";

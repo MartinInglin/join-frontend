@@ -35,6 +35,7 @@ function closeCardDetail(event) {
   if (!isMouseDownInsideCardDetail) {
     document.getElementById("cardDetailContainer").classList.add("d-none");
     emptyInputFilter();
+    saveSubtasks()
   }
   isMouseDownInsideCardDetail = false;
 }
@@ -68,6 +69,7 @@ function stopPropagationCardDetail(event) {
 function closeCardDetailButton() {
   document.getElementById("cardDetailContainer").classList.add("d-none");
   emptyInputFilter();
+  saveSubtasks()
 }
 
 /**
@@ -182,11 +184,11 @@ function animationMoveIn() {
  *
  * @param {number} index - Index of the subtask.
  */
-function toggleSubtasks(index) {
+async function toggleSubtasks(index) {
   if (selectedTask.subtasks && selectedTask.subtasks[index]) {
     selectedTask.subtasks[index].checked = !selectedTask.subtasks[index].checked;
     createSubtasksCardDetail();
-    saveSubtasks();
+    //saveSubtasks();
     renderTasksBoard();
   }
 }
@@ -244,7 +246,8 @@ async function deleteTask(IdOfTask) {
     .then((json) => {
       dataTasks = adaptDataStrings(json);
       renderTasksBoard();
-      closeCardDetailButton();
+      document.getElementById("cardDetailContainer").classList.add("d-none");
+      emptyInputFilter();
     })
     .catch((error) => {
       console.error("Deleting task failed:", error.message);

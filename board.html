@@ -53,8 +53,8 @@
         <h1>Board</h1>
         <div class="title-right">
           <div id="searchInputDesktop" class="position-relative"></div>
-          <button class="add-task align-center" onclick="openDialog()">Add Task <img src="./img/board/add_task.svg" alt /></button>
-          <button class="add-task-media align-center" onclick="openDialog()"><img src="./img/board/add_task.svg" alt /></button>
+          <button class="add-task align-center" onclick="openDialog(); setPositionTask('todo')">Add Task <img src="./img/board/add_task.svg" alt /></button>
+          <button class="add-task-media align-center" onclick="openDialog(); setPositionTask('todo')"><img src="./img/board/add_task.svg" alt /></button>
         </div>
       </div>
       <div id="searchInputMedia" class="position-relative"></div>
@@ -70,14 +70,14 @@
         <div class="columns" ondrop="changePosition('InProgress')" ondragover="allowDrop(event)">
           <div class="title-column">
             <span>In progress</span>
-            <button onclick="openDialog(); setPositionTask('in_progress')"><img src="./img/board/plus button.svg" alt /></button>
+            <button onclick="setPositionTask('in_progress'); openDialog()"><img src="./img/board/plus button.svg" alt /></button>
           </div>
           <div id="tasksInProgress" class="task-columns"></div>
         </div>
         <div class="columns" ondrop="changePosition('AwaitFeedback')" ondragover="allowDrop(event)">
           <div class="title-column">
             <span>Await feeback</span>
-            <button onclick="openDialog(); setPositionTask('await_feedback')"><img src="./img/board/plus button.svg" alt /></button>
+            <button onclick="setPositionTask('await_feedback'); openDialog()"><img src="./img/board/plus button.svg" alt /></button>
           </div>
           <div id="tasksAwaitFeedback" class="task-columns"></div>
         </div>

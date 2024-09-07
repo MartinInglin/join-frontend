@@ -212,5 +212,6 @@ function saveChangesCardEdit() {
   selectedTask["task"] = document.getElementById("cardEditDescription").value;
   selectedTask["date"] = document.getElementById("cardEditDate").value;
   updateTask(selectedTask, taskIndex);
-  closeCardDetailButton();
+  document.getElementById("cardDetailContainer").classList.add("d-none");
+  emptyInputFilter();
 }

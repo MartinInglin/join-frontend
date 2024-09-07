@@ -12,63 +12,19 @@ let backendDataTasks;
  *
  */
 async function initOthers() {
-  await getCurrentUser();
+  await includeHTML();
+  checkCurrentUser();
   createHeaderInitials();
   checkLoginStatus();
 }
 
-// /**
-//  * This is the General Function to upload informations to the Server.
-//  * @param {string} key - This is the parameter, to find the informations on the server.
-//  * @param {string} value - The value are the imformations to safe.
-//  * @returns - Ensures that after the function is called, other functions wait for it.
-//  */
-// async function setItem(key, value) {
-//   const payload = { key, value, token: STORAGE_TOKEN };
-//   return fetch(STORAGE_URL, { method: "POST", body: JSON.stringify(payload) }).then((res) => res.json());
-// }
-
-// /**
-//  * This is a function to get the safed informations from the server.
-//  * @param {string} key - Is needed do identify the right value.
-//  * @returns - Ensures that after the function is called, other functions wait for it.
-//  */
-// async function getItem(key) {
-//   const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
-//   return fetch(url).then((res) => res.json());
-// }
-
-// /**
-//  * This function safes the Tasks on the Server.
-//  *
-//  */
-// function setTasks() {
-//   setItem("tasks", dataTasks);
-// }
-
-// /**
-//  * This function safes the Users on the Server.
-//  *
-//  */
-// function setUsers() {
-//   setItem("users", users);
-// }
-
-// /**
-//  * This function safes the Contacts on the Server.
-//  *
-//  */
-// function setContacts() {
-//   setItem("contacts", contacts);
-// }
-
-// /**
-//  * This function safes the variable of current User on the Server.
-//  *
-//  */
-// async function setCurrentUser(id) {
-//   return setItem("currentUser", id);
-// }
+function checkCurrentUser() {
+  let data = localStorage.getItem("currentUser");
+  if (data) {
+    let dataAsJson = JSON.parse(data);
+    currentUser = dataAsJson;
+  }
+}
 
 async function updateTask(data, index) {
   const url = "http://localhost:8000/board/";
@@ -91,10 +47,13 @@ async function updateTask(data, index) {
     })
     .then((json) => {
       const dataTask = adaptDataStringsForFrontend(json);
-      if (dataTask.author == currentUser.user_id || dataTask.assignedTo.some((element) => element.id === currentUser.user_id)) {
+      if (
+        dataTask.author == currentUser.user_id ||
+        dataTask.assignedTo.some((element) => element.id === currentUser.user_id)
+      ) {
         dataTasks[index] = dataTask;
       } else {
-        dataTasks.splice(index, 1)
+        dataTasks.splice(index, 1);
       }
       renderTasksBoard();
     })
@@ -113,7 +72,7 @@ function adaptDataStringsForBackend(dataTask) {
   } else {
     dataTask.position = "done";
   }
-  if (dataTask.catergory === "Technical Task") {
+  if (dataTask.category === "Technical Task") {
     dataTask.category = "technical_task";
   } else {
     dataTask.category = "user_story";
@@ -138,7 +97,7 @@ function adaptDataStringsForFrontend(dataTask) {
   } else {
     dataTask.position = "Done";
   }
-  if (dataTask.catergory === "technical_task") {
+  if (dataTask.category === "technical_task") {
     dataTask.category = "Technical Task";
   } else {
     dataTask.category = "User Story";
@@ -187,7 +146,7 @@ function adaptDataStrings(dataTasks) {
     } else {
       task.position = "Done";
     }
-    if (task.catergory === "technical_task") {
+    if (task.category === "technical_task" | "Technical Task") {
       task.category = "Technical Task";
     } else {
       task.category = "User Story";
@@ -393,14 +352,16 @@ function getIndexOf(array, key, x) {
  */
 function createHeaderInitials() {
   let userInitials = document.getElementById("userInitials");
-  let nameParts = currentUser.name.split(" ");
-  let lastname = nameParts.pop() || "";
-  let firstname = nameParts.join(" ") || "";
+  if (currentUser) {
+    let nameParts = currentUser.name.split(" ");
+    let lastname = nameParts.pop() || "";
+    let firstname = nameParts.join(" ") || "";
 
-  let firstInitial = firstname.charAt(0).toUpperCase();
-  let lastInitial = lastname.charAt(0).toUpperCase();
+    let firstInitial = firstname.charAt(0).toUpperCase();
+    let lastInitial = lastname.charAt(0).toUpperCase();
 
-  userInitials.innerText = `${firstInitial}${lastInitial}`;
+    userInitials.innerText = `${firstInitial}${lastInitial}`;
+  }
 }
 
 /**
@@ -462,7 +423,7 @@ function checkLoginStatus() {
     let menuBarMainContainer = document.getElementById("menuBarMainContainer");
     let menuContainer = document.getElementById("menuContainer");
     let headerMenu = document.getElementById("headerMenu");
-    if (currentUser == -1) {
+    if (!currentUser) {
       headerMenu.classList.add("d-none");
       if (window.innerWidth <= 970) {
         let mainContainer = document.getElementById("mainContainer");

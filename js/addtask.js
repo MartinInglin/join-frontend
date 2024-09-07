@@ -10,6 +10,7 @@ let newTask;
 
 function setPositionTask(positionOfTask) {
   actualPosition = positionOfTask;
+  localStorage.setItem("position_of_task", actualPosition);
 }
 
 /**
@@ -28,12 +29,21 @@ function handleEnter(event) {
  *
  */
 async function initAddTask() {
+  getPositionOfTask();
   getCurrentUser();
   await getUsers();
   await getTeamMembers();
   loadContactsSelection();
   createHeaderInitials();
   minDateToday();
+}
+
+function getPositionOfTask() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const fromPage = urlParams.get("from");
+  if (fromPage != "menubar") {
+    actualPosition = localStorage.getItem("position_of_task");
+  }
 }
 
 /**
@@ -512,9 +522,18 @@ function createNewTask() {
 async function createTaskRoutine(createTask, inputTitel, inputDescription, inputDate, selectCategory, dialogSucces) {
   createTask.style.backgroundColor = "#091931";
   createJson(inputTitel, inputDescription, inputDate, selectCategory);
-  await addTask();
-  checkOpenBoard();
-  showSuccessDialog(dialogSucces);
+  const taskCreated = await addTask();
+  if (taskCreated) {
+    checkOpenBoard();
+    showSuccessDialog(dialogSucces);
+    resetTaskPosition();
+  } else {
+    console.error("Task creation failed. Success dialog will not be shown.");
+  }
+}
+
+function resetTaskPosition() {
+  localStorage.setItem("position_of_task", "todo");
 }
 
 async function addTask() {
@@ -534,12 +553,12 @@ async function addTask() {
     if (!response.ok) {
       const errorData = await response.json();
       console.error("Error:", errorData);
-      return;
+      return false;
     }
-
-    const data = await response.json();
+    return true;
   } catch (error) {
     console.error("Fetch error:", error);
+    return false;
   }
 }
 
@@ -561,7 +580,7 @@ function showSuccessDialog(dialogSucces) {
  */
 async function checkOpenBoard() {
   if (idOfCurrentPage == 2) {
-    await getTasks()
+    await getTasks();
     renderTasksBoard();
     setTimeout(() => {
       closeDialog();
