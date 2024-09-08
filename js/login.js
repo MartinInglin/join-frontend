@@ -73,10 +73,6 @@ function setCurrentUserLocalStorage(user) {
  * Also, shows the login/signup elements after a delay.
  */
 async function init() {
-  await getUsers();
-  await getCurrentUser();
-  await getContacts();
-  // startImage();
   showLogIn();
 }
 
@@ -88,7 +84,8 @@ function showLogIn() {
     document.getElementById("sign-up").classList.remove("d-none");
     document.getElementById("log-in").classList.remove("d-none");
     document.getElementById("footer").classList.remove("d-none");
-  }, 500);
+    window.location.href = "login.html";
+  }, 1000);
 }
 
 /**
