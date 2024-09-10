@@ -694,7 +694,10 @@ function hideDropDownCategoryDelay() {
  * This function sets the minimal input date in addtask.js to today.
  */
 function minDateToday() {
-  let inputDate = document.getElementById("inputDate");
   let today = new Date().toISOString().split("T")[0];
-  inputDate.min = today;
+  let inputDate = document.getElementById("inputDate");
+  setTimeout(() => {
+    inputDate.min = today;
+  }, 500);
+
 }

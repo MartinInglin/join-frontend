@@ -30,8 +30,9 @@ function generatAddNewContactHTML() {
             <div>Members</div>
             <div class="select-category-container">
               <div class="input-category position-relative">
-                <input type="text" id="selectCategory" class="select-category" onclick="showDropDownCategory()" onblur="hideDropDownCategory()" placeholder="Search for member..." autocomplete="off"/>
+                <input type="text" id="selectCategory" class="select-category" onclick="showDropDownCategory()" onblur="hideDropDownCategory()" placeholder="Select a member..." autocomplete="off" readonly/>
                 <img src="./img/add_task/arrow_drop_down.png" alt="" id="arrowDrowpDown" class="cursor-pointer" onclick="toggleDropDownCategory()">
+                <div id="error-message-no-user" class="error-message d-none">Please select a user.</div>
               </div>
 
               <div id="selectCategoryOptions" class="select-category-options d-none">

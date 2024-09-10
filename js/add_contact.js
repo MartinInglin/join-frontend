@@ -1,5 +1,5 @@
 let switchDropDownCategory = false;
-let userToAddId;
+let userToAddId = -1;
 
 /**
  * This function displays the "Add new contact" form and the background overlay.
@@ -30,6 +30,7 @@ function addUserToInput(userId, username) {
   userToAddId = userId;
   const inputfield = document.getElementById("selectCategory");
   inputfield.value = username;
+  hideErrorNoUser();
 }
 
 /**
@@ -82,8 +83,6 @@ function closeAddNewContactAddTask() {
   setTimeout(() => {
     let bgMessage = document.getElementById("bg-message");
     bgMessage.classList.add("d-none");
-    // loadContactsToAssign();
-    // openContactList();
   }, 500);
 }
 
@@ -114,31 +113,43 @@ function hidenAddNewContact() {
 async function addNewMember() {
   const url = "http://localhost:8000/addMember/";
   const token = currentUser.token;
-  await fetch(url, {
-    method: "POST",
-    body: JSON.stringify({ user_id: userToAddId }),
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Token ${token}`,
-    },
-  })
-    .then(async (response) => {
-      if (!response.ok) {
-        const json = await response.json();
-        throw new Error(json.error || "An error occurred during adding user.");
-      }
-      return response.json();
+  if (userToAddId == -1) {
+    showErrorNoUser();
+  } else {
+    await fetch(url, {
+      method: "POST",
+      body: JSON.stringify({ user_id: userToAddId }),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${token}`,
+      },
     })
-    .then(() => {
-      if (idOfCurrentPage == 3) {
-        pushNewContact();
-      } else if (idOfCurrentPage == 1 || idOfCurrentPage == 2) {
-        pushNewContactAddTask();
-      }
-    })
-    .catch((error) => {
-      console.error("Adding user failed:", error.message);
-    });
+      .then(async (response) => {
+        if (!response.ok) {
+          const json = await response.json();
+          throw new Error(json.error || "An error occurred during adding user.");
+        }
+        return response.json();
+      })
+      .then(() => {
+        if (idOfCurrentPage == 3) {
+          pushNewContact();
+        } else if (idOfCurrentPage == 1 || idOfCurrentPage == 2) {
+          pushNewContactAddTask();
+        }
+      })
+      .catch((error) => {
+        console.error("Adding user failed:", error.message);
+      });
+  }
+}
+
+function showErrorNoUser() {
+  document.getElementById("error-message-no-user").classList.remove("d-none");
+}
+
+function hideErrorNoUser() {
+  document.getElementById("error-message-no-user").classList.add("d-none");
 }
 
 /**
@@ -155,10 +166,11 @@ async function addNewMember() {
 async function pushNewContact() {
   await getTeamMembers();
   loadContactList();
+  showContact(userToAddId);
   createNewContactMessage();
   setTimeout(() => {
-    showContact(userToAddId);
     closeAddNewContact();
+    userToAddId = -1;
   }, 100);
 }
 
@@ -175,6 +187,7 @@ async function pushNewContactAddTask() {
   renderContactInitialIcons();
   closeAddNewContact();
   openContactList();
+  userToAddId = -1;
 }
 
 /**
